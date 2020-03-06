@@ -10,14 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let containerView: LoginView
+    
+    init(_ view: LoginView = LoginView()) {
+        self.containerView = view
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        self.view = self.containerView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-        label.center = view.center
-        label.textAlignment = .center
-        label.text = "RMR 2020"
-        self.view.addSubview(label)
+        self.hideKeyboardWhenTappedAround() 
     }
 
 }
