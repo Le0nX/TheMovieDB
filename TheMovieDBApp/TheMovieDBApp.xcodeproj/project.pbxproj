@@ -95,11 +95,12 @@
 		1450330724126AAA00B3F404 /* TheMovieDBApp */ = {
 			isa = PBXGroup;
 			children = (
+				1450333D241281A500B3F404 /* Model */,
+				1450333C2412819800B3F404 /* Business Logic */,
+				1450333B2412818800B3F404 /* Client */,
+				1450333A241280A200B3F404 /* Resources */,
+				145033392412808C00B3F404 /* Presentation */,
 				1450330824126AAA00B3F404 /* AppDelegate.swift */,
-				1450330C24126AAA00B3F404 /* ViewController.swift */,
-				1450331124126AAD00B3F404 /* Assets.xcassets */,
-				1450331324126AAD00B3F404 /* LaunchScreen.storyboard */,
-				1450331624126AAD00B3F404 /* Info.plist */,
 			);
 			path = TheMovieDBApp;
 			sourceTree = "<group>";
@@ -120,6 +121,93 @@
 				1450332C24126AAE00B3F404 /* Info.plist */,
 			);
 			path = TheMovieDBAppUITests;
+			sourceTree = "<group>";
+		};
+		145033392412808C00B3F404 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				1450333E241281C700B3F404 /* Story1 */,
+				145033402412823300B3F404 /* Story2 */,
+				1450333F2412820000B3F404 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		1450333A241280A200B3F404 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1450331624126AAD00B3F404 /* Info.plist */,
+				1450331124126AAD00B3F404 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1450333B2412818800B3F404 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		1450333C2412819800B3F404 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				145033432412826800B3F404 /* Service */,
+				145033422412826200B3F404 /* Helper */,
+				145033412412825D00B3F404 /* Common */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		1450333D241281A500B3F404 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1450333E241281C700B3F404 /* Story1 */ = {
+			isa = PBXGroup;
+			children = (
+				1450330C24126AAA00B3F404 /* ViewController.swift */,
+			);
+			path = Story1;
+			sourceTree = "<group>";
+		};
+		1450333F2412820000B3F404 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1450331324126AAD00B3F404 /* LaunchScreen.storyboard */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		145033402412823300B3F404 /* Story2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Story2;
+			sourceTree = "<group>";
+		};
+		145033412412825D00B3F404 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		145033422412826200B3F404 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		145033432412826800B3F404 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28XXG6S5AU;
-				INFOPLIST_FILE = TheMovieDBApp/Info.plist;
+				INFOPLIST_FILE = TheMovieDBApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,7 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 28XXG6S5AU;
-				INFOPLIST_FILE = TheMovieDBApp/Info.plist;
+				INFOPLIST_FILE = TheMovieDBApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
