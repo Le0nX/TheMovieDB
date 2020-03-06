@@ -6,4 +6,10 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UITextField {
+    var isEmpty: Bool {
+        return text?.isEmpty ?? true
+    }
+}

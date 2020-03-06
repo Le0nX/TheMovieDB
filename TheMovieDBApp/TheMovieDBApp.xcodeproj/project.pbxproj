@@ -13,6 +13,14 @@
 		1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1450331324126AAD00B3F404 /* LaunchScreen.storyboard */; };
 		1450332024126AAE00B3F404 /* TheMovieDBAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450331F24126AAE00B3F404 /* TheMovieDBAppTests.swift */; };
 		1450332B24126AAE00B3F404 /* TheMovieDBAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450332A24126AAE00B3F404 /* TheMovieDBAppUITests.swift */; };
+		145033452412975900B3F404 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033442412975900B3F404 /* Colors.swift */; };
+		1450334824129C7A00B3F404 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1450334724129C7A00B3F404 /* LoginView.xib */; };
+		1450334C2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1450334B2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf */; };
+		1450334F2412A73300B3F404 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450334E2412A73300B3F404 /* XibView.swift */; };
+		145033512412A8CB00B3F404 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033502412A8CB00B3F404 /* LoginView.swift */; };
+		145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033542412B45C00B3F404 /* TMDBTextField.swift */; };
+		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
+		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		1450332624126AAE00B3F404 /* TheMovieDBAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDBAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450332A24126AAE00B3F404 /* TheMovieDBAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBAppUITests.swift; sourceTree = "<group>"; };
 		1450332C24126AAE00B3F404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		145033442412975900B3F404 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1450334724129C7A00B3F404 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		1450334B2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		1450334E2412A73300B3F404 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		145033502412A8CB00B3F404 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		145033542412B45C00B3F404 /* TMDBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTextField.swift; sourceTree = "<group>"; };
+		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
+		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +152,7 @@
 		1450333A241280A200B3F404 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1450334B2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf */,
 				1450331624126AAD00B3F404 /* Info.plist */,
 				1450331124126AAD00B3F404 /* Assets.xcassets */,
 			);
@@ -169,6 +186,7 @@
 		1450333E241281C700B3F404 /* Story1 */ = {
 			isa = PBXGroup;
 			children = (
+				1450334624129C5200B3F404 /* View */,
 				1450330C24126AAA00B3F404 /* ViewController.swift */,
 			);
 			path = Story1;
@@ -177,7 +195,12 @@
 		1450333F2412820000B3F404 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				14D55F592412ED4C001CDE97 /* Extensions */,
+				145033532412B43500B3F404 /* TextFields */,
+				145033522412B42E00B3F404 /* Buttons */,
 				1450331324126AAD00B3F404 /* LaunchScreen.storyboard */,
+				145033442412975900B3F404 /* Colors.swift */,
+				1450334E2412A73300B3F404 /* XibView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -208,6 +231,39 @@
 			children = (
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		1450334624129C5200B3F404 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1450334724129C7A00B3F404 /* LoginView.xib */,
+				145033502412A8CB00B3F404 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		145033522412B42E00B3F404 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		145033532412B43500B3F404 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				145033542412B45C00B3F404 /* TMDBTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		14D55F592412ED4C001CDE97 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */,
+				14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +373,8 @@
 			files = (
 				1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
+				1450334C2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf in Resources */,
+				1450334824129C7A00B3F404 /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				1450330D24126AAA00B3F404 /* ViewController.swift in Sources */,
+				145033452412975900B3F404 /* Colors.swift in Sources */,
+				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
+				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
+				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
+				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
