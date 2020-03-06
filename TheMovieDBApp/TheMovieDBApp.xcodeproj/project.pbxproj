@@ -19,6 +19,7 @@
 		1450334F2412A73300B3F404 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450334E2412A73300B3F404 /* XibView.swift */; };
 		145033512412A8CB00B3F404 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033502412A8CB00B3F404 /* LoginView.swift */; };
 		145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033542412B45C00B3F404 /* TMDBTextField.swift */; };
+		14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0A2412FC01004226E7 /* TMDBButton.swift */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		1450334E2412A73300B3F404 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		145033502412A8CB00B3F404 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		145033542412B45C00B3F404 /* TMDBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTextField.swift; sourceTree = "<group>"; };
+		14582F0A2412FC01004226E7 /* TMDBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBButton.swift; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,6 +247,7 @@
 		145033522412B42E00B3F404 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				14582F0A2412FC01004226E7 /* TMDBButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				1450330D24126AAA00B3F404 /* ViewController.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
+				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,

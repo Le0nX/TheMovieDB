@@ -16,5 +16,12 @@ final class TMDBTextField: UITextField {
         self.layer.borderWidth = CGFloat(1.0)
         self.layer.cornerRadius = 8
         self.layer.masksToBounds = true
+        setupPlaceholderColor()
+    }
+    
+    private func setupPlaceholderColor() {
+        let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
+        let placeholderLabel = object_getIvar(self, iVar) as? UILabel
+        placeholderLabel?.textColor = #colorLiteral(red: 0.3960784314, green: 0.4274509804, blue: 0.5411764706, alpha: 1)
     }
 }

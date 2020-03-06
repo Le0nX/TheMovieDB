@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LoginView: XibView {
+final class LoginView: XibView {
     // MARK: - Outlets
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var subHeaderLabel: UILabel!
     @IBOutlet weak var loginTextField: TMDBTextField!
     @IBOutlet weak var passwordTextField: TMDBTextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: TMDBButton!
     
     // MARK: - Constructors
     init() {
@@ -43,8 +43,10 @@ class LoginView: XibView {
         passwordTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
     }
     
-    @objc
-    func textFieldValueChanged(_ textField: UITextField) {
+    /// Триггер того, что содержимое поля изменилось
+    /// Проверяет валидацию данных
+    /// - Parameter textField: поле, откуда поступили изменения
+    @objc func textFieldValueChanged(_ textField: UITextField) {
         let firstCond = !loginTextField.isEmpty
         let secondCond = !passwordTextField.isEmpty
         var thirdRule = false
@@ -56,7 +58,9 @@ class LoginView: XibView {
         )
     }
     
-    func isValidEmail(emailStr: String) -> Bool {
+    /// Валидация email'a с помощью regex
+    /// - Parameter emailStr: email
+    private func isValidEmail(emailStr: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         
         let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)

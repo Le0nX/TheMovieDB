@@ -18,5 +18,9 @@ struct ColorName {
     
     static let fontHeader = #colorLiteral(red: 0.9058823529, green: 0.9294117647, blue: 1, alpha: 1)
     
+    static let buttonActive = #colorLiteral(red: 0.9960784314, green: 0.3058823529, blue: 0.1529411765, alpha: 1)
+    
     static let buttonUnactive = #colorLiteral(red: 0.137254902, green: 0.1490196078, blue: 0.2117647059, alpha: 0.8988120719)
+    
+    static let buttonUnactiveText = #colorLiteral(red: 0.3960784314, green: 0.4274509804, blue: 0.5411764706, alpha: 0.4)
 }
