@@ -6,4 +6,10 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct ImageName {
+    static let loginEye = #imageLiteral(resourceName: "LoginEye")
+    
+    static let loginEyeOff = #imageLiteral(resourceName: "LoginEyeOff")
+}

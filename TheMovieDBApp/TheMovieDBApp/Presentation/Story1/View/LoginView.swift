@@ -39,6 +39,7 @@ final class LoginView: XibView {
     }
     
     private func setupPasswordTextField() {
+        passwordTextField.setupImage()
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
     }
