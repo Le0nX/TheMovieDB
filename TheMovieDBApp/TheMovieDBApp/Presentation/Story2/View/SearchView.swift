@@ -1,5 +1,5 @@
 //
-//  SearchView.swift
+//  SearchView1.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 07.03.2020.
