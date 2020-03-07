@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330824126AAA00B3F404 /* AppDelegate.swift */; };
-		1450330D24126AAA00B3F404 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* ViewController.swift */; };
+		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
 		1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1450331324126AAD00B3F404 /* LaunchScreen.storyboard */; };
 		1450332024126AAE00B3F404 /* TheMovieDBAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450331F24126AAE00B3F404 /* TheMovieDBAppTests.swift */; };
@@ -21,6 +21,10 @@
 		145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033542412B45C00B3F404 /* TMDBTextField.swift */; };
 		14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0A2412FC01004226E7 /* TMDBButton.swift */; };
 		14582F0D24130D95004226E7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0C24130D95004226E7 /* Images.swift */; };
+		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
+		145E8B872413ECC8007ACDBB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B862413ECC8007ACDBB /* SearchView.swift */; };
+		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
+		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +49,7 @@
 /* Begin PBXFileReference section */
 		1450330524126AAA00B3F404 /* TheMovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450330824126AAA00B3F404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1450330C24126AAA00B3F404 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1450330C24126AAA00B3F404 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1450331124126AAD00B3F404 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1450331424126AAD00B3F404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1450331624126AAD00B3F404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +67,10 @@
 		145033542412B45C00B3F404 /* TMDBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTextField.swift; sourceTree = "<group>"; };
 		14582F0A2412FC01004226E7 /* TMDBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBButton.swift; sourceTree = "<group>"; };
 		14582F0C24130D95004226E7 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
+		145E8B862413ECC8007ACDBB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +156,10 @@
 			children = (
 				1450333E241281C700B3F404 /* Story1 */,
 				145033402412823300B3F404 /* Story2 */,
+				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
+				14582F0E2413C845004226E7 /* Story3 */,
+				14582F0F2413C854004226E7 /* Story4 */,
+				14582F102413C85C004226E7 /* Story5 */,
 				1450333F2412820000B3F404 /* Common */,
 			);
 			path = Presentation;
@@ -191,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				1450334624129C5200B3F404 /* View */,
-				1450330C24126AAA00B3F404 /* ViewController.swift */,
+				1450330C24126AAA00B3F404 /* LoginViewController.swift */,
 			);
 			path = Story1;
 			sourceTree = "<group>";
@@ -213,6 +225,7 @@
 		145033402412823300B3F404 /* Story2 */ = {
 			isa = PBXGroup;
 			children = (
+				1471BAC12413D07A00BA4592 /* View */,
 			);
 			path = Story2;
 			sourceTree = "<group>";
@@ -259,8 +272,39 @@
 			isa = PBXGroup;
 			children = (
 				145033542412B45C00B3F404 /* TMDBTextField.swift */,
+				145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */,
 			);
 			path = TextFields;
+			sourceTree = "<group>";
+		};
+		14582F0E2413C845004226E7 /* Story3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Story3;
+			sourceTree = "<group>";
+		};
+		14582F0F2413C854004226E7 /* Story4 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Story4;
+			sourceTree = "<group>";
+		};
+		14582F102413C85C004226E7 /* Story5 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Story5;
+			sourceTree = "<group>";
+		};
+		1471BAC12413D07A00BA4592 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1471BAC42413DF0600BA4592 /* SearchView.xib */,
+				145E8B862413ECC8007ACDBB /* SearchView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		14D55F592412ED4C001CDE97 /* Extensions */ = {
@@ -378,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */,
+				1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
 				1450334C2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf in Resources */,
 				1450334824129C7A00B3F404 /* LoginView.xib in Resources */,
@@ -426,11 +471,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
-				1450330D24126AAA00B3F404 /* ViewController.swift in Sources */,
+				1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */,
+				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
+				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
+				145E8B872413ECC8007ACDBB /* SearchView.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,

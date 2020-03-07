@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginViewOutput {
+    func login()
+}
+
 final class LoginView: XibView {
     // MARK: - Outlets
     @IBOutlet weak var headerLabel: UILabel!
@@ -15,6 +19,8 @@ final class LoginView: XibView {
     @IBOutlet weak var loginTextField: TMDBTextField!
     @IBOutlet weak var passwordTextField: TMDBTextField!
     @IBOutlet weak var loginButton: TMDBButton!
+    
+    var output: LoginViewOutput!
     
     // MARK: - Constructors
     init() {
@@ -60,6 +66,7 @@ final class LoginView: XibView {
     }
     
     /// Валидация email'a с помощью regex
+    /// За основу взят https://emailregex.com/
     /// - Parameter emailStr: email
     private func isValidEmail(emailStr: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -70,6 +77,7 @@ final class LoginView: XibView {
     
     // MARK: - IBActions
     @IBAction func loginAction(_ sender: Any) {
+        output.login()
     }
 }
 
