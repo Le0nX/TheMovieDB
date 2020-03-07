@@ -31,6 +31,7 @@ final class TMDBTextField: UITextField {
         rightViewMode = UITextField.ViewMode.always
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         btn.addTarget(self, action: #selector(iconAction), for: .touchUpInside)
+        btn.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 
         btn.setImage(ImageName.loginEye, for: .normal)

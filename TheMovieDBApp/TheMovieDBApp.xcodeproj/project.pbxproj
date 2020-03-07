@@ -156,7 +156,6 @@
 			children = (
 				1450333E241281C700B3F404 /* Story1 */,
 				145033402412823300B3F404 /* Story2 */,
-				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
 				14582F0E2413C845004226E7 /* Story3 */,
 				14582F0F2413C854004226E7 /* Story4 */,
 				14582F102413C85C004226E7 /* Story5 */,
@@ -226,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1471BAC12413D07A00BA4592 /* View */,
+				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
 			);
 			path = Story2;
 			sourceTree = "<group>";

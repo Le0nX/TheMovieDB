@@ -24,4 +24,6 @@ struct ColorName {
     static let buttonUnactive = #colorLiteral(red: 0.137254902, green: 0.1490196078, blue: 0.2117647059, alpha: 0.8988120719)
     
     static let buttonUnactiveText = #colorLiteral(red: 0.3960784314, green: 0.4274509804, blue: 0.5411764706, alpha: 0.4)
+    
+    static let link = #colorLiteral(red: 0.4235294118, green: 0.3882352941, blue: 1, alpha: 1)
 }

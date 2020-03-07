@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="398" height="596"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundSearchImage" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-2d-8lm">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundSearchImage" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-2d-8lm">
                     <rect key="frame" x="24" y="35" width="374" height="561"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="B3C-2d-8lm" secondAttribute="height" multiplier="2:3" id="Cea-dM-k8H"/>
