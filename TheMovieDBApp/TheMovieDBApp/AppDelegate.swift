@@ -17,7 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        UINavigationBar.appearance().barTintColor = ColorName.background
+        UINavigationBar.appearance().isTranslucent = false
+
+        let navigationViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
         return true
     }

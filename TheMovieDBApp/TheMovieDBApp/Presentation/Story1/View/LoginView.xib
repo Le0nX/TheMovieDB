@@ -28,19 +28,19 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро пожаловать!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adT-VC-Dx2">
-                    <rect key="frame" x="24" y="91" width="344" height="37"/>
+                    <rect key="frame" x="24" y="11" width="344" height="37"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="31"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите логин и пароль, котрые  вы использовали для входа" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-71-8y3">
-                    <rect key="frame" x="24" y="153" width="386" height="38.5"/>
+                    <rect key="frame" x="24" y="73" width="386" height="38.5"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6D-dt-Yh8" customClass="TMDBTextField" customModule="TheMovieDBApp" customModuleProvider="target">
-                    <rect key="frame" x="24" y="223.5" width="385" height="48"/>
+                    <rect key="frame" x="24" y="143.5" width="385" height="48"/>
                     <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="i4E-57-vuf"/>
@@ -67,7 +67,7 @@
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-5r-tfk" customClass="TMDBTextField" customModule="TheMovieDBApp" customModuleProvider="target">
-                    <rect key="frame" x="24" y="295.5" width="385" height="48"/>
+                    <rect key="frame" x="24" y="215.5" width="385" height="48"/>
                     <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="1YP-Uz-Q9h"/>
@@ -76,9 +76,16 @@
                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                 </textField>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIQ-FP-7dP">
+                    <rect key="frame" x="24" y="287.5" width="385" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.88235294117647056" green="0.090196078431372548" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="nIQ-FP-7dP" secondAttribute="trailing" constant="24" id="3Y2-6u-bW4"/>
                 <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="X6D-dt-Yh8" secondAttribute="trailing" constant="24" id="6Ue-oC-TE9"/>
                 <constraint firstItem="X6D-dt-Yh8" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="9GI-Th-DsK"/>
                 <constraint firstItem="b5S-71-8y3" firstAttribute="top" secondItem="adT-VC-Dx2" secondAttribute="bottom" constant="25" id="C6k-ve-yz1"/>
@@ -88,9 +95,11 @@
                 <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="adT-VC-Dx2" secondAttribute="trailing" constant="65" id="OKZ-ei-Hdf"/>
                 <constraint firstAttribute="bottom" secondItem="3r3-vg-g3Y" secondAttribute="bottom" constant="27" id="beA-ab-mHx"/>
                 <constraint firstItem="gBy-5r-tfk" firstAttribute="top" secondItem="X6D-dt-Yh8" secondAttribute="bottom" constant="24" id="brz-iD-nl2"/>
-                <constraint firstItem="adT-VC-Dx2" firstAttribute="top" secondItem="aHF-on-WGA" secondAttribute="top" constant="91" id="dwx-5Z-9xT"/>
+                <constraint firstItem="adT-VC-Dx2" firstAttribute="top" secondItem="aHF-on-WGA" secondAttribute="top" constant="11" id="dwx-5Z-9xT"/>
+                <constraint firstItem="nIQ-FP-7dP" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="flK-rR-8Pr"/>
                 <constraint firstItem="b5S-71-8y3" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="h5J-TE-uBz"/>
                 <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="gBy-5r-tfk" secondAttribute="trailing" constant="24" id="hVW-td-yiQ"/>
+                <constraint firstItem="nIQ-FP-7dP" firstAttribute="top" secondItem="gBy-5r-tfk" secondAttribute="bottom" constant="24" id="pk3-qL-SdG"/>
                 <constraint firstItem="gBy-5r-tfk" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="uSz-dD-m1U"/>
                 <constraint firstAttribute="trailing" secondItem="b5S-71-8y3" secondAttribute="trailing" constant="23" id="xdD-Y6-wZo"/>
                 <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="3r3-vg-g3Y" secondAttribute="trailing" constant="24" id="yml-4n-dP0"/>
