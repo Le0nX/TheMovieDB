@@ -33,7 +33,6 @@ final class TMDBSearchTextField: UITextField {
     private func setupImage() {
         leftViewMode = UITextField.ViewMode.always
         let imageView = UIImageView(frame: CGRect(x: 15, y: 0, width: 40, height: 25))
-        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         imageView.image = ImageName.searchLoup
         
         imageView.contentMode = UIView.ContentMode.scaleAspectFit

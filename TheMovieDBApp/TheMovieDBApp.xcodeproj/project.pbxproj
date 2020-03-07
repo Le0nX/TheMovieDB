@@ -23,6 +23,7 @@
 		14582F0D24130D95004226E7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0C24130D95004226E7 /* Images.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B872413ECC8007ACDBB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B862413ECC8007ACDBB /* SearchView.swift */; };
+		145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* FavoritesViewController.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
@@ -69,6 +70,7 @@
 		14582F0C24130D95004226E7 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
 		145E8B862413ECC8007ACDBB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		145E8B89241429E5007ACDBB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
@@ -287,6 +289,8 @@
 		14582F0F2413C854004226E7 /* Story4 */ = {
 			isa = PBXGroup;
 			children = (
+				145E8B88241429D5007ACDBB /* View */,
+				145E8B89241429E5007ACDBB /* FavoritesViewController.swift */,
 			);
 			path = Story4;
 			sourceTree = "<group>";
@@ -296,6 +300,13 @@
 			children = (
 			);
 			path = Story5;
+			sourceTree = "<group>";
+		};
+		145E8B88241429D5007ACDBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1471BAC12413D07A00BA4592 /* View */ = {
@@ -472,6 +483,7 @@
 			files = (
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */,
+				145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
 				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
