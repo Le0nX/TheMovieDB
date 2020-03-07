@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         UINavigationBar.appearance().barTintColor = ColorName.background
         UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().shadowImage = UIImage() // убарна линия сепаратора
 
-        let navigationViewController = UINavigationController(rootViewController: ViewController())
+        let navigationViewController = UINavigationController(rootViewController: LoginViewController())
         window?.rootViewController = navigationViewController
         window?.makeKeyAndVisible()
         return true
