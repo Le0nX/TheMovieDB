@@ -12,4 +12,14 @@ struct ImageName {
     static let loginEye = #imageLiteral(resourceName: "LoginEye")
     
     static let loginEyeOff = #imageLiteral(resourceName: "LoginEyeOff")
+    
+    static let searchLoup = #imageLiteral(resourceName: "SearchLoup")
+    
+    static let filmIcon = #imageLiteral(resourceName: "filmIcon")
+    
+    static let filmIconSelected = #imageLiteral(resourceName: "filmIconSelected")
+    
+    static let favoriteIcon = #imageLiteral(resourceName: "favorite")
+    
+    static let accountIcon = #imageLiteral(resourceName: "account")
 }
