@@ -22,8 +22,10 @@
 		14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0A2412FC01004226E7 /* TMDBButton.swift */; };
 		14582F0D24130D95004226E7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0C24130D95004226E7 /* Images.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
-		145E8B872413ECC8007ACDBB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B862413ECC8007ACDBB /* SearchView.swift */; };
 		145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* FavoritesViewController.swift */; };
+		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
+		145E8B8E241431CC007ACDBB /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B8D241431CC007ACDBB /* FavoritesView.swift */; };
+		145E8B90241432D8007ACDBB /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B8F241432D8007ACDBB /* SearchView.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
@@ -69,8 +71,10 @@
 		14582F0A2412FC01004226E7 /* TMDBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBButton.swift; sourceTree = "<group>"; };
 		14582F0C24130D95004226E7 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
-		145E8B862413ECC8007ACDBB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		145E8B89241429E5007ACDBB /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		145E8B8B241431AE007ACDBB /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
+		145E8B8D241431CC007ACDBB /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		145E8B8F241432D8007ACDBB /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 		145E8B88241429D5007ACDBB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				145E8B8B241431AE007ACDBB /* FavoritesView.xib */,
+				145E8B8D241431CC007ACDBB /* FavoritesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				1471BAC42413DF0600BA4592 /* SearchView.xib */,
-				145E8B862413ECC8007ACDBB /* SearchView.swift */,
+				145E8B8F241432D8007ACDBB /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 			files = (
 				1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */,
 				1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */,
+				145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
 				1450334C2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf in Resources */,
 				1450334824129C7A00B3F404 /* LoginView.xib in Resources */,
@@ -486,14 +493,15 @@
 				145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
 				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
+				145E8B8E241431CC007ACDBB /* FavoritesView.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
-				145E8B872413ECC8007ACDBB /* SearchView.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
+				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

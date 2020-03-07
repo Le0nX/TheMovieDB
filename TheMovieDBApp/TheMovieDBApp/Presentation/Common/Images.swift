@@ -22,4 +22,6 @@ struct ImageName {
     static let favoriteIcon = #imageLiteral(resourceName: "favorite")
     
     static let accountIcon = #imageLiteral(resourceName: "account")
+    
+    static let listIcon = #imageLiteral(resourceName: "listIcon")
 }
