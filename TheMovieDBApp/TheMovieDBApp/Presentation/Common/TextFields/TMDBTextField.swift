@@ -29,12 +29,12 @@ final class TMDBTextField: UITextField {
     
     func setupImage() {
         rightViewMode = UITextField.ViewMode.always
-        let btn = UIButton(frame: .zero)
+        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         btn.addTarget(self, action: #selector(iconAction), for: .touchUpInside)
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 
         btn.setImage(ImageName.loginEye, for: .normal)
-        btn.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         rightView = btn
     }
     

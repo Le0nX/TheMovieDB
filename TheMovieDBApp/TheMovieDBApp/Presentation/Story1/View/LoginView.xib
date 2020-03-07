@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро пожаловать!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adT-VC-Dx2">
-                    <rect key="frame" x="24" y="11" width="344" height="37"/>
+                    <rect key="frame" x="24" y="11" width="385" height="37"/>
                     <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="31"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="3r3-vg-g3Y" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="HpM-Lo-Z6A"/>
                 <constraint firstItem="X6D-dt-Yh8" firstAttribute="top" secondItem="b5S-71-8y3" secondAttribute="bottom" constant="32" id="IJS-8r-d2v"/>
                 <constraint firstItem="adT-VC-Dx2" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="MXg-DF-nYx"/>
-                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="adT-VC-Dx2" secondAttribute="trailing" constant="65" id="OKZ-ei-Hdf"/>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="adT-VC-Dx2" secondAttribute="trailing" constant="24" id="OKZ-ei-Hdf"/>
                 <constraint firstAttribute="bottom" secondItem="3r3-vg-g3Y" secondAttribute="bottom" constant="27" id="beA-ab-mHx"/>
                 <constraint firstItem="gBy-5r-tfk" firstAttribute="top" secondItem="X6D-dt-Yh8" secondAttribute="bottom" constant="24" id="brz-iD-nl2"/>
                 <constraint firstItem="adT-VC-Dx2" firstAttribute="top" secondItem="aHF-on-WGA" secondAttribute="top" constant="11" id="dwx-5Z-9xT"/>
