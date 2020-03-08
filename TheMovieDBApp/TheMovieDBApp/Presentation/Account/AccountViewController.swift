@@ -9,8 +9,10 @@
 import UIKit
 
 final class AccountViewController: UIViewController {
+    // MARK: - private fields
     private let containerView: AccountView
-       
+    
+    // MARK: - constructors
     init(_ view: AccountView = AccountView()) {
         self.containerView = view
         super.init(nibName: nil, bundle: nil)
@@ -19,7 +21,8 @@ final class AccountViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   
+    
+    // MARK: - public methods
     override func loadView() {
         super.loadView()
         containerView.output = self

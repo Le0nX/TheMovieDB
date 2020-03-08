@@ -9,13 +9,19 @@
 import UIKit
 
 protocol AccountViewOutput {
+    
+    /// Хендлер выхода из профиля
     func logout()
 }
 
 final class AccountView: XibView {
-    var output: AccountViewOutput!
+    // MARK: - Outlets
     @IBOutlet weak var logoutButton: UIButton!
     
+    // MARK: - public fields
+    var output: AccountViewOutput!
+    
+    // MARK: - constructors
     init() {
         super.init(frame: .zero)
         setup()
@@ -25,10 +31,13 @@ final class AccountView: XibView {
         super.init(coder: aDecoder)
         setup()
     }
+    
     // MARK: - View setupers
     func setup() {
         contentView.backgroundColor = ColorName.background
     }
+    
+    // MARK: - IBActions
     @IBAction func logoutAction(_ sender: Any) {
         output.logout()
     }
