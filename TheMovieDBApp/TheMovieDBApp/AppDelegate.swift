@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = ColorName.background
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().shadowImage = UIImage() // убарна линия сепаратора
+        
+        UITabBar.appearance().barTintColor = #colorLiteral(red: 0.1568627451, green: 0.1725490196, blue: 0.2470588235, alpha: 1)
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().selectedImageTintColor = ColorName.buttonActive
 
         let navigationViewController = UINavigationController(rootViewController: LoginViewController())
         window?.rootViewController = navigationViewController

@@ -24,6 +24,7 @@ final class FavoritesViewController: UIViewController {
         super.loadView()
         self.view = self.containerView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true

@@ -22,13 +22,22 @@ final class AccountViewController: UIViewController {
    
     override func loadView() {
         super.loadView()
+        containerView.output = self
+        
         self.view = self.containerView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
         self.navigationItem.hidesBackButton = true
 
         self.hideKeyboardWhenTappedAround()
+    }
+}
+
+extension AccountViewController: AccountViewOutput {
+    func logout() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

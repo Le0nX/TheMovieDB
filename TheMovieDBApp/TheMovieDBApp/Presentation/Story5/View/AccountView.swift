@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol AccountViewOutput {
+    func logout()
+}
+
 final class AccountView: XibView {
+    var output: AccountViewOutput!
+    @IBOutlet weak var logoutButton: UIButton!
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -21,5 +28,8 @@ final class AccountView: XibView {
     // MARK: - View setupers
     func setup() {
         contentView.backgroundColor = ColorName.background
+    }
+    @IBAction func logoutAction(_ sender: Any) {
+        output.logout()
     }
 }

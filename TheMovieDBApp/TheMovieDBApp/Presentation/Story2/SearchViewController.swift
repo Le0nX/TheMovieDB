@@ -24,9 +24,10 @@ final class SearchViewController: UIViewController {
         super.loadView()
         self.view = self.containerView
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.tabBarController?.tabBar.isHidden = true
 
         self.hideKeyboardWhenTappedAround()
     }

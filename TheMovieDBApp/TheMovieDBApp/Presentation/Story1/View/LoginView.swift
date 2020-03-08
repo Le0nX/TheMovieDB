@@ -12,6 +12,10 @@ protocol LoginViewOutput {
     func login()
 }
 
+protocol LoginViewInput {
+    func resetFields()
+}
+
 final class LoginView: XibView {
     // MARK: - Outlets
     @IBOutlet weak var headerLabel: UILabel!
@@ -81,7 +85,7 @@ final class LoginView: XibView {
     }
 }
 
-extension LoginView: UITextFieldDelegate {
+extension LoginView: UITextFieldDelegate, LoginViewInput {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = ColorName.borderActive.cgColor
@@ -89,5 +93,11 @@ extension LoginView: UITextFieldDelegate {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = ColorName.borderUnactive.cgColor
+    }
+    
+    func resetFields() {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        loginButton.isEnabled = false
     }
 }

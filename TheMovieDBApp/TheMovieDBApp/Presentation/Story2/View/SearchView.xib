@@ -31,7 +31,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msk-S2-KGo">
-                    <rect key="frame" x="24" y="135" width="350" height="115"/>
+                    <rect key="frame" x="24" y="10" width="350" height="115"/>
                     <string key="text">Найдите любой
 фильм на ваш
 вкус</string>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Поиск фильмов" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="cy7-Td-Pgg" customClass="TMDBSearchTextField" customModule="TheMovieDBApp" customModuleProvider="target">
-                    <rect key="frame" x="24" y="283" width="303" height="48"/>
+                    <rect key="frame" x="24" y="158" width="303" height="48"/>
                     <color key="backgroundColor" red="0.15686274509803921" green="0.17254901960784313" blue="0.24705882352941178" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="C0L-eG-hih"/>
@@ -59,7 +59,7 @@
                 <constraint firstItem="cy7-Td-Pgg" firstAttribute="top" secondItem="msk-S2-KGo" secondAttribute="bottom" constant="33" id="ahJ-FQ-Tm5"/>
                 <constraint firstItem="B3C-2d-8lm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="cKW-3h-0t6"/>
                 <constraint firstItem="msk-S2-KGo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="fDb-xG-v14"/>
-                <constraint firstItem="msk-S2-KGo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="91" id="sEi-3f-W8d"/>
+                <constraint firstItem="msk-S2-KGo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sEi-3f-W8d"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="B3C-2d-8lm" secondAttribute="trailing" id="w7T-zW-ojR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

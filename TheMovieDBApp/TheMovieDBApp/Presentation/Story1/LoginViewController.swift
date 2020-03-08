@@ -38,6 +38,24 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: LoginViewOutput {
     func login() {
-        self.navigationController?.pushViewController(SearchViewController(), animated: true)
+        
+        containerView.resetFields()
+        
+        let firstViewController = SearchViewController()
+        firstViewController.tabBarItem = UITabBarItem(title: "Фильмы", image: ImageName.filmIcon, tag: 0)
+
+        let secondViewController = FavoritesViewController()
+        secondViewController.tabBarItem = UITabBarItem(title: "Избранное", image: ImageName.favoriteIcon, tag: 1)
+        
+        let thirdViewController = AccountViewController()
+        thirdViewController.tabBarItem = UITabBarItem(title: "Профиль", image: ImageName.accountIcon, tag: 2)
+
+        let tabBarList = [firstViewController, secondViewController, thirdViewController]
+        
+        let tabBar = UITabBarController()
+        tabBar.viewControllers = tabBarList
+        tabBar.navigationItem.hidesBackButton = true
+        
+        self.navigationController?.pushViewController(tabBar, animated: true)
     }
 }
