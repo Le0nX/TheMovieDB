@@ -9,10 +9,14 @@
 import UIKit
 
 protocol LoginViewOutput {
+    
+    /// Метод обработки нажатия логина
     func login()
 }
 
 protocol LoginViewInput {
+    
+    /// Метод очищения полей
     func resetFields()
 }
 
@@ -36,6 +40,7 @@ final class LoginView: XibView {
         super.init(coder: aDecoder)
         setup()
     }
+    
     // MARK: - View setupers
     func setup() {
         contentView.backgroundColor = ColorName.background
@@ -43,18 +48,7 @@ final class LoginView: XibView {
         setupPasswordTextField()
     }
     
-    private func setupLoginTextField() {
-        loginTextField.delegate = self
-        loginTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
-    }
-    
-    private func setupPasswordTextField() {
-        passwordTextField.setupImage()
-        passwordTextField.delegate = self
-        passwordTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
-    }
-    
-    /// Триггер того, что содержимое поля изменилось
+    /// Хендлер того, что содержимое поля изменилось
     /// Проверяет валидацию данных
     /// - Parameter textField: поле, откуда поступили изменения
     @objc func textFieldValueChanged(_ textField: UITextField) {
@@ -68,7 +62,13 @@ final class LoginView: XibView {
             firstCond && secondCond && thirdRule
         )
     }
+        
+    // MARK: - IBActions
+    @IBAction func loginAction(_ sender: Any) {
+        output.login()
+    }
     
+    // MARK: - Private methods
     /// Валидация email'a с помощью regex
     /// За основу взят https://emailregex.com/
     /// - Parameter emailStr: email
@@ -79,10 +79,17 @@ final class LoginView: XibView {
         return emailPred.evaluate(with: emailStr)
     }
     
-    // MARK: - IBActions
-    @IBAction func loginAction(_ sender: Any) {
-        output.login()
+    private func setupLoginTextField() {
+        loginTextField.delegate = self
+        loginTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
     }
+    
+    private func setupPasswordTextField() {
+        passwordTextField.setupImage()
+        passwordTextField.delegate = self
+        passwordTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
+    }
+
 }
 
 extension LoginView: UITextFieldDelegate, LoginViewInput {

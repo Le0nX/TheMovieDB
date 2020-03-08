@@ -40,7 +40,7 @@ final class TMDBTextField: UITextField {
     }
     
     @objc func iconAction(sender: UIButton) {
-        if iconClick  {
+        if iconClick {
             self.isSecureTextEntry = true
             sender.setImage(ImageName.loginEye, for: .normal)
         } else {
