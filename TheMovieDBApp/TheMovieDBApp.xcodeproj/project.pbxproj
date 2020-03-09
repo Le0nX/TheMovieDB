@@ -53,6 +53,8 @@
 		145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */; };
 		145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */; };
 		145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDB24168175007ACDBB /* AccountPresenter.swift */; };
+		145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */; };
+		145E8BE22416AA00007ACDBB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145E8BE42416AA00007ACDBB /* Localizable.strings */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
@@ -128,6 +130,10 @@
 		145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
 		145E8BDB24168175007ACDBB /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
+		145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LocalizedString.swift"; sourceTree = "<group>"; };
+		145E8BDF2416A05C007ACDBB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		145E8BE32416AA00007ACDBB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		145E8BE52416AA29007ACDBB /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
@@ -232,6 +238,7 @@
 				1450334B2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf */,
 				1450331624126AAD00B3F404 /* Info.plist */,
 				1450331124126AAD00B3F404 /* Assets.xcassets */,
+				145E8BE42416AA00007ACDBB /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -449,6 +456,7 @@
 				14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */,
 				145E8BA824158983007ACDBB /* UIViewController+Spinner.swift */,
 				145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */,
+				145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -543,6 +551,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 145032FC24126AAA00B3F404;
 			packageReferences = (
@@ -566,6 +575,7 @@
 			files = (
 				1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */,
 				1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */,
+				145E8BE22416AA00007ACDBB /* Localizable.strings in Resources */,
 				145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */,
 				145E8BA024144CAB007ACDBB /* AccountView.xib in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
@@ -630,6 +640,7 @@
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
 				145E8BBA2415B742007ACDBB /* ErrorDescriptable.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
+				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */,
 				145E8BB82415B626007ACDBB /* APIError.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
@@ -694,8 +705,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				1450331424126AAD00B3F404 /* Base */,
+				145E8BDF2416A05C007ACDBB /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		145E8BE42416AA00007ACDBB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				145E8BE32416AA00007ACDBB /* en */,
+				145E8BE52416AA29007ACDBB /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -705,6 +726,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -751,7 +773,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -765,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -805,7 +828,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

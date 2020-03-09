@@ -1,0 +1,33 @@
+/* 
+  Main.strings
+  TheMovieDBApp
+
+  Created by Denis Nefedov on 09.03.2020.
+  Copyright © 2020 Den4ik's Team. All rights reserved.
+*/
+
+"AUTH_VIEW_TITLE" = "Добро пожаловать!";
+"AUTH_VIEW_SUBTITLE" = "Укажите логин и пароль, которые\nвы использовали для входа";
+"AUTH_VIEW_LOGIN_PLACEHOLDER" = "Логин";
+"AUTH_VIEW_PASSWORD_PLACEHOLDER" = "Пароль";
+"AUTH_VIEW_BUTTON_TITLE" = "Войти";
+
+"AUTH_CREDENTIALS_ERROR_MESSAGE" = "Не удалось войти. Пожалуйста, проверьте свой логин или пароль.";
+"AUTH_404_ERROR_MESSAGE" = "404. Не найдено. Пожалуйста, повторите попытку позже.";
+"AUTH_SERVER_ERROR" = "Ошибка на стороне сервера. Пожалуйста, повторите попытку позже.";
+"AUTH_REQUEST_ERROR" = "Ошибка запроса. Пожалуйста, проверьте свое соединение или повторите попытку позже.";
+
+"SEARCH_VIEW_TITLE" = "Найдем любой\nфильм на ваш\nвкус";
+"SEARCH_VIEW_PLACEHOLDER" = "Поиск фильмов";
+
+"FAVORITES_VIEW_TITLE" = "Избранное";
+"FAVORITES_VIEW_SUBTITLE" = "Вы не добавили ни одного фильма";
+"FAVORITES_VIEW_SEARCH_TEXT_BUTTON" = "Найти любимые фильмы";
+
+"ACCOUNT_VIEW_TITILE" = "Денис Нефедов";
+"ACCOUNT_VIEW_SUBTITILE" = "nefedov.d.d@gmail.com";
+"ACCOUNT_VIEW_BUTTON_TITILE" = "Выйти";
+
+"FILMS_ICON" = "Фильмы";
+"FAVORITES_ICON" = "Избранное";
+"ACCOUNT_ICON" = "Профиль";

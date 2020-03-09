@@ -10,9 +10,9 @@ import UIKit
 /// статьи https://habr.com/ru/post/325810/
 open class LocalizationExtensions {
     
-    public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation";
+    public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation"
     
-    fileprivate static var bundles : [Bundle] = []
+    fileprivate static var bundles: [Bundle] = []
     
     public static func addBundle(_ bundle: Bundle) {
         if !bundles.contains(bundle) && bundle != Bundle.main {
@@ -36,19 +36,18 @@ extension String {
             return string
         }
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: LocalizationExtensions.notificationMissingTransalation), object: self)
+        NotificationCenter.default.post(
+            name: Notification.Name(rawValue: LocalizationExtensions.notificationMissingTransalation), object: self)
         
         return self
     }
     
     fileprivate func localizedWithComment(_ comment: String, bundles: [Bundle]) -> String? {
-        for bundle in bundles {
-            if bundle != Bundle.main {
+        for bundle in bundles where bundle != Bundle.main {
                 if let string = self.localizedWithComment(comment, bundle: bundle, recursion: 1) {
                     return string
-                }
-            }
         }
+    }
         
         return nil
     }
@@ -64,7 +63,9 @@ extension String {
             if let urls = bundle.urls(forResourcesWithExtension: "bundle", subdirectory: nil) {
                 for subURL in urls {
                     if let subBundle = Bundle(url: subURL) {
-                        if let subString = self.localizedWithComment(comment, bundle: subBundle, recursion: recursion - 1) {
+                        if let subString = self.localizedWithComment(comment,
+                                                                     bundle: subBundle,
+                                                                     recursion: recursion - 1) {
                             return subString
                         }
                     }
@@ -73,18 +74,17 @@ extension String {
             }
         }
         
-        return nil;
+        return nil
     }
 }
 
 extension UILabel {
     
-    @IBInspectable public var lzText : String? {
+    @IBInspectable public var lzText: String? {
         set {
             if newValue != nil {
                 self.text = newValue?.localized
-            }
-            else {
+            } else {
                 self.text = nil
             }
         }
@@ -97,12 +97,11 @@ extension UILabel {
 
 extension UITextField {
     
-    @IBInspectable public var lzText : String? {
+    @IBInspectable public var lzText: String? {
         set {
             if newValue != nil {
                 self.text = newValue?.localized
-            }
-            else {
+            } else {
                 self.text = nil
             }
         }
@@ -112,12 +111,11 @@ extension UITextField {
         }
     }
     
-    @IBInspectable public var lzPlaceholder : String? {
+    @IBInspectable public var lzPlaceholder: String? {
         set {
             if newValue != nil {
                 self.placeholder = newValue?.localized
-            }
-            else {
+            } else {
                 self.placeholder = nil
             }
         }
@@ -130,51 +128,50 @@ extension UITextField {
 
 extension UIButton {
     
-    @IBInspectable public var lzTitle : String? {
+    @IBInspectable public var lzTitle: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State()) }
         get { return getTitleForState(UIControl.State()) }
     }
     
-    @IBInspectable public var lzTitleHighlighted : String? {
+    @IBInspectable public var lzTitleHighlighted: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.highlighted) }
         get { return getTitleForState(UIControl.State.highlighted) }
     }
     
-    @IBInspectable public var lzTitleDisabled : String? {
+    @IBInspectable public var lzTitleDisabled: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.disabled) }
         get { return getTitleForState(UIControl.State.disabled) }
     }
     
-    @IBInspectable public var lzTitleSelected : String? {
+    @IBInspectable public var lzTitleSelected: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.selected) }
         get { return getTitleForState(UIControl.State.selected) }
     }
     
-    @IBInspectable public var lzTitleFocused : String? {
+    @IBInspectable public var lzTitleFocused: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.focused) }
         get { return getTitleForState(UIControl.State.focused) }
     }
     
-    @IBInspectable public var lzTitleApplication : String? {
+    @IBInspectable public var lzTitleApplication: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.application) }
         get { return getTitleForState(UIControl.State.application) }
     }
     
-    @IBInspectable public var lzTitleReserved : String? {
+    @IBInspectable public var lzTitleReserved: String? {
         set { setLocalizedTitle(newValue, state: UIControl.State.reserved) }
         get { return getTitleForState(UIControl.State.reserved) }
     }
     
-    fileprivate func setLocalizedTitle(_ title:String?, state: UIControl.State) {
+    fileprivate func setLocalizedTitle(_ title: String?, state: UIControl.State) {
         if title != nil {
             self.setTitle(title!.localized, for: state)
-        }
-        else {
+        } else {
             self.setTitle(nil, for: state)
         }
     }
     
-    fileprivate func getTitleForState(_ state: UIControl.State) -> String?{
+    fileprivate func getTitleForState(_ state: UIControl.State) -> String? {
         if let title = self.titleLabel {
             return title.text
         }
@@ -184,12 +181,11 @@ extension UIButton {
 
 extension UIBarItem {
     
-    @IBInspectable public var lzTitle : String? {
+    @IBInspectable public var lzTitle: String? {
         set {
             if newValue != nil {
                 self.title = newValue?.localized
-            }
-            else {
+            } else {
                 self.title = nil
             }
         }
@@ -202,12 +198,11 @@ extension UIBarItem {
 
 extension UINavigationItem {
     
-    @IBInspectable public var lzTitle : String? {
+    @IBInspectable public var lzTitle: String? {
         set {
             if newValue != nil {
                 self.title = newValue?.localized
-            }
-            else {
+            } else {
                 self.title = nil
             }
         }
@@ -217,12 +212,11 @@ extension UINavigationItem {
         }
     }
     
-    @IBInspectable public var lzPrompt : String? {
+    @IBInspectable public var lzPrompt: String? {
         set {
             if newValue != nil {
                 self.prompt = newValue?.localized
-            }
-            else {
+            } else {
                 self.prompt = nil
             }
         }
@@ -235,12 +229,11 @@ extension UINavigationItem {
 
 extension UIViewController {
     
-    @IBInspectable public var lzTitle : String? {
+    @IBInspectable public var lzTitle: String? {
         set {
             if newValue != nil {
                 self.title = newValue?.localized
-            }
-            else {
+            } else {
                 self.title = nil
             }
         }

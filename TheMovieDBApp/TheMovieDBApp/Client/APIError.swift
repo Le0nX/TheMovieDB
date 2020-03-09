@@ -65,12 +65,10 @@ extension APIError: LocalizedError {
 
 extension APIError {
     struct ErrorMessages {
-        static let AuthFailed = NSLocalizedString("Could't Sign In. Please check your login or password.",
+        static let AuthFailed = NSLocalizedString("AUTH_CREDENTIALS_ERROR_MESSAGE",
                                                   comment: "Invalid Login or Password")
-        static let NotFound = NSLocalizedString("404. Not found. Please, try again later.", comment: "Not found")
-        static let ServerError = NSLocalizedString("Server Error. Please, try again later.", comment: "Server Error")
-        static let RequestFailed = NSLocalizedString(
-            "Resquest failed. Please, try again later or check your connectivity.",
-            comment: "Connectivity Error")
+        static let NotFound = NSLocalizedString("AUTH_404_ERROR_MESSAGE", comment: "404. Not found.")
+        static let ServerError = NSLocalizedString("AUTH_SERVER_ERROR", comment: "Server Error")
+        static let RequestFailed = NSLocalizedString("AUTH_REQUEST_ERROR", comment: "Connectivity Error")
     }
 }
