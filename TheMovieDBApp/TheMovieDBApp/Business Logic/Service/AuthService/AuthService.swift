@@ -76,7 +76,6 @@ public class LoginService: AuthService {
                                                   expiers: requestToken.expiersAt,
                                                   session: sessionResult.sessionId ?? "")
                 self.accessService.credentials = credentials
-//                self.getAccountDetails(sessionId, completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }

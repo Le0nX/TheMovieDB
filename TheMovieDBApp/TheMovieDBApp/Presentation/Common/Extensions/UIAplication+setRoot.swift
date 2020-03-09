@@ -26,7 +26,7 @@ extension UIApplication {
                           duration: duration,
                           options: options,
                           animations: { snapshot.layer.opacity = 0 },
-                          completion: { completed in
+                          completion: { _ in
                                 UIApplication.shared.keyWindow?.rootViewController = viewController
         })
     }

@@ -1,0 +1,33 @@
+/* 
+  Main.strings
+  TheMovieDBApp
+
+  Created by Denis Nefedov on 09.03.2020.
+  Copyright © 2020 Den4ik's Team. All rights reserved.
+*/
+
+"AUTH_VIEW_TITLE" = "Wellcome!";
+"AUTH_VIEW_SUBTITLE" = "Enter your login and password, which\nyou used to login";
+"AUTH_VIEW_LOGIN_PLACEHOLDER" = "Login";
+"AUTH_VIEW_PASSWORD_PLACEHOLDER" = "Password";
+"AUTH_VIEW_BUTTON_TITLE" = "Login";
+
+"AUTH_CREDENTIALS_ERROR_MESSAGE" = "Could't Sign In. Please check your login or password.";
+"AUTH_404_ERROR_MESSAGE" = "404. Not found. Please, try again later.";
+"AUTH_SERVER_ERROR" = "Server Error. Please, try again later.";
+"AUTH_REQUEST_ERROR" = "Resquest failed. Please, try again later or check your connectivity.";
+
+"SEARCH_VIEW_TITLE" = "Gonna find any movie\nto your taste";
+"SEARCH_VIEW_PLACEHOLDER" = "Search films";
+
+"FAVORITES_VIEW_TITLE" = "Favorites";
+"FAVORITES_VIEW_SUBTITLE" = "you don't have any favorite films";
+"FAVORITES_VIEW_SEARCH_TEXT_BUTTON" = "Find favorite films";
+
+"ACCOUNT_VIEW_TITILE" = "Denis Nefedov";
+"ACCOUNT_VIEW_SUBTITILE" = "nefedov.d.d@gmail.com";
+"ACCOUNT_VIEW_BUTTON_TITILE" = "Logout";
+
+"FILMS_ICON" = "Films";
+"FAVORITES_ICON" = "Favorites";
+"ACCOUNT_ICON" = "Profile";

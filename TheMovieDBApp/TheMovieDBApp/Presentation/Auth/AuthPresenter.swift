@@ -39,7 +39,7 @@ final class AuthPresenter: AuthPresenterOutput {
                 switch result {
                 case .failure(let error):
                     self.view.showError(with: error.localizedDescription)
-                case .success(let data):
+                case .success:
                     self.authCoordinator.start()
                 }
             }
