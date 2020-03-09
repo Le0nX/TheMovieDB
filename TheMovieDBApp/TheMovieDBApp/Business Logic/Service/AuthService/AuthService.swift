@@ -10,7 +10,7 @@ import Foundation
 
 enum LoginServiceResult {
     case success(UserSession)
-    case failure(Error)
+    case failure(APIError)
 }
 
 protocol AuthService {
@@ -31,11 +31,6 @@ public class LoginService: AuthService {
     init(client: AuthClient, accessService: AccessCredentialsService) {
         self.client = client
         self.accessService = accessService
-    }
-    
-    public enum Error: Swift.Error {
-        case connectivity
-        case invalidData
     }
     
     /// Метод авторизации пользователя

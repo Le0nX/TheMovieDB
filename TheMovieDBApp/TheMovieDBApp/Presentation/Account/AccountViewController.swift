@@ -41,6 +41,7 @@ final class AccountViewController: UIViewController {
 
 extension AccountViewController: AccountViewOutput {
     func logout() {
+        try? ServiceFabric().accessService.delete()
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -36,15 +36,7 @@ final class AuthPresenter: AuthPresenterOutput {
                 
                 switch result {
                 case .failure(let error):
-                    switch error {
-                    case LoginService.Error.connectivity:
-                        // TODO: - локализация
-                        self.view.showError(with: "Ошибка соединения")
-                    case LoginService.Error.invalidData:
-                        self.view.showError(with: "Неверные логин или пароль")
-                    default:
-                        self.view.showError(with: "Что-то пошло не так :(")
-                    }
+                    self.view.showError(with: error.description)
                 case .success(let data):
                     print(data)
                     //self.

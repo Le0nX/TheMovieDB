@@ -15,6 +15,7 @@ enum APIError: Error, ErrorDescriptable {
     case requestFailed
     case invalidData
     case notFound
+    case authFailed
     case unknown(HTTPURLResponse?)
     
     init(response: URLResponse?) {
@@ -25,6 +26,8 @@ enum APIError: Error, ErrorDescriptable {
         switch response.statusCode {
         case 400:
             self = .badRequest
+        case 401:
+            self = .authFailed
         case 404:
             self = .notFound
         default:
@@ -34,6 +37,8 @@ enum APIError: Error, ErrorDescriptable {
     
     var description: String {
         switch self {
+        case .authFailed:
+            return ErrorMessages.AuthFailed
         case .notFound:
             return ErrorMessages.NotFound
         case .networkProblem, .unknown:
@@ -47,6 +52,8 @@ enum APIError: Error, ErrorDescriptable {
 extension APIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .authFailed:
+            return ErrorMessages.AuthFailed
         case .notFound:
             return ErrorMessages.NotFound
         case .networkProblem, .unknown:
@@ -59,8 +66,9 @@ extension APIError: LocalizedError {
 
 extension APIError {
     struct ErrorMessages {
+        static let AuthFailed = "Could't Sign In. Please check your login or password."
         static let NotFound = "404. Not found. Please, try again later."
         static let ServerError = "Server Error. Please, try again later."
-        static let RequestFailed = "Resquest failed. Please, try again later."
+        static let RequestFailed = "Resquest failed. Please, try again later or check your connectivity."
     }
 }
