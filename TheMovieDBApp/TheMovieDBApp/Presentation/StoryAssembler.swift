@@ -11,6 +11,7 @@ import UIKit
 protocol StorysAssembler {
     func makeAuthStory() -> LoginViewController
     func makeTabBar() -> UITabBarController
+    func makeAccountStory() -> AccountViewController
 }
 
 class StoryFabric: StorysAssembler {
@@ -58,7 +59,7 @@ class StoryFabric: StorysAssembler {
         return tabBar
     }
     
-    /// Фабричный метод создания экрана авторизации
+    /// Фабричный метод создания экрана профиля
     func makeAccountStory() -> AccountViewController {
         let accountVc = AccountViewController()
         let accountCoordinator = AccountCoordinator(storyAssembler: self)
