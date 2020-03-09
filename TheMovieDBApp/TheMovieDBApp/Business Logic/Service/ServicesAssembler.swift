@@ -10,13 +10,14 @@ import Foundation
 import KeychainAccess
 
 protocol ServicesAssembler {
-    var authService: AuthService! { get }
+    var authService: AuthService { get }
+    var accessService: AccessCredentialsService { get }
 }
 
 class ServiceFabric: ServicesAssembler {
     
     /// Сервис авторизации
-    lazy var authService: AuthService! = {
+    lazy var authService: AuthService = {
         let service = LoginService(client: AuthClient(), accessService: accessService)
         return service
     }()

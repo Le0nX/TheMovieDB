@@ -16,10 +16,12 @@ final class AuthPresenter: AuthPresenterOutput {
 
     private weak var view: AuthViewInput!
     private var authService: AuthService!
+    private var authCoordinator: Coordinator!
     
-    init(_ view: AuthViewInput, authService: AuthService) {
+    init(_ view: AuthViewInput, authService: AuthService, authCoordinator: Coordinator) {
         self.view = view
         self.authService = authService
+        self.authCoordinator = authCoordinator
     }
     
     func didPressedLoginButton(login: String, password: String) {
@@ -38,9 +40,7 @@ final class AuthPresenter: AuthPresenterOutput {
                 case .failure(let error):
                     self.view.showError(with: error.localizedDescription)
                 case .success(let data):
-                    print(data)
-                    //self.
-                    
+                    self.authCoordinator.start()
                 }
             }
         }

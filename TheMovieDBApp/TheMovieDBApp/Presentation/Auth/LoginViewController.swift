@@ -10,9 +10,7 @@ import UIKit
 
 protocol AuthViewInput: class {
     func showError(with error: String)
-    
     func showProgress()
-    
     func hideProgress()
 }
 

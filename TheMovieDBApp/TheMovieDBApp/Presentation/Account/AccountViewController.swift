@@ -11,7 +11,7 @@ import UIKit
 final class AccountViewController: UIViewController {
     // MARK: - private fields
     private let containerView: AccountView
-    
+    public var output: AccountPresenter!
     // MARK: - constructors
     init(_ view: AccountView = AccountView()) {
         self.containerView = view
@@ -41,7 +41,6 @@ final class AccountViewController: UIViewController {
 
 extension AccountViewController: AccountViewOutput {
     func logout() {
-        try? ServiceFabric().accessService.delete()
-        self.navigationController?.popViewController(animated: true)
+        self.output.didPressedLogoutButton()
     }
 }

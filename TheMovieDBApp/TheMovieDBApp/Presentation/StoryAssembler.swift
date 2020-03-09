@@ -10,6 +10,7 @@ import UIKit
 
 protocol StorysAssembler {
     func makeAuthStory() -> LoginViewController
+    func makeTabBar() -> UITabBarController
 }
 
 class StoryFabric: StorysAssembler {
@@ -23,7 +24,10 @@ class StoryFabric: StorysAssembler {
     /// Фабричный метод создания экрана авторизации
     func makeAuthStory() -> LoginViewController {
         let loginVc = LoginViewController()
-        loginVc.output = AuthPresenter(loginVc, authService: servicesAssembler.authService)
+        let authCoordinator = AuthCoordinator(storyAssembler: self)
+        loginVc.output = AuthPresenter(loginVc,
+                                       authService: servicesAssembler.authService,
+                                       authCoordinator: authCoordinator)
         
         return loginVc
     }
@@ -36,7 +40,7 @@ class StoryFabric: StorysAssembler {
         let secondViewController = FavoritesViewController()
         secondViewController.tabBarItem = UITabBarItem(title: "Избранное", image: ImageName.favoriteIcon, tag: 1)
 
-        let thirdViewController = AccountViewController()
+        let thirdViewController = makeAccountStory()
         thirdViewController.tabBarItem = UITabBarItem(title: "Профиль", image: ImageName.accountIcon, tag: 2)
 
         let tabBarList = [firstViewController, secondViewController, thirdViewController]
@@ -46,5 +50,15 @@ class StoryFabric: StorysAssembler {
         tabBar.navigationItem.hidesBackButton = true
 
         return tabBar
+    }
+    
+    /// Фабричный метод создания экрана авторизации
+    func makeAccountStory() -> AccountViewController {
+        let accountVc = AccountViewController()
+        let accountCoordinator = AccountCoordinator(storyAssembler: self)
+        accountVc.output = AccountPresenter(credentailsService: servicesAssembler.accessService,
+                                            accountCoordinator: accountCoordinator)
+        
+        return accountVc
     }
 }

@@ -13,24 +13,5 @@ import Foundation
  снимая эту ответственность UIViewController класса
  */
 protocol Coordinator: class {
-    
-    /// дочерние координаторы
-    var childCoordinators: [Coordinator] { get }
-    
-    /// Метод добавления координатора в пул дочерних координаторов
-    /// - Parameter coordinator: координатор, который необходимо добавить
-    func add(childCoordinator coordinator: Coordinator)
-    
-    /// Метод удаления координатора из пула дочерних координаторов
-    /// - Parameter coordinator: координатор, который необходимо удалить
-    func remove(childCoordinator coordinator: Coordinator)
-
-    /**
-     Метод запуска координатора.
-     Выполняет логику настройки и мененджмента своего UIViewController'a.
-     Должен быть вызван только один раз за весь lifetime координатора.
-     Вызов данного метода более чем 1 раз вызывает forced fatalError.
-     Должен вызывать super.
-     */
     func start()
 }
