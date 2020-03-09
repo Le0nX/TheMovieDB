@@ -41,7 +41,10 @@ class LoginViewController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
     }
-
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 extension LoginViewController: AuthViewInput {
