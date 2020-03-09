@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="TheMovieDBApp" customModuleProvider="target">
             <connections>
+                <outlet property="errorLabel" destination="nIQ-FP-7dP" id="VSk-HF-KVB"/>
                 <outlet property="headerLabel" destination="adT-VC-Dx2" id="XIu-b4-e8w"/>
                 <outlet property="loginButton" destination="3r3-vg-g3Y" id="IZt-Eb-oWN"/>
                 <outlet property="loginTextField" destination="X6D-dt-Yh8" id="atZ-sU-aec"/>

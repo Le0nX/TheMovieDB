@@ -20,9 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ApplicationAppearance.setupNavigatioBar()
         ApplicationAppearance.setupTabBar()
-
-        let navigationViewController = UINavigationController(rootViewController: LoginViewController())
-        window?.rootViewController = navigationViewController
+        
+        let serviceAssembler = ServiceFabric()
+        let storyAssembler = StoryFabric(servicesAssembler: serviceAssembler)
+        
+        let credentialsService = serviceAssembler.accessService
+        
+        if credentialsService.sessionExists() {
+            let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeTabBar())
+            window?.rootViewController = navigationViewController
+        } else {
+            let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeAuthStory())
+            window?.rootViewController = navigationViewController
+        }
+        
         window?.makeKeyAndVisible()
         return true
     }

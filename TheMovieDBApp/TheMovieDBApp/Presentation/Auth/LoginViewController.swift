@@ -8,9 +8,19 @@
 
 import UIKit
 
+protocol AuthViewInput: class {
+    func showError(with error: String)
+    
+    func showProgress()
+    
+    func hideProgress()
+}
+
 class LoginViewController: UIViewController {
 
-    private let containerView: LoginView
+    private let containerView: LoginView!
+    
+    public var output: AuthPresenterOutput!
     
     init(_ view: LoginView = LoginView()) {
         self.containerView = view
@@ -29,33 +39,33 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
         
-        containerView.output = self
+        containerView.delegate = self
         
         self.hideKeyboardWhenTappedAround()
     }
 
 }
 
-extension LoginViewController: LoginViewOutput {
-    func login() {
-        
-        containerView.resetFields()
-        
-        let firstViewController = SearchViewController()
-        firstViewController.tabBarItem = UITabBarItem(title: "Фильмы", image: ImageName.filmIcon, tag: 0)
+extension LoginViewController: AuthViewInput {
+    func showProgress() {
+        self.showSpinner(onView: self.view)
+    }
+    
+    func hideProgress() {
+        self.removeSpinner()
+    }
+    
+    func showError(with message: String) {
+        containerView.setErrorLabel(with: message)
+        containerView.errorLabel.isHidden = false
+    }
+}
 
-        let secondViewController = FavoritesViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: "Избранное", image: ImageName.favoriteIcon, tag: 1)
+extension LoginViewController: LoginViewDelegate {
+    func loginAction() {
         
-        let thirdViewController = AccountViewController()
-        thirdViewController.tabBarItem = UITabBarItem(title: "Профиль", image: ImageName.accountIcon, tag: 2)
-
-        let tabBarList = [firstViewController, secondViewController, thirdViewController]
-        
-        let tabBar = UITabBarController()
-        tabBar.viewControllers = tabBarList
-        tabBar.navigationItem.hidesBackButton = true
-        
-        self.navigationController?.pushViewController(tabBar, animated: true)
+        output.didPressedLoginButton(login: containerView.loginTextField.text ?? "",
+                                     password: containerView.passwordTextField.text ?? "")
+        containerView.errorLabel.isHidden = true
     }
 }

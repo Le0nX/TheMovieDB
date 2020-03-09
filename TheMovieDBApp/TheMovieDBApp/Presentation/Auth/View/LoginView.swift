@@ -8,16 +8,10 @@
 
 import UIKit
 
-protocol LoginViewOutput {
+protocol LoginViewDelegate: class {
     
     /// Метод обработки нажатия логина
-    func login()
-}
-
-protocol LoginViewInput {
-    
-    /// Метод очищения полей
-    func resetFields()
+    func loginAction()
 }
 
 final class LoginView: XibView {
@@ -27,8 +21,9 @@ final class LoginView: XibView {
     @IBOutlet weak var loginTextField: TMDBTextField!
     @IBOutlet weak var passwordTextField: TMDBTextField!
     @IBOutlet weak var loginButton: TMDBButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
-    var output: LoginViewOutput!
+    weak var delegate: LoginViewDelegate!
     
     // MARK: - Constructors
     init() {
@@ -48,15 +43,26 @@ final class LoginView: XibView {
         setupPasswordTextField()
     }
     
+    func resetFields() {
+        loginTextField.text = ""
+        passwordTextField.text = ""
+        loginButton.isEnabled = false
+    }
+    
+    func setErrorLabel(with message: String) {
+        errorLabel.text = message
+    }
+    
     /// Хендлер того, что содержимое поля изменилось
     /// Проверяет валидацию данных
     /// - Parameter textField: поле, откуда поступили изменения
     @objc func textFieldValueChanged(_ textField: UITextField) {
-        let firstCond = !loginTextField.isEmpty
-        let secondCond = !passwordTextField.isEmpty
-        var thirdRule = false
+        // TODO: - переделать
+        let firstCond = loginTextField.text?.count ?? 0 > 2
+        let secondCond = passwordTextField.text?.count ?? 0 > 2
+        let thirdRule = true
         
-        thirdRule = isValidEmail(emailStr: loginTextField.text ?? "")
+        //thirdRule = isValidEmail(emailStr: loginTextField.text ?? "")
 
         loginButton.isEnabled = (
             firstCond && secondCond && thirdRule
@@ -65,7 +71,7 @@ final class LoginView: XibView {
         
     // MARK: - IBActions
     @IBAction func loginAction(_ sender: Any) {
-        output.login()
+        delegate.loginAction()
     }
     
     // MARK: - Private methods
@@ -92,7 +98,7 @@ final class LoginView: XibView {
 
 }
 
-extension LoginView: UITextFieldDelegate, LoginViewInput {
+extension LoginView: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = ColorName.borderActive.cgColor
@@ -100,11 +106,5 @@ extension LoginView: UITextFieldDelegate, LoginViewInput {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = ColorName.borderUnactive.cgColor
-    }
-    
-    func resetFields() {
-        loginTextField.text = ""
-        passwordTextField.text = ""
-        loginButton.isEnabled = false
     }
 }
