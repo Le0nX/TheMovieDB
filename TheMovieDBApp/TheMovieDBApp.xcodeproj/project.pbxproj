@@ -11,7 +11,7 @@
 		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
 		1450331524126AAD00B3F404 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1450331324126AAD00B3F404 /* LaunchScreen.storyboard */; };
-		1450332024126AAE00B3F404 /* TheMovieDBAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450331F24126AAE00B3F404 /* TheMovieDBAppTests.swift */; };
+		1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450331F24126AAE00B3F404 /* AuthValidationTests.swift */; };
 		1450332B24126AAE00B3F404 /* TheMovieDBAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450332A24126AAE00B3F404 /* TheMovieDBAppUITests.swift */; };
 		145033452412975900B3F404 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033442412975900B3F404 /* Colors.swift */; };
 		1450334824129C7A00B3F404 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1450334724129C7A00B3F404 /* LoginView.xib */; };
@@ -48,6 +48,11 @@
 		145E8BCB2415DDF7007ACDBB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 145E8BCA2415DDF7007ACDBB /* KeychainAccess */; };
 		145E8BCD2415DE91007ACDBB /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
 		145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCF24165869007ACDBB /* UserSessionData.swift */; };
+		145E8BD4241675C3007ACDBB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD3241675C3007ACDBB /* Validator.swift */; };
+		145E8BD624167C18007ACDBB /* UIAplication+setRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */; };
+		145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */; };
+		145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */; };
+		145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDB24168175007ACDBB /* AccountPresenter.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
@@ -79,7 +84,7 @@
 		1450331424126AAD00B3F404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1450331624126AAD00B3F404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1450331B24126AAE00B3F404 /* TheMovieDBAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDBAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1450331F24126AAE00B3F404 /* TheMovieDBAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBAppTests.swift; sourceTree = "<group>"; };
+		1450331F24126AAE00B3F404 /* AuthValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidationTests.swift; sourceTree = "<group>"; };
 		1450332124126AAE00B3F404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1450332624126AAE00B3F404 /* TheMovieDBAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDBAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450332A24126AAE00B3F404 /* TheMovieDBAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBAppUITests.swift; sourceTree = "<group>"; };
@@ -118,6 +123,11 @@
 		145E8BC62415C621007ACDBB /* Dictionary+encode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+encode.swift"; sourceTree = "<group>"; };
 		145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsService.swift; sourceTree = "<group>"; };
 		145E8BCF24165869007ACDBB /* UserSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionData.swift; sourceTree = "<group>"; };
+		145E8BD3241675C3007ACDBB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+setRoot.swift"; sourceTree = "<group>"; };
+		145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
+		145E8BDB24168175007ACDBB /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
@@ -186,7 +196,7 @@
 		1450331E24126AAE00B3F404 /* TheMovieDBAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1450331F24126AAE00B3F404 /* TheMovieDBAppTests.swift */,
+				1450331F24126AAE00B3F404 /* AuthValidationTests.swift */,
 				1450332124126AAE00B3F404 /* Info.plist */,
 			);
 			path = TheMovieDBAppTests;
@@ -258,9 +268,11 @@
 		1450333E241281C700B3F404 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				145E8BD2241675B5007ACDBB /* Helpers */,
 				1450334624129C5200B3F404 /* View */,
 				1450330C24126AAA00B3F404 /* LoginViewController.swift */,
 				145E8BA6241577BF007ACDBB /* AuthPresenter.swift */,
+				145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -361,6 +373,8 @@
 			children = (
 				145E8B9A24144C34007ACDBB /* View */,
 				145E8B9B24144C41007ACDBB /* AccountViewController.swift */,
+				145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */,
+				145E8BDB24168175007ACDBB /* AccountPresenter.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -411,6 +425,14 @@
 			path = AuthClient;
 			sourceTree = "<group>";
 		};
+		145E8BD2241675B5007ACDBB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				145E8BD3241675C3007ACDBB /* Validator.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1471BAC12413D07A00BA4592 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +448,7 @@
 				14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */,
 				14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */,
 				145E8BA824158983007ACDBB /* UIViewController+Spinner.swift */,
+				145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -597,6 +620,8 @@
 				145E8BC32415C25D007ACDBB /* AuthProvider.swift in Sources */,
 				145E8BBC2415B898007ACDBB /* Endpoint.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
+				145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */,
+				145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */,
 				145E8BB624159CAF007ACDBB /* APIClient.swift in Sources */,
 				145E8BBF2415BDA7007ACDBB /* URLRequest+jsonContentType.swift in Sources */,
 				145E8BC72415C621007ACDBB /* Dictionary+encode.swift in Sources */,
@@ -620,8 +645,11 @@
 				145E8BB424159B98007ACDBB /* AuthMappingModels.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
+				145E8BD4241675C3007ACDBB /* Validator.swift in Sources */,
+				145E8BD624167C18007ACDBB /* UIAplication+setRoot.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
+				145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145E8BC52415C5F2007ACDBB /* AuthClient.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
@@ -634,7 +662,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1450332024126AAE00B3F404 /* TheMovieDBAppTests.swift in Sources */,
+				1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

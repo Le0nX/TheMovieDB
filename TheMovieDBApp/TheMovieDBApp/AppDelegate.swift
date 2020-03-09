@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let credentialsService = serviceAssembler.accessService
         
+        let tabBar = storyAssembler.makeTabBar()
+        let navigationViewController = UINavigationController(rootViewController: tabBar)
+        window?.rootViewController = navigationViewController
+        
         if credentialsService.sessionExists() {
             let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeTabBar())
             window?.rootViewController = navigationViewController

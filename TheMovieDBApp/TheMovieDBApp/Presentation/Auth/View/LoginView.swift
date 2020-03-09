@@ -54,35 +54,13 @@ final class LoginView: XibView {
     }
     
     /// Хендлер того, что содержимое поля изменилось
-    /// Проверяет валидацию данных
-    /// - Parameter textField: поле, откуда поступили изменения
     @objc func textFieldValueChanged(_ textField: UITextField) {
-        // TODO: - переделать
-        let firstCond = loginTextField.text?.count ?? 0 > 2
-        let secondCond = passwordTextField.text?.count ?? 0 > 2
-        let thirdRule = true
-        
-        //thirdRule = isValidEmail(emailStr: loginTextField.text ?? "")
-
-        loginButton.isEnabled = (
-            firstCond && secondCond && thirdRule
-        )
+        loginButton.isEnabled = isValid(loginTextField.text ?? "", with: passwordTextField.text ?? "")
     }
         
     // MARK: - IBActions
     @IBAction func loginAction(_ sender: Any) {
         delegate.loginAction()
-    }
-    
-    // MARK: - Private methods
-    /// Валидация email'a с помощью regex
-    /// За основу взят https://emailregex.com/
-    /// - Parameter emailStr: email
-    private func isValidEmail(emailStr: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: emailStr)
     }
     
     private func setupLoginTextField() {
