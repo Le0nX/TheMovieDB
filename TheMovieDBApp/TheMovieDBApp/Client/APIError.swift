@@ -10,7 +10,6 @@ import Foundation
 
 enum APIError: Error, ErrorDescriptable {
     
-    case networkProblem
     case badRequest
     case requestFailed
     case invalidData
@@ -41,7 +40,7 @@ enum APIError: Error, ErrorDescriptable {
             return ErrorMessages.AuthFailed
         case .notFound:
             return ErrorMessages.NotFound
-        case .networkProblem, .unknown:
+        case .unknown:
             return ErrorMessages.ServerError
         case .requestFailed, .badRequest, .invalidData:
             return ErrorMessages.RequestFailed
@@ -56,7 +55,7 @@ extension APIError: LocalizedError {
             return ErrorMessages.AuthFailed
         case .notFound:
             return ErrorMessages.NotFound
-        case .networkProblem, .unknown:
+        case .unknown:
             return ErrorMessages.ServerError
         case .requestFailed, .badRequest, .invalidData:
             return ErrorMessages.RequestFailed
@@ -66,9 +65,12 @@ extension APIError: LocalizedError {
 
 extension APIError {
     struct ErrorMessages {
-        static let AuthFailed = "Could't Sign In. Please check your login or password."
-        static let NotFound = "404. Not found. Please, try again later."
-        static let ServerError = "Server Error. Please, try again later."
-        static let RequestFailed = "Resquest failed. Please, try again later or check your connectivity."
+        static let AuthFailed = NSLocalizedString("Could't Sign In. Please check your login or password.",
+                                                  comment: "Invalid Login or Password")
+        static let NotFound = NSLocalizedString("404. Not found. Please, try again later.", comment: "Not found")
+        static let ServerError = NSLocalizedString("Server Error. Please, try again later.", comment: "Server Error")
+        static let RequestFailed = NSLocalizedString(
+            "Resquest failed. Please, try again later or check your connectivity.",
+            comment: "Connectivity Error")
     }
 }
