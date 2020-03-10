@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14100A822418312C0097421F /* UTCToLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100A812418312C0097421F /* UTCToLocal.swift */; };
 		1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330824126AAA00B3F404 /* AppDelegate.swift */; };
 		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14100A812418312C0097421F /* UTCToLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTCToLocal.swift; sourceTree = "<group>"; };
 		1450330524126AAA00B3F404 /* TheMovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450330824126AAA00B3F404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1450330C24126AAA00B3F404 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				145E8BB92415B742007ACDBB /* ErrorDescriptable.swift */,
+				14100A812418312C0097421F /* UTCToLocal.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */,
 				145E8BB624159CAF007ACDBB /* APIClient.swift in Sources */,
 				145E8BBF2415BDA7007ACDBB /* URLRequest+jsonContentType.swift in Sources */,
+				14100A822418312C0097421F /* UTCToLocal.swift in Sources */,
 				145E8BC72415C621007ACDBB /* Dictionary+encode.swift in Sources */,
 				1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */,
 				145E8B9C24144C41007ACDBB /* AccountViewController.swift in Sources */,

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationViewController = UINavigationController(rootViewController: tabBar)
         window?.rootViewController = navigationViewController
         
-        if credentialsService.sessionExists() {
+        if credentialsService.sessionIsValid() {
             let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeTabBar())
             window?.rootViewController = navigationViewController
         } else {

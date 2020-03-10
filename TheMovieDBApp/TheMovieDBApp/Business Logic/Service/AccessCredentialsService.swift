@@ -11,7 +11,11 @@ import KeychainAccess
 
 protocol AccessCredentialsService {
     var credentials: UserSessionData? { get set }
-    func sessionExists() -> Bool
+    
+    /// Метод проверки валидности текущей сессии
+    func sessionIsValid() -> Bool
+    
+    /// Метод удаления всех данных пользователя
     func delete() throws
 }
 
@@ -46,14 +50,15 @@ final class AccessCredentials: AccessCredentialsService {
         keychain["sessionId"] = data.session
     }
     
-    func sessionExists() -> Bool {
-        if keychain["sessionId"] != nil {
-            return true
-        }
-        
-        return false
+    /// Метод проверки валидности текущей сессии
+    func sessionIsValid() -> Bool {
+        guard let expirationDate = keychain["expires"] else { return false }
+        guard toDate(date: expirationDate) > Date() else { return false }
+
+        return true
     }
     
+    /// Метод удаления всех данных пользователя
     func delete() throws {
         keychain["token"] = nil
         keychain["expires"] = nil
