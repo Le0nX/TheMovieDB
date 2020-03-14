@@ -28,8 +28,9 @@ final class AccessCredentials: AccessCredentialsService {
     
     var credentials: UserSessionData? {
         get {
-            return obtainData()
-        } set {
+            obtainData()
+        }
+        set {
             saveData(data: newValue!)
         }
     }

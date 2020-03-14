@@ -28,7 +28,7 @@ final class AuthPresenter: AuthPresenterOutput {
         
         self.view.showProgress()
         
-        self.authService.signInUser (with: login, password: password) { [weak self] result in
+        self.authService.signInUser(with: login, password: password) { [weak self] result in
             guard let self = self else {
                 return
             }

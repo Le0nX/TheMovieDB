@@ -16,7 +16,7 @@ enum AuthProvider {
 
 extension AuthProvider: Endpoint {
     var base: String {
-        return "https://api.themoviedb.org"
+        "https://api.themoviedb.org"
     }
     
     var path: String {

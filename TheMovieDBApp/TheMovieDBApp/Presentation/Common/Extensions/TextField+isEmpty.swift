@@ -10,6 +10,6 @@ import UIKit
 
 extension UITextField {
     var isEmpty: Bool {
-        return text?.isEmpty ?? true
+        text?.isEmpty ?? true
     }
 }

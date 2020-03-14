@@ -15,7 +15,7 @@ extension Dictionary {
      https://en.wikipedia.org/wiki/Percent-encoding
      */
     func percentEncode() -> Data? {
-        return map { key, value in
+        self.map { key, value in
             let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             let escapedValue = "\(value)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             return escapedKey + "=" + escapedValue
