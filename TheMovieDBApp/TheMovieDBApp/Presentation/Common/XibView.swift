@@ -11,7 +11,24 @@ import UIKit
 @IBDesignable
 class XibView: UIView {
     
+    // MARK: - Public Properties
+    
     var contentView: UIView!
+        
+    // MARK: - Initializers
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    // MARK: - Private Methods
+    
     
     private func setup() {
         guard let view = loadViewFromNib() else { return }
@@ -27,15 +44,5 @@ class XibView: UIView {
         let nibName = String(describing: type(of: self))
         let nib = UINib(nibName: nibName, bundle: Bundle(for: XibView.self))
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
     }
 }

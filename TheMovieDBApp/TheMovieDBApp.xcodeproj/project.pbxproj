@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -239,7 +239,7 @@
 			children = (
 				1450333E241281C700B3F404 /* Auth */,
 				145033402412823300B3F404 /* Search */,
-				14582F0E2413C845004226E7 /* Story3 */,
+				14582F0E2413C845004226E7 /* FilmDetails */,
 				14582F0F2413C854004226E7 /* Favorites */,
 				14582F102413C85C004226E7 /* Account */,
 				1450333F2412820000B3F404 /* Common */,
@@ -377,11 +377,11 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
-		14582F0E2413C845004226E7 /* Story3 */ = {
+		14582F0E2413C845004226E7 /* FilmDetails */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Story3;
+			path = FilmDetails;
 			sourceTree = "<group>";
 		};
 		14582F0F2413C854004226E7 /* Favorites */ = {
@@ -499,7 +499,6 @@
 				B03AEE8383F1104249730D7E /* Pods-TheMovieDBAppTests.debug.xcconfig */,
 				B89FEF63FA9570C329FFBC14 /* Pods-TheMovieDBAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

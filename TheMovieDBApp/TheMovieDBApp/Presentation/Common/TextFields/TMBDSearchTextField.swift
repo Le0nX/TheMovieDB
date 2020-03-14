@@ -8,8 +8,14 @@
 
 import UIKit
 
+/// Класс кастомного поля поиска
 final class TMDBSearchTextField: UITextField {
+    
+    // MARK: - Private Properties
+    
     private var iconClick = false
+    
+    // MARK: - Initializers
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -19,15 +25,21 @@ final class TMDBSearchTextField: UITextField {
         setup()
     }
     
+    // MARK: - UIViewController(*)
+    
     override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
         CGRect(x: 10, y: 0, width: 30, height: bounds.height)
     }
+    
+    // MARK: - Public methods
     
     public func setup() {
         setupPlaceholderColor()
         setupImage()
     }
-    
+        
+    // MARK: - Private Methods
+
     private func setupPlaceholderColor() {
         let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
         let placeholderLabel = object_getIvar(self, iVar) as? UILabel

@@ -8,7 +8,7 @@ import UIKit
 
 /// Решение проблемы локализации на основе
 /// статьи https://habr.com/ru/post/325810/
-open class LocalizationExtensions {
+public class LocalizationExtensions {
     
     public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation"
     
@@ -42,7 +42,7 @@ extension String {
         return self
     }
     
-    fileprivate func localizedWithComment(_ comment: String, bundles: [Bundle]) -> String? {
+    func localizedWithComment(_ comment: String, bundles: [Bundle]) -> String? {
         for bundle in bundles where bundle != Bundle.main {
                 if let string = self.localizedWithComment(comment, bundle: bundle, recursion: 1) {
                     return string
@@ -52,7 +52,7 @@ extension String {
         return nil
     }
     
-    fileprivate func localizedWithComment(_ comment: String, bundle: Bundle, recursion: Int) -> String? {
+    func localizedWithComment(_ comment: String, bundle: Bundle, recursion: Int) -> String? {
         let string = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: comment)
         
         if self != string {

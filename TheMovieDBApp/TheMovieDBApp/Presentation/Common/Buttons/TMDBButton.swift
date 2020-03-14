@@ -9,6 +9,9 @@
 import UIKit
 
 final class TMDBButton: UIButton {
+
+    // MARK: - Initializers
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -17,15 +20,17 @@ final class TMDBButton: UIButton {
         self.layer.masksToBounds = true
     }
     
+    // MARK: - UIViewController(*)
+    
     override var isEnabled: Bool {
-           didSet {
-            if isEnabled {
-                backgroundColor = ColorName.buttonActive
-                setTitleColor(.white, for: .normal)
-            } else {
-                backgroundColor = ColorName.buttonUnactive
-                setTitleColor(ColorName.buttonUnactiveText, for: .normal)
-            }
-           }
-       }
+        didSet {
+         if isEnabled {
+             backgroundColor = ColorName.buttonActive
+             setTitleColor(.white, for: .normal)
+         } else {
+             backgroundColor = ColorName.buttonUnactive
+             setTitleColor(ColorName.buttonUnactiveText, for: .normal)
+         }
+        }
+    }
 }

@@ -15,13 +15,17 @@ protocol AccountViewOutput {
 }
 
 final class AccountView: XibView {
-    // MARK: - Outlets
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var logoutButton: UIButton!
     
-    // MARK: - public fields
-    var output: AccountViewOutput!
+    // MARK: - Public Properties
     
-    // MARK: - constructors
+    var output: AccountViewOutput?
+        
+    // MARK: - Initializers
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -31,14 +35,16 @@ final class AccountView: XibView {
         super.init(coder: aDecoder)
         setup()
     }
+        
+    // MARK: - Public methods
     
-    // MARK: - View setupers
     func setup() {
         contentView.backgroundColor = ColorName.background
     }
     
-    // MARK: - IBActions
+    // MARK: - IBAction
+    
     @IBAction func logoutAction(_ sender: Any) {
-        output.logout()
+        output?.logout()
     }
 }

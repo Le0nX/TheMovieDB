@@ -9,20 +9,31 @@
 import Foundation
 
 protocol AuthPresenterOutput {
+    
+    /// Метод обработки нажатия кнопки Login
+    /// - Parameter login: логин пользователя
+    /// - Parameter password: пароль паользователя
     func didPressedLoginButton(login: String, password: String)
 }
 
+/// Класс перезентации экрана' Auth
 final class AuthPresenter: AuthPresenterOutput {
-
-    private weak var view: AuthViewInput!
-    private var authService: AuthService!
-    private var authCoordinator: Coordinator!
     
+    // MARK: - Private Properties
+    
+    private var view: AuthViewInput // TODO: - проверь memleak
+    private var authService: AuthService
+    private var authCoordinator: Coordinator
+    
+    // MARK: - Initializers
+
     init(_ view: AuthViewInput, authService: AuthService, authCoordinator: Coordinator) {
         self.view = view
         self.authService = authService
         self.authCoordinator = authCoordinator
     }
+    
+    // MARK: - Public methods
     
     func didPressedLoginButton(login: String, password: String) {
         

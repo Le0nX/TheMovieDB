@@ -9,11 +9,14 @@
 import UIKit
 
 final class SearchView: XibView {
-    // MARK: - Outlets
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var searchTextField: TMDBSearchTextField!
     
-    // MARK: - Constructors
+    // MARK: - Initializers
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -23,7 +26,9 @@ final class SearchView: XibView {
         super.init(coder: aDecoder)
         setup()
     }
-    // MARK: - View setupers
+        
+    // MARK: - Public methods
+    
     func setup() {
         contentView.backgroundColor = ColorName.background
     }

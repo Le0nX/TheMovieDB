@@ -11,6 +11,9 @@ import UIKit
 var vSpinner: UIView?
 
 extension UIViewController {
+    
+    /// Метод отображения спиннера
+    /// - Parameter onView: view, где будет показан спиннер
     func showSpinner(onView: UIView) {
         let spinnerView = UIView(frame: onView.bounds)
         
@@ -26,6 +29,7 @@ extension UIViewController {
         vSpinner = spinnerView
     }
     
+    /// Метод сокрытия спиннера
     func removeSpinner() {
         DispatchQueue.main.async {
             vSpinner?.removeFromSuperview()

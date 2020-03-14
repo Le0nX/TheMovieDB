@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIViewController {
+    
+    /// Метод сокрытия клавиатуры при тапе на экран
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                                  action: #selector(UIViewController.dismissKeyboard))

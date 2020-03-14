@@ -8,8 +8,15 @@
 
 import UIKit
 
+
+/// Класс кастомного поля
 final class TMDBTextField: UITextField {
+    
+    // MARK: - Private Properties
+    
     private var iconClick = false
+    
+    // MARK: - Initializers
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -21,16 +28,15 @@ final class TMDBTextField: UITextField {
         setupPlaceholderColor()
     }
     
+    // MARK: - UIViewController(*)
+    
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         CGRect(x: bounds.width - 40, y: 0, width: 30, height: bounds.height)
     }
     
-    private func setupPlaceholderColor() {
-        let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
-        let placeholderLabel = object_getIvar(self, iVar) as? UILabel
-        placeholderLabel?.textColor = #colorLiteral(red: 0.3960784314, green: 0.4274509804, blue: 0.5411764706, alpha: 1)
-    }
+    // MARK: - Public methods
     
+    /// Метод настройки расположения иконки
     func setupImage() {
         rightViewMode = UITextField.ViewMode.always
         let btn = UIButton(frame: .zero)
@@ -52,5 +58,13 @@ final class TMDBTextField: UITextField {
         }
 
         iconClick = !iconClick
+    }
+        
+    // MARK: - Private Methods
+    
+    private func setupPlaceholderColor() {
+        let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
+        let placeholderLabel = object_getIvar(self, iVar) as? UILabel
+        placeholderLabel?.textColor = #colorLiteral(red: 0.3960784314, green: 0.4274509804, blue: 0.5411764706, alpha: 1)
     }
 }

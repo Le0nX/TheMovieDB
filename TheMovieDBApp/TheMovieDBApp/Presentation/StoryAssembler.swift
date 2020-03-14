@@ -8,19 +8,25 @@
 
 import UIKit
 
-protocol StorysAssembler {
+protocol StoriesAssembler {
     func makeAuthStory() -> LoginViewController
     func makeTabBar() -> UITabBarController
     func makeAccountStory() -> AccountViewController
 }
 
-class StoryFabric: StorysAssembler {
+class StoryFabric: StoriesAssembler {
+    
+    // MARK: - Private Properties
     
     private let servicesAssembler: ServicesAssembler
+    
+    // MARK: - Initializers
     
     init(servicesAssembler: ServicesAssembler) {
         self.servicesAssembler = servicesAssembler
     }
+        
+    // MARK: - Public methods
     
     /// Фабричный метод создания экрана авторизации
     func makeAuthStory() -> LoginViewController {

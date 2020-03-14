@@ -9,17 +9,24 @@
 import UIKit
 
 final class FavoritesViewController: UIViewController {
+    
+    // MARK: - Private Properties
+    
     private let containerView: FavoritesView
-       
+    
+    // MARK: - Initializers
+    
     init(_ view: FavoritesView = FavoritesView()) {
-        self.containerView = view
-        super.init(nibName: nil, bundle: nil)
-    }
-   
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-   
+         self.containerView = view
+         super.init(nibName: nil, bundle: nil)
+     }
+    
+     required init?(coder: NSCoder) {
+         fatalError("init(coder:) has not been implemented")
+     }
+    
+    // MARK: - UIViewController(*)
+    
     override func loadView() {
         super.loadView()
         self.view = self.containerView

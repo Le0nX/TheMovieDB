@@ -8,18 +8,28 @@
 
 import UIKit
 
+/// Координатор экрана профиля
 final class AccountCoordinator: Coordinator {
-    private var  storyAssembler: StorysAssembler!
     
-    init(storyAssembler: StorysAssembler) {
+    // MARK: - Private Properties
+    
+    private var  storyAssembler: StoriesAssembler
+    
+    // MARK: - Initializers
+    
+    init(storyAssembler: StoriesAssembler) {
         self.storyAssembler = storyAssembler
     }
-    
-    private func logout() {
-        UIApplication.setRootView(UINavigationController(rootViewController: storyAssembler.makeAuthStory()))
-    }
+        
+    // MARK: - Public methods
     
     func start() {
         logout()
+    }
+        
+    // MARK: - Private Methods
+    
+    private func logout() {
+        UIApplication.setRootView(UINavigationController(rootViewController: storyAssembler.makeAuthStory()))
     }
 }

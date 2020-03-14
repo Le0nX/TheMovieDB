@@ -9,6 +9,9 @@
 import UIKit
 
 extension UIApplication {
+    
+    /// Метод выставления рутового экрана
+    /// - Parameter viewController: viewcontroller, который будет сделан рутовым
     public static func setRootView(_ viewController: UIViewController) {
         
         let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!

@@ -9,18 +9,26 @@
 import Foundation
 
 protocol AccountPresenterOutput {
+    
+    /// Обработчик нажатия кнопки логаута
     func didPressedLogoutButton()
 }
 
 final class AccountPresenter: AccountPresenterOutput {
-
-    private var accountCoordinator: AccountCoordinator!
-    private var credentailsService: AccessCredentialsService!
+    
+    // MARK: - Private Properties
+    
+    private var accountCoordinator: AccountCoordinator
+    private var credentailsService: AccessCredentialsService
+    
+    // MARK: - Initializers
     
     init(credentailsService: AccessCredentialsService, accountCoordinator: AccountCoordinator) {
         self.credentailsService = credentailsService
         self.accountCoordinator = accountCoordinator
     }
+        
+    // MARK: - Public methods
     
     func didPressedLogoutButton() {
         try? credentailsService.delete()

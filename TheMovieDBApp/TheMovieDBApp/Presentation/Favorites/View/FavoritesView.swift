@@ -9,6 +9,9 @@
 import Foundation
 
 final class FavoritesView: XibView {
+    
+    // MARK: - Initializers
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -18,7 +21,9 @@ final class FavoritesView: XibView {
         super.init(coder: aDecoder)
         setup()
     }
-    // MARK: - View setupers
+        
+    // MARK: - Public methods
+    
     func setup() {
         contentView.backgroundColor = ColorName.background
     }

@@ -15,7 +15,9 @@ protocol LoginViewDelegate: class {
 }
 
 final class LoginView: XibView {
-    // MARK: - Outlets
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var subHeaderLabel: UILabel!
     @IBOutlet weak var loginTextField: TMDBTextField!
@@ -23,9 +25,12 @@ final class LoginView: XibView {
     @IBOutlet weak var loginButton: TMDBButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    weak var delegate: LoginViewDelegate!
+    // MARK: - Public Properties
     
-    // MARK: - Constructors
+    weak var delegate: LoginViewDelegate!
+        
+    // MARK: - Initializers
+    
     init() {
         super.init(frame: .zero)
         setup()
@@ -36,7 +41,8 @@ final class LoginView: XibView {
         setup()
     }
     
-    // MARK: - View setupers
+    // MARK: - Public methods
+    
     func setup() {
         contentView.backgroundColor = ColorName.background
         setupLoginTextField()
@@ -57,11 +63,14 @@ final class LoginView: XibView {
     @objc func textFieldValueChanged(_ textField: UITextField) {
         loginButton.isEnabled = isValid(loginTextField.text ?? "", with: passwordTextField.text ?? "")
     }
-        
-    // MARK: - IBActions
+                
+    // MARK: - IBAction
+    
     @IBAction func loginAction(_ sender: Any) {
         delegate.loginAction()
     }
+    
+    // MARK: - Private Methods
     
     private func setupLoginTextField() {
         loginTextField.delegate = self
