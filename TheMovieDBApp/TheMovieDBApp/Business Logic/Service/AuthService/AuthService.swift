@@ -14,24 +14,40 @@ enum LoginServiceResult {
 }
 
 protocol AuthService {
-    // TODO: - signout
+    
+    /// Метод авторизации пользователя
+    /// - Parameter login: логин пользователя
+    /// - Parameter password: пароль пользователя
+    /// - Parameter completion: обработчик авторизации или ошибки авторизации
     func signInUser(with login: String, password: String, completion: @escaping (LoginServiceResult) -> Void)
+    
+    /// TODO: - Signout()
 }
 
-/**
- Сервис авторизации пользователя.
- Позволяет создать и сохранить пользовательскую сессию
- */
-public class LoginService: AuthService {
-    private var accessService: AccessCredentialsService
-    private let client: AuthClient
+/// Сервис авторизации пользователя.
+/// Позволяет создать и сохранить пользовательскую сессию
+final public class LoginService: AuthService {
+    
+    // MARK: - Types
     
     typealias Result = LoginServiceResult
+    
+    // MARK: - Constants
+    
+    private let client: AuthClient
+            
+    // MARK: - Private Properties
+    
+    private var accessService: AccessCredentialsService
+    
+    // MARK: - Initializers
     
     init(client: AuthClient, accessService: AccessCredentialsService) {
         self.client = client
         self.accessService = accessService
     }
+    
+    // MARK: - Public methods
     
     /// Метод авторизации пользователя
     /// - Parameter login: логин пользователя
@@ -51,7 +67,9 @@ public class LoginService: AuthService {
             }
         }
     }
-    
+        
+    // MARK: - Private Methods
+
     private func validateToken(with requestToken: String,
                                login: String,
                                password: String,

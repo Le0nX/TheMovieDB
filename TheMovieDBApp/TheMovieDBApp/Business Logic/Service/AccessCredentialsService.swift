@@ -10,6 +10,8 @@ import Foundation
 import KeychainAccess
 
 protocol AccessCredentialsService {
+    
+    /// Доступ к структуре sensetive пользовательских данных
     var credentials: UserSessionData? { get set }
     
     /// Метод проверки валидности текущей сессии
@@ -19,37 +21,33 @@ protocol AccessCredentialsService {
     func delete() throws
 }
 
+/// Сервис доступа к пользовательским данным
 final class AccessCredentials: AccessCredentialsService {
-    let keychain: Keychain
     
-    init(keychain: Keychain) {
-        self.keychain = keychain
-    }
+    // MARK: - Constants
+    
+     let keychain: Keychain
+    
+    // MARK: - Public Properties
     
     var credentials: UserSessionData? {
+        
         get {
             obtainData()
         }
+        
         set {
             saveData(data: newValue!)
         }
     }
-    
-    private func obtainData() -> UserSessionData? {
-        guard let token = keychain["token"],
-            let expires = keychain["expires"],
-            let sessionId = keychain["sessionId"] else { return nil }
         
-        return UserSessionData(token: token,
-                               expires: expires,
-                               session: sessionId)
-    }
+    // MARK: - Initializers
     
-    private func saveData(data: UserSessionData) {
-        keychain["token"] = data.token
-        keychain["expires"] = data.expires
-        keychain["sessionId"] = data.session
+    init(keychain: Keychain) {
+        self.keychain = keychain
     }
+        
+    // MARK: - Public methods
     
     /// Метод проверки валидности текущей сессии
     func sessionIsValid() -> Bool {
@@ -64,5 +62,23 @@ final class AccessCredentials: AccessCredentialsService {
         keychain["token"] = nil
         keychain["expires"] = nil
         keychain["sessionId"] = nil
+    }
+        
+    // MARK: - Private Methods
+
+    private func obtainData() -> UserSessionData? {
+        guard let token = keychain["token"],
+            let expires = keychain["expires"],
+            let sessionId = keychain["sessionId"] else { return nil }
+        
+        return UserSessionData(token: token,
+                               expires: expires,
+                               session: sessionId)
+    }
+    
+    private func saveData(data: UserSessionData) {
+        keychain["token"] = data.token
+        keychain["expires"] = data.expires
+        keychain["sessionId"] = data.session
     }
 }

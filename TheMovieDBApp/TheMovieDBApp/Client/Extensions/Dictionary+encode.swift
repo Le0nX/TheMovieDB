@@ -10,10 +10,8 @@ import Foundation
 
 extension Dictionary {
     
-    /**
-     Вспомогательный метод кодирования тела HTTP запроса на основе допустимых символов
-     https://en.wikipedia.org/wiki/Percent-encoding
-     */
+    /// Вспомогательный метод кодирования тела HTTP запроса на основе допустимых символов
+    /// https://en.wikipedia.org/wiki/Percent-encoding
     func percentEncode() -> Data? {
         self.map { key, value in
             let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""

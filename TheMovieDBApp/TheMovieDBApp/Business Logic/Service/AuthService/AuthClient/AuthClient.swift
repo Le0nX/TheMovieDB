@@ -8,12 +8,15 @@
 
 import Foundation
 
-/**
- Класс работы с сетью для авторизации.
- TODO: - добавить logout
- */
-class AuthClient: APIClient {
+/// Класс работы с сетью для авторизации.
+/// TODO: - добавить logout
+final class AuthClient: APIClient {
+        
+    // MARK: - Constants
+    
     let session: URLSession
+    
+    // MARK: - Initializers
     
     init(configuration: URLSessionConfiguration) {
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
@@ -23,6 +26,8 @@ class AuthClient: APIClient {
     convenience init() {
         self.init(configuration: .default)
     }
+        
+    // MARK: - Public methods
     
     /// Метод создания request_token
     /// https://developers.themoviedb.org/3/authentication/create-request-token

@@ -8,11 +8,15 @@
 
 import Foundation
 
-/**
- Сетевой слой, написанный на основе https://medium.com/flawless-app-stories/writing-network-layer-in-swift-protocol-oriented-approach-4fa40ef1f908
- */
+/// Сетевой слой, написанный на основе
+/// https://medium.com/flawless-app-stories/writing-network-layer-in-swift-protocol-oriented-approach-4fa40ef1f908
 protocol APIClient {
+    
+    // MARK: - Public Properties
+    
     var session: URLSession { get }
+    
+    // MARK: - Public methods
     
     /// Дженерик метод запроса по сети
     /// - Parameter request: тело запроса
@@ -24,13 +28,40 @@ protocol APIClient {
     
 }
 
-/**
- Дефолтная имплементация протокола APIClient
- */
+/// Дефолтная имплементация протокола APIClient
 extension APIClient {
+    
+    // MARK: - Types
     
     typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
     
+    // MARK: - Public methods
+    
+    func fetch<T: Decodable>(with request: URLRequest,
+                             decode: @escaping (Decodable) -> T?,
+                             completion: @escaping (Result<T, APIError>) -> Void) {
+        let task = decodingTask(with: request, decodingType: T.self) { json, error in
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    if let error = error {
+                        completion(Result.failure(error))
+                    } else {
+                        completion(Result.failure(.requestFailed))
+                    }
+                    return
+                }
+                if let value = decode(json) {
+                    completion(.success(value))
+                } else {
+                    completion(.failure(.requestFailed))
+                }
+            }
+        }
+        task.resume()
+    }
+        
+    // MARK: - Private Methods
+
     private func decodingTask<T: Decodable>(with request: URLRequest,
                                             decodingType: T.Type,
                                             completionHandler completion: JSONTaskCompletionHandler?)
@@ -59,28 +90,5 @@ extension APIClient {
             }
         }
         return task
-    }
-    
-    func fetch<T: Decodable>(with request: URLRequest,
-                             decode: @escaping (Decodable) -> T?,
-                             completion: @escaping (Result<T, APIError>) -> Void) {
-        let task = decodingTask(with: request, decodingType: T.self) { json, error in
-            DispatchQueue.main.async {
-                guard let json = json else {
-                    if let error = error {
-                        completion(Result.failure(error))
-                    } else {
-                        completion(Result.failure(.requestFailed))
-                    }
-                    return
-                }
-                if let value = decode(json) {
-                    completion(.success(value))
-                } else {
-                    completion(.failure(.requestFailed))
-                }
-            }
-        }
-        task.resume()
     }
 }

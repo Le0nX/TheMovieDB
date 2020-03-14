@@ -11,9 +11,7 @@
 
 import Foundation
 
-/**
- Enpoint предназначен для упрощения создания тела запроса.
-*/
+///Enpoint предназначен для упрощения создания тела запроса.
 protocol Endpoint {
     var base: String { get }
     var path: String { get }
@@ -23,10 +21,10 @@ protocol Endpoint {
     var method: HTTPMethod { get }
 }
 
-/**
-Дефолтная реализация протокола для TMDBApp
- */
+/// Дефолтная реализация протокола для TMDBApp
 extension Endpoint {
+    
+    // MARK: - Public Properties
     
     var apiKey: String {
         // TODO: - переделать на keychain сервис и закрыть интерфейсом

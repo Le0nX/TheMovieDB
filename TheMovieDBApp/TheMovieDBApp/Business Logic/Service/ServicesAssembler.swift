@@ -10,11 +10,16 @@ import Foundation
 import KeychainAccess
 
 protocol ServicesAssembler {
+    
+    /// Сервис авторизации
     var authService: AuthService { get }
+    
+    /// Сервис доступа к sensetive данным пользователя
     var accessService: AccessCredentialsService { get }
 }
 
-class ServiceFabric: ServicesAssembler {
+/// Фабрика сервисов
+final class ServiceFabric: ServicesAssembler {
     
     /// Сервис авторизации
     lazy var authService: AuthService = {
