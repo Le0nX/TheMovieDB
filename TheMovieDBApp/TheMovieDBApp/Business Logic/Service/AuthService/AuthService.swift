@@ -41,7 +41,10 @@ public class LoginService: AuthService {
         client.createRequestToken { result in
             switch result {
             case .success(let requestToken):
-                self.validateToken(with: requestToken.token, login: login, password: password, completion: completion)
+                self.validateToken(with: requestToken.requestToken,
+                                   login: login,
+                                   password: password,
+                                   completion: completion)
             case .failure(let error):
                 print(error.description)
                 completion(.failure(error))
@@ -66,14 +69,14 @@ public class LoginService: AuthService {
         
     private func createSessionId(with requestToken: RequestToken,
                                  completion: @escaping (Result) -> Void) {
-        client.createSessionId(with: requestToken.token) { result in
+        client.createSessionId(with: requestToken.requestToken) { result in
             switch result {
             case .success(let sessionResult):
                 guard let sessionId = sessionResult.sessionId else { return }
                     print(sessionId)
                 completion(.success(sessionResult))
-                let credentials = UserSessionData(token: requestToken.token,
-                                                  expiers: requestToken.expiersAt,
+                let credentials = UserSessionData(token: requestToken.requestToken,
+                                                  expires: requestToken.expiresAt,
                                                   session: sessionResult.sessionId ?? "")
                 self.accessService.credentials = credentials
             case .failure(let error):

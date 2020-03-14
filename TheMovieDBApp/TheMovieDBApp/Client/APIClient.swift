@@ -44,6 +44,7 @@ extension APIClient {
                 if let data = data {
                     do {
                         let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
                         let genericModel = try decoder.decode(decodingType, from: data)
                         completion?(genericModel, nil)
                     } catch {

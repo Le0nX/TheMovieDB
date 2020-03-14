@@ -11,14 +11,9 @@ import Foundation
 struct RequestToken: Decodable {
     
     let success: Bool
-    let expiersAt: String
-    let token: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case success
-        case expiersAt = "expires_at"
-        case token = "request_token"
-    }
+    let expiresAt: String
+    let requestToken: String
+
 }
 
 struct UserSession: Decodable {
@@ -26,8 +21,4 @@ struct UserSession: Decodable {
     let success: Bool
     let sessionId: String?
     
-    private enum CodingKeys: String, CodingKey {
-        case success
-        case sessionId = "session_id"
-    }
 }

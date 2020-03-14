@@ -10,6 +10,6 @@ import Foundation
 
 struct UserSessionData {
     let token: String
-    let expiers: String
+    let expires: String
     let session: String
 }

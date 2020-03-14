@@ -41,13 +41,13 @@ final class AccessCredentials: AccessCredentialsService {
             let sessionId = keychain["sessionId"] else { return nil }
         
         return UserSessionData(token: token,
-                               expiers: expires,
+                               expires: expires,
                                session: sessionId)
     }
     
     private func saveData(data: UserSessionData) {
         keychain["token"] = data.token
-        keychain["expires"] = data.expiers
+        keychain["expires"] = data.expires
         keychain["sessionId"] = data.session
     }
     
