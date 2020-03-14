@@ -19,6 +19,10 @@ final class TMDBSearchTextField: UITextField {
         setup()
     }
     
+    override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
+        CGRect(x: 10, y: 0, width: 30, height: bounds.height)
+    }
+    
     public func setup() {
         setupPlaceholderColor()
         setupImage()
@@ -32,7 +36,7 @@ final class TMDBSearchTextField: UITextField {
     
     private func setupImage() {
         leftViewMode = UITextField.ViewMode.always
-        let imageView = UIImageView(frame: CGRect(x: 15, y: 0, width: 40, height: 25))
+        let imageView = UIImageView(frame: .zero)
         imageView.image = ImageName.searchLoup
         
         imageView.contentMode = UIView.ContentMode.scaleAspectFit

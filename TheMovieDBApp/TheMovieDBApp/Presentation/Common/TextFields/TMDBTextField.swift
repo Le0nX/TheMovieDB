@@ -21,6 +21,10 @@ final class TMDBTextField: UITextField {
         setupPlaceholderColor()
     }
     
+    override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
+        CGRect(x: bounds.width - 40, y: 0, width: 30, height: bounds.height)
+    }
+    
     private func setupPlaceholderColor() {
         let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
         let placeholderLabel = object_getIvar(self, iVar) as? UILabel
@@ -29,13 +33,12 @@ final class TMDBTextField: UITextField {
     
     func setupImage() {
         rightViewMode = UITextField.ViewMode.always
-        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let btn = UIButton(frame: .zero)
         btn.addTarget(self, action: #selector(iconAction), for: .touchUpInside)
         btn.imageView?.adjustsImageSizeForAccessibilityContentSizeCategory = true
         btn.imageView?.contentMode = UIView.ContentMode.scaleAspectFit
 
         btn.setImage(ImageName.loginEye, for: .normal)
-        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         rightView = btn
     }
     
