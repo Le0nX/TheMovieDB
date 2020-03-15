@@ -17,7 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        
+        ApplicationAppearance.setupNavigatioBar()
+        ApplicationAppearance.setupTabBar()
+        
+        let serviceAssembler = ServiceFabric()
+        let storyAssembler = StoryFabric(servicesAssembler: serviceAssembler)
+        
+        let credentialsService = serviceAssembler.accessService
+        
+        let tabBar = storyAssembler.makeTabBar()
+        let navigationViewController = UINavigationController(rootViewController: tabBar)
+        window?.rootViewController = navigationViewController
+        
+        if credentialsService.sessionIsValid() {
+            let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeTabBar())
+            window?.rootViewController = navigationViewController
+        } else {
+            let navigationViewController = UINavigationController(rootViewController: storyAssembler.makeAuthStory())
+            window?.rootViewController = navigationViewController
+        }
+        
         window?.makeKeyAndVisible()
         return true
     }

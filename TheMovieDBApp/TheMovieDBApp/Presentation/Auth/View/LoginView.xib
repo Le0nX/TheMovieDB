@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginView" customModule="TheMovieDBApp" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="nIQ-FP-7dP" id="VSk-HF-KVB"/>
+                <outlet property="headerLabel" destination="adT-VC-Dx2" id="XIu-b4-e8w"/>
+                <outlet property="loginButton" destination="3r3-vg-g3Y" id="IZt-Eb-oWN"/>
+                <outlet property="loginTextField" destination="X6D-dt-Yh8" id="atZ-sU-aec"/>
+                <outlet property="passwordTextField" destination="gBy-5r-tfk" id="1fI-jn-aTa"/>
+                <outlet property="subHeaderLabel" destination="b5S-71-8y3" id="YEq-eL-ZSu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="aHF-on-WGA">
+            <rect key="frame" x="0.0" y="0.0" width="433" height="539"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро пожаловать!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adT-VC-Dx2">
+                    <rect key="frame" x="24" y="11" width="385" height="37"/>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="31"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="AUTH_VIEW_TITLE"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите логин и пароль, котрые  вы использовали для входа" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5S-71-8y3">
+                    <rect key="frame" x="24" y="73" width="386" height="38.5"/>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="AUTH_VIEW_SUBTITLE"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6D-dt-Yh8" customClass="TMDBTextField" customModule="TheMovieDBApp" customModuleProvider="target">
+                    <rect key="frame" x="24" y="143.5" width="385" height="48"/>
+                    <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="i4E-57-vuf"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" textContentType="email"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="AUTH_VIEW_LOGIN_PLACEHOLDER"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3r3-vg-g3Y" customClass="TMDBButton" customModule="TheMovieDBApp" customModuleProvider="target">
+                    <rect key="frame" x="24" y="456" width="385" height="56"/>
+                    <color key="backgroundColor" red="0.13725490200000001" green="0.14901960780000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="BLE-Oc-rH4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                    <state key="normal" title="Войти">
+                        <color key="titleColor" red="0.396078431372549" green="0.42745098039215684" blue="0.54117647058823526" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" red="0.39607843139999999" green="0.42745098040000001" blue="0.54117647059999996" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzTitle" value="AUTH_VIEW_BUTTON_TITLE"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="P0I-NE-Y54"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gBy-5r-tfk" customClass="TMDBTextField" customModule="TheMovieDBApp" customModuleProvider="target">
+                    <rect key="frame" x="24" y="215.5" width="385" height="48"/>
+                    <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="1YP-Uz-Q9h"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="AUTH_VIEW_PASSWORD_PLACEHOLDER"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIQ-FP-7dP">
+                    <rect key="frame" x="24" y="287.5" width="385" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.88235294117647056" green="0.090196078431372548" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="lzText" value="AUTH_ERROR_MESSAGE"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="nIQ-FP-7dP" secondAttribute="trailing" constant="24" id="3Y2-6u-bW4"/>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="X6D-dt-Yh8" secondAttribute="trailing" constant="24" id="6Ue-oC-TE9"/>
+                <constraint firstItem="X6D-dt-Yh8" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="9GI-Th-DsK"/>
+                <constraint firstItem="b5S-71-8y3" firstAttribute="top" secondItem="adT-VC-Dx2" secondAttribute="bottom" constant="25" id="C6k-ve-yz1"/>
+                <constraint firstItem="3r3-vg-g3Y" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="HpM-Lo-Z6A"/>
+                <constraint firstItem="X6D-dt-Yh8" firstAttribute="top" secondItem="b5S-71-8y3" secondAttribute="bottom" constant="32" id="IJS-8r-d2v"/>
+                <constraint firstItem="adT-VC-Dx2" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="MXg-DF-nYx"/>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="adT-VC-Dx2" secondAttribute="trailing" constant="24" id="OKZ-ei-Hdf"/>
+                <constraint firstAttribute="bottom" secondItem="3r3-vg-g3Y" secondAttribute="bottom" constant="27" id="beA-ab-mHx"/>
+                <constraint firstItem="gBy-5r-tfk" firstAttribute="top" secondItem="X6D-dt-Yh8" secondAttribute="bottom" constant="24" id="brz-iD-nl2"/>
+                <constraint firstItem="adT-VC-Dx2" firstAttribute="top" secondItem="aHF-on-WGA" secondAttribute="top" constant="11" id="dwx-5Z-9xT"/>
+                <constraint firstItem="nIQ-FP-7dP" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="flK-rR-8Pr"/>
+                <constraint firstItem="b5S-71-8y3" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="h5J-TE-uBz"/>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="gBy-5r-tfk" secondAttribute="trailing" constant="24" id="hVW-td-yiQ"/>
+                <constraint firstItem="nIQ-FP-7dP" firstAttribute="top" secondItem="gBy-5r-tfk" secondAttribute="bottom" constant="24" id="pk3-qL-SdG"/>
+                <constraint firstItem="gBy-5r-tfk" firstAttribute="leading" secondItem="d5O-JN-TSZ" secondAttribute="leading" constant="24" id="uSz-dD-m1U"/>
+                <constraint firstAttribute="trailing" secondItem="b5S-71-8y3" secondAttribute="trailing" constant="23" id="xdD-Y6-wZo"/>
+                <constraint firstItem="d5O-JN-TSZ" firstAttribute="trailing" secondItem="3r3-vg-g3Y" secondAttribute="trailing" constant="24" id="yml-4n-dP0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="d5O-JN-TSZ"/>
+            <point key="canvasLocation" x="-64.492753623188406" y="-311.04910714285711"/>
+        </view>
+    </objects>
+</document>
