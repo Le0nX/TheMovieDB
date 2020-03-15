@@ -9,8 +9,14 @@
 import UIKit
 
 protocol StoriesAssembler {
+    
+    /// Фабричный метод создания экрана логина
     func makeAuthStory() -> LoginViewController
+    
+    /// Фабричный метод создания таббара
     func makeTabBar() -> UITabBarController
+    
+    /// Фабричный метод создания экрана профиля
     func makeAccountStory() -> AccountViewController
 }
 

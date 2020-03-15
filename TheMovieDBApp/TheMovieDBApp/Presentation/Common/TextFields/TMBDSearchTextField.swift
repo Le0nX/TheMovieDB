@@ -11,10 +11,6 @@ import UIKit
 /// Класс кастомного поля поиска
 final class TMDBSearchTextField: UITextField {
     
-    // MARK: - Private Properties
-    
-    private var iconClick = false
-    
     // MARK: - Initializers
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,17 +30,13 @@ final class TMDBSearchTextField: UITextField {
     // MARK: - Public methods
     
     public func setup() {
-        setupPlaceholderColor()
+        attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
+                                                   attributes: [NSAttributedString.Key.foregroundColor:
+                                                                ColorName.fontMain])
         setupImage()
     }
         
     // MARK: - Private Methods
-
-    private func setupPlaceholderColor() {
-        let iVar = class_getInstanceVariable(UITextField.self, "_placeholderLabel")!
-        let placeholderLabel = object_getIvar(self, iVar) as? UILabel
-        placeholderLabel?.textColor = ColorName.fontMain
-    }
     
     private func setupImage() {
         leftViewMode = UITextField.ViewMode.always
