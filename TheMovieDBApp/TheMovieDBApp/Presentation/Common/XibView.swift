@@ -29,7 +29,6 @@ class XibView: UIView {
     
     // MARK: - Private Methods
     
-    
     private func setup() {
         guard let view = loadViewFromNib() else { return }
         
