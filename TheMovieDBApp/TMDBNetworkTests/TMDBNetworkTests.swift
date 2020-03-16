@@ -52,7 +52,7 @@ class TMDBNetworkTests: XCTestCase {
         }
     }
     
-    func test_SessionRequestTest() {
+    func test_SessionRequest() {
         let client = TMDBAPIClient()
         let endpoint = RequestTokenEndpoint()
         var token = ""
@@ -88,4 +88,21 @@ class TMDBNetworkTests: XCTestCase {
             }
         }
     }
+    
+    func test_searchMovie() {
+        let client = TMDBAPIClient()
+        let endpoint = SearchEndpoint(search: "007")
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let movieResponse):
+                print(movieResponse.results)
+                XCTAssertTrue(movieResponse.totalResults ?? 0 > 0)
+            case .failure:
+                XCTFail("Couldn't find film")
+            }
+        }
+        
+    }
+    
 }
