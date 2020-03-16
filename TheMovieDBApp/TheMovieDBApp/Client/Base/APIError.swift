@@ -15,27 +15,16 @@ enum APIError: Error, ErrorDescriptable {
     case invalidData
     case notFound
     case authFailed
+    case invalidApiKey
     case unknown(HTTPURLResponse?)
-    
-    init(response: URLResponse?) {
-        guard let response = response as? HTTPURLResponse else {
-            self = .unknown(nil)
-            return
-        }
-        switch response.statusCode {
-        case 400:
-            self = .badRequest
-        case 401:
-            self = .authFailed
-        case 404:
-            self = .notFound
-        default:
-            self = .unknown(response)
-        }
-    }
+    case invalidService
     
     var description: String {
         switch self {
+        case .invalidApiKey:
+            return ErrorMessages.InvalidApiKey
+        case .invalidService:
+            return ErrorMessages.InvalidService
         case .authFailed:
             return ErrorMessages.AuthFailed
         case .notFound:
@@ -51,6 +40,10 @@ enum APIError: Error, ErrorDescriptable {
 extension APIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .invalidApiKey:
+            return ErrorMessages.InvalidApiKey
+        case .invalidService:
+            return ErrorMessages.InvalidService
         case .authFailed:
             return ErrorMessages.AuthFailed
         case .notFound:
@@ -70,5 +63,9 @@ extension APIError {
         static let NotFound = NSLocalizedString("AUTH_404_ERROR_MESSAGE", comment: "404. Not found.")
         static let ServerError = NSLocalizedString("AUTH_SERVER_ERROR", comment: "Server Error")
         static let RequestFailed = NSLocalizedString("AUTH_REQUEST_ERROR", comment: "Connectivity Error")
+        static let InvalidService = NSLocalizedString("Invalid service: this service does not exist.",
+                                                      comment: "Invalid Service")
+        static let InvalidApiKey = NSLocalizedString("Invalid API key: You must be granted a valid key.",
+        comment: "Invalid api key")
     }
 }
