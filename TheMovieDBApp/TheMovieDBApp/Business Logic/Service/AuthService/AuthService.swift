@@ -6,6 +6,7 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import TMDBNetwork
 import Foundation
 
 enum LoginServiceResult {
@@ -58,13 +59,11 @@ final public class LoginService: AuthService {
         client.request(endpoint) { result in
             switch result {
             case .success(let requestToken):
-                print(requestToken.requestToken)
                 self.validateToken(with: requestToken.requestToken,
                                    login: login,
                                    password: password,
                                    completion: completion)
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
         }
@@ -80,10 +79,8 @@ final public class LoginService: AuthService {
         client.request(endpoint) { result in
             switch result {
             case .success(let validatedToken):
-                print(validatedToken)
                 self.createSessionId(with: validatedToken, completion: completion)
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
         }
@@ -96,11 +93,10 @@ final public class LoginService: AuthService {
             switch result {
             case .success(let sessionResult):
                 guard let sessionId = sessionResult.sessionId else { return }
-                    print(sessionId)
                 completion(.success(sessionResult))
                 let credentials = UserSessionData(token: validatedToken.requestToken,
                                                   expires: validatedToken.expiresAt,
-                                                  session: sessionResult.sessionId ?? "")
+                                                  session: sessionId)
                 self.accessService.credentials = credentials
             case .failure(let error):
                 completion(.failure(error))

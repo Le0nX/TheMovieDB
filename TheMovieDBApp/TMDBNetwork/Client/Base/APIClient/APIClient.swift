@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol APIClient: AnyObject {
+public protocol APIClient: AnyObject {
     
     /// Дженерик метод запроса по сети
     ///

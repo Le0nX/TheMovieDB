@@ -1,14 +1,14 @@
 //
 //  ErrorResponse.swift
-//  TheMovieDBApp
+//  TMDBNetwork
 //
-//  Created by Denis Nefedov on 16.03.2020.
+//  Created by Denis Nefedov on 17.03.2020.
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
 import Foundation
 
-struct ErrorResponse: Decodable {
+public struct ErrorResponse: Decodable {
     let statusCode: Int
     let statusMessage: String
 }

@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol Descriptable {
+    
+    var description: String { get }
+    
+}
+
+protocol ErrorDescriptable: Descriptable {}
+
 enum APIError: Error, ErrorDescriptable {
     
     case badRequest

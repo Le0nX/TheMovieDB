@@ -22,8 +22,9 @@ public final class TMDBAPIClient: APIClient {
         
     // MARK: - Public methods
     
-    func request<T>(_ endpoint: T,
-                    completionHandler: @escaping (APIResult<T.Content>) -> Void
+    @discardableResult
+    public func request<T>(_ endpoint: T,
+                           completionHandler: @escaping (APIResult<T.Content>) -> Void
     ) -> Progress where T: Endpoint {
         
         guard let request = try? endpoint.makeRequest() else {
@@ -44,8 +45,6 @@ public final class TMDBAPIClient: APIClient {
                         let genericModel = try endpoint.content(from: data, response: httpResponse)
                         completionHandler(.success(genericModel))
                     } catch {
-                        print(error.localizedDescription)
-                        print(httpResponse)
                         completionHandler(.failure(error))
                     }
                 } else {

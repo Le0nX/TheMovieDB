@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import TMDBNetwork
 
 protocol ServicesAssembler {
     

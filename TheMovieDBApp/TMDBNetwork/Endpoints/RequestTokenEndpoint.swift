@@ -8,31 +8,33 @@
 
 import Foundation
 
-struct RequestTokenEndpoint: Endpoint {
+public struct RequestTokenEndpoint: Endpoint {
     
-    typealias Content = RequestToken
+    public typealias Content = RequestToken
         
-    var path: String {
+    public var path: String {
         "/3/authentication/token/new"
     }
         
-    var headers: [String: String]? {
+    public var headers: [String: String]? {
         nil
     }
         
-    var params: [String: Any]? {
+    public var params: [String: Any]? {
         nil
     }
         
-    var parameterEncoding: ParameterEnconding {
+    public var parameterEncoding: ParameterEnconding {
         .defaultEncoding
     }
         
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         .get
     }
     
-    func content(from data: Data, response: URLResponse?) throws -> RequestToken {
+    public init(){}
+    
+    public func content(from data: Data, response: URLResponse?) throws -> RequestToken {
         
         guard let response = response as? HTTPURLResponse else {
             throw APIError.badRequest

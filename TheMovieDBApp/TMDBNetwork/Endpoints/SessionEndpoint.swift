@@ -1,5 +1,5 @@
 //
-//  ValidateTokenEndpoint.swift
+//  SessionEndpoint.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 16.03.2020.
@@ -8,41 +8,37 @@
 
 import Foundation
 
-struct ValidateTokenEndpoint: Endpoint {
+public struct SessionEndpoint: Endpoint {
     
-    typealias Content = ValidateToken
-        
-    private var username: String
-    private var password: String
+    public typealias Content = UserSession
+ 
     private var token: String
     
-    var path: String {
-        "/3/authentication/token/validate_with_login"
+    public var path: String {
+        "/3/authentication/session/new"
     }
         
-    var headers: [String: String]? {
+    public var headers: [String: String]? {
         nil
     }
         
-    var params: [String: Any]? {
-        ["username": username, "password": password, "request_token": token]
+    public var params: [String: Any]? {
+        ["request_token": token]
     }
         
-    var parameterEncoding: ParameterEnconding {
+    public var parameterEncoding: ParameterEnconding {
         .jsonEncoding
     }
         
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         .post
     }
     
-    init(with login: String, password: String, requestToken: String) {
-        self.username = login
-        self.password = password
-        self.token = requestToken
+    public init(with validatedToken: String) {
+        self.token = validatedToken
     }
     
-    func content(from data: Data, response: URLResponse?) throws -> Content {
+    public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {
             throw APIError.invalidData
@@ -55,8 +51,6 @@ struct ValidateTokenEndpoint: Endpoint {
             switch content.statusCode {
             case 7:
                 throw APIError.invalidApiKey
-            case 30:
-                throw APIError.authFailed
             default:
                 throw APIError.unknown(response)
             }

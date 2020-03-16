@@ -43,3 +43,13 @@ public protocol Endpoint {
     /// - Returns: результат парсинга
     func content(from data: Data, response: URLResponse?) throws -> Content
 }
+
+public enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+}
+
+public enum ParameterEnconding {
+    case defaultEncoding
+    case jsonEncoding
+}

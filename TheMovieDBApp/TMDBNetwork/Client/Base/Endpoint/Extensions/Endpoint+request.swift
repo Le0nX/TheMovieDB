@@ -1,8 +1,8 @@
 //
-//  Endpoint+base.swift
-//  TheMovieDBApp
+//  Endpoint+request.swift
+//  TMDBNetwork
 //
-//  Created by Denis Nefedov on 16.03.2020.
+//  Created by Denis Nefedov on 17.03.2020.
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ extension Endpoint {
     }
 
     var apiKey: String {
-        return "462eae24aa8df4234b6774c7088f312d"
+        "462eae24aa8df4234b6774c7088f312d"
     }
 
     var urlComponents: URLComponents {
@@ -41,7 +41,7 @@ extension Endpoint {
         return components
     }
     
-    func makeRequest() throws -> URLRequest {
+    public func makeRequest() throws -> URLRequest {
         let url = urlComponents.url!
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
@@ -65,14 +65,4 @@ extension Endpoint {
 
         return request
     }
-}
-
-public enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
-
-public enum ParameterEnconding {
-    case defaultEncoding
-    case jsonEncoding
 }

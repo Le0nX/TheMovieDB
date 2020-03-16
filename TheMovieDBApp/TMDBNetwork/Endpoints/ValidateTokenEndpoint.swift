@@ -1,5 +1,5 @@
 //
-//  SessionEndpoint.swift
+//  ValidateTokenEndpoint.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 16.03.2020.
@@ -8,37 +8,41 @@
 
 import Foundation
 
-struct SessionEndpoint: Endpoint {
+public struct ValidateTokenEndpoint: Endpoint {
     
-    typealias Content = UserSession
- 
+    public typealias Content = ValidateToken
+        
+    private var username: String
+    private var password: String
     private var token: String
     
-    var path: String {
-        "/3/authentication/session/new"
+    public var path: String {
+        "/3/authentication/token/validate_with_login"
     }
         
-    var headers: [String: String]? {
+    public var headers: [String: String]? {
         nil
     }
         
-    var params: [String: Any]? {
-        ["request_token": token]
+    public var params: [String: Any]? {
+        ["username": username, "password": password, "request_token": token]
     }
         
-    var parameterEncoding: ParameterEnconding {
+    public var parameterEncoding: ParameterEnconding {
         .jsonEncoding
     }
         
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         .post
     }
     
-    init(with validatedToken: String) {
-        self.token = validatedToken
+    public init(with login: String, password: String, requestToken: String) {
+        self.username = login
+        self.password = password
+        self.token = requestToken
     }
     
-    func content(from data: Data, response: URLResponse?) throws -> Content {
+    public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {
             throw APIError.invalidData
@@ -51,6 +55,8 @@ struct SessionEndpoint: Endpoint {
             switch content.statusCode {
             case 7:
                 throw APIError.invalidApiKey
+            case 30:
+                throw APIError.authFailed
             default:
                 throw APIError.unknown(response)
             }

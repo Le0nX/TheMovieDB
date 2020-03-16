@@ -6,29 +6,86 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import XCTest
 @testable import TMDBNetwork
+import XCTest
 
 class TMDBNetworkTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_CreateSuccessRequestToken() {
+        let client = TMDBAPIClient()
+        let endpoint = RequestTokenEndpoint()
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let tokenRequest):
+                XCTAssertTrue(tokenRequest.success)
+            case .failure:
+                XCTFail("Couldn't get token")
+            }
+        }
+        
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_ValidateRequestToken() {
+        let client = TMDBAPIClient()
+        let endpoint = RequestTokenEndpoint()
+        var token = ""
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let tokenRequest):
+                token = tokenRequest.requestToken
+            case .failure:
+                XCTFail("Couldn't get token")
+            }
+        }
+        
+        let endpoint2 = ValidateTokenEndpoint(with: "le0nx", password: "Qwerty123", requestToken: token)
+        
+        client.request(endpoint2) { result in
+            switch result {
+            case .success(let validation):
+                XCTAssertTrue(validation.success)
+            case .failure:
+                XCTFail("Couldn't validate token")
+            }
         }
     }
-
+    
+    func test_SessionRequestTest() {
+        let client = TMDBAPIClient()
+        let endpoint = RequestTokenEndpoint()
+        var token = ""
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let tokenRequest):
+                token = tokenRequest.requestToken
+            case .failure:
+                XCTFail("Couldn't get token")
+            }
+        }
+        
+        let endpoint2 = ValidateTokenEndpoint(with: "le0nx", password: "Qwerty123", requestToken: token)
+        
+        client.request(endpoint2) { result in
+            switch result {
+            case .success(let validation):
+                token = validation.requestToken
+            case .failure:
+                XCTFail("Couldn't validate token")
+            }
+        }
+        
+        let endpoint3 = SessionEndpoint(with: token)
+        
+        client.request(endpoint3) { result in
+            switch result {
+            case .success(let session):
+                XCTAssertTrue(session.success)
+            case .failure:
+                XCTFail("Couldn't create session")
+            }
+        }
+    }
 }
