@@ -23,7 +23,8 @@ extension Endpoint {
     var urlComponents: URLComponents {
         var components = URLComponents(string: base)!
         components.path = path
-        var queryItems = [URLQueryItem(name: "api_key", value: apiKey)] // можно добавить язык на основе локализации
+        var queryItems = [URLQueryItem(name: "api_key", value: apiKey),
+                          URLQueryItem(name: "language", value: Locale.current.languageCode)]
 
         switch parameterEncoding {
         case .defaultEncoding:
