@@ -11,6 +11,13 @@ import Foundation
 struct RequestToken: Decodable {
     
     let success: Bool
+    let requestToken: String
+
+}
+
+struct ValidateToken: Decodable {
+    
+    let success: Bool
     let expiresAt: String
     let requestToken: String
 
@@ -20,5 +27,6 @@ struct UserSession: Decodable {
     
     let success: Bool
     let sessionId: String?
+    let requestToken: String?
     
 }

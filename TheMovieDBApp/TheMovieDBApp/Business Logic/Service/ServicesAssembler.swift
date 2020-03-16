@@ -23,7 +23,7 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис авторизации
     lazy var authService: AuthService = {
-        let service = LoginService(client: AuthClient(), accessService: accessService)
+        let service = LoginService(client: TMDBAPIClient(), accessService: accessService)
         return service
     }()
     
