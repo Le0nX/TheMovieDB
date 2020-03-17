@@ -70,7 +70,7 @@ extension AccountViewController: AccountViewOutput {
 extension AccountViewController: AccountViewInput {
     
     func showProgress() {
-        self.showSpinner(onView: self.view)
+        self.showSpinner(onView: self.containerView.usernameLabel)
     }
     
     func hideProgress() {
