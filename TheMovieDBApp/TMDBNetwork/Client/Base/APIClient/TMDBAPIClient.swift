@@ -12,12 +12,12 @@ public final class TMDBAPIClient: APIClient {
     
     // MARK: - Private Properties
     
-    private var session: URLSession
+    private let config: APIClientConfig
     
     // MARK: - Initializers
     
-    public init(session: URLSession = URLSession(configuration: .ephemeral)) {
-        self.session = session
+    public init(config: APIClientConfig) {
+        self.config = config
     }
         
     // MARK: - Public methods
@@ -26,13 +26,15 @@ public final class TMDBAPIClient: APIClient {
     public func request<T>(_ endpoint: T,
                            completionHandler: @escaping (APIResult<T.Content>) -> Void
     ) -> Progress where T: Endpoint {
-        
-        guard let request = try? endpoint.makeRequest() else {
+
+        guard var request = try? endpoint.makeRequest() else {
             completionHandler(.failure(APIError.requestFailed))
             return Progress()
         }
         
-        let task = session.dataTask(with: request) { data, response, _ in
+        request.url = URL(string: config.baseUrl + (request.url?.absoluteString ?? ""))
+        
+        let task = config.session.dataTask(with: request) { data, response, _ in
             DispatchQueue.main.async {
                 
                 guard let httpResponse = response as? HTTPURLResponse else {

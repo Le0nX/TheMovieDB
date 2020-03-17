@@ -24,7 +24,8 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис авторизации
     lazy var authService: AuthService = {
-        let service = LoginService(client: TMDBAPIClient(), accessService: accessService)
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let service = LoginService(client: TMDBAPIClient(config: config), accessService: accessService)
         return service
     }()
     

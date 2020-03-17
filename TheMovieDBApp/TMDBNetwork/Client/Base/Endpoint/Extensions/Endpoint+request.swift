@@ -11,17 +11,13 @@ import Foundation
 extension Endpoint {
     
     // MARK: - Public Properties
-    
-    var base: String {
-        "https://api.themoviedb.org"
-    }
 
     var apiKey: String {
         "462eae24aa8df4234b6774c7088f312d"
     }
-
+    
     var urlComponents: URLComponents {
-        var components = URLComponents(string: base)!
+        var components = URLComponents(string: "")!
         components.path = path
         var queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                           URLQueryItem(name: "language", value: Locale.current.languageCode)]

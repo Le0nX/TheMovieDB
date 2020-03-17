@@ -19,7 +19,7 @@ public protocol Endpoint {
     associatedtype Content
     
     // MARK: - Public Properties
-    
+
     var path: String { get }
     var headers: [String: String]? { get }
     var params: [String: Any]? { get }

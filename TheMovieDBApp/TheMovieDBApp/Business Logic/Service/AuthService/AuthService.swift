@@ -6,8 +6,8 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import TMDBNetwork
 import Foundation
+import TMDBNetwork
 
 enum LoginServiceResult {
     case success(UserSession)
