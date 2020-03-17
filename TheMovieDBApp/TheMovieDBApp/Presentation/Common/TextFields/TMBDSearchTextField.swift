@@ -33,6 +33,7 @@ final class TMDBSearchTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
                                                    attributes: [NSAttributedString.Key.foregroundColor:
                                                                 ColorName.fontMain])
+        self.clearButtonMode = .whileEditing
         setupImage()
     }
         

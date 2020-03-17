@@ -14,6 +14,9 @@ final class SearchView: XibView {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var searchTextField: TMDBSearchTextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     // MARK: - Initializers
     

@@ -13,6 +13,7 @@ final class SearchViewController: UIViewController {
     // MARK: - Private Properties
     
     private let containerView: SearchView
+    private var isSearching = false
     
     // MARK: - Initializers
     
@@ -26,6 +27,16 @@ final class SearchViewController: UIViewController {
      }
     
     // MARK: - UIViewController(*)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        containerView.searchTextField.addTarget(self,
+                                                action: #selector(textFieldEditingDidChange(textField:)),
+                                                for: .editingChanged)
+        containerView.searchTextField.addTarget(self,
+                                                action: #selector(textFieldShouldClear(textField:)),
+                                                for: .editingDidEnd)
+    }
     
     override func loadView() {
         super.loadView()
@@ -41,5 +52,35 @@ final class SearchViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
+    }
+    
+    // MARK: - Public Mehtods
+    
+    @objc
+    func textFieldEditingDidChange(textField: UITextField) {
+        if isSearching { return }
+        
+        isSearching = true
+        UIView.animate(withDuration: 0.5) {
+            self.containerView.headerLabel.alpha = 0
+            self.containerView.imageView.alpha = 0
+            self.containerView.topConstraint.constant -= 150
+            self.containerView.tableView.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    func textFieldShouldClear(textField: UITextField) {
+        if !isSearching { return }
+        
+        isSearching = false
+        UIView.animate(withDuration: 0.5) {
+            self.containerView.headerLabel.alpha = 1
+            self.containerView.imageView.alpha = 1
+            self.containerView.topConstraint.constant += 150
+            self.containerView.tableView.alpha = 0
+            self.view.layoutIfNeeded()
+        }
     }
 }
