@@ -12,7 +12,8 @@ import XCTest
 class TMDBNetworkTests: XCTestCase {
 
     func test_CreateSuccessRequestToken() {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let endpoint = RequestTokenEndpoint()
         var token: RequestToken?
         
@@ -38,7 +39,8 @@ class TMDBNetworkTests: XCTestCase {
     }
     
     func test_ValidateRequestToken() {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let endpoint = RequestTokenEndpoint()
         var token = ""
         
@@ -84,7 +86,8 @@ class TMDBNetworkTests: XCTestCase {
     }
     
     func test_SessionRequest() {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let endpoint = RequestTokenEndpoint()
         var token = ""
         
@@ -150,7 +153,8 @@ class TMDBNetworkTests: XCTestCase {
     }
 
     func test_searchMovie() {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let endpoint = SearchEndpoint(search: "007")
 
         let exp = expectation(description: "Check moview were found successfully")
@@ -175,7 +179,8 @@ class TMDBNetworkTests: XCTestCase {
     }
 
     func test_getFavorites() {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let session = makeSessionHelper()
 
         let endpoint = FavoriteEndpoint(accountId: 000, page: 1, sessionId: session)
@@ -202,7 +207,8 @@ class TMDBNetworkTests: XCTestCase {
     }
 
     private func makeSessionHelper() -> String {
-        let client = TMDBAPIClient()
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let client = TMDBAPIClient(config: config)
         let endpoint = RequestTokenEndpoint()
         var token = ""
         

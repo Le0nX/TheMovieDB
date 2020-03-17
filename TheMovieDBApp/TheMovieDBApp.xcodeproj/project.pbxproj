@@ -29,6 +29,9 @@
 		14462568242056BB00CF0DB7 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14462567242056BB00CF0DB7 /* ProfileModel.swift */; };
 		1446256A2420BF1C00CF0DB7 /* APIClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625692420BF1C00CF0DB7 /* APIClientConfig.swift */; };
 		1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
+		1446256F2421648200CF0DB7 /* GravatarEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256E2421648200CF0DB7 /* GravatarEndpoint.swift */; };
+		1446257124216A0200CF0DB7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446257024216A0200CF0DB7 /* Profile.swift */; };
+		144625732421763B00CF0DB7 /* WeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625722421763B00CF0DB7 /* WeakRef.swift */; };
 		1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330824126AAA00B3F404 /* AppDelegate.swift */; };
 		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
@@ -156,6 +159,9 @@
 		14462567242056BB00CF0DB7 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		144625692420BF1C00CF0DB7 /* APIClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientConfig.swift; sourceTree = "<group>"; };
 		1446256B242136A200CF0DB7 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		1446256E2421648200CF0DB7 /* GravatarEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravatarEndpoint.swift; sourceTree = "<group>"; };
+		1446257024216A0200CF0DB7 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		144625722421763B00CF0DB7 /* WeakRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRef.swift; sourceTree = "<group>"; };
 		1450330524126AAA00B3F404 /* TheMovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450330824126AAA00B3F404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1450330C24126AAA00B3F404 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -331,6 +337,15 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		1446256D2421646A00CF0DB7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				144625652420564C00CF0DB7 /* ProfileEnpoint.swift */,
+				1446256E2421648200CF0DB7 /* GravatarEndpoint.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		145032FC24126AAA00B3F404 = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				145E8BCF24165869007ACDBB /* UserSessionData.swift */,
+				1446257024216A0200CF0DB7 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -463,6 +479,7 @@
 				1450334E2412A73300B3F404 /* XibView.swift */,
 				14582F0C24130D95004226E7 /* Images.swift */,
 				145E8BA2241523A9007ACDBB /* ApplicationAppearance.swift */,
+				144625722421763B00CF0DB7 /* WeakRef.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -656,10 +673,10 @@
 		14FE8F9C2420281500115A49 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
+				1446256D2421646A00CF0DB7 /* Profile */,
 				14462562242045C300CF0DB7 /* Favorites */,
 				14462561242045A800CF0DB7 /* Auth */,
 				1446255C24203BFF00CF0DB7 /* SearchEndpoint.swift */,
-				144625652420564C00CF0DB7 /* ProfileEnpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1046,8 +1063,10 @@
 				145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
 				145E8BAF2415986A007ACDBB /* AuthService.swift in Sources */,
+				144625732421763B00CF0DB7 /* WeakRef.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
+				1446257124216A0200CF0DB7 /* Profile.swift in Sources */,
 				145E8BD4241675C3007ACDBB /* Validator.swift in Sources */,
 				145E8BD624167C18007ACDBB /* UIAplication+setRoot.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
@@ -1092,6 +1111,7 @@
 				1446255624202C7900CF0DB7 /* ErrorResponse.swift in Sources */,
 				1446254324202BFB00CF0DB7 /* SessionEndpoint.swift in Sources */,
 				1446255A24202F3600CF0DB7 /* Endpoint+request.swift in Sources */,
+				1446256F2421648200CF0DB7 /* GravatarEndpoint.swift in Sources */,
 				14462568242056BB00CF0DB7 /* ProfileModel.swift in Sources */,
 				1446254B24202C0C00CF0DB7 /* APIResult.swift in Sources */,
 				1446255324202C6700CF0DB7 /* Dictionary+encode.swift in Sources */,

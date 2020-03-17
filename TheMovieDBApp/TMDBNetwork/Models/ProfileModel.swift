@@ -9,17 +9,17 @@
 import Foundation
 
 public struct Profile: Decodable {
-    struct Avatar: Decodable {
-        let gravatar: Gravatar?
+    public struct Avatar: Decodable {
+        public let gravatar: Gravatar?
     }
     
-    struct Gravatar: Decodable {
-        let hash: String?
+    public struct Gravatar: Decodable {
+        public let hash: String?
     }
     
-    let avatar: Avatar?
-    let id: Int?
-    let name: String
-    let includeAdult: Bool?
-    let username: String
+    public let avatar: Avatar?
+    public let id: Int?
+    public let name: String
+    public let includeAdult: Bool?
+    public let username: String
 }

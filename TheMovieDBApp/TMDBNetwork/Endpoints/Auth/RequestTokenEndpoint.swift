@@ -32,7 +32,9 @@ public struct RequestTokenEndpoint: Endpoint {
         .get
     }
     
-    public init(){}
+    public init() {
+        
+    }
     
     public func content(from data: Data, response: URLResponse?) throws -> RequestToken {
         

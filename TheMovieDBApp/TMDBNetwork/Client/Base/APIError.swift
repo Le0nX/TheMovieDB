@@ -74,6 +74,6 @@ extension APIError {
         static let InvalidService = NSLocalizedString("Invalid service: this service does not exist.",
                                                       comment: "Invalid Service")
         static let InvalidApiKey = NSLocalizedString("Invalid API key: You must be granted a valid key.",
-        comment: "Invalid api key")
+                                                     comment: "Invalid api key")
     }
 }

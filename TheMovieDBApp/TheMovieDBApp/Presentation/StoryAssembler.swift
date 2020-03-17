@@ -38,7 +38,7 @@ class StoryFabric: StoriesAssembler {
     func makeAuthStory() -> LoginViewController {
         let loginVc = LoginViewController()
         let authCoordinator = AuthCoordinator(storyAssembler: self)
-        loginVc.output = AuthPresenter(loginVc,
+        loginVc.output = AuthPresenter(WeakRef(loginVc),
                                        authService: servicesAssembler.authService,
                                        authCoordinator: authCoordinator)
         
@@ -75,7 +75,8 @@ class StoryFabric: StoriesAssembler {
     func makeAccountStory() -> AccountViewController {
         let accountVc = AccountViewController()
         let accountCoordinator = AccountCoordinator(storyAssembler: self)
-        accountVc.output = AccountPresenter(credentailsService: servicesAssembler.accessService,
+        accountVc.output = AccountPresenter(WeakRef(accountVc),
+                                            credentailsService: servicesAssembler.accessService,
                                             profileService: servicesAssembler.profileService,
                                             accountCoordinator: accountCoordinator)
         

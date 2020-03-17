@@ -21,7 +21,7 @@ final class AuthPresenter: AuthPresenterOutput {
     
     // MARK: - Private Properties
     
-    private var view: AuthViewInput // TODO: - проверь memleak
+    private var view: AuthViewInput
     private var authService: AuthService
     private var authCoordinator: Coordinator
     

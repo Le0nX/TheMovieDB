@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AccountPresenterOutput {
     
@@ -25,12 +26,16 @@ final class AccountPresenter: AccountPresenterOutput {
     private var credentailsService: AccessCredentialsService
     private var profileService: ProfileService
     
+    private var view: AccountViewInput
+    
     // MARK: - Initializers
     
-    init(credentailsService: AccessCredentialsService,
+    init(_ view: AccountViewInput,
+         credentailsService: AccessCredentialsService,
          profileService: ProfileService,
          accountCoordinator: AccountCoordinator
     ) {
+        self.view = view
         self.credentailsService = credentailsService
         self.profileService = profileService
         self.accountCoordinator = accountCoordinator
@@ -44,11 +49,17 @@ final class AccountPresenter: AccountPresenterOutput {
     }
     
     func updateProfile() {
-        profileService.getUserInfo { result in
+        
+        self.view.showProgress()
+        
+        profileService.getUserInfo { [weak self] result in
             DispatchQueue.main.async {
+                
+                self?.view.hideProgress()
+                
                 switch result {
                 case .success(let profile):
-                    print(profile)
+                    self?.view.setRemoteProfileData(profile: profile)
                 case .failure(let error):
                     print(error)
                 }

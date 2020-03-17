@@ -50,8 +50,28 @@ final public class UserProfileService: ProfileService {
         let endpoint = ProfileEndpoint(sessionId: session)
         client.request(endpoint) { result in
             switch result {
-            case .success(let profile):
-                completion(.success(profile))
+            case .success(let profileDTO):
+                self.getAvatar(hash: profileDTO.avatar?.gravatar?.hash,
+                               name: profileDTO.name,
+                               username: profileDTO.username, completion: completion)
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    private func getAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
+        guard let hash = hash else { return }
+        
+        let config = APIClientConfig(base: "https://secure.gravatar.com/avatar/")
+        let imageClient = TMDBAPIClient(config: config)
+        let endpoint = GravatarEndpoint(hash: hash)
+        imageClient.request(endpoint) { result in
+            switch result {
+            case .success(let imageDTO):
+                let userProfile = Profile(name: name, username: username, image: imageDTO)
+                completion(.success(userProfile))
             case .failure(let error):
                 completion(.failure(error))
             }
