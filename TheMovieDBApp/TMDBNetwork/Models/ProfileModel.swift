@@ -10,13 +10,14 @@ import Foundation
 
 public struct Profile: Decodable {
     struct Avatar: Decodable {
-        let gravatar: Gravatar
+        let gravatar: Gravatar?
     }
     
     struct Gravatar: Decodable {
-        let hash: String
+        let hash: String?
     }
     
+    let avatar: Avatar?
     let id: Int?
     let name: String
     let includeAdult: Bool?

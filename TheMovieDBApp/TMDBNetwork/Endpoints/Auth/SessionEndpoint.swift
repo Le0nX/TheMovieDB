@@ -44,9 +44,10 @@ public struct SessionEndpoint: Endpoint {
             throw APIError.invalidData
         }
         
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         if response.statusCode != 200 {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
             let content = try decoder.decode(ErrorResponse.self, from: data)
             switch content.statusCode {
             case 7:
@@ -56,8 +57,6 @@ public struct SessionEndpoint: Endpoint {
             }
         }
         
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         let content = try decoder.decode(Content.self, from: data)
         return content
     }

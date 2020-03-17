@@ -12,6 +12,9 @@ protocol AccountPresenterOutput {
     
     /// Обработчик нажатия кнопки логаута
     func didPressedLogoutButton()
+    
+    /// Обновление профиля при загрузке экрана
+    func updateProfile()
 }
 
 final class AccountPresenter: AccountPresenterOutput {
@@ -20,11 +23,16 @@ final class AccountPresenter: AccountPresenterOutput {
     
     private var accountCoordinator: AccountCoordinator
     private var credentailsService: AccessCredentialsService
+    private var profileService: ProfileService
     
     // MARK: - Initializers
     
-    init(credentailsService: AccessCredentialsService, accountCoordinator: AccountCoordinator) {
+    init(credentailsService: AccessCredentialsService,
+         profileService: ProfileService,
+         accountCoordinator: AccountCoordinator
+    ) {
         self.credentailsService = credentailsService
+        self.profileService = profileService
         self.accountCoordinator = accountCoordinator
     }
         
@@ -33,5 +41,19 @@ final class AccountPresenter: AccountPresenterOutput {
     func didPressedLogoutButton() {
         try? credentailsService.delete()
         accountCoordinator.start()
+    }
+    
+    func updateProfile() {
+        profileService.getUserInfo { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let profile):
+                    print(profile)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            
+        }
     }
 }

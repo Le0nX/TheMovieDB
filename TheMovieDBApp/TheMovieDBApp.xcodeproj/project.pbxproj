@@ -28,6 +28,7 @@
 		144625662420564C00CF0DB7 /* ProfileEnpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625652420564C00CF0DB7 /* ProfileEnpoint.swift */; };
 		14462568242056BB00CF0DB7 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14462567242056BB00CF0DB7 /* ProfileModel.swift */; };
 		1446256A2420BF1C00CF0DB7 /* APIClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625692420BF1C00CF0DB7 /* APIClientConfig.swift */; };
+		1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330824126AAA00B3F404 /* AppDelegate.swift */; };
 		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
@@ -154,6 +155,7 @@
 		144625652420564C00CF0DB7 /* ProfileEnpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEnpoint.swift; sourceTree = "<group>"; };
 		14462567242056BB00CF0DB7 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		144625692420BF1C00CF0DB7 /* APIClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientConfig.swift; sourceTree = "<group>"; };
+		1446256B242136A200CF0DB7 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		1450330524126AAA00B3F404 /* TheMovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450330824126AAA00B3F404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1450330C24126AAA00B3F404 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				145E8BB224159B77007ACDBB /* AuthService */,
 				145E8BAC24159400007ACDBB /* ServicesAssembler.swift */,
 				145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */,
+				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1054,6 +1057,7 @@
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
+				1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,6 +44,8 @@ final class AccountViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
 
         self.hideKeyboardWhenTappedAround()
+        
+        output?.updateProfile()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

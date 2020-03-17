@@ -40,9 +40,10 @@ public struct RequestTokenEndpoint: Endpoint {
             throw APIError.badRequest
         }
         
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         if response.statusCode != 200 {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
             let content = try decoder.decode(ErrorResponse.self, from: data)
             switch content.statusCode {
             case 7:
@@ -52,9 +53,7 @@ public struct RequestTokenEndpoint: Endpoint {
             }
         }
         
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let content = try decoder.decode(RequestToken.self, from: data)
+        let content = try decoder.decode(Content.self, from: data)
         return content
     }
     

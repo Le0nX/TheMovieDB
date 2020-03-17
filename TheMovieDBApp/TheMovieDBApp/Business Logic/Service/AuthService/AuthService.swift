@@ -9,18 +9,13 @@
 import Foundation
 import TMDBNetwork
 
-enum LoginServiceResult {
-    case success(UserSession)
-    case failure(Error)
-}
-
 protocol AuthService {
     
     /// Метод авторизации пользователя
     /// - Parameter login: логин пользователя
     /// - Parameter password: пароль пользователя
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
-    func signInUser(with login: String, password: String, completion: @escaping (LoginServiceResult) -> Void)
+    func signInUser(with login: String, password: String, completion: @escaping (APIResult<UserSession>) -> Void)
     
     /// TODO: - Signout()
 }
@@ -31,7 +26,7 @@ final public class LoginService: AuthService {
     
     // MARK: - Types
     
-    typealias Result = LoginServiceResult
+    typealias Result = APIResult<UserSession>
     
     // MARK: - Constants
     

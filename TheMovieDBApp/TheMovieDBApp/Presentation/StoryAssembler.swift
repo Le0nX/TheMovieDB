@@ -76,6 +76,7 @@ class StoryFabric: StoriesAssembler {
         let accountVc = AccountViewController()
         let accountCoordinator = AccountCoordinator(storyAssembler: self)
         accountVc.output = AccountPresenter(credentailsService: servicesAssembler.accessService,
+                                            profileService: servicesAssembler.profileService,
                                             accountCoordinator: accountCoordinator)
         
         return accountVc

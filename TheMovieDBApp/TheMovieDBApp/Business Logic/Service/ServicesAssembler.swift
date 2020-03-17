@@ -17,6 +17,9 @@ protocol ServicesAssembler {
     
     /// Сервис доступа к sensetive данным пользователя
     var accessService: AccessCredentialsService { get }
+    
+    /// Сервис настроек профиля
+    var profileService: ProfileService { get }
 }
 
 /// Фабрика сервисов
@@ -26,6 +29,13 @@ final class ServiceFabric: ServicesAssembler {
     lazy var authService: AuthService = {
         let config = APIClientConfig(base: "https://api.themoviedb.org")
         let service = LoginService(client: TMDBAPIClient(config: config), accessService: accessService)
+        return service
+    }()
+    
+    /// Сервис авторизации
+    lazy var profileService: ProfileService = {
+        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let service = UserProfileService(client: TMDBAPIClient(config: config), accessService: accessService)
         return service
     }()
     
