@@ -43,7 +43,6 @@ final class LoginView: XibView {
     
     // MARK: - Public methods
     
-    
     /// Метод настройки вьюшки
     func setup() {
         contentView.backgroundColor = ColorName.background
