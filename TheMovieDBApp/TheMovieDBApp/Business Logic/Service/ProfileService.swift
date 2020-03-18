@@ -46,7 +46,6 @@ final public class UserProfileService: ProfileService {
         guard let session = accessService.credentials?.session else {
             return
         }
-        // TODO: - проверка в кэше картинок профиля
         let endpoint = ProfileEndpoint(sessionId: session)
         client.request(endpoint) { result in
             switch result {

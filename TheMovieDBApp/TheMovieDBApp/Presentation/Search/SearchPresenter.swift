@@ -53,7 +53,7 @@ final class SearchPresenter: SearchPresenterOutput {
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) {
                 
-        moviesService.getMoviePoster(for: poster) { [weak self] result in
+        moviesService.getMoviePoster(for: poster) { result in
             DispatchQueue.main.async {
                             
                 switch result {

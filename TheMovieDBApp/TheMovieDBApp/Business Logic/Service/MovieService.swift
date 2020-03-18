@@ -28,6 +28,10 @@ final public class MoviesService: MovieService {
     
     // MARK: - Types
     
+    enum MovieServiceError: Error {
+        case cachingError
+    }
+    
     typealias Result = APIResult<[MovieEntity]>
     
     // MARK: - Private Properties
@@ -36,7 +40,6 @@ final public class MoviesService: MovieService {
     private let posterClient: APIClient
     private let simpleCache = NSCache<NSString, AnyObject>()
 
-        
     // MARK: - Initializers
     
     init(client: APIClient, posterClient: APIClient) {
@@ -68,7 +71,12 @@ final public class MoviesService: MovieService {
     func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
       
         if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {
-            completion(.success(cachedVersion as! Data))
+            if let cahe = cachedVersion as? Data {
+                completion(.success(cahe))
+            } else {
+                completion(.failure(MovieServiceError.cachingError))
+            }
+            
             return
         }
         
