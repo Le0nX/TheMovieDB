@@ -30,12 +30,12 @@ final public class MoviesService: MovieService {
     
     typealias Result = APIResult<[MovieEntity]>
     
-    // MARK: - Constants
+    // MARK: - Private Properties
     
     private let client: APIClient
     private let posterClient: APIClient
-            
-    // MARK: - Private Properties
+    private let simpleCache = NSCache<NSString, AnyObject>()
+
         
     // MARK: - Initializers
     
@@ -67,12 +67,18 @@ final public class MoviesService: MovieService {
     
     func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
       
+        if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {
+            completion(.success(cachedVersion as! Data))
+            return
+        }
+        
         let endpoint = PosterEndpoint(poster: poster)
         
-        posterClient.request(endpoint) { result in
+        posterClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let posterData):
-                // TODO: - кэширование
+                
+                self?.simpleCache.setObject(posterData as AnyObject, forKey: NSString(string: poster))
                 completion(.success(posterData))
                     
             case .failure(let error):
