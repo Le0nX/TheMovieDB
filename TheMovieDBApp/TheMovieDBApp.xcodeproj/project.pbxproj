@@ -36,6 +36,8 @@
 		1446257E2421AEB300CF0DB7 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446257D2421AEB300CF0DB7 /* MovieService.swift */; };
 		144625822421B22900CF0DB7 /* SearchFilmEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625812421B22900CF0DB7 /* SearchFilmEndpoint.swift */; };
 		144625842421B42C00CF0DB7 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625832421B42C00CF0DB7 /* MovieEntity.swift */; };
+		144625862421B74400CF0DB7 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625852421B74400CF0DB7 /* SearchPresenter.swift */; };
+		144625892421C1E100CF0DB7 /* PosterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625882421C1E100CF0DB7 /* PosterEndpoint.swift */; };
 		1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330824126AAA00B3F404 /* AppDelegate.swift */; };
 		1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450330C24126AAA00B3F404 /* LoginViewController.swift */; };
 		1450331224126AAD00B3F404 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1450331124126AAD00B3F404 /* Assets.xcassets */; };
@@ -170,6 +172,8 @@
 		1446257D2421AEB300CF0DB7 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		144625812421B22900CF0DB7 /* SearchFilmEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFilmEndpoint.swift; sourceTree = "<group>"; };
 		144625832421B42C00CF0DB7 /* MovieEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEntity.swift; sourceTree = "<group>"; };
+		144625852421B74400CF0DB7 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		144625882421C1E100CF0DB7 /* PosterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterEndpoint.swift; sourceTree = "<group>"; };
 		1450330524126AAA00B3F404 /* TheMovieDBApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDBApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1450330824126AAA00B3F404 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1450330C24126AAA00B3F404 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +367,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		144625872421C1C400CF0DB7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				144625812421B22900CF0DB7 /* SearchFilmEndpoint.swift */,
+				144625882421C1E100CF0DB7 /* PosterEndpoint.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		145032FC24126AAA00B3F404 = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +520,7 @@
 			children = (
 				1471BAC12413D07A00BA4592 /* View */,
 				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
+				144625852421B74400CF0DB7 /* SearchPresenter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -693,7 +707,7 @@
 		14FE8F9C2420281500115A49 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				144625812421B22900CF0DB7 /* SearchFilmEndpoint.swift */,
+				144625872421C1C400CF0DB7 /* Search */,
 				1446256D2421646A00CF0DB7 /* Profile */,
 				14462562242045C300CF0DB7 /* Favorites */,
 				14462561242045A800CF0DB7 /* Auth */,
@@ -1082,6 +1096,7 @@
 				145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */,
 				145E8B8E241431CC007ACDBB /* FavoritesView.swift in Sources */,
 				145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */,
+				144625862421B74400CF0DB7 /* SearchPresenter.swift in Sources */,
 				145E8BA3241523A9007ACDBB /* ApplicationAppearance.swift in Sources */,
 				145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
@@ -1140,6 +1155,7 @@
 				1446254B24202C0C00CF0DB7 /* APIResult.swift in Sources */,
 				1446255324202C6700CF0DB7 /* Dictionary+encode.swift in Sources */,
 				1446254424202BFB00CF0DB7 /* ValidateTokenEndpoint.swift in Sources */,
+				144625892421C1E100CF0DB7 /* PosterEndpoint.swift in Sources */,
 				1446254E24202C1700CF0DB7 /* APIError.swift in Sources */,
 				1446255424202C6700CF0DB7 /* URLRequest+jsonContentType.swift in Sources */,
 				1446254924202C0C00CF0DB7 /* APIClient.swift in Sources */,

@@ -44,3 +44,17 @@ extension WeakRef: AuthViewInput where T: AuthViewInput {
         ref?.hideProgress()
     }
 }
+
+extension WeakRef: SearchViewInput where T: SearchViewInput {
+    func setMoviesData(movies: [MovieEntity]) {
+        ref?.setMoviesData(movies: movies)
+    }
+    
+    func showProgress() {
+        ref?.showProgress()
+    }
+    
+    func hideProgress() {
+        ref?.hideProgress()
+    }
+}

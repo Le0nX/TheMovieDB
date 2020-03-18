@@ -14,5 +14,5 @@ struct MovieEntity {
     let popularity: Double?
     let voteCount: Int?
     let genreIds: [Int]?
-    let image: Data?
+    let image: String?
 }

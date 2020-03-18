@@ -18,6 +18,9 @@ protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана профиля
     func makeAccountStory() -> AccountViewController
+    
+    /// Фабричный метод создания экрана поиска
+    func makeSearchStory() -> SearchViewController
 }
 
 class StoryFabric: StoriesAssembler {
@@ -47,7 +50,7 @@ class StoryFabric: StoriesAssembler {
     
     /// Фабричный метод создания экрана авторизации
     func makeTabBar() -> UITabBarController {
-        let firstViewController = SearchViewController()
+        let firstViewController = makeSearchStory()
         firstViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
                                                       image: ImageName.filmIcon,
                                                       tag: 0)
@@ -81,5 +84,14 @@ class StoryFabric: StoriesAssembler {
                                             accountCoordinator: accountCoordinator)
         
         return accountVc
+    }
+    
+    /// Фабричный метод создания экрана поиска
+    func makeSearchStory() -> SearchViewController {
+        let searchVc = SearchViewController()
+        searchVc.output = SearchPresenter(WeakRef(searchVc),
+                                          moviesService: servicesAssembler.movieService)
+        
+        return searchVc
     }
 }

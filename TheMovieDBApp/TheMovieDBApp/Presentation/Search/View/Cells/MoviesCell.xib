@@ -83,6 +83,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="ganreLabel" destination="out-fG-ECU" id="3c1-VY-DiC"/>
+                <outlet property="movieName" destination="fFf-AI-3VL" id="yzy-9x-o05"/>
+                <outlet property="movieOriginalName" destination="SkA-LC-rCD" id="nr1-DM-ekN"/>
+                <outlet property="popularityLabel" destination="df9-61-tdg" id="UVA-8i-AnI"/>
+                <outlet property="posterImage" destination="2wT-sn-Dr3" id="wec-ox-3GA"/>
+                <outlet property="voteCountLabel" destination="Wgc-5g-zzs" id="OHd-AB-iJW"/>
+            </connections>
             <point key="canvasLocation" x="139" y="139"/>
         </tableViewCell>
     </objects>

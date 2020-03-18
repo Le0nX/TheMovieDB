@@ -8,12 +8,26 @@
 
 import UIKit
 
+protocol SearchViewInput {
+    func setMoviesData(movies: [MovieEntity])
+    
+    func showProgress()
+    
+    func hideProgress()
+}
+
 final class SearchViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    public var output: SearchPresenterOutput?
     
     // MARK: - Private Properties
     
     private let containerView: SearchView
     private var isSearching = false
+    
+    private var moviesData = [MovieEntity]()
     
     // MARK: - Initializers
     
@@ -61,6 +75,11 @@ final class SearchViewController: UIViewController {
     
     @objc
     func textFieldEditingDidChange(textField: UITextField) {
+        guard let text = textField.text, !text.isEmpty else {
+            return
+        }
+        output?.didEnteredMovie(name: text)
+        
         if isSearching { return }
         
         isSearching = true
@@ -90,9 +109,24 @@ final class SearchViewController: UIViewController {
     }
 }
 
+extension SearchViewController: SearchViewInput {
+    func setMoviesData(movies: [MovieEntity]) {
+        self.moviesData = movies
+        self.containerView.tableView.reloadData()
+    }
+    
+    func showProgress() {
+        self.showSpinner(onView: self.view)
+    }
+    
+    func hideProgress() {
+        self.removeSpinner()
+    }
+}
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        moviesData.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -103,6 +137,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as? MoviesCell else {
             return UITableViewCell()
         }
+        cell.movieName.text = moviesData[indexPath.row].title
+        cell.movieOriginalName.text = moviesData[indexPath.row].originalTitle
+        cell.popularityLabel.text = String(moviesData[indexPath.row].popularity ?? 0)
+        if let poster = moviesData[indexPath.row].image {
+            output?.fetchImage(for: poster) { data in
+                if let data = data {
+                    cell.posterImage.image = UIImage(data: data)
+                } else {
+                    cell.posterImage.image = ImageName.filmIconSelected
+                }
+            }
+        }
+        
         return cell
     }
     

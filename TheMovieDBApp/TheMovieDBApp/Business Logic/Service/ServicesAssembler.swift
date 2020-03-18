@@ -33,6 +33,11 @@ final class ServiceFabric: ServicesAssembler {
         return TMDBAPIClient(config: config)
     }()
     
+    private lazy var posterClient: APIClient = {
+        let config = APIClientConfig(base: "https://image.tmdb.org/t/p/w185//")
+        return TMDBAPIClient(config: config)
+    }()
+    
     /// Сервис авторизации
     lazy var authService: AuthService = {
         let service = LoginService(client: client, accessService: accessService)
@@ -54,7 +59,7 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис получения списка фильмов
     lazy var movieService: MovieService = {
-        let service = MoviesService(client: client)
+        let service = MoviesService(client: client, posterClient: posterClient)
         return service
     }()
 }

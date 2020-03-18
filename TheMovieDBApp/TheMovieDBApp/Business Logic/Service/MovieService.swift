@@ -11,10 +11,15 @@ import TMDBNetwork
 
 protocol MovieService {
     
-    /// Метод получения данных пользователя
+    /// Метод поиска фильмов
     ///
     /// - Parameter completion: обработчик данных профиля
-    func searchFilm(name: String, completion: @escaping (APIResult<MovieEntity>) -> Void)
+    func searchFilm(name: String, completion: @escaping (APIResult<[MovieEntity]>) -> Void)
+    
+    /// Метода получения постера к фильму
+    /// - Parameter poster: адрес постера
+    /// - Parameter completion: обработчик
+    func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void)
 }
 
 /// Сервис работы с фильмами
@@ -23,19 +28,20 @@ final public class MoviesService: MovieService {
     
     // MARK: - Types
     
-    typealias Result = APIResult<MovieEntity>
+    typealias Result = APIResult<[MovieEntity]>
     
     // MARK: - Constants
     
     private let client: APIClient
+    private let posterClient: APIClient
             
     // MARK: - Private Properties
-    
-    
+        
     // MARK: - Initializers
     
-    init(client: APIClient) {
+    init(client: APIClient, posterClient: APIClient) {
         self.client = client
+        self.posterClient = posterClient
     }
     
     // MARK: - Public methods
@@ -45,10 +51,35 @@ final public class MoviesService: MovieService {
         client.request(endpoint) { result in
             switch result {
             case .success(let movieDTO):
-                print(movieDTO)
+                let movies = movieDTO.results?.map { MovieEntity(title: $0.title ?? "",
+                                                                 originalTitle: $0.originalTitle ?? "",
+                                                                 popularity: $0.popularity,
+                                                                 voteCount: $0.voteCount,
+                                                                 genreIds: $0.genreIds,
+                                                                 image: $0.posterPath)
+                }
+                completion(.success(movies ?? []))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
+      
+        let endpoint = PosterEndpoint(poster: poster)
+        
+        posterClient.request(endpoint) { result in
+            switch result {
+            case .success(let posterData):
+                // TODO: - кэширование
+                completion(.success(posterData))
+                    
             case .failure(let error):
                 print(error)
+                completion(.failure(error))
             }
+            
         }
     }
     

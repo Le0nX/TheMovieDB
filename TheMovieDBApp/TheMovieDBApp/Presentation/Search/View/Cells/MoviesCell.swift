@@ -9,7 +9,13 @@
 import UIKit
 
 class MoviesCell: UITableViewCell {
-
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var movieOriginalName: UILabel!
+    @IBOutlet weak var ganreLabel: UILabel!
+    @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var voteCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = ColorName.background

@@ -9,24 +9,24 @@
 import Foundation
 
 public struct MovieResponse: Decodable {
-    let page: Int?
-    let results: [Movie]?
-    let totalResults: Int?
-    let totalPages: Int?
+    public let page: Int?
+    public let results: [Movie]?
+    public let totalResults: Int?
+    public let totalPages: Int?
 }
 
 public struct Movie: Decodable {
-    let posterPath: String?
-    let adult: Bool?
-    let overview: String?
-    let releaseDate: String?
-    let genreIds: [Int]?
-    let originalTitle: String?
-    let originalLanguage: String?
-    let title: String?
-    let backdropPath: String?
-    let popularity: Double?
-    let voteCount: Int?
-    let video: Bool?
-    let voteAverage: Double?
+    public let posterPath: String?
+    public let adult: Bool?
+    public let overview: String?
+    public let releaseDate: String?
+    public let genreIds: [Int]?
+    public let originalTitle: String?
+    public let originalLanguage: String?
+    public let title: String?
+    public let backdropPath: String?
+    public let popularity: Double?
+    public let voteCount: Int?
+    public let video: Bool?
+    public let voteAverage: Double?
 }
