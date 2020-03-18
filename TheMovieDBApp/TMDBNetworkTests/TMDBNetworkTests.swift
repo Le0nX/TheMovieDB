@@ -155,7 +155,7 @@ class TMDBNetworkTests: XCTestCase {
     func test_searchMovie() {
         let config = APIClientConfig(base: "https://api.themoviedb.org")
         let client = TMDBAPIClient(config: config)
-        let endpoint = SearchEndpoint(search: "007")
+        let endpoint = SearchFilmEndpoint(search: "007")
 
         let exp = expectation(description: "Check moview were found successfully")
         var movies: MovieResponse?

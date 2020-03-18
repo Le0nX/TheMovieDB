@@ -16,8 +16,8 @@ protocol ProfileService {
     func getUserInfo(completion: @escaping (APIResult<Profile>) -> Void)
 }
 
-/// Сервис авторизации пользователя.
-/// Позволяет создать и сохранить пользовательскую сессию
+/// Сервис данных профиля пользователя.
+/// Позволяет получить аватарку и содержимое профиля
 final public class UserProfileService: ProfileService {
     
     // MARK: - Types

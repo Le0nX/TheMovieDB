@@ -96,11 +96,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as! MoviesCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as? MoviesCell else {
+            return UITableViewCell()
+        }
         return cell
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct SearchEndpoint: Endpoint {
+public struct SearchFilmEndpoint: Endpoint {
     
     public typealias Content = MovieResponse
         
