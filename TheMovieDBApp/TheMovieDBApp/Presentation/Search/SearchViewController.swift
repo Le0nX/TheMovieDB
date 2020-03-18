@@ -9,10 +9,15 @@
 import UIKit
 
 protocol SearchViewInput {
+    
+    /// Метод закладки данных в таблицу фильмов
+    /// - Parameter movies: DTO фильмов
     func setMoviesData(movies: [MovieEntity])
     
+    /// Метод показа спиннера
     func showProgress()
     
+    /// Метод скрытия спиннера
     func hideProgress()
 }
 
@@ -110,6 +115,7 @@ final class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: SearchViewInput {
+    
     func setMoviesData(movies: [MovieEntity]) {
         self.moviesData = movies
         self.containerView.tableView.reloadData()
@@ -154,7 +160,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Change the selected background view of the cell.
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

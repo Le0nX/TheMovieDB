@@ -10,7 +10,11 @@ import Foundation
 
 public struct RequestTokenEndpoint: Endpoint {
     
+    // MARK: - Types
+    
     public typealias Content = RequestToken
+    
+    // MARK: - Public Properties
         
     public var path: String {
         "/3/authentication/token/new"
@@ -32,10 +36,14 @@ public struct RequestTokenEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Initializers
+
     public init() {
         
     }
     
+    // MARK: - Public methods
+
     public func content(from data: Data, response: URLResponse?) throws -> RequestToken {
         
         guard let response = response as? HTTPURLResponse else {

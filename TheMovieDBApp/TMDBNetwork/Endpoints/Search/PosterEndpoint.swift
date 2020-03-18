@@ -10,9 +10,11 @@ import Foundation
 
 public struct PosterEndpoint: Endpoint {
     
+    // MARK: - Types
+    
     public typealias Content = Data
-        
-    private var poster: String
+    
+    // MARK: - Public Properties
     
     public var path: String {
         poster
@@ -34,10 +36,22 @@ public struct PosterEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Private Properties
+    
+    private var poster: String
+    
+    // MARK: - Initializers
+
     public init(poster: String) {
         self.poster = poster
     }
     
+    // MARK: - Public methods
+    
+    /// Метод парсинга Data из респонза
+    /// картинки парсятся в Data для избежания зависимости от UIKit
+    /// - Parameter data: данные из респоза
+    /// - Parameter response: респонз
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

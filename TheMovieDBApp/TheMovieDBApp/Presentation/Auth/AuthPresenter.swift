@@ -35,6 +35,9 @@ final class AuthPresenter: AuthPresenterOutput {
     
     // MARK: - Public methods
     
+    /// Метод обработки нажатия кнопки Login
+    /// - Parameter login: логин пользователя
+    /// - Parameter password: пароль паользователя
     func didPressedLoginButton(login: String, password: String) {
         
         self.view.showProgress()

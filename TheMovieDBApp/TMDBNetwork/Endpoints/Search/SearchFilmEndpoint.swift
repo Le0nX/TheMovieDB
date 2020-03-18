@@ -10,9 +10,11 @@ import Foundation
 
 public struct SearchFilmEndpoint: Endpoint {
     
+    // MARK: - Types
+    
     public typealias Content = MovieResponse
         
-    private var searchText: String
+    // MARK: - Public Properties
     
     public var path: String {
         "/3/search/movie"
@@ -34,10 +36,21 @@ public struct SearchFilmEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Private Properties
+    
+    private var searchText: String
+        
+    // MARK: - Initializers
+
     public init(search: String) {
         self.searchText = search
     }
     
+    // MARK: - Public methods
+    
+    /// Метод парсинга MovieResponse из респонза
+    /// - Parameter data: данные из респоза
+    /// - Parameter response: респонз
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

@@ -16,7 +16,7 @@ protocol MovieService {
     /// - Parameter completion: обработчик данных профиля
     func searchFilm(name: String, completion: @escaping (APIResult<[MovieEntity]>) -> Void)
     
-    /// Метода получения постера к фильму
+    /// Метод получения постера к фильму
     /// - Parameter poster: адрес постера
     /// - Parameter completion: обработчик
     func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void)
@@ -49,6 +49,10 @@ final public class MoviesService: MovieService {
     
     // MARK: - Public methods
     
+    /// Метод поиска фильмов
+    ///
+    /// - Parameter name: имя поиска
+    /// - Parameter completion: обработчика результата
     func searchFilm(name: String, completion: @escaping (Result) -> Void) {
         let endpoint = SearchFilmEndpoint(search: name)
         client.request(endpoint) { result in
@@ -67,7 +71,11 @@ final public class MoviesService: MovieService {
             }
         }
     }
-    
+
+    /// Метод получения постера к фильму вместе с кэшированием
+    ///
+    /// - Parameter poster: адрес постера
+    /// - Parameter completion: обработчик
     func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
       
         if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {

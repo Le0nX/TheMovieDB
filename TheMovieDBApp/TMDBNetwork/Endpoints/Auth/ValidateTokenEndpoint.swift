@@ -10,11 +10,11 @@ import Foundation
 
 public struct ValidateTokenEndpoint: Endpoint {
     
+    // MARK: - Types
+    
     public typealias Content = ValidateToken
-        
-    private var username: String
-    private var password: String
-    private var token: String
+    
+    // MARK: - Public Properties
     
     public var path: String {
         "/3/authentication/token/validate_with_login"
@@ -36,12 +36,22 @@ public struct ValidateTokenEndpoint: Endpoint {
         .post
     }
     
+    // MARK: - Private Properties
+
+    private var username: String
+    private var password: String
+    private var token: String
+    
+    // MARK: - Initializers
+
     public init(with login: String, password: String, requestToken: String) {
         self.username = login
         self.password = password
         self.token = requestToken
     }
     
+    // MARK: - Public methods
+
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

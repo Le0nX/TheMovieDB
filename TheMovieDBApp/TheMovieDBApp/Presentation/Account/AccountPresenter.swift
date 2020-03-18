@@ -47,6 +47,7 @@ final class AccountPresenter: AccountPresenterOutput {
         accountCoordinator.start()
     }
     
+    /// Обновление профиля при загрузке экрана
     func updateProfile() {
         
         self.view.showProgress()

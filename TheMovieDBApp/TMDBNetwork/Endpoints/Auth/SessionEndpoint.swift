@@ -10,10 +10,12 @@ import Foundation
 
 public struct SessionEndpoint: Endpoint {
     
+    // MARK: - Types
+
     public typealias Content = UserSession
- 
-    private var token: String
     
+    // MARK: - Public Properties
+
     public var path: String {
         "/3/authentication/session/new"
     }
@@ -34,10 +36,18 @@ public struct SessionEndpoint: Endpoint {
         .post
     }
     
+    // MARK: - Private Properties
+    
+    private var token: String
+    
+    // MARK: - Initializers
+
     public init(with validatedToken: String) {
         self.token = validatedToken
     }
     
+    // MARK: - Public methods
+
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

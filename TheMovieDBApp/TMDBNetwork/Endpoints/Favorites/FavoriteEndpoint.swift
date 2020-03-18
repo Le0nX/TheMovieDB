@@ -10,12 +10,12 @@ import Foundation
 
 public struct FavoriteEndpoint: Endpoint {
     
-    public typealias Content = MovieResponse
-        
-    private var accountId: Int
-    private var sessionId: String
-    private var page: Int
+    // MARK: - Types
     
+    public typealias Content = MovieResponse
+    
+    // MARK: - Public Properties
+
     public var path: String {
         "/3/account/\(accountId)/favorite/movies"
     }
@@ -36,12 +36,22 @@ public struct FavoriteEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Private Properties
+
+    private var accountId: Int
+    private var sessionId: String
+    private var page: Int
+    
+    // MARK: - Initializers
+
     public init(accountId: Int, page: Int, sessionId: String) {
         self.accountId = accountId
         self.page = page
         self.sessionId = sessionId
     }
     
+    // MARK: - Public methods
+
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

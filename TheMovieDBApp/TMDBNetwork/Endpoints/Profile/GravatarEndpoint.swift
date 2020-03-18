@@ -10,9 +10,11 @@ import Foundation
 
 public struct GravatarEndpoint: Endpoint {
     
+    // MARK: - Types
+    
     public typealias Content = Data
-        
-    private var hash: String
+    
+    // MARK: - Public Properties
     
     public var path: String {
         hash + ".jpg"
@@ -34,10 +36,22 @@ public struct GravatarEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Private Properties
+    
+    private var hash: String
+    
+    // MARK: - Initializers
+
     public init(hash: String) {
         self.hash = hash
     }
     
+    // MARK: - Public methods
+    
+    /// Метод парсинга Data из респонза
+    /// картинки парсятся в Data для избежания зависимости от UIKit
+    /// - Parameter data: данные из респоза
+    /// - Parameter response: респонз
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

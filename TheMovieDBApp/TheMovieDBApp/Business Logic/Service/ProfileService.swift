@@ -41,6 +41,8 @@ final public class UserProfileService: ProfileService {
     
     // MARK: - Public methods
     
+    /// Метод получения данных пользователя
+    /// - Parameter completion: обработчик данных профиля
     func getUserInfo(completion: @escaping (Result) -> Void) {
         
         guard let session = accessService.credentials?.session else {

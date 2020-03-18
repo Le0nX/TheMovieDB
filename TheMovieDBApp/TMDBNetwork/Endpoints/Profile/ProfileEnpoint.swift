@@ -10,9 +10,11 @@ import Foundation
 
 public struct ProfileEndpoint: Endpoint {
     
+    // MARK: - Types
+
     public typealias Content = Profile
-        
-    private var sessionId: String
+       
+    // MARK: - Public Properties
     
     public var path: String {
         "/3/account"
@@ -34,10 +36,22 @@ public struct ProfileEndpoint: Endpoint {
         .get
     }
     
+    // MARK: - Private Properties
+    
+    private var sessionId: String
+    
+    // MARK: - Initializers
+    
     public init(sessionId: String) {
         self.sessionId = sessionId
     }
     
+    // MARK: - Public methods
+    
+    /// Метод парсинга профиля из респонза
+    /// 
+    /// - Parameter data: данные из респоза
+    /// - Parameter response: респонз
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
         guard let response = response as? HTTPURLResponse else {

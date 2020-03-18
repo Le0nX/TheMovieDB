@@ -38,6 +38,7 @@ extension Endpoint {
         return components
     }
     
+    /// Дефолтная реализация метода запроса 
     public func makeRequest() throws -> URLRequest {
         let url = urlComponents.url!
         var request = URLRequest(url: url)

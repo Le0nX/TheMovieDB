@@ -43,18 +43,23 @@ final class LoginView: XibView {
     
     // MARK: - Public methods
     
+    
+    /// Метод настройки вьюшки
     func setup() {
         contentView.backgroundColor = ColorName.background
         setupLoginTextField()
         setupPasswordTextField()
     }
     
+    /// Метод сброса полей
     func resetFields() {
         loginTextField.text = ""
         passwordTextField.text = ""
         loginButton.isEnabled = false
     }
     
+    /// Метод выставляет ошибку в лейбле
+    /// - Parameter message: ошибка
     func setErrorLabel(with message: String) {
         errorLabel.text = message
     }

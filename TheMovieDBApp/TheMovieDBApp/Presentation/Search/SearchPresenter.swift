@@ -10,9 +10,13 @@ import Foundation
 
 protocol SearchPresenterOutput {
     
-    /// Обработчик ввода имени фильма
+    /// Метод обработки ввода названия фильма
+    /// - Parameter name: название фильма
     func didEnteredMovie(name: String)
     
+    /// Метод запроса картинки постера фильма
+    /// - Parameter for: линк постера
+    /// - Parameter completion: обрработчик
     func fetchImage(for: String, completion: @escaping (Data?) -> Void)
 }
 
@@ -21,7 +25,6 @@ final class SearchPresenter: SearchPresenterOutput {
     // MARK: - Private Properties
     
     private var moviesService: MovieService
-    
     private var view: SearchViewInput
     
     // MARK: - Initializers
@@ -35,6 +38,8 @@ final class SearchPresenter: SearchPresenterOutput {
         
     // MARK: - Public methods
 
+    /// Метод обработки ввода названия фильма
+    /// - Parameter name: название фильма
     func didEnteredMovie(name: String) {
                 
         moviesService.searchFilm(name: name) { [weak self] result in
@@ -51,6 +56,9 @@ final class SearchPresenter: SearchPresenterOutput {
         }
     }
     
+    /// Метод запроса картинки постера фильма
+    /// - Parameter for: линк постера
+    /// - Parameter completion: обрработчик
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) {
                 
         moviesService.getMoviePoster(for: poster) { result in

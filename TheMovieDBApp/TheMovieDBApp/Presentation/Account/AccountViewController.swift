@@ -9,10 +9,15 @@
 import UIKit
 
 protocol AccountViewInput {
+    
+    /// Метод выставления данных профиля на экране
+    /// - Parameter profile: DTO профиля
     func setRemoteProfileData(profile: Profile)
     
+    /// Показать спиннер на экране
     func showProgress()
     
+    /// Скрыть спиннер
     func hideProgress()
 }
 

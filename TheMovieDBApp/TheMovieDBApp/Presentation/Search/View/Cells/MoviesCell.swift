@@ -9,12 +9,17 @@
 import UIKit
 
 class MoviesCell: UITableViewCell {
+    
+    // MARK: - IBOutlet
+    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieOriginalName: UILabel!
     @IBOutlet weak var ganreLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var voteCountLabel: UILabel!
+    
+    // MARK: - UIViewController(*)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,8 +29,6 @@ class MoviesCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
