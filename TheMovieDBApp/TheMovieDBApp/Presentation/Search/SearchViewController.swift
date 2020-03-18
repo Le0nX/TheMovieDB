@@ -46,7 +46,10 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.tabBarController?.tabBar.isHidden = true
-
+        
+        self.containerView.tableView.delegate = self
+        self.containerView.tableView.dataSource = self
+        
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -66,6 +69,7 @@ final class SearchViewController: UIViewController {
             self.containerView.imageView.alpha = 0
             self.containerView.topConstraint.constant -= 150
             self.containerView.tableView.alpha = 1
+            self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
     }
@@ -80,7 +84,29 @@ final class SearchViewController: UIViewController {
             self.containerView.imageView.alpha = 1
             self.containerView.topConstraint.constant += 150
             self.containerView.tableView.alpha = 0
+            self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
     }
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as! MoviesCell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Change the selected background view of the cell.
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

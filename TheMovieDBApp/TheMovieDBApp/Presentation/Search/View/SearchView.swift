@@ -34,5 +34,8 @@ final class SearchView: XibView {
     
     func setup() {
         contentView.backgroundColor = ColorName.background
+        tableView.register(UINib(nibName: "MoviesCell", bundle: nil), forCellReuseIdentifier: "MoviesCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
 }
