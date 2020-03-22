@@ -8,8 +8,5 @@
 
 import Foundation
 
-/// Результат работы APIClient
-public enum APIResult<T> {
-    case success(T)
-    case failure(Error)
-}
+public typealias APIResult<T> = Swift.Result<T, Error>
+
