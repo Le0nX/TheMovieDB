@@ -34,7 +34,7 @@ final class ServiceFabric: ServicesAssembler {
     }()
     
     private lazy var posterClient: APIClient = {
-        let config = APIClientConfig(base: "https://image.tmdb.org/t/p/w185//")
+        let config = APIClientConfig(base: "https://image.tmdb.org")
         return TMDBAPIClient(config: config)
     }()
     

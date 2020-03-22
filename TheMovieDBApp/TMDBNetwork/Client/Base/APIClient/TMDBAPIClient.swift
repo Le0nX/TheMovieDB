@@ -32,7 +32,7 @@ public final class TMDBAPIClient: APIClient {
             return Progress()
         }
         
-        request.url = URL(string: config.baseUrl + (request.url?.absoluteString ?? ""))
+        request.url = URL(string: request.url?.absoluteString ?? "", relativeTo: config.baseUrl)
         
         let task = config.session.dataTask(with: request) { data, response, _ in
             DispatchQueue.main.async {

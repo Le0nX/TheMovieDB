@@ -10,10 +10,10 @@ import Foundation
 
 public struct APIClientConfig {
     let session: URLSession
-    let baseUrl: String
+    let baseUrl: URL
     
     public init(session: URLSession = URLSession(configuration: .ephemeral), base: String) {
         self.session = session
-        self.baseUrl = base
+        self.baseUrl = URL(string: base)!
     }
 }

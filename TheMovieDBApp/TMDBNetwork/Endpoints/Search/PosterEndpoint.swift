@@ -17,7 +17,7 @@ public struct PosterEndpoint: Endpoint {
     // MARK: - Public Properties
     
     public var path: String {
-        poster
+        "/t/p/w185//" + poster
     }
         
     public var headers: [String: String]? {
