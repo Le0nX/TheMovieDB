@@ -42,17 +42,12 @@ public final class TMDBAPIClient: APIClient {
                     return
                 }
                
-                if let data = data {
-                    do {
-                        let genericModel = try endpoint.content(from: data, response: httpResponse)
-                        completionHandler(.success(genericModel))
-                    } catch {
-                        completionHandler(.failure(error))
-                    }
-                } else {
-                    completionHandler(.failure(APIError.requestFailed)) // данные не пришли
+                do {
+                    let genericModel = try endpoint.content(from: data ?? Data(), response: httpResponse)
+                    completionHandler(.success(genericModel))
+                } catch {
+                    completionHandler(.failure(error))
                 }
-                
             }
         }
         
