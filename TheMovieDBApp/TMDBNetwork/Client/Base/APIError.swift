@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol Descriptable {
-    
-    var description: String { get }
-    
-}
-
-protocol ErrorDescriptable: Descriptable {}
-
-enum APIError: Error, ErrorDescriptable {
+enum APIError: Error, CustomStringConvertible {
     
     case badRequest
     case requestFailed

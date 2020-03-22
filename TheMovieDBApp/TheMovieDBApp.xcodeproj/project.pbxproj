@@ -67,7 +67,6 @@
 		145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BAA241592CE007ACDBB /* StoryAssembler.swift */; };
 		145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BAC24159400007ACDBB /* ServicesAssembler.swift */; };
 		145E8BAF2415986A007ACDBB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BAE2415986A007ACDBB /* AuthService.swift */; };
-		145E8BBA2415B742007ACDBB /* ErrorDescriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BB92415B742007ACDBB /* ErrorDescriptable.swift */; };
 		145E8BCD2415DE91007ACDBB /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
 		145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCF24165869007ACDBB /* UserSessionData.swift */; };
 		145E8BD4241675C3007ACDBB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD3241675C3007ACDBB /* Validator.swift */; };
@@ -209,7 +208,6 @@
 		145E8BAA241592CE007ACDBB /* StoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAssembler.swift; sourceTree = "<group>"; };
 		145E8BAC24159400007ACDBB /* ServicesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembler.swift; sourceTree = "<group>"; };
 		145E8BAE2415986A007ACDBB /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		145E8BB92415B742007ACDBB /* ErrorDescriptable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescriptable.swift; sourceTree = "<group>"; };
 		145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsService.swift; sourceTree = "<group>"; };
 		145E8BCF24165869007ACDBB /* UserSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionData.swift; sourceTree = "<group>"; };
 		145E8BD3241675C3007ACDBB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -535,7 +533,6 @@
 		145033422412826200B3F404 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				145E8BB92415B742007ACDBB /* ErrorDescriptable.swift */,
 				14100A812418312C0097421F /* UTCToLocal.swift */,
 			);
 			path = Helper;
@@ -1085,7 +1082,6 @@
 				145E8B9C24144C41007ACDBB /* AccountViewController.swift in Sources */,
 				1446257B2421A35200CF0DB7 /* MoviesCell.swift in Sources */,
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
-				145E8BBA2415B742007ACDBB /* ErrorDescriptable.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */,
