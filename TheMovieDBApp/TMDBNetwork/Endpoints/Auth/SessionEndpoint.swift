@@ -38,7 +38,7 @@ public struct SessionEndpoint: Endpoint {
     
     // MARK: - Private Properties
     
-    private var token: String
+    private let token: String
     
     // MARK: - Initializers
 

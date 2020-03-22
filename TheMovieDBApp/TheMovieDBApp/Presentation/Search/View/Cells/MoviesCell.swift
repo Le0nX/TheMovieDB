@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesCell: UITableViewCell {
+final class MoviesCell: UITableViewCell {
     
     // MARK: - IBOutlet
     
