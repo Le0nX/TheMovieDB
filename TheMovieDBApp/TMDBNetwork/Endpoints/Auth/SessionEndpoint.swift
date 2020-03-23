@@ -13,32 +13,16 @@ public struct SessionEndpoint: Endpoint {
     // MARK: - Types
 
     public typealias Content = UserSession
-    
-    // MARK: - Public Properties
 
-    public var path: String {
-        "/3/authentication/session/new"
-    }
-        
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
-        ["request_token": token]
-    }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .jsonEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .post
-    }
-    
     // MARK: - Private Properties
     
+    private let path = "/3/authentication/session/new"
+    
     private let token: String
+        
+    private var params: [String: Any]? {
+        ["request_token": token]
+    }
     
     // MARK: - Initializers
 
@@ -47,6 +31,10 @@ public struct SessionEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .post, parameterEncoding: .jsonEncoding, params: params)
+    }
 
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         

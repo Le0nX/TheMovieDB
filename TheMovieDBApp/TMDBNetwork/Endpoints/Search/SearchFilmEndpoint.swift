@@ -13,33 +13,17 @@ public struct SearchFilmEndpoint: Endpoint {
     // MARK: - Types
     
     public typealias Content = MovieResponse
-        
-    // MARK: - Public Properties
-    
-    public var path: String {
-        "/3/search/movie"
-    }
-        
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
-        ["query": searchText]
-    }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .defaultEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .get
-    }
-    
+
     // MARK: - Private Properties
     
-    private var searchText: String
-        
+    private let searchText: String
+    
+    private let path = "/3/search/movie"
+    
+    private var params: [String: Any]? {
+        ["query": searchText]
+    }
+    
     // MARK: - Initializers
 
     public init(search: String) {
@@ -47,6 +31,10 @@ public struct SearchFilmEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .get, params: params)
+    }
     
     /// Метод парсинга MovieResponse из респонза
     /// - Parameter data: данные из респоза

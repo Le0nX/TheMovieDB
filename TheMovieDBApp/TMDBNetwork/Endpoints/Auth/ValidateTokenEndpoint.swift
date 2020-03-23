@@ -14,29 +14,13 @@ public struct ValidateTokenEndpoint: Endpoint {
     
     public typealias Content = ValidateToken
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
-    public var path: String {
-        "/3/authentication/token/validate_with_login"
-    }
-        
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
+    private let path = "/3/authentication/token/validate_with_login"
+    
+    private var params: [String: Any]? {
         ["username": username, "password": password, "request_token": token]
     }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .jsonEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .post
-    }
-    
-    // MARK: - Private Properties
 
     private var username: String
     private var password: String
@@ -51,6 +35,10 @@ public struct ValidateTokenEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .post, parameterEncoding: .jsonEncoding, params: params)
+    }
 
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         

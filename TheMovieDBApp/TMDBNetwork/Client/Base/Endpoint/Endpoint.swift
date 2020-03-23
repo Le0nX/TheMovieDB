@@ -18,14 +18,6 @@ public protocol Endpoint {
     
     associatedtype Content
     
-    // MARK: - Public Properties
-
-    var path: String { get }
-    var headers: [String: String]? { get }
-    var params: [String: Any]? { get }
-    var parameterEncoding: ParameterEnconding { get }
-    var method: HTTPMethod { get }
-    
     // MARK: - Public methods
     
     ///Функция для создания запроса
@@ -44,12 +36,9 @@ public protocol Endpoint {
     func content(from data: Data, response: URLResponse?) throws -> Content
 }
 
-public enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-}
+//var path: String { get }
+//var headers: [String: String]? { get }
+//var params: [String: Any]? { get }
+//var parameterEncoding: ParameterEnconding { get }
+//var method: HTTPMethod { get }
 
-public enum ParameterEnconding {
-    case defaultEncoding
-    case jsonEncoding
-}

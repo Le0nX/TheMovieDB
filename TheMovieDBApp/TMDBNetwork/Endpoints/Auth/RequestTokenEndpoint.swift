@@ -14,27 +14,9 @@ public struct RequestTokenEndpoint: Endpoint {
     
     public typealias Content = RequestToken
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
         
-    public var path: String {
-        "/3/authentication/token/new"
-    }
-        
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
-        nil
-    }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .defaultEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .get
-    }
+    private let path = "/3/authentication/token/new"
     
     // MARK: - Initializers
 
@@ -43,6 +25,10 @@ public struct RequestTokenEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .get)
+    }
 
     public func content(from data: Data, response: URLResponse?) throws -> RequestToken {
         

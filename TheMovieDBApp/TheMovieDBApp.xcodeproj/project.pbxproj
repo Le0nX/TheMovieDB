@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14100A822418312C0097421F /* UTCToLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100A812418312C0097421F /* UTCToLocal.swift */; };
+		143C1DCE242928400060D270 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143C1DCD242928400060D270 /* URLBuilder.swift */; };
 		1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */; };
 		1446254324202BFB00CF0DB7 /* SessionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */; };
 		1446254424202BFB00CF0DB7 /* ValidateTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */; };
@@ -144,6 +145,7 @@
 
 /* Begin PBXFileReference section */
 		14100A812418312C0097421F /* UTCToLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTCToLocal.swift; sourceTree = "<group>"; };
+		143C1DCD242928400060D270 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTokenEndpoint.swift; sourceTree = "<group>"; };
 		1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEndpoint.swift; sourceTree = "<group>"; };
 		1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateTokenEndpoint.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 		14100A9A241FCD2C0097421F /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
+				143C1DCD242928400060D270 /* URLBuilder.swift */,
 				1446254F24202C5E00CF0DB7 /* Endpoint.swift */,
 				145E8BBD2415BD88007ACDBB /* Extensions */,
 			);
@@ -1139,6 +1142,7 @@
 				1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */,
 				1446255824202C8100CF0DB7 /* AuthModels.swift in Sources */,
 				14462564242046F300CF0DB7 /* FavoriteEndpoint.swift in Sources */,
+				143C1DCE242928400060D270 /* URLBuilder.swift in Sources */,
 				1446255024202C5E00CF0DB7 /* Endpoint.swift in Sources */,
 				1446254A24202C0C00CF0DB7 /* TMDBAPIClient.swift in Sources */,
 				1446256A2420BF1C00CF0DB7 /* APIClientConfig.swift in Sources */,

@@ -14,29 +14,11 @@ public struct PosterEndpoint: Endpoint {
     
     public typealias Content = Data
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
-    public var path: String {
+    private var path: String {
         "/t/p/w185//" + poster
     }
-        
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
-        nil
-    }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .defaultEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .get
-    }
-    
-    // MARK: - Private Properties
     
     private var poster: String
     
@@ -47,6 +29,10 @@ public struct PosterEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .get)
+    }
     
     /// Метод парсинга Data из респонза
     /// картинки парсятся в Data для избежания зависимости от UIKit

@@ -14,29 +14,15 @@ public struct FavoriteEndpoint: Endpoint {
     
     public typealias Content = MovieResponse
     
-    // MARK: - Public Properties
-
-    public var path: String {
+    // MARK: - Private Properties
+    
+    private var path: String {
         "/3/account/\(accountId)/favorite/movies"
     }
         
-    public var headers: [String: String]? {
-        nil
-    }
-        
-    public var params: [String: Any]? {
+    private var params: [String: Any]? {
         ["session_id": sessionId, "page": page]
     }
-        
-    public var parameterEncoding: ParameterEnconding {
-        .defaultEncoding
-    }
-        
-    public var method: HTTPMethod {
-        .get
-    }
-    
-    // MARK: - Private Properties
 
     private var accountId: Int
     private var sessionId: String
@@ -51,6 +37,10 @@ public struct FavoriteEndpoint: Endpoint {
     }
     
     // MARK: - Public methods
+    
+    public func makeRequest() throws -> URLRequest {
+        try URLBuilder().build(for: path, method: .get, params: params)
+    }
 
     public func content(from data: Data, response: URLResponse?) throws -> Content {
         
