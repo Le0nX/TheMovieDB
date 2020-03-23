@@ -35,10 +35,3 @@ public protocol Endpoint {
     /// - Returns: результат парсинга
     func content(from data: Data, response: URLResponse?) throws -> Content
 }
-
-//var path: String { get }
-//var headers: [String: String]? { get }
-//var params: [String: Any]? { get }
-//var parameterEncoding: ParameterEnconding { get }
-//var method: HTTPMethod { get }
-

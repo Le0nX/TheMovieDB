@@ -44,14 +44,9 @@ public final class TMDBAPIClient: APIClient {
                     completionHandler(.failure(error))
                     return
                 }
-                
-                guard let httpResponse = response as? HTTPURLResponse else {
-                    completionHandler(.failure(APIError.badRequest))
-                    return
-                }
                
                 do {
-                    let genericModel = try endpoint.content(from: data ?? Data(), response: httpResponse)
+                    let genericModel = try endpoint.content(from: data ?? Data(), response: response)
                     completionHandler(.success(genericModel))
                 } catch {
                     completionHandler(.failure(error))
