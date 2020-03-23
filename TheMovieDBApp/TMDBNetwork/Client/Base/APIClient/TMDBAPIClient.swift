@@ -37,8 +37,13 @@ public final class TMDBAPIClient: APIClient {
         
         request.url = URL(string: request.url?.absoluteString ?? "", relativeTo: config.baseUrl)
         
-        let task = config.session.dataTask(with: request) { data, response, _ in
+        let task = config.session.dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
+                
+                if let error = error {
+                    completionHandler(.failure(error))
+                    return
+                }
                 
                 guard let httpResponse = response as? HTTPURLResponse else {
                     completionHandler(.failure(APIError.badRequest))
