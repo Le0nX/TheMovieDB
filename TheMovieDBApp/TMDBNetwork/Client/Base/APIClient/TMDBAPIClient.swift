@@ -26,9 +26,12 @@ public final class TMDBAPIClient: APIClient {
     public func request<T>(_ endpoint: T,
                            completionHandler: @escaping (APIResult<T.Content>) -> Void
     ) -> Progress where T: Endpoint {
-
-        guard var request = try? endpoint.makeRequest() else {
-            completionHandler(.failure(APIError.requestFailed))
+        
+        var request: URLRequest
+        do {
+            request = try endpoint.makeRequest()
+        } catch {
+            completionHandler(.failure(error))
             return Progress()
         }
         
