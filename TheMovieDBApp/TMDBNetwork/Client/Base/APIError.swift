@@ -18,6 +18,7 @@ enum APIError: Error, CustomStringConvertible {
     case invalidApiKey
     case unknown(HTTPURLResponse?)
     case invalidService
+    case invalidSessionIdResponse
     
     var description: String {
         switch self {
@@ -33,6 +34,8 @@ enum APIError: Error, CustomStringConvertible {
             return ErrorMessages.ServerError
         case .requestFailed, .badRequest, .invalidData:
             return ErrorMessages.RequestFailed
+        case .invalidSessionIdResponse:
+            return errorDescription ?? ""
         }
     }
 }
@@ -52,6 +55,8 @@ extension APIError: LocalizedError {
             return ErrorMessages.ServerError
         case .requestFailed, .badRequest, .invalidData:
             return ErrorMessages.RequestFailed
+        case .invalidSessionIdResponse:
+            return ErrorMessages.InvalidSessionIdResponse
         }
     }
 }
@@ -67,5 +72,8 @@ extension APIError {
                                                       comment: "Invalid Service")
         static let InvalidApiKey = NSLocalizedString("Invalid API key: You must be granted a valid key.",
                                                      comment: "Invalid api key")
+        
+        static let InvalidSessionIdResponse = NSLocalizedString("Invalid session id response",
+                                                                comment: "Invalid session id response")
     }
 }

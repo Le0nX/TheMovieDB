@@ -43,16 +43,12 @@ final class SearchPresenter: SearchPresenterOutput {
     func didEnteredMovie(name: String) {
                 
         moviesService.searchFilm(name: name) { [weak self] result in
-            DispatchQueue.main.async {
-                                
-                switch result {
-                case .success(let movies):
-                    self?.view.setMoviesData(movies: movies)
-                case .failure(let error):
-                    print(error)
-                }
+            switch result {
+            case .success(let movies):
+                self?.view.setMoviesData(movies: movies)
+            case .failure(let error):
+                print(error)
             }
-            
         }
     }
     
@@ -61,7 +57,7 @@ final class SearchPresenter: SearchPresenterOutput {
     /// - Parameter completion: обрработчик
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) {
                 
-        moviesService.getMoviePoster(for: poster) { result in
+        moviesService.fetchMoviePoster(for: poster) { result in
             DispatchQueue.main.async {
                             
                 switch result {

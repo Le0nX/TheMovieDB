@@ -52,7 +52,7 @@ final class AccountPresenter: AccountPresenterOutput {
         
         self.view.showProgress()
         
-        profileService.getUserInfo { [weak self] result in
+        profileService.userInfo { [weak self] result in
             DispatchQueue.main.async {
                 
                 self?.view.hideProgress()

@@ -87,7 +87,10 @@ final public class LoginService: AuthService {
         client.request(endpoint) { result in
             switch result {
             case .success(let sessionResult):
-                guard let sessionId = sessionResult.sessionId else { return }
+                guard let sessionId = sessionResult.sessionId else {
+                    completion(.failure(ServiceError.invalidSessionIdResponse))
+                    return
+                }
                 completion(.success(sessionResult))
                 let credentials = UserSessionData(token: validatedToken.requestToken,
                                                   expires: validatedToken.expiresAt,

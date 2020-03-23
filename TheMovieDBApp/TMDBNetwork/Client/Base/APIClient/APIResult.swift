@@ -9,4 +9,3 @@
 import Foundation
 
 public typealias APIResult<T> = Swift.Result<T, Error>
-

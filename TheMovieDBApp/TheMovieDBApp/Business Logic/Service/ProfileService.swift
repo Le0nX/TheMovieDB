@@ -13,7 +13,7 @@ protocol ProfileService {
     /// Метод получения данных пользователя
     ///
     /// - Parameter completion: обработчик данных профиля
-    func getUserInfo(completion: @escaping (APIResult<Profile>) -> Void)
+    func userInfo(completion: @escaping (APIResult<Profile>) -> Void)
 }
 
 /// Сервис данных профиля пользователя.
@@ -43,7 +43,7 @@ final public class UserProfileService: ProfileService {
     
     /// Метод получения данных пользователя
     /// - Parameter completion: обработчик данных профиля
-    func getUserInfo(completion: @escaping (Result) -> Void) {
+    func userInfo(completion: @escaping (Result) -> Void) {
         
         guard let session = accessService.credentials?.session else {
             return
@@ -52,7 +52,7 @@ final public class UserProfileService: ProfileService {
         client.request(endpoint) { result in
             switch result {
             case .success(let profileDTO):
-                self.getAvatar(hash: profileDTO.avatar?.gravatar?.hash,
+                self.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
                                name: profileDTO.name,
                                username: profileDTO.username, completion: completion)
                 
@@ -62,7 +62,7 @@ final public class UserProfileService: ProfileService {
         }
     }
     
-    private func getAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
+    private func fetchAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
         guard let hash = hash else { return }
         
         let config = APIClientConfig(base: "https://secure.gravatar.com/avatar/")

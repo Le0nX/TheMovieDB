@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14100A822418312C0097421F /* UTCToLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14100A812418312C0097421F /* UTCToLocal.swift */; };
 		143C1DCE242928400060D270 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143C1DCD242928400060D270 /* URLBuilder.swift */; };
+		143C1DD0242952870060D270 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143C1DCF242952870060D270 /* ServiceError.swift */; };
 		1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */; };
 		1446254324202BFB00CF0DB7 /* SessionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */; };
 		1446254424202BFB00CF0DB7 /* ValidateTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */; };
@@ -146,6 +147,7 @@
 /* Begin PBXFileReference section */
 		14100A812418312C0097421F /* UTCToLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTCToLocal.swift; sourceTree = "<group>"; };
 		143C1DCD242928400060D270 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
+		143C1DCF242952870060D270 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTokenEndpoint.swift; sourceTree = "<group>"; };
 		1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEndpoint.swift; sourceTree = "<group>"; };
 		1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateTokenEndpoint.swift; sourceTree = "<group>"; };
@@ -549,6 +551,7 @@
 				145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */,
 				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
+				143C1DCF242952870060D270 /* ServiceError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1110,6 +1113,7 @@
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
 				145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */,
+				143C1DD0242952870060D270 /* ServiceError.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,

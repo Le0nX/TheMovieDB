@@ -19,7 +19,7 @@ protocol MovieService {
     /// Метод получения постера к фильму
     /// - Parameter poster: адрес постера
     /// - Parameter completion: обработчик
-    func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void)
+    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void)
 }
 
 /// Сервис работы с фильмами
@@ -72,7 +72,7 @@ final public class MoviesService: MovieService {
     ///
     /// - Parameter poster: адрес постера
     /// - Parameter completion: обработчик
-    func getMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
+    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
       
         if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {
             completion(.success(cachedVersion as Data))
