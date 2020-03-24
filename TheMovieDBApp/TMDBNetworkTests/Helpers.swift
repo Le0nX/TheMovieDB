@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCTest
 
 extension URL {
     var components: URLComponents? {
@@ -17,5 +18,24 @@ extension URL {
 extension Array where Iterator.Element == URLQueryItem {
     subscript(_ key: String) -> String? {
         first(where: { $0.name == key })?.value
+    }
+}
+
+extension XCTestCase {
+    func assertGet(request: URLRequest) {
+        XCTAssertEqual(request.httpMethod, "GET")
+        XCTAssertNil(request.httpBody)
+    }
+}
+
+extension XCTestCase {
+    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #file, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance,
+                         "Instance should have been deallocated. Potential memory leak.",
+                         file: file,
+                         line: line
+            )
+        }
     }
 }
