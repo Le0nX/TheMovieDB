@@ -19,7 +19,12 @@ protocol MovieService {
     /// Метод получения постера к фильму
     /// - Parameter poster: адрес постера
     /// - Parameter completion: обработчик
-    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void)
+    @discardableResult
+    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) -> UUID?
+    
+    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
+    /// - Parameter poster: часть url постера без baseUrl
+    func cancelTask(for poster: UUID)
 }
 
 /// Сервис работы с фильмами
@@ -35,6 +40,7 @@ final public class MoviesService: MovieService {
     private let client: APIClient
     private let posterClient: APIClient
     private let simpleCache = NSCache<NSString, NSData>()
+    private var runningTasks: [UUID: Progress] = [:]
 
     // MARK: - Initializers
     
@@ -72,15 +78,20 @@ final public class MoviesService: MovieService {
     ///
     /// - Parameter poster: адрес постера
     /// - Parameter completion: обработчик
-    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) {
+    func fetchMoviePoster(for poster: String, completion: @escaping (APIResult<Data>) -> Void) -> UUID? {
       
+        /// проверяем наличие кэша. Если есть, то завершаемся с ним
         if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {
             completion(.success(cachedVersion as Data))
+            return nil
         }
         
         let endpoint = PosterEndpoint(poster: poster)
+        let posterTaskUUID = UUID()
         
-        posterClient.request(endpoint) { [weak self] result in
+        runningTasks[posterTaskUUID] = posterClient.request(endpoint) { [weak self] result in
+            defer { self?.runningTasks.removeValue(forKey: posterTaskUUID) } // таска завершилась
+            
             switch result {
             case .success(let posterData):
                 
@@ -92,6 +103,15 @@ final public class MoviesService: MovieService {
                 completion(.failure(error))
             }
             
+        }
+        
+        return posterTaskUUID
+    }
+    
+    func cancelTask(for poster: UUID) {
+        if let task = runningTasks[poster] {
+            task.cancel()
+            runningTasks.removeValue(forKey: poster)
         }
     }
     

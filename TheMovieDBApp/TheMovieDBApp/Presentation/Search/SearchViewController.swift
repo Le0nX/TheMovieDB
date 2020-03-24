@@ -143,16 +143,17 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as? MoviesCell else {
             return UITableViewCell()
         }
-        cell.movieName.text = moviesData[indexPath.row].title
-        cell.movieOriginalName.text = moviesData[indexPath.row].originalTitle
-        cell.popularityLabel.text = String(moviesData[indexPath.row].popularity ?? 0)
+        cell.configure(with: moviesData[indexPath.row])
+
         if let poster = moviesData[indexPath.row].image {
-            output?.fetchImage(for: poster) { data in
+            let uuid = output?.fetchImage(for: poster) { data in
                 if let data = data {
                     cell.posterImage.image = UIImage(data: data)
-                } else {
-                    cell.posterImage.image = ImageName.filmIconSelected
                 }
+            }
+            
+            cell.onReuse = { 
+                self.output?.cancelTask(for: uuid ?? UUID())
             }
         }
         
@@ -163,4 +164,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+}
+
+extension MoviesCell {
+    func configure(with model: MovieEntity) {
+        self.movieName.text = model.title
+        self.movieOriginalName.text = model.originalTitle
+        self.popularityLabel.text = String(model.popularity ?? 0)
+    }
 }

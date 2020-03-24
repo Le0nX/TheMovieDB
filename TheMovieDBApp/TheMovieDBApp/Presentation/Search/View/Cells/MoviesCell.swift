@@ -19,6 +19,10 @@ final class MoviesCell: UITableViewCell {
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var voteCountLabel: UILabel!
     
+    // MARK: - Public Properties
+    
+    var onReuse: () -> Void = {}
+    
     // MARK: - UIViewController(*)
     
     override func awakeFromNib() {
@@ -31,4 +35,9 @@ final class MoviesCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse()
+        posterImage.image = ImageName.filmIconSelected
+    }
 }

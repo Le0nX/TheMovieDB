@@ -17,7 +17,11 @@ protocol SearchPresenterOutput {
     /// Метод запроса картинки постера фильма
     /// - Parameter for: линк постера
     /// - Parameter completion: обрработчик
-    func fetchImage(for: String, completion: @escaping (Data?) -> Void)
+    func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID?
+    
+    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
+    /// - Parameter poster: часть url постера без baseUrl
+    func cancelTask(for poster: UUID)
 }
 
 final class SearchPresenter: SearchPresenterOutput {
@@ -55,9 +59,9 @@ final class SearchPresenter: SearchPresenterOutput {
     /// Метод запроса картинки постера фильма
     /// - Parameter for: линк постера
     /// - Parameter completion: обрработчик
-    func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) {
+    func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
                 
-        moviesService.fetchMoviePoster(for: poster) { result in
+        let uuid = moviesService.fetchMoviePoster(for: poster) { result in
             DispatchQueue.main.async {
                             
                 switch result {
@@ -69,5 +73,13 @@ final class SearchPresenter: SearchPresenterOutput {
             }
             
         }
+        
+        return uuid
+    }
+    
+    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
+    /// - Parameter poster: часть url постера без baseUrl
+    func cancelTask(for poster: UUID) {
+        moviesService.cancelTask(for: poster)
     }
 }
