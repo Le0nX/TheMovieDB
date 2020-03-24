@@ -11,6 +11,20 @@ import XCTest
 
 final class SearchFilmEndpointTest: XCTestCase {
     
+    func test_wrongPath() throws {
+        let searchItem = "test"
+        let request = try makeSUT(with: searchItem)
+        
+        XCTAssertFalse(request.url?.absoluteString.hasPrefix("/3/search/movie_wrong?") ?? false)
+    }
+    
+    func test_rightPath() throws {
+        let searchItem = "test"
+        let request = try makeSUT(with: searchItem)
+        print(request.url?.absoluteString)
+        XCTAssertTrue(request.url?.absoluteString.hasPrefix("/3/search/movie?") ?? false)
+    }
+    
     func test_badQueryItems() throws {
         let searchItem = "test"
         let request = try makeSUT(with: searchItem)
