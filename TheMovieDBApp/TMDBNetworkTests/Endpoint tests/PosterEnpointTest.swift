@@ -11,6 +11,20 @@ import XCTest
 
 final class PosterEndpointTest: XCTestCase {
     
+    func test_wrongPath() throws {
+        let searchItem = "test"
+        let request = try makeSUT(with: searchItem)
+        
+        XCTAssertFalse(request.url?.absoluteString.hasPrefix("/t/p/w185//test_wrong?") ?? false)
+    }
+    
+    func test_rightPath() throws {
+        let searchItem = "test"
+        let request = try makeSUT(with: searchItem)
+        
+        XCTAssertTrue(request.url?.absoluteString.hasPrefix("/t/p/w185//test?") ?? false)
+    }
+    
     func test_badQueryItems() throws {
         let searchItem = "test"
         let request = try makeSUT(with: searchItem)
@@ -25,20 +39,6 @@ final class PosterEndpointTest: XCTestCase {
         
         XCTAssertEqual(request.url?.components?.queryItems?["api_key"], Constant.key)
         XCTAssertEqual(request.url?.components?.queryItems?["language"], Constant.locale)
-    }
-    
-    func test_wrongPath() throws {
-        let searchItem = "test"
-        let request = try makeSUT(with: searchItem)
-        
-        XCTAssertFalse(request.url?.absoluteString.hasPrefix("/t/p/w185//worong_test") ?? false)
-    }
-    
-    func test_rightPath() throws {
-        let searchItem = "test"
-        let request = try makeSUT(with: searchItem)
-        
-        XCTAssertTrue(request.url?.absoluteString.hasPrefix("/t/p/w185//test") ?? false)
     }
 
     func test_makeRequest() throws {
