@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -45,6 +46,16 @@
                BlueprintIdentifier = "1450332524126AAE00B3F404"
                BuildableName = "TheMovieDBAppUITests.xctest"
                BlueprintName = "TheMovieDBAppUITests"
+               ReferencedContainer = "container:TheMovieDBApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "14FE8F812420258D00115A49"
+               BuildableName = "TMDBNetworkTests.xctest"
+               BlueprintName = "TMDBNetworkTests"
                ReferencedContainer = "container:TheMovieDBApp.xcodeproj">
             </BuildableReference>
          </TestableReference>

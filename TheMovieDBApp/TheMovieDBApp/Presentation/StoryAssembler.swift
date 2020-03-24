@@ -18,9 +18,12 @@ protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана профиля
     func makeAccountStory() -> AccountViewController
+    
+    /// Фабричный метод создания экрана поиска
+    func makeSearchStory() -> SearchViewController
 }
 
-class StoryFabric: StoriesAssembler {
+final class StoryFabric: StoriesAssembler {
     
     // MARK: - Private Properties
     
@@ -38,7 +41,7 @@ class StoryFabric: StoriesAssembler {
     func makeAuthStory() -> LoginViewController {
         let loginVc = LoginViewController()
         let authCoordinator = AuthCoordinator(storyAssembler: self)
-        loginVc.output = AuthPresenter(loginVc,
+        loginVc.output = AuthPresenter(WeakRef(loginVc),
                                        authService: servicesAssembler.authService,
                                        authCoordinator: authCoordinator)
         
@@ -47,7 +50,7 @@ class StoryFabric: StoriesAssembler {
     
     /// Фабричный метод создания экрана авторизации
     func makeTabBar() -> UITabBarController {
-        let firstViewController = SearchViewController()
+        let firstViewController = makeSearchStory()
         firstViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
                                                       image: ImageName.filmIcon,
                                                       tag: 0)
@@ -75,9 +78,20 @@ class StoryFabric: StoriesAssembler {
     func makeAccountStory() -> AccountViewController {
         let accountVc = AccountViewController()
         let accountCoordinator = AccountCoordinator(storyAssembler: self)
-        accountVc.output = AccountPresenter(credentailsService: servicesAssembler.accessService,
+        accountVc.output = AccountPresenter(WeakRef(accountVc),
+                                            credentailsService: servicesAssembler.accessService,
+                                            profileService: servicesAssembler.profileService,
                                             accountCoordinator: accountCoordinator)
         
         return accountVc
+    }
+    
+    /// Фабричный метод создания экрана поиска
+    func makeSearchStory() -> SearchViewController {
+        let searchVc = SearchViewController()
+        searchVc.output = SearchPresenter(WeakRef(searchVc),
+                                          moviesService: servicesAssembler.movieService)
+        
+        return searchVc
     }
 }

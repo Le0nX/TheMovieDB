@@ -7,11 +7,7 @@
 //
 
 import Foundation
-
-enum LoginServiceResult {
-    case success(UserSession)
-    case failure(APIError)
-}
+import TMDBNetwork
 
 protocol AuthService {
     
@@ -19,7 +15,7 @@ protocol AuthService {
     /// - Parameter login: логин пользователя
     /// - Parameter password: пароль пользователя
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
-    func signInUser(with login: String, password: String, completion: @escaping (LoginServiceResult) -> Void)
+    func signInUser(with login: String, password: String, completion: @escaping (APIResult<UserSession>) -> Void)
     
     /// TODO: - Signout()
 }
@@ -30,11 +26,11 @@ final public class LoginService: AuthService {
     
     // MARK: - Types
     
-    typealias Result = LoginServiceResult
+    typealias Result = APIResult<UserSession>
     
     // MARK: - Constants
     
-    private let client: AuthClient
+    private let client: APIClient
             
     // MARK: - Private Properties
     
@@ -42,7 +38,7 @@ final public class LoginService: AuthService {
     
     // MARK: - Initializers
     
-    init(client: AuthClient, accessService: AccessCredentialsService) {
+    init(client: APIClient, accessService: AccessCredentialsService) {
         self.client = client
         self.accessService = accessService
     }
@@ -54,7 +50,8 @@ final public class LoginService: AuthService {
     /// - Parameter password: пароль пользователя
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
     func signInUser(with login: String, password: String, completion: @escaping (Result) -> Void) {
-        client.createRequestToken { result in
+        let endpoint = RequestTokenEndpoint()
+        client.request(endpoint) { result in
             switch result {
             case .success(let requestToken):
                 self.validateToken(with: requestToken.requestToken,
@@ -62,7 +59,6 @@ final public class LoginService: AuthService {
                                    password: password,
                                    completion: completion)
             case .failure(let error):
-                print(error.description)
                 completion(.failure(error))
             }
         }
@@ -74,28 +70,31 @@ final public class LoginService: AuthService {
                                login: String,
                                password: String,
                                completion: @escaping (Result) -> Void) {
-        client.validateRequestToken(with: requestToken, login: login, password: password) { result in
+        let endpoint = ValidateTokenEndpoint(with: login, password: password, requestToken: requestToken)
+        client.request(endpoint) { result in
             switch result {
-            case .success(let requestToken):
-                self.createSessionId(with: requestToken, completion: completion)
+            case .success(let validatedToken):
+                self.createSessionId(with: validatedToken, completion: completion)
             case .failure(let error):
-                print(error.description)
                 completion(.failure(error))
             }
         }
     }
-        
-    private func createSessionId(with requestToken: RequestToken,
+
+    private func createSessionId(with validatedToken: ValidateToken,
                                  completion: @escaping (Result) -> Void) {
-        client.createSessionId(with: requestToken.requestToken) { result in
+        let endpoint = SessionEndpoint(with: validatedToken.requestToken)
+        client.request(endpoint) { result in
             switch result {
             case .success(let sessionResult):
-                guard let sessionId = sessionResult.sessionId else { return }
-                    print(sessionId)
+                guard let sessionId = sessionResult.sessionId else {
+                    completion(.failure(ServiceError.invalidSessionIdResponse))
+                    return
+                }
                 completion(.success(sessionResult))
-                let credentials = UserSessionData(token: requestToken.requestToken,
-                                                  expires: requestToken.expiresAt,
-                                                  session: sessionResult.sessionId ?? "")
+                let credentials = UserSessionData(token: validatedToken.requestToken,
+                                                  expires: validatedToken.expiresAt,
+                                                  session: sessionId)
                 self.accessService.credentials = credentials
             case .failure(let error):
                 completion(.failure(error))

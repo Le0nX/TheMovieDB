@@ -14,6 +14,9 @@ final class SearchView: XibView {
     
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var searchTextField: TMDBSearchTextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
     // MARK: - Initializers
     
@@ -31,5 +34,8 @@ final class SearchView: XibView {
     
     func setup() {
         contentView.backgroundColor = ColorName.background
+        tableView.register(UINib(nibName: "MoviesCell", bundle: nil), forCellReuseIdentifier: "MoviesCell")
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
 }

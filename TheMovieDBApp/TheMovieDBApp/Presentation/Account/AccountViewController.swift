@@ -8,6 +8,19 @@
 
 import UIKit
 
+protocol AccountViewInput {
+    
+    /// Метод выставления данных профиля на экране
+    /// - Parameter profile: DTO профиля
+    func setRemoteProfileData(profile: Profile)
+    
+    /// Показать спиннер на экране
+    func showProgress()
+    
+    /// Скрыть спиннер
+    func hideProgress()
+}
+
 final class AccountViewController: UIViewController {
         
     // MARK: - Constants
@@ -44,6 +57,8 @@ final class AccountViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
 
         self.hideKeyboardWhenTappedAround()
+        
+        output?.updateProfile()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -54,5 +69,22 @@ final class AccountViewController: UIViewController {
 extension AccountViewController: AccountViewOutput {
     func logout() {
         self.output?.didPressedLogoutButton()
+    }
+}
+
+extension AccountViewController: AccountViewInput {
+    
+    func showProgress() {
+        self.showSpinner(onView: self.containerView.usernameLabel)
+    }
+    
+    func hideProgress() {
+        self.removeSpinner()
+    }
+    
+    func setRemoteProfileData(profile: Profile) {
+        self.containerView.nameLabel.text = profile.name
+        self.containerView.usernameLabel.text = profile.username
+        self.containerView.avatarImage.image = UIImage(data: profile.image)
     }
 }

@@ -19,6 +19,9 @@ final class AccountView: XibView {
     // MARK: - IBOutlet
     
     @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     
     // MARK: - Public Properties
     

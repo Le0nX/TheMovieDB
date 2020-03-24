@@ -16,7 +16,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchView" customModule="TheMovieDBApp" customModuleProvider="target">
             <connections>
                 <outlet property="headerLabel" destination="msk-S2-KGo" id="0JF-HW-6U1"/>
+                <outlet property="imageView" destination="B3C-2d-8lm" id="tke-Js-0J2"/>
                 <outlet property="searchTextField" destination="cy7-Td-Pgg" id="iaD-fo-zh1"/>
+                <outlet property="tableView" destination="3hg-Ym-9Ga" id="9eW-OB-cKH"/>
+                <outlet property="topConstraint" destination="ahJ-FQ-Tm5" id="tMI-ee-hNt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -55,16 +58,24 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="lzPlaceholder" value="SEARCH_VIEW_PLACEHOLDER"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hg-Ym-9Ga">
+                    <rect key="frame" x="24" y="246" width="350" height="350"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="0.098232068120000002" green="0.103697814" blue="0.1452768743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="B3C-2d-8lm" secondAttribute="bottom" id="EMa-rs-iA0"/>
+                <constraint firstItem="3hg-Ym-9Ga" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Gdl-Ry-cka"/>
                 <constraint firstItem="cy7-Td-Pgg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="RY6-KA-uiX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="3hg-Ym-9Ga" secondAttribute="bottom" id="TJ5-Zc-Jud"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="msk-S2-KGo" secondAttribute="trailing" constant="24" id="TkE-e3-UX6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cy7-Td-Pgg" secondAttribute="trailing" constant="71" id="UB5-s5-Or4"/>
                 <constraint firstItem="cy7-Td-Pgg" firstAttribute="top" secondItem="msk-S2-KGo" secondAttribute="bottom" constant="33" id="ahJ-FQ-Tm5"/>
                 <constraint firstItem="B3C-2d-8lm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="cKW-3h-0t6"/>
+                <constraint firstItem="3hg-Ym-9Ga" firstAttribute="top" secondItem="cy7-Td-Pgg" secondAttribute="bottom" constant="40" id="cT7-XC-36Q"/>
                 <constraint firstItem="msk-S2-KGo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="fDb-xG-v14"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3hg-Ym-9Ga" secondAttribute="trailing" constant="24" id="mVo-0g-Cch"/>
                 <constraint firstItem="msk-S2-KGo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="sEi-3f-W8d"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="B3C-2d-8lm" secondAttribute="trailing" id="w7T-zW-ojR"/>
             </constraints>
