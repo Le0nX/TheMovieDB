@@ -62,6 +62,8 @@ final public class UserProfileService: ProfileService {
         }
     }
     
+    // MARK: - Private methods
+    
     private func fetchAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
         guard let hash = hash else { return }
         
