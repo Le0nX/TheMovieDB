@@ -23,17 +23,17 @@ enum APIError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .invalidApiKey:
-            return ErrorMessages.InvalidApiKey
+            return errorDescription ?? ""
         case .invalidService:
-            return ErrorMessages.InvalidService
+            return errorDescription ?? ""
         case .authFailed:
-            return ErrorMessages.AuthFailed
+            return errorDescription ?? ""
         case .notFound:
-            return ErrorMessages.NotFound
+            return errorDescription ?? ""
         case .unknown:
-            return ErrorMessages.ServerError
+            return errorDescription ?? ""
         case .requestFailed, .badRequest, .invalidData:
-            return ErrorMessages.RequestFailed
+            return errorDescription ?? ""
         case .invalidSessionIdResponse:
             return errorDescription ?? ""
         }
@@ -44,36 +44,19 @@ extension APIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidApiKey:
-            return ErrorMessages.InvalidApiKey
+            return NSLocalizedString("Invalid API key: You must be granted a valid key.", comment: "Invalid api key")
         case .invalidService:
-            return ErrorMessages.InvalidService
+            return NSLocalizedString("Invalid service: this service does not exist.", comment: "Invalid Service")
         case .authFailed:
-            return ErrorMessages.AuthFailed
+            return NSLocalizedString("AUTH_CREDENTIALS_ERROR_MESSAGE", comment: "Invalid Login or Password")
         case .notFound:
-            return ErrorMessages.NotFound
+            return NSLocalizedString("AUTH_404_ERROR_MESSAGE", comment: "404. Not found.")
         case .unknown:
-            return ErrorMessages.ServerError
+            return  NSLocalizedString("AUTH_SERVER_ERROR", comment: "Server Error")
         case .requestFailed, .badRequest, .invalidData:
-            return ErrorMessages.RequestFailed
+            return NSLocalizedString("AUTH_REQUEST_ERROR", comment: "Connectivity Error")
         case .invalidSessionIdResponse:
-            return ErrorMessages.InvalidSessionIdResponse
+            return NSLocalizedString("Invalid session id response", comment: "Invalid session id response")
         }
-    }
-}
-
-extension APIError {
-    struct ErrorMessages {
-        static let AuthFailed = NSLocalizedString("AUTH_CREDENTIALS_ERROR_MESSAGE",
-                                                  comment: "Invalid Login or Password")
-        static let NotFound = NSLocalizedString("AUTH_404_ERROR_MESSAGE", comment: "404. Not found.")
-        static let ServerError = NSLocalizedString("AUTH_SERVER_ERROR", comment: "Server Error")
-        static let RequestFailed = NSLocalizedString("AUTH_REQUEST_ERROR", comment: "Connectivity Error")
-        static let InvalidService = NSLocalizedString("Invalid service: this service does not exist.",
-                                                      comment: "Invalid Service")
-        static let InvalidApiKey = NSLocalizedString("Invalid API key: You must be granted a valid key.",
-                                                     comment: "Invalid api key")
-        
-        static let InvalidSessionIdResponse = NSLocalizedString("Invalid session id response",
-                                                                comment: "Invalid session id response")
     }
 }

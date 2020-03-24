@@ -53,8 +53,8 @@ final public class UserProfileService: ProfileService {
             switch result {
             case .success(let profileDTO):
                 self.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
-                               name: profileDTO.name,
-                               username: profileDTO.username, completion: completion)
+                                 name: profileDTO.name,
+                                 username: profileDTO.username, completion: completion)
                 
             case .failure(let error):
                 completion(.failure(error))
