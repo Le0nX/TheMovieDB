@@ -50,6 +50,10 @@ extension WeakRef: SearchViewInput where T: SearchViewInput {
         ref?.setMoviesData(movies: movies)
     }
     
+    func showError(error: Error) {
+        ref?.showError(error: error)
+    }
+    
     func showProgress() {
         ref?.showProgress()
     }

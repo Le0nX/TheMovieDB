@@ -14,6 +14,10 @@ protocol SearchViewInput {
     /// - Parameter movies: DTO фильмов
     func setMoviesData(movies: [MovieEntity])
     
+    /// Метод отображения ошибки поиска
+    /// - Parameter error: описание ошибки
+    func showError(error: Error)
+    
     /// Метод показа спиннера
     func showProgress()
     
@@ -119,6 +123,17 @@ extension SearchViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         self.moviesData = movies
         self.containerView.tableView.reloadData()
+    }
+    
+    func showError(error: Error) {
+        // TODO: - переделать по возможности красиво
+        let alert = UIAlertController(title: "Error",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
     }
     
     func showProgress() {

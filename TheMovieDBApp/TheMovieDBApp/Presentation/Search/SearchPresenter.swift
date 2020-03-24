@@ -51,7 +51,7 @@ final class SearchPresenter: SearchPresenterOutput {
             case .success(let movies):
                 self?.view.setMoviesData(movies: movies)
             case .failure(let error):
-                print(error)
+                self?.view.showError(error: error)
             }
         }
     }
