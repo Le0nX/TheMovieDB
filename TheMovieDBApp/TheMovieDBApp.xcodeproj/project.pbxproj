@@ -88,6 +88,8 @@
 		14636535242AB35F001F34E6 /* RequestTokenEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636534242AB35F001F34E6 /* RequestTokenEndpointTest.swift */; };
 		14636537242AB89A001F34E6 /* ValidateTokenEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636536242AB89A001F34E6 /* ValidateTokenEndpointTest.swift */; };
 		14636539242AC2B1001F34E6 /* SessionEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636538242AC2B1001F34E6 /* SessionEndpointTest.swift */; };
+		1463653B242AC405001F34E6 /* URLBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463653A242AC405001F34E6 /* URLBuilderTest.swift */; };
+		1463653D242AC978001F34E6 /* TMDBAPIClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1463653C242AC978001F34E6 /* TMDBAPIClientTest.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
@@ -243,6 +245,8 @@
 		14636534242AB35F001F34E6 /* RequestTokenEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenEndpointTest.swift; sourceTree = "<group>"; };
 		14636536242AB89A001F34E6 /* ValidateTokenEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenEndpointTest.swift; sourceTree = "<group>"; };
 		14636538242AC2B1001F34E6 /* SessionEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEndpointTest.swift; sourceTree = "<group>"; };
+		1463653A242AC405001F34E6 /* URLBuilderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilderTest.swift; sourceTree = "<group>"; };
+		1463653C242AC978001F34E6 /* TMDBAPIClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIClientTest.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
@@ -695,6 +699,8 @@
 		14636521242A80FD001F34E6 /* APIClient tests */ = {
 			isa = PBXGroup;
 			children = (
+				1463653A242AC405001F34E6 /* URLBuilderTest.swift */,
+				1463653C242AC978001F34E6 /* TMDBAPIClientTest.swift */,
 			);
 			path = "APIClient tests";
 			sourceTree = "<group>";
@@ -1261,12 +1267,14 @@
 				14636523242A833E001F34E6 /* SearchFilmEndpointTest.swift in Sources */,
 				14FE8F8A2420258D00115A49 /* TMDBNetworkTests.swift in Sources */,
 				1463652D242AA493001F34E6 /* ProfileEndpointTest.swift in Sources */,
+				1463653D242AC978001F34E6 /* TMDBAPIClientTest.swift in Sources */,
 				14636535242AB35F001F34E6 /* RequestTokenEndpointTest.swift in Sources */,
 				14636537242AB89A001F34E6 /* ValidateTokenEndpointTest.swift in Sources */,
 				14636525242A9012001F34E6 /* Constants.swift in Sources */,
 				14636529242A9D3E001F34E6 /* PosterEnpointTest.swift in Sources */,
 				14636539242AC2B1001F34E6 /* SessionEndpointTest.swift in Sources */,
 				14636527242A93F4001F34E6 /* Helpers.swift in Sources */,
+				1463653B242AC405001F34E6 /* URLBuilderTest.swift in Sources */,
 				14636532242AAEE4001F34E6 /* FavoriteEndpointTest.swift in Sources */,
 				1463652F242AAD5F001F34E6 /* GravatarEndpointTest.swift in Sources */,
 			);

@@ -58,7 +58,7 @@ final class FavoriteEndpointTest: XCTestCase {
         XCTAssertEqual(request.url?.absoluteString, """
                                                     /3/account/\(accountId)/favorite/movies?\
                                                     api_key=\(Constant.key)&language=\
-                                                    \(Constant.locale)&page=\(page)&session_id=\(sessionId)
+                                                    \(Constant.locale)&session_id=\(sessionId)&page=\(page)
                                                     """)
     }
     
