@@ -21,7 +21,7 @@ final class SearchFilmEndpointTest: XCTestCase {
     func test_rightPath() throws {
         let searchItem = "test"
         let request = try makeSUT(with: searchItem)
-        print(request.url?.absoluteString)
+        
         XCTAssertTrue(request.url?.absoluteString.hasPrefix("/3/search/movie?") ?? false)
     }
     
@@ -56,7 +56,7 @@ final class SearchFilmEndpointTest: XCTestCase {
     
     /// make System Under Test
     /// - Parameter searchItem: параметр поиска
-    private func makeSUT(with searchItem: String, file: StaticString = #file, line: UInt = #line) throws -> URLRequest {
+    private func makeSUT(with searchItem: String) throws -> URLRequest {
             
         let endpoint = SearchFilmEndpoint(search: searchItem)
         let request = try endpoint.makeRequest()
