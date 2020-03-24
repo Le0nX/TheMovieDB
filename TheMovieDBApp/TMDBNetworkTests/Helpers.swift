@@ -22,9 +22,14 @@ extension Array where Iterator.Element == URLQueryItem {
 }
 
 extension XCTestCase {
-    func assertGet(request: URLRequest) {
+    func assertGet(request: URLRequest, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(request.httpMethod, "GET")
         XCTAssertNil(request.httpBody)
+    }
+    
+    func assertPost(request: URLRequest, file: StaticString = #file, line: UInt = #line) {
+        XCTAssertEqual(request.httpMethod, "POST")
+        XCTAssertNotNil(request.httpBody)
     }
 }
 
