@@ -672,8 +672,7 @@
 		14636520242A80EF001F34E6 /* Endpoint tests */ = {
 			isa = PBXGroup;
 			children = (
-				14636522242A833E001F34E6 /* SearchFilmEndpointTest.swift */,
-				14636528242A9D3E001F34E6 /* PosterEnpointTest.swift */,
+				1463652A242AA420001F34E6 /* Search */,
 			);
 			path = "Endpoint tests";
 			sourceTree = "<group>";
@@ -683,6 +682,15 @@
 			children = (
 			);
 			path = "APIClient tests";
+			sourceTree = "<group>";
+		};
+		1463652A242AA420001F34E6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				14636528242A9D3E001F34E6 /* PosterEnpointTest.swift */,
+				14636522242A833E001F34E6 /* SearchFilmEndpointTest.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		1471BAC12413D07A00BA4592 /* View */ = {
