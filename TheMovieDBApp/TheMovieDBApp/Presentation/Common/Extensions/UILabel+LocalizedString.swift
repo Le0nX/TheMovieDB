@@ -8,7 +8,7 @@ import UIKit
 
 /// Решение проблемы локализации на основе
 /// статьи https://habr.com/ru/post/325810/
-public class LocalizationExtensions {
+final public class LocalizationExtensions {
     
     public static let notificationMissingTransalation = "LocalizationExtensions.missingTranslation"
     

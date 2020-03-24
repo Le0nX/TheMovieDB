@@ -23,7 +23,7 @@ protocol StoriesAssembler {
     func makeSearchStory() -> SearchViewController
 }
 
-class StoryFabric: StoriesAssembler {
+final class StoryFabric: StoriesAssembler {
     
     // MARK: - Private Properties
     
