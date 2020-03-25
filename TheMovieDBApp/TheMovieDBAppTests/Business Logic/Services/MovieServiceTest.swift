@@ -127,6 +127,7 @@ final class MovieServiceTest: XCTestCase {
         let client = APIClientSpy()
         let service = MoviesService(client: client, posterClient: client)
         trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(service, file: file, line: line)
         
         return (client, service)
     }
