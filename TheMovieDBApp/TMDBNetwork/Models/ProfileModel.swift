@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Profile: Decodable {
+public struct ProfileDTO: Decodable {
     public struct Avatar: Decodable {
         public let gravatar: Gravatar?
     }

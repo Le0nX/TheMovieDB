@@ -41,7 +41,7 @@ final class MovieServiceTest: XCTestCase {
         let search = "test"
         let endpoint = SearchFilmEndpoint(search: search)
         
-        expectSearchFilm(service, for: search, toCompleteWith: .failure(APIError.invalidData), when: {
+        expectSearchFilm(service, toCompleteWith: .failure(APIError.invalidData), when: {
             let clientError = APIError.invalidData
             client.complete(for: endpoint, with: clientError)
         })
@@ -53,7 +53,7 @@ final class MovieServiceTest: XCTestCase {
         let search = "test"
         let endpoint = SearchFilmEndpoint(search: search)
         
-        expectSearchFilm(service, for: search, toCompleteWith: .success([]), when: {
+        expectSearchFilm(service, toCompleteWith: .success([]), when: {
             // если нам приходит нормальный респонз с nil в результатах, то мы должны выдать пустой ответ
             let data = MovieResponse(page: 1, results: nil, totalResults: 0, totalPages: 0)
             client.complete(for: endpoint, with: data)
@@ -73,7 +73,7 @@ final class MovieServiceTest: XCTestCase {
                                        genreIds: nil,
                                        image: nil)
         
-        expectSearchFilm(service, for: search, toCompleteWith: .success([expectedData]), when: {
+        expectSearchFilm(service, toCompleteWith: .success([expectedData]), when: {
             let movie = Movie(posterPath: nil,
                               adult: false,
                               overview: "adfadf",
@@ -115,7 +115,7 @@ final class MovieServiceTest: XCTestCase {
         let search = "poster"
         let endpoint = PosterEndpoint(poster: search)
         
-        expectSearchPoster(service, for: search, toCompleteWith: .success(Data()), when: {
+        expectSearchPoster(service, toCompleteWith: .success(Data()), when: {
             client.complete(for: endpoint, with: Data())
         })
     }
@@ -133,7 +133,6 @@ final class MovieServiceTest: XCTestCase {
     }
     
     private func expectSearchFilm(_ sut: MoviesService,
-                                  for: String,
                                   toCompleteWith expectedResult: Result<[MovieEntity], Error>,
                                   when action: () -> Void,
                                   file: StaticString = #file,
@@ -166,7 +165,6 @@ final class MovieServiceTest: XCTestCase {
     
     @discardableResult
     private func expectSearchPoster(_ sut: MoviesService,
-                                    for: String,
                                     toCompleteWith expectedResult: Result<Data, Error>,
                                     when action: () -> Void,
                                     file: StaticString = #file,

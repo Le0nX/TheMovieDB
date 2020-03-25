@@ -12,7 +12,7 @@ public struct ProfileEndpoint: Endpoint {
     
     // MARK: - Types
 
-    public typealias Content = Profile
+    public typealias Content = ProfileDTO
     
     // MARK: - Private Properties
     
