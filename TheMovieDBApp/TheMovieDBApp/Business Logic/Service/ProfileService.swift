@@ -49,12 +49,12 @@ final public class UserProfileService: ProfileService {
             return
         }
         let endpoint = ProfileEndpoint(sessionId: session)
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let profileDTO):
-                self.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
-                                 name: profileDTO.name,
-                                 username: profileDTO.username, completion: completion)
+                self?.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
+                                  name: profileDTO.name,
+                                  username: profileDTO.username, completion: completion)
                 
             case .failure(let error):
                 completion(.failure(error))

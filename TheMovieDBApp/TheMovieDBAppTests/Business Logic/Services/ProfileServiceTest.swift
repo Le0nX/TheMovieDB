@@ -6,28 +6,41 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+@testable import TheMovieDBApp
+@testable import TMDBNetwork
 import XCTest
 
-class ProfileServiceTest: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class ProfileServiceTest: XCTestCase {
+    
+    func test_emptyRequest() {
+        let (client, _) = makeSUT()
+        
+        XCTAssertTrue(client.urlRequests.isEmpty)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    /// Проверка на то, что два вызова подряд будут в правильном кол-ве и порядке
+    func test_twiceCall() {
+        
+        let (client, service) = makeSUT()
+        
+        service.userInfo { _ in }
+        service.userInfo { _ in }
+        
+        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
+        let endpoint2 = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
+        
+        XCTAssertEqual(client.urlRequests, [try? endpoint.makeRequest(), try? endpoint2.makeRequest()])
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    // MARK: - Private helpers
+    
+    /// make System Under Test
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (APIClientSpy, UserProfileService) {
+        let client = APIClientSpy()
+        let service = UserProfileService(client: client, accessService: ServiceFabric().accessService)
+        trackForMemoryLeaks(client, file: file, line: line)
+        trackForMemoryLeaks(service, file: file, line: line)
+        
+        return (client, service)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
