@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserSessionData {
+struct UserSessionData: Equatable {
     let token: String
     let expires: String
     let session: String
