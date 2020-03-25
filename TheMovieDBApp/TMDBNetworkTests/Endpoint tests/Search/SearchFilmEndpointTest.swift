@@ -54,6 +54,14 @@ final class SearchFilmEndpointTest: XCTestCase {
                                                     """+searchItem)
     }
     
+    func test_emptyResponse() throws {
+        let searchItem = "test"
+        let endpoint = SearchFilmEndpoint(search: searchItem)
+        let response = URLResponse()
+                  
+        XCTAssertThrowsError(try endpoint.content(from: Data(), response: response))
+    }
+    
     /// make System Under Test
     /// - Parameter searchItem: параметр поиска
     private func makeSUT(with searchItem: String) throws -> URLRequest {

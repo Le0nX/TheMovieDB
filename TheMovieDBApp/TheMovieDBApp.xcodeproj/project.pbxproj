@@ -96,7 +96,6 @@
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8A2420258D00115A49 /* TMDBNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FE8F892420258D00115A49 /* TMDBNetworkTests.swift */; };
-		14FE8F8C2420258D00115A49 /* TMDBNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 14FE8F7C2420258D00115A49 /* TMDBNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		27350C5AA253357CCBC8DB51 /* Pods_TheMovieDBApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850610A9F140B6799C02973F /* Pods_TheMovieDBApp.framework */; };
@@ -252,7 +251,6 @@
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		14FE8F7C2420258D00115A49 /* TMDBNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TMDBNetwork.h; sourceTree = "<group>"; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F892420258D00115A49 /* TMDBNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBNetworkTests.swift; sourceTree = "<group>"; };
@@ -769,7 +767,6 @@
 				14FE8F982420277E00115A49 /* Models */,
 				14FE8F9C2420281500115A49 /* Endpoints */,
 				1450333B2412818800B3F404 /* Client */,
-				14FE8F7C2420258D00115A49 /* TMDBNetwork.h */,
 				14FE8F7D2420258D00115A49 /* Info.plist */,
 			);
 			path = TMDBNetwork;
@@ -840,7 +837,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14FE8F8C2420258D00115A49 /* TMDBNetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

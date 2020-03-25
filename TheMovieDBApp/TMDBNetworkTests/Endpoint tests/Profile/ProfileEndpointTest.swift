@@ -54,6 +54,14 @@ final class ProfileEndpointTest: XCTestCase {
                                                     """+searchItem)
     }
     
+    func test_emptyResponse() throws {
+        let session = "right_session_id"
+        let endpoint = ProfileEndpoint(sessionId: session)
+        let response = URLResponse()
+                
+        XCTAssertThrowsError(try endpoint.content(from: Data(), response: response))
+    }
+    
     /// make System Under Test
     /// - Parameter searchItem: параметр поиска
     private func makeSUT(with searchItem: String) throws -> URLRequest {

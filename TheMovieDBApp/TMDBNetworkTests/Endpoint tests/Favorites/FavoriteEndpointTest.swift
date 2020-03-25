@@ -55,11 +55,13 @@ final class FavoriteEndpointTest: XCTestCase {
         let request = try makeSUT(with: sessionId, id: accountId, page: page)
         
         assertGet(request: request)
-        XCTAssertEqual(request.url?.absoluteString, """
-                                                    /3/account/\(accountId)/favorite/movies?\
-                                                    api_key=\(Constant.key)&language=\
-                                                    \(Constant.locale)&session_id=\(sessionId)&page=\(page)
-                                                    """)
+    }
+    
+    func test_emptyResponse() throws {
+        let endpoint = FavoriteEndpoint(accountId: 1, page: 1, sessionId: "sessionid")
+        let response = URLResponse()
+                
+        XCTAssertThrowsError(try endpoint.content(from: Data(), response: response))
     }
     
     /// make System Under Test

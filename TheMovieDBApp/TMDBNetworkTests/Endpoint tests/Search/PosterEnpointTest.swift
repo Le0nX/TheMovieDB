@@ -50,6 +50,14 @@ final class PosterEndpointTest: XCTestCase {
                        "/t/p/w185//\(searchItem)?api_key=\(Constant.key)&language=\(Constant.locale)")
     }
     
+    func test_emptyResponse() throws {
+        let searchItem = "test"
+        let endpoint = PosterEndpoint(poster: searchItem)
+        let response = URLResponse()
+                  
+        XCTAssertThrowsError(try endpoint.content(from: Data(), response: response))
+    }
+    
     /// make System Under Test
     /// - Parameter searchItem: параметр поиска
     private func makeSUT(with searchItem: String) throws -> URLRequest {
