@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum APIError: Error, CustomStringConvertible {
+enum APIError: Error{
     
     case badRequest
     case requestFailed
@@ -19,25 +19,6 @@ enum APIError: Error, CustomStringConvertible {
     case unknown(HTTPURLResponse?)
     case invalidService
     case invalidSessionIdResponse
-    
-    var description: String {
-        switch self {
-        case .invalidApiKey:
-            return errorDescription ?? ""
-        case .invalidService:
-            return errorDescription ?? ""
-        case .authFailed:
-            return errorDescription ?? ""
-        case .notFound:
-            return errorDescription ?? ""
-        case .unknown:
-            return errorDescription ?? ""
-        case .requestFailed, .badRequest, .invalidData:
-            return errorDescription ?? ""
-        case .invalidSessionIdResponse:
-            return errorDescription ?? ""
-        }
-    }
 }
 
 extension APIError: LocalizedError {
@@ -53,8 +34,10 @@ extension APIError: LocalizedError {
             return NSLocalizedString("AUTH_404_ERROR_MESSAGE", comment: "404. Not found.")
         case .unknown:
             return  NSLocalizedString("AUTH_SERVER_ERROR", comment: "Server Error")
-        case .requestFailed, .badRequest, .invalidData:
+        case .requestFailed, .badRequest:
             return NSLocalizedString("AUTH_REQUEST_ERROR", comment: "Connectivity Error")
+        case .invalidData:
+            return NSLocalizedString("Coudn't parse data from server", comment: "Wrong data from server")
         case .invalidSessionIdResponse:
             return NSLocalizedString("Invalid session id response", comment: "Invalid session id response")
         }
