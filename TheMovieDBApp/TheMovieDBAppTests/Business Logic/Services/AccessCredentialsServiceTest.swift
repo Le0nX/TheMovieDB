@@ -42,6 +42,13 @@ class AccessCredentialsServiceTest: XCTestCase {
     func test_delete() {
         let service = makeSUT()
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: Date())
+        
+        let data = UserSessionData(token: "token", expires: dateString, session: "testSession")
+        service.credentials = data
+        
         XCTAssertNotNil(service.credentials)
         try? service.delete()
         XCTAssertNil(service.credentials)
