@@ -35,7 +35,7 @@ final class ProfileServiceTest: XCTestCase {
     /// Проверка на ответ от APIClient'a о невалидных данных
     func test_onUserInvalidDataError() {
         let (client, service) = makeSUT()
-        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
+        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
         
         expectUserInfo(service, toCompleteWith: .failure(APIError.invalidData), when: {
             let clientError = APIError.invalidData
