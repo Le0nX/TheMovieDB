@@ -55,9 +55,9 @@ final public class LoginService: AuthService {
             switch result {
             case .success(let requestToken):
                 self?.validateToken(with: requestToken.requestToken,
-                                   login: login,
-                                   password: password,
-                                   completion: completion)
+                                    login: login,
+                                    password: password,
+                                    completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }

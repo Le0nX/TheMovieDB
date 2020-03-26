@@ -463,6 +463,7 @@
 		1450331E24126AAE00B3F404 /* TheMovieDBAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				14C2944C242C2BAB0076EBB7 /* Presentation */,
 				1463653E242AE0D5001F34E6 /* Business Logic */,
 				1450331F24126AAE00B3F404 /* AuthValidationTests.swift */,
 				1450332124126AAE00B3F404 /* Info.plist */,
@@ -790,6 +791,13 @@
 				145E8B8F241432D8007ACDBB /* SearchView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14C2944C242C2BAB0076EBB7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		14D55F592412ED4C001CDE97 /* Extensions */ = {

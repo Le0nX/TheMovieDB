@@ -30,6 +30,17 @@ class AuthServiceTest: XCTestCase {
         
         XCTAssertEqual(client.urlRequests, [try? endpoint.makeRequest(), try? endpoint2.makeRequest()])
     }
+    
+    /// Проверка на ответ от APIClient'a о невозможности залогиниться
+    func test_onFilmInvalidDataError() {
+        let (client, service) = makeSUT()
+        let endpoint = RequestTokenEndpoint()
+        
+        expectAuth(service, toCompleteWith: .failure(APIError.authFailed), when: {
+            let clientError = APIError.authFailed
+            client.complete(for: endpoint, with: clientError)
+        })
+    }
 
     // MARK: - Private helpers
        
@@ -42,5 +53,36 @@ class AuthServiceTest: XCTestCase {
 
         return (client, service)
     }
+    
+    private func expectAuth(_ sut: LoginService,
+                            toCompleteWith expectedResult: Result<UserSession, Error>,
+                            when action: () -> Void,
+                            file: StaticString = #file,
+                            line: UInt = #line) {
+               
+       let exp = expectation(description: "Ждем конца загрузки")
+       
+       sut.signInUser(with: "login", password: "passwd") { receivedResult in
+           switch (receivedResult, expectedResult) {
+           case let (.success(receivedItems), .success(expectedItems)):
+               XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+               
+           case let (.failure(receivedError as APIError), .failure(expectedError as APIError)):
+               XCTAssertEqual(receivedError.localizedDescription,
+                              expectedError.localizedDescription,
+                              file: file,
+                              line: line)
+               
+           default:
+               XCTFail("Ожидали результат \(expectedResult),получили \(receivedResult) вместо", file: file, line: line)
+           }
+           
+           exp.fulfill()
+       }
+       
+       action()
+       
+       wait(for: [exp], timeout: 1.0)
+   }
 
 }
