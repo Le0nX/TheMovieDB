@@ -51,10 +51,10 @@ final public class LoginService: AuthService {
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
     func signInUser(with login: String, password: String, completion: @escaping (Result) -> Void) {
         let endpoint = RequestTokenEndpoint()
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let requestToken):
-                self.validateToken(with: requestToken.requestToken,
+                self?.validateToken(with: requestToken.requestToken,
                                    login: login,
                                    password: password,
                                    completion: completion)
