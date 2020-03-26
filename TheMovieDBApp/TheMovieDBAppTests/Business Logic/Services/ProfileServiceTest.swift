@@ -43,22 +43,6 @@ final class ProfileServiceTest: XCTestCase {
         })
     }
     
-    /// Проверка маппинга в Profile из пришедшего ProfileDTO
-    // TODO: - пока не придумал как протестить вложенные вызовы
-//    func test_onFilmEmptyResultsData() {
-//        let (client, service) = makeSUT()
-//        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
-//        let endpoint2 = GravatarEndpoint(hash: "hash")
-//
-//        let expectedProfile = Profile(name: "Denis", username: "Le0nX", image: Data())
-//
-//        expectUserInfo(service, toCompleteWith: .success(expectedProfile), when: {
-//            let profileDto = ProfileDTO(avatar: nil, id: nil, name: "Denis", includeAdult: false, username: "Le0nX")
-//            client.complete(for: endpoint, with: profileDto)
-//            client.complete(for: endpoint2, with: Data())
-//        })
-//    }
-    
     // MARK: - Private helpers
     
     /// make System Under Test
