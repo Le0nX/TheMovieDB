@@ -9,7 +9,7 @@
 import TheMovieDBApp
 import XCTest
 
-class WeakRefTest: XCTestCase {
+final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemLeak() {
         let searchVc = SearchViewController()

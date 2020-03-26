@@ -9,7 +9,7 @@
 @testable import TMDBNetwork
 import XCTest
 
-class AuthServiceTest: XCTestCase {
+final class AuthServiceTest: XCTestCase {
     
     func test_emptyRequest() {
         let (client, _) = makeSUT()

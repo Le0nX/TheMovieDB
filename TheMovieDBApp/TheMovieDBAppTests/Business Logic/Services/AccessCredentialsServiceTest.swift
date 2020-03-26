@@ -10,7 +10,7 @@ import KeychainAccess
 @testable import TheMovieDBApp
 import XCTest
 
-class AccessCredentialsServiceTest: XCTestCase {
+final class AccessCredentialsServiceTest: XCTestCase {
     
     func test_saveAndReceiveInfo() {
         let service = makeSUT()
