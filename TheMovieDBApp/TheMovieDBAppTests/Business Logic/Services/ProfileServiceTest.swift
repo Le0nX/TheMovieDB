@@ -26,8 +26,8 @@ final class ProfileServiceTest: XCTestCase {
         service.userInfo { _ in }
         service.userInfo { _ in }
         
-        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
-        let endpoint2 = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials!.session)
+        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
+        let endpoint2 = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
         
         XCTAssertEqual(client.urlRequests, [try? endpoint.makeRequest(), try? endpoint2.makeRequest()])
     }
