@@ -26,8 +26,8 @@ final class ProfileServiceTest: XCTestCase {
         service.userInfo { _ in }
         service.userInfo { _ in }
         
-        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
-        let endpoint2 = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
+        let endpoint = ProfileEndpoint(sessionId: AccessServiceMock().credentials?.session ?? "")
+        let endpoint2 = ProfileEndpoint(sessionId: AccessServiceMock().credentials?.session ?? "")
         
         XCTAssertEqual(client.urlRequests, [try? endpoint.makeRequest(), try? endpoint2.makeRequest()])
     }
@@ -35,7 +35,7 @@ final class ProfileServiceTest: XCTestCase {
     /// Проверка на ответ от APIClient'a о невалидных данных
     func test_onUserInvalidDataError() {
         let (client, service) = makeSUT()
-        let endpoint = ProfileEndpoint(sessionId: ServiceFabric().accessService.credentials?.session ?? "")
+        let endpoint = ProfileEndpoint(sessionId: AccessServiceMock().credentials?.session ?? "")
         
         expectUserInfo(service, toCompleteWith: .failure(APIError.invalidData), when: {
             let clientError = APIError.invalidData
@@ -45,11 +45,40 @@ final class ProfileServiceTest: XCTestCase {
     
     // MARK: - Private helpers
     
+    private class AccessServiceMock: AccessCredentialsService {
+        
+        // MARK: - Public Properties
+        
+        var credentials: UserSessionData? {
+            get {
+                data
+            }
+            
+            set {
+                data = newValue!
+            }
+        }
+        
+        // MARK: - Private Properties
+        
+        private var data: UserSessionData? = UserSessionData(token: "token", expires: "", session: "session_id")
+
+        // MARK: - Public methods
+       
+        func sessionIsValid() -> Bool {
+            true
+        }
+        
+        func delete() throws {
+            data = nil
+        }
+    }
+    
     /// make System Under Test
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (APIClientSpy, UserProfileService) {
         let client = APIClientSpy()
         let service = UserProfileService(client: client,
-                                         imageClient: client, accessService: ServiceFabric().accessService)
+                                         imageClient: client, accessService: AccessServiceMock())
         trackForMemoryLeaks(client, file: file, line: line)
         trackForMemoryLeaks(service, file: file, line: line)
         
