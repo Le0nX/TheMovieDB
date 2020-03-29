@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieEntity {
+struct MovieEntity: Equatable {
     let title: String
     let originalTitle: String
     let popularity: Double?

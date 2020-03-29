@@ -24,14 +24,7 @@ extension ServiceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
         case .invalidSessionIdResponse:
-            return ErrorMessages.InvalidSessionIdResponse
+            return NSLocalizedString("Invalid session id response", comment: "Invalid session id response")
         }
-    }
-}
-
-extension ServiceError {
-    struct ErrorMessages {
-        static let InvalidSessionIdResponse = NSLocalizedString("Invalid session id response",
-                                                                comment: "Invalid session id response")
     }
 }

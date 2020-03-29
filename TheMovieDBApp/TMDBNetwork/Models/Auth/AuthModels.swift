@@ -28,7 +28,7 @@ public struct ValidateToken: Decodable {
 
 }
 
-public struct UserSession: Decodable {
+public struct UserSession: Decodable, Equatable {
     
     public let success: Bool
     public let sessionId: String?

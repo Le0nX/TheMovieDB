@@ -51,13 +51,13 @@ final public class LoginService: AuthService {
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
     func signInUser(with login: String, password: String, completion: @escaping (Result) -> Void) {
         let endpoint = RequestTokenEndpoint()
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let requestToken):
-                self.validateToken(with: requestToken.requestToken,
-                                   login: login,
-                                   password: password,
-                                   completion: completion)
+                self?.validateToken(with: requestToken.requestToken,
+                                    login: login,
+                                    password: password,
+                                    completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -71,10 +71,10 @@ final public class LoginService: AuthService {
                                password: String,
                                completion: @escaping (Result) -> Void) {
         let endpoint = ValidateTokenEndpoint(with: login, password: password, requestToken: requestToken)
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let validatedToken):
-                self.createSessionId(with: validatedToken, completion: completion)
+                self?.createSessionId(with: validatedToken, completion: completion)
             case .failure(let error):
                 completion(.failure(error))
             }
@@ -84,7 +84,7 @@ final public class LoginService: AuthService {
     private func createSessionId(with validatedToken: ValidateToken,
                                  completion: @escaping (Result) -> Void) {
         let endpoint = SessionEndpoint(with: validatedToken.requestToken)
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let sessionResult):
                 guard let sessionId = sessionResult.sessionId else {
@@ -95,7 +95,7 @@ final public class LoginService: AuthService {
                 let credentials = UserSessionData(token: validatedToken.requestToken,
                                                   expires: validatedToken.expiresAt,
                                                   session: sessionId)
-                self.accessService.credentials = credentials
+                self?.accessService.credentials = credentials
             case .failure(let error):
                 completion(.failure(error))
             }

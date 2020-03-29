@@ -27,6 +27,7 @@ final public class UserProfileService: ProfileService {
     // MARK: - Constants
     
     private let client: APIClient
+    private let imageClient: APIClient
             
     // MARK: - Private Properties
     
@@ -34,8 +35,9 @@ final public class UserProfileService: ProfileService {
     
     // MARK: - Initializers
     
-    init(client: APIClient, accessService: AccessCredentialsService) {
+    init(client: APIClient, imageClient: APIClient, accessService: AccessCredentialsService) {
         self.client = client
+        self.imageClient = imageClient
         self.accessService = accessService
     }
     
@@ -49,12 +51,12 @@ final public class UserProfileService: ProfileService {
             return
         }
         let endpoint = ProfileEndpoint(sessionId: session)
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let profileDTO):
-                self.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
-                                 name: profileDTO.name,
-                                 username: profileDTO.username, completion: completion)
+                self?.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
+                                  name: profileDTO.name,
+                                  username: profileDTO.username, completion: completion)
                 
             case .failure(let error):
                 completion(.failure(error))
@@ -62,11 +64,11 @@ final public class UserProfileService: ProfileService {
         }
     }
     
+    // MARK: - Private methods
+    
     private func fetchAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
         guard let hash = hash else { return }
         
-        let config = APIClientConfig(base: "https://secure.gravatar.com/avatar/")
-        let imageClient = TMDBAPIClient(config: config)
         let endpoint = GravatarEndpoint(hash: hash)
         imageClient.request(endpoint) { result in
             switch result {

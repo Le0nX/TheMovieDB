@@ -46,7 +46,9 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис авторизации
     lazy var profileService: ProfileService = {
-        let service = UserProfileService(client: client, accessService: accessService)
+        let config = APIClientConfig(base: "https://secure.gravatar.com/avatar/")
+        let imageClient = TMDBAPIClient(config: config)
+        let service = UserProfileService(client: client, imageClient: imageClient, accessService: accessService)
         return service
     }()
     

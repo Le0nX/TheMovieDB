@@ -9,7 +9,7 @@
 @testable import TheMovieDBApp
 import XCTest
 
-class AuthValidationTests: XCTestCase {
+final class AuthValidationTests: XCTestCase {
 
     func test_EmptyCredentials() {
         let login = ""
