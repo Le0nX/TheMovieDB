@@ -55,7 +55,6 @@ final class MainSearchViewController: UIViewController {
         searchViewController.delegate = self
         
         addSearchVC()
-        addSearchTableVC()
     }
     
     // MARK: - Private Methods
@@ -71,7 +70,7 @@ final class MainSearchViewController: UIViewController {
     private func addSearchTableVC() {
         add(searchTableViewController)
         
-        searchTableViewController.tableView.alpha = 0
+        searchTableViewController.tableView.alpha = 1
         searchTableViewController.tableView.anchor(top: view.topAnchor, left: view.leftAnchor,
                                                    bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 85,
                                                    paddingLeft: 24, paddingBottom: 0, paddingRight: 24,
@@ -82,7 +81,14 @@ final class MainSearchViewController: UIViewController {
 extension MainSearchViewController: SearchViewInput {
     
     func setMoviesData(movies: [MovieEntity]) {
-        searchTableViewController.searhTableViewSetData(movies: movies)
+        if movies.isEmpty {
+            searchTableViewController.remove()
+            searchViewController.showNoResultsError()
+        } else {
+            addSearchTableVC()
+            searchViewController.hideNoResultsError()
+            searchTableViewController.searhTableViewSetData(movies: movies)
+        }
     }
     
     func showError(error: Error) {
@@ -107,6 +113,7 @@ extension MainSearchViewController: SearchViewControllerDelegate {
     }
     
     func hideTableView() {
+        searchViewController.hideNoResultsError()
         searchTableViewController.tableView.alpha = 0
     }
     

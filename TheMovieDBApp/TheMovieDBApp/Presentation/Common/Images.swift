@@ -24,4 +24,6 @@ struct ImageName {
     static let accountIcon = #imageLiteral(resourceName: "account")
     
     static let listIcon = #imageLiteral(resourceName: "listIcon")
+    
+    static let noMoviesError = #imageLiteral(resourceName: "NoMoviesError")
 }
