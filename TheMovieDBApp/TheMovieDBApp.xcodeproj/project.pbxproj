@@ -142,6 +142,8 @@
 		14C29471242C35E40076EBB7 /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B9F24144CAB007ACDBB /* AccountView.xib */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
+		14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */; };
+		14D8DD5724335AD3008FD2D5 /* UIViewController+child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -305,6 +307,8 @@
 		14C2944D242C2DA20076EBB7 /* WeakRefTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefTest.swift; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
+		14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTest.swift; sourceTree = "<group>"; };
+		14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+child.swift"; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -502,6 +506,7 @@
 				1450331F24126AAE00B3F404 /* AuthValidationTests.swift */,
 				1450332124126AAE00B3F404 /* Info.plist */,
 				14636544242AEBC6001F34E6 /* Helpers.swift */,
+				14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */,
 			);
 			path = TheMovieDBAppTests;
 			sourceTree = "<group>";
@@ -844,6 +849,7 @@
 				145E8BA824158983007ACDBB /* UIViewController+Spinner.swift */,
 				145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */,
 				145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */,
+				14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1288,6 +1294,7 @@
 				1446257124216A0200CF0DB7 /* Profile.swift in Sources */,
 				145E8BD4241675C3007ACDBB /* Validator.swift in Sources */,
 				145E8BD624167C18007ACDBB /* UIAplication+setRoot.swift in Sources */,
+				14D8DD5724335AD3008FD2D5 /* UIViewController+child.swift in Sources */,
 				1446257E2421AEB300CF0DB7 /* MovieService.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
@@ -1307,6 +1314,7 @@
 			files = (
 				14C2946D242C32710076EBB7 /* FavoritesView.swift in Sources */,
 				14C29466242C32070076EBB7 /* AccountViewController.swift in Sources */,
+				14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */,
 				14C29459242C31230076EBB7 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				14C2945F242C31AE0076EBB7 /* Colors.swift in Sources */,
 				14C29445242C0D880076EBB7 /* ServiceError.swift in Sources */,
