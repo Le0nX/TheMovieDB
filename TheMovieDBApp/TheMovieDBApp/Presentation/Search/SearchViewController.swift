@@ -9,8 +9,12 @@
 import UIKit
 
 protocol SearchViewControllerDelegate: class {
+    
+    /// Метод-триггер ввода в поле поиска фильмов
+    /// - Parameter name: введенный текст
     func textFieldEditingDidChange(with name: String)
     
+    /// Метод скрытия таблицы
     func hideTableView()
 }
 

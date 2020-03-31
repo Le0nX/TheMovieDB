@@ -22,20 +22,15 @@ protocol SearchTableViewControllerDelegate: class {
 }
 
 final class SearchTableViewController: UITableViewController {
-    // MARK: - Types
-    
-    // MARK: - Constants
-    
-    // MARK: - IBOutlet
     
     // MARK: - Public Properties
     
     public weak var delegate: SearchTableViewControllerDelegate?
     
+    // MARK: - Private Properties
+    
     /// нужна strong ссылка на datasource, т.к. у tableView она weak
     private var dataSource: TableViewDataSource<MovieEntity, MoviesCell>?
-    
-    // MARK: - Private Properties
     
     // MARK: - Initializers
     
@@ -76,9 +71,7 @@ final class SearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    // MARK: - IBAction
-    
+        
     // MARK: - Private Methods
     
     private func setDataSource() {
