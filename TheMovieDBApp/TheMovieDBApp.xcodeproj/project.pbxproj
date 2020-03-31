@@ -144,6 +144,10 @@
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */; };
 		14D8DD5724335AD3008FD2D5 /* UIViewController+child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */; };
+		14D8DD5924339B1C008FD2D5 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5824339B1C008FD2D5 /* SearchTableViewController.swift */; };
+		14D8DD5A24339BA5008FD2D5 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5824339B1C008FD2D5 /* SearchTableViewController.swift */; };
+		14D8DD5C24339E92008FD2D5 /* MainSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5B24339E92008FD2D5 /* MainSearchViewController.swift */; };
+		14D8DD5E2433E516008FD2D5 /* UIView+constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD5D2433E516008FD2D5 /* UIView+constraint.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -309,6 +313,9 @@
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 		14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTest.swift; sourceTree = "<group>"; };
 		14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+child.swift"; sourceTree = "<group>"; };
+		14D8DD5824339B1C008FD2D5 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		14D8DD5B24339E92008FD2D5 /* MainSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchViewController.swift; sourceTree = "<group>"; };
+		14D8DD5D2433E516008FD2D5 /* UIView+constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+constraint.swift"; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -609,7 +616,9 @@
 			children = (
 				1471BAC12413D07A00BA4592 /* View */,
 				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
+				14D8DD5824339B1C008FD2D5 /* SearchTableViewController.swift */,
 				144625852421B74400CF0DB7 /* SearchPresenter.swift */,
+				14D8DD5B24339E92008FD2D5 /* MainSearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -850,6 +859,7 @@
 				145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */,
 				145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */,
 				14D8DD5624335AD3008FD2D5 /* UIViewController+child.swift */,
+				14D8DD5D2433E516008FD2D5 /* UIView+constraint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1281,6 +1291,7 @@
 				145E8BA5241571B8007ACDBB /* Coordinator.swift in Sources */,
 				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
 				145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */,
+				14D8DD5924339B1C008FD2D5 /* SearchTableViewController.swift in Sources */,
 				145E8B8E241431CC007ACDBB /* FavoritesView.swift in Sources */,
 				145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */,
 				144625862421B74400CF0DB7 /* SearchPresenter.swift in Sources */,
@@ -1288,8 +1299,10 @@
 				145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
 				145E8BAF2415986A007ACDBB /* AuthService.swift in Sources */,
+				14D8DD5E2433E516008FD2D5 /* UIView+constraint.swift in Sources */,
 				144625732421763B00CF0DB7 /* WeakRef.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
+				14D8DD5C24339E92008FD2D5 /* MainSearchViewController.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
 				1446257124216A0200CF0DB7 /* Profile.swift in Sources */,
 				145E8BD4241675C3007ACDBB /* Validator.swift in Sources */,
@@ -1319,6 +1332,7 @@
 				14C2945F242C31AE0076EBB7 /* Colors.swift in Sources */,
 				14C29445242C0D880076EBB7 /* ServiceError.swift in Sources */,
 				14C29469242C32330076EBB7 /* AccountCoordinator.swift in Sources */,
+				14D8DD5A24339BA5008FD2D5 /* SearchTableViewController.swift in Sources */,
 				14C29443242C0D680076EBB7 /* ServicesAssembler.swift in Sources */,
 				14C2946C242C32650076EBB7 /* FavoritesViewController.swift in Sources */,
 				14636546242AF0FE001F34E6 /* MovieService.swift in Sources */,

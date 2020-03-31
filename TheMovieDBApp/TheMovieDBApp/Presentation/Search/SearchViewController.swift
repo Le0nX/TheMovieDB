@@ -8,36 +8,22 @@
 
 import UIKit
 
-protocol SearchViewInput {
+protocol SearchViewControllerDelegate: class {
+    func textFieldEditingDidChange(with name: String)
     
-    /// Метод закладки данных в таблицу фильмов
-    /// - Parameter movies: DTO фильмов
-    func setMoviesData(movies: [MovieEntity])
-    
-    /// Метод отображения ошибки поиска
-    /// - Parameter error: описание ошибки
-    func showError(error: Error)
-    
-    /// Метод показа спиннера
-    func showProgress()
-    
-    /// Метод скрытия спиннера
-    func hideProgress()
+    func hideTableView()
 }
 
 final class SearchViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public var output: SearchPresenterOutput?
+    weak var delegate: SearchViewControllerDelegate?
     
     // MARK: - Private Properties
     
     private let containerView: SearchView
     private var isSearching = false
-    
-    /// нужна strong ссылка на datasource, т.к. у tableView она weak
-    private var dataSource: TableViewDataSource<MovieEntity, MoviesCell>?
     
     // MARK: - Initializers
     
@@ -70,9 +56,7 @@ final class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.tabBarController?.tabBar.isHidden = true
-        
-        self.containerView.tableView.delegate = self
-        
+                
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -87,7 +71,7 @@ final class SearchViewController: UIViewController {
         guard let text = textField.text, !text.isEmpty else {
             return
         }
-        output?.didEnteredMovie(name: text)
+        delegate?.textFieldEditingDidChange(with: text)
         
         if isSearching { return }
         
@@ -96,7 +80,6 @@ final class SearchViewController: UIViewController {
             self.containerView.headerLabel.alpha = 0
             self.containerView.imageView.alpha = 0
             self.containerView.topConstraint.constant -= 150
-            self.containerView.tableView.alpha = 1
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
@@ -111,72 +94,9 @@ final class SearchViewController: UIViewController {
             self.containerView.headerLabel.alpha = 1
             self.containerView.imageView.alpha = 1
             self.containerView.topConstraint.constant += 150
-            self.containerView.tableView.alpha = 0
+            self.delegate?.hideTableView()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
     }
-}
-
-extension SearchViewController: SearchViewInput {
-    
-    func setMoviesData(movies: [MovieEntity]) {
-        self.containerView.tableView.reloadData()
-        
-        let dataSource = TableViewDataSource<MovieEntity, MoviesCell>(
-            models: movies,
-            reuseIdentifier: "MoviesCell"
-        ) { [weak self] movie, cell in
-            cell.movieName.text = movie.title
-            cell.movieOriginalName.text = movie.originalTitle
-            cell.popularityLabel.text = String(movie.popularity ?? 0)
-
-            if let poster = movie.image {
-                let uuid = self?.output?.fetchImage(for: poster) { data in
-                    if let data = data {
-                        cell.posterImage.image = UIImage(data: data)
-                    }
-                }
-                
-                cell.onReuse = {
-                    self?.output?.cancelTask(for: uuid ?? UUID())
-                }
-            }
-            
-        }
-        
-        self.dataSource = dataSource
-        self.containerView.tableView.dataSource = dataSource
-
-    }
-    
-    func showError(error: Error) {
-        let alert = UIAlertController(title: "Error",
-                                      message: error.localizedDescription,
-                                      preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-
-        self.present(alert, animated: true)
-    }
-    
-    func showProgress() {
-        self.showSpinner(onView: self.view)
-    }
-    
-    func hideProgress() {
-        self.removeSpinner()
-    }
-}
-
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
 }

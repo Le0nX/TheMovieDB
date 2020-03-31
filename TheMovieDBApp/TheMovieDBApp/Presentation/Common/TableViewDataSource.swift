@@ -22,7 +22,7 @@ final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource wh
     
     // MARK: - Private Properties
     
-    private var models: [Model]
+    public var models: [Model]
     
     // MARK: - Initializers
     

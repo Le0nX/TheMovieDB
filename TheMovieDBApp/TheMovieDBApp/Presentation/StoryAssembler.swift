@@ -20,7 +20,7 @@ protocol StoriesAssembler {
     func makeAccountStory() -> AccountViewController
     
     /// Фабричный метод создания экрана поиска
-    func makeSearchStory() -> SearchViewController
+    func makeSearchStory() -> MainSearchViewController
 }
 
 final class StoryFabric: StoriesAssembler {
@@ -87,11 +87,11 @@ final class StoryFabric: StoriesAssembler {
     }
     
     /// Фабричный метод создания экрана поиска
-    func makeSearchStory() -> SearchViewController {
-        let searchVc = SearchViewController()
-        searchVc.output = SearchPresenter(WeakRef(searchVc),
-                                          moviesService: servicesAssembler.movieService)
+    func makeSearchStory() -> MainSearchViewController {
+        let mainSearchView = MainSearchViewController()
+        mainSearchView.output = SearchPresenter(WeakRef(mainSearchView),
+                                                moviesService: servicesAssembler.movieService)
         
-        return searchVc
+        return mainSearchView
     }
 }

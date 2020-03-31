@@ -29,6 +29,7 @@ final class MoviesCell: UITableViewCell {
         super.awakeFromNib()
         self.backgroundColor = ColorName.background
         self.imageView?.frame = CGRect(x: 0, y: 0, width: 64, height: 96)
+        self.imageView?.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

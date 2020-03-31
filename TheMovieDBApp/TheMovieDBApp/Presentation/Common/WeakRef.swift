@@ -53,12 +53,4 @@ extension WeakRef: SearchViewInput where T: SearchViewInput {
     func showError(error: Error) {
         ref?.showError(error: error)
     }
-    
-    func showProgress() {
-        ref?.showProgress()
-    }
-    
-    func hideProgress() {
-        ref?.hideProgress()
-    }
 }

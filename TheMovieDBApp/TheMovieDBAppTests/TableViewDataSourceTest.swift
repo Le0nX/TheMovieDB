@@ -10,6 +10,4 @@ import XCTest
 
 class TableViewDataSourceTest: XCTestCase {
 
-  
-
 }
