@@ -36,7 +36,7 @@ final class SearchViewController: UIViewController {
     private let containerView: SearchView
     private var isSearching = false
     
-    private var moviesData = [MovieEntity]()
+    private var dataSource: TableViewDataSource<MovieEntity, MoviesCell>?
     
     // MARK: - Initializers
     
@@ -71,7 +71,6 @@ final class SearchViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.isHidden = true
         
         self.containerView.tableView.delegate = self
-        self.containerView.tableView.dataSource = self
         
         self.hideKeyboardWhenTappedAround()
     }
@@ -121,12 +120,34 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: SearchViewInput {
     
     func setMoviesData(movies: [MovieEntity]) {
-        self.moviesData = movies
         self.containerView.tableView.reloadData()
+        
+        let dataSource = TableViewDataSource(
+            models: movies,
+            reuseIdentifier: "MoviesCell"
+        ) { movie, cell in
+            cell.movieName.text = movie.title
+            cell.movieOriginalName.text = movie.originalTitle
+            cell.popularityLabel.text = String(movie.popularity ?? 0)
+
+            if let poster = movie.image {
+                let uuid = self.output?.fetchImage(for: poster) { data in
+                    if let data = data {
+                        cell.posterImage.image = UIImage(data: data)
+                    }
+                }
+                
+                cell.onReuse = {
+                    self.output?.cancelTask(for: uuid ?? UUID())
+                }
+            }
+        }
+        self.dataSource = dataSource
+        self.containerView.tableView.dataSource = dataSource
+
     }
     
     func showError(error: Error) {
-        // TODO: - переделать по возможности красиво
         let alert = UIAlertController(title: "Error",
                                       message: error.localizedDescription,
                                       preferredStyle: .alert)
@@ -145,46 +166,14 @@ extension SearchViewController: SearchViewInput {
     }
 }
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        moviesData.count
-    }
+extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as? MoviesCell else {
-            return UITableViewCell()
-        }
-        cell.configure(with: moviesData[indexPath.row])
-
-        if let poster = moviesData[indexPath.row].image {
-            let uuid = output?.fetchImage(for: poster) { data in
-                if let data = data {
-                    cell.posterImage.image = UIImage(data: data)
-                }
-            }
-            
-            cell.onReuse = { 
-                self.output?.cancelTask(for: uuid ?? UUID())
-            }
-        }
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-}
-
-extension MoviesCell {
-    func configure(with model: MovieEntity) {
-        self.movieName.text = model.title
-        self.movieOriginalName.text = model.originalTitle
-        self.popularityLabel.text = String(model.popularity ?? 0)
-    }
 }

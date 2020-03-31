@@ -97,6 +97,7 @@
 		14636547242AF116001F34E6 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625832421B42C00CF0DB7 /* MovieEntity.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
+		1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -297,6 +298,7 @@
 		14636544242AEBC6001F34E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 				1471BAC12413D07A00BA4592 /* View */,
 				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
 				144625852421B74400CF0DB7 /* SearchPresenter.swift */,
+				1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1265,6 +1268,7 @@
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
+				1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */,
 				145E8B8A241429E5007ACDBB /* FavoritesViewController.swift in Sources */,
 				144625842421B42C00CF0DB7 /* MovieEntity.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
