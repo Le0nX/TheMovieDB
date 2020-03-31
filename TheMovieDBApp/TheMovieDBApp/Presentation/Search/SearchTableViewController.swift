@@ -50,6 +50,7 @@ final class SearchTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         tableView.backgroundColor = ColorName.background
+        tableView.showsVerticalScrollIndicator = false
         
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none

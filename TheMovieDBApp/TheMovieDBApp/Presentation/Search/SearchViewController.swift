@@ -15,7 +15,7 @@ protocol SearchViewControllerDelegate: class {
     func textFieldEditingDidChange(with name: String)
     
     /// Метод скрытия таблицы
-    func hideTableView()
+    func hideSearchResults()
 }
 
 final class SearchViewController: UIViewController {
@@ -121,7 +121,7 @@ final class SearchViewController: UIViewController {
             self.containerView.headerLabel.alpha = 1
             self.containerView.imageView.alpha = 1
             self.containerView.topConstraint.constant += 150
-            self.delegate?.hideTableView()
+            self.delegate?.hideSearchResults()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }

@@ -112,7 +112,7 @@ extension MainSearchViewController: SearchViewControllerDelegate {
         }
     }
     
-    func hideTableView() {
+    func hideSearchResults() {
         searchViewController.hideNoResultsError()
         searchTableViewController.tableView.alpha = 0
     }

@@ -22,9 +22,16 @@ extension UIView {
     /// - Parameter paddingRight: смещение от правой границы (уже нормализовано к положительной величине)
     /// - Parameter width: ширина
     /// - Parameter height: высота
-    func anchor(top: NSLayoutYAxisAnchor?, left: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?,
-                right: NSLayoutXAxisAnchor?, paddingTop: CGFloat, paddingLeft: CGFloat, paddingBottom: CGFloat,
-                paddingRight: CGFloat, width: CGFloat, height: CGFloat) {
+    func anchor(top: NSLayoutYAxisAnchor?,
+                left: NSLayoutXAxisAnchor?,
+                bottom: NSLayoutYAxisAnchor?,
+                right: NSLayoutXAxisAnchor?,
+                paddingTop: CGFloat,
+                paddingLeft: CGFloat,
+                paddingBottom: CGFloat,
+                paddingRight: CGFloat,
+                width: CGFloat,
+                height: CGFloat) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
