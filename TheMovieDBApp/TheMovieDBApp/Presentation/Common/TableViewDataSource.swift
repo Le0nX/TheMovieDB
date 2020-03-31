@@ -9,20 +9,16 @@
 import Foundation
 import UIKit
 
-final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: MoviesCell {
+final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: UITableViewCell {
     
     // MARK: - Types
     
-    typealias CellConfigurator = (Model, MoviesCell) -> Void
+    typealias CellConfigurator = (Model, Cell) -> Void
     
     // MARK: - Constants
     
     private let reuseIdentifier: String
     private let cellConfigurator: CellConfigurator
-    
-    // MARK: - IBOutlet
-    
-    // MARK: - Public Properties
     
     // MARK: - Private Properties
     
@@ -37,9 +33,7 @@ final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource wh
         self.reuseIdentifier = reuseIdentifier
         self.cellConfigurator = cellConfigurator
     }
-    
-    // MARK: - UIViewController(*)
-    
+        
     // MARK: - Public methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,13 +46,12 @@ final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource wh
             withIdentifier: reuseIdentifier,
             for: indexPath
         )
-
-        cellConfigurator(model, cell as! MoviesCell)
+        
+        if let cell = cell as? Cell {
+            cellConfigurator(model, cell)
+        }
 
         return cell
     }
     
-    // MARK: - IBAction
-    
-    // MARK: - Private Methods
 }

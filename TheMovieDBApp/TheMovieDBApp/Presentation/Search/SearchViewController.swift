@@ -36,6 +36,7 @@ final class SearchViewController: UIViewController {
     private let containerView: SearchView
     private var isSearching = false
     
+    /// нужна strong ссылка на datasource, т.к. у tableView она weak
     private var dataSource: TableViewDataSource<MovieEntity, MoviesCell>?
     
     // MARK: - Initializers
@@ -122,26 +123,28 @@ extension SearchViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         self.containerView.tableView.reloadData()
         
-        let dataSource = TableViewDataSource(
+        let dataSource = TableViewDataSource<MovieEntity, MoviesCell>(
             models: movies,
             reuseIdentifier: "MoviesCell"
-        ) { movie, cell in
+        ) { [weak self] movie, cell in
             cell.movieName.text = movie.title
             cell.movieOriginalName.text = movie.originalTitle
             cell.popularityLabel.text = String(movie.popularity ?? 0)
 
             if let poster = movie.image {
-                let uuid = self.output?.fetchImage(for: poster) { data in
+                let uuid = self?.output?.fetchImage(for: poster) { data in
                     if let data = data {
                         cell.posterImage.image = UIImage(data: data)
                     }
                 }
                 
                 cell.onReuse = {
-                    self.output?.cancelTask(for: uuid ?? UUID())
+                    self?.output?.cancelTask(for: uuid ?? UUID())
                 }
             }
+            
         }
+        
         self.dataSource = dataSource
         self.containerView.tableView.dataSource = dataSource
 

@@ -98,6 +98,7 @@
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
+		1488CE102432EE8E00F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -139,7 +140,6 @@
 		14C2946F242C33800076EBB7 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14C29470242C35BA0076EBB7 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1450334724129C7A00B3F404 /* LoginView.xib */; };
 		14C29471242C35E40076EBB7 /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B9F24144CAB007ACDBB /* AccountView.xib */; };
-		14C29474242C3C8B0076EBB7 /* TMDBNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FE8F892420258D00115A49 /* TMDBNetworkTests.swift */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
@@ -589,6 +589,7 @@
 				145033532412B43500B3F404 /* TextFields */,
 				145033522412B42E00B3F404 /* Buttons */,
 				1450331324126AAD00B3F404 /* LaunchScreen.storyboard */,
+				1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */,
 				145033442412975900B3F404 /* Colors.swift */,
 				1450334E2412A73300B3F404 /* XibView.swift */,
 				14582F0C24130D95004226E7 /* Images.swift */,
@@ -604,7 +605,6 @@
 				1471BAC12413D07A00BA4592 /* View */,
 				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
 				144625852421B74400CF0DB7 /* SearchPresenter.swift */,
-				1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1340,13 +1340,13 @@
 				14636545242AEBC6001F34E6 /* Helpers.swift in Sources */,
 				14C29442242C0D5E0076EBB7 /* UTCToLocal.swift in Sources */,
 				14C2945D242C319F0076EBB7 /* XibView.swift in Sources */,
+				1488CE102432EE8E00F4B9F1 /* TableViewDataSource.swift in Sources */,
 				14C29441242C0D420076EBB7 /* UserSessionData.swift in Sources */,
 				1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */,
 				14C29467242C32150076EBB7 /* AccountView.swift in Sources */,
 				14C29464242C31E70076EBB7 /* TMDBButton.swift in Sources */,
 				14C2946A242C323F0076EBB7 /* StoryAssembler.swift in Sources */,
 				14C2944E242C2DA20076EBB7 /* WeakRefTest.swift in Sources */,
-				14C29474242C3C8B0076EBB7 /* TMDBNetworkTests.swift in Sources */,
 				14C2946E242C32AB0076EBB7 /* UIAplication+setRoot.swift in Sources */,
 				14C29462242C31D10076EBB7 /* LoginView.swift in Sources */,
 				14C29444242C0D7A0076EBB7 /* AuthService.swift in Sources */,
