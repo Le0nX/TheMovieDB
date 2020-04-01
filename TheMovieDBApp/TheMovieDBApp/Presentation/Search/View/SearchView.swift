@@ -17,9 +17,6 @@ final class SearchView: XibView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
-    lazy var errorLabel = UILabel()
-    lazy var errorImageView = UIImageView(image: ImageName.noMoviesError)
-    
     // MARK: - Initializers
     
     init() {
@@ -36,11 +33,5 @@ final class SearchView: XibView {
     
     func setup() {
         contentView.backgroundColor = ColorName.background
-        
-        errorLabel.text = NSLocalizedString("Nothing found for your request", comment: "")
-        errorLabel.textColor = ColorName.fontMain
-        errorLabel.numberOfLines = 2
-
-        errorImageView = UIImageView(image: ImageName.noMoviesError)
     }
 }

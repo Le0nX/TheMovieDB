@@ -14,7 +14,7 @@ protocol SearchViewControllerDelegate: class {
     /// - Parameter name: введенный текст
     func textFieldEditingDidChange(with name: String)
     
-    /// Метод скрытия таблицы
+    /// Метод скрытия результатов поиска
     func hideSearchResults()
 }
 
@@ -70,28 +70,6 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Public Mehtods
-    
-    func showNoResultsError() {
-        errorIsShown = true
-        
-        view.addSubview(containerView.errorLabel)
-        view.addSubview(containerView.errorImageView)
-        containerView.errorLabel.anchor(top: containerView.searchTextField.bottomAnchor, left: view.leftAnchor,
-                                        bottom: nil, right: nil, paddingTop: 45, paddingLeft: 24, paddingBottom: 0,
-                                        paddingRight: 0, width: 0, height: 0)
-        
-        containerView.errorImageView.anchor(top: containerView.errorLabel.bottomAnchor, left: view.leftAnchor,
-                                            bottom: nil, right: view.rightAnchor, paddingTop: 45, paddingLeft: 64,
-                                            paddingBottom: 0, paddingRight: 64, width: 0, height: 215)
-        
-    }
-    
-    func hideNoResultsError() {
-        if errorIsShown {
-            containerView.errorImageView.removeFromSuperview()
-            containerView.errorLabel.removeFromSuperview()
-        }
-    }
     
     @objc
     func textFieldEditingDidChange(textField: UITextField) {

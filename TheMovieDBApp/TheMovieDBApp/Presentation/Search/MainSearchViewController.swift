@@ -30,14 +30,17 @@ final class MainSearchViewController: UIViewController {
     
     private let searchViewController: SearchViewController
     private let searchTableViewController: SearchTableViewController
+    private let searchEmptyResultController: ZeroSearchViewController
     
     // MARK: - Initializers
     
     init(searchViewController: SearchViewController = SearchViewController(),
-         searchTableViewController: SearchTableViewController = SearchTableViewController()) {
+         searchTableViewController: SearchTableViewController = SearchTableViewController(),
+         searchEmptyResultController: ZeroSearchViewController = ZeroSearchViewController()) {
         
         self.searchViewController = searchViewController
         self.searchTableViewController = searchTableViewController
+        self.searchEmptyResultController = searchEmptyResultController
         
         super.init(nibName: nil, bundle: nil)
      }
@@ -70,11 +73,19 @@ final class MainSearchViewController: UIViewController {
     private func addSearchTableVC() {
         add(searchTableViewController)
         
-        searchTableViewController.tableView.alpha = 1
         searchTableViewController.tableView.anchor(top: view.topAnchor, left: view.leftAnchor,
                                                    bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 85,
                                                    paddingLeft: 24, paddingBottom: 0, paddingRight: 24,
                                                    width: 0, height: 0)
+    }
+    
+    private func addEmptyResultVC() {
+        add(searchEmptyResultController)
+        
+        searchEmptyResultController.view.anchor(top: view.topAnchor, left: view.leftAnchor,
+                                                bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 55,
+                                                paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
+                                                width: 0, height: 0)
     }
 }
 
@@ -83,10 +94,10 @@ extension MainSearchViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         if movies.isEmpty {
             searchTableViewController.remove()
-            searchViewController.showNoResultsError()
+            addEmptyResultVC()
         } else {
             addSearchTableVC()
-            searchViewController.hideNoResultsError()
+            searchEmptyResultController.remove()
             searchTableViewController.searhTableViewSetData(movies: movies)
         }
     }
@@ -113,7 +124,7 @@ extension MainSearchViewController: SearchViewControllerDelegate {
     }
     
     func hideSearchResults() {
-        searchViewController.hideNoResultsError()
+        searchEmptyResultController.remove()
         searchTableViewController.tableView.alpha = 0
     }
     
