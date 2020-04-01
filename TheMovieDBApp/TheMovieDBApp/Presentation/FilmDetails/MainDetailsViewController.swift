@@ -46,7 +46,8 @@ final class MainDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.navigationBar.tintColor = ColorName.fontMain
+        self.navigationController?.navigationBar.topItem?.title = ""
         print(data.overview)
     }
     

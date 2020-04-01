@@ -62,6 +62,7 @@ final public class MoviesService: MovieService {
             case .success(let movieDTO):
                 let movies = movieDTO.results?.map { MovieEntity(title: $0.title ?? "",
                                                                  originalTitle: $0.originalTitle ?? "",
+                                                                 overview: $0.overview ?? "",
                                                                  popularity: $0.popularity,
                                                                  voteCount: $0.voteCount,
                                                                  genreIds: $0.genreIds,

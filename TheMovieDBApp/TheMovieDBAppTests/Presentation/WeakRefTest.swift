@@ -12,7 +12,7 @@ import XCTest
 final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemLeak() {
-        let searchVc = SearchViewController()
+        let searchVc = MainSearchViewController()
         let presenter = SearchPresenter(searchVc, moviesService: ServiceFabric().movieService)
         searchVc.output = presenter
         
@@ -23,7 +23,7 @@ final class WeakRefTest: XCTestCase {
     }
     
     func test_searchVCmemNoLeak() {
-        let searchVc = SearchViewController()
+        let searchVc = MainSearchViewController()
         let presenter = SearchPresenter(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
         searchVc.output = presenter
         

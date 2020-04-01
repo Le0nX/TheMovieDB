@@ -68,6 +68,7 @@ final class MovieServiceTest: XCTestCase {
         
         let expectedData = MovieEntity(title: "titleTest",
                                        originalTitle: "film",
+                                       overview: "adfadf",
                                        popularity: 6.0,
                                        voteCount: 1,
                                        genreIds: nil,
