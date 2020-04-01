@@ -30,6 +30,6 @@ final class AuthCoordinator: Coordinator {
     // MARK: - Private Methods
     
     private func login() {
-        UIApplication.setRootView(UINavigationController(rootViewController: storyAssembler.makeTabBar()))
+        UIApplication.setRootView(storyAssembler.makeTabBar())
     }
 }

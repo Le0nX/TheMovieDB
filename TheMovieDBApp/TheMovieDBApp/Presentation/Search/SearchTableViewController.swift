@@ -19,6 +19,8 @@ protocol SearchTableViewControllerDelegate: class {
     /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
     /// - Parameter poster: часть url постера без baseUrl
     func cancelTask(for poster: UUID)
+    
+    func pushVC(_ viewController: UIViewController)
 }
 
 final class SearchTableViewController: UITableViewController {
@@ -70,6 +72,12 @@ final class SearchTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath)
+        
+        delegate?.pushVC(
+            MainDetailsViewController(with: (self.dataSource?.models[indexPath.row])!))
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
         

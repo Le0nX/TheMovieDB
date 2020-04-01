@@ -50,17 +50,17 @@ final class StoryFabric: StoriesAssembler {
     
     /// Фабричный метод создания экрана авторизации
     func makeTabBar() -> UITabBarController {
-        let firstViewController = makeSearchStory()
+        let firstViewController = UINavigationController(rootViewController: makeSearchStory())
         firstViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
                                                       image: ImageName.filmIcon,
                                                       tag: 0)
 
-        let secondViewController = FavoritesViewController()
+        let secondViewController = UINavigationController(rootViewController: FavoritesViewController())
         secondViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
                                                        image: ImageName.favoriteIcon,
                                                        tag: 1)
 
-        let thirdViewController = makeAccountStory()
+        let thirdViewController = UINavigationController(rootViewController: makeAccountStory())
         thirdViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("ACCOUNT_ICON", comment: "Профиль"),
                                                       image: ImageName.accountIcon,
                                                       tag: 2)

@@ -60,7 +60,6 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.tabBarController?.tabBar.isHidden = true
                 
         self.hideKeyboardWhenTappedAround()
     }
