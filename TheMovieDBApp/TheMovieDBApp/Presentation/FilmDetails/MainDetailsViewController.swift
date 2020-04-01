@@ -21,17 +21,12 @@ final class MainDetailsViewController: UIViewController {
     
     private let movieDetailsViewController: MovieDetailsViewController
     private let movieOverviewController: MovieOverviewScrollViewController
-    
-    private let data: MovieEntity
-    
+        
     // MARK: - Initializers
     
-    init(with data: MovieEntity,
-         movieDetailsViewController: MovieDetailsViewController = MovieDetailsViewController(),
-         movieOverviewController: MovieOverviewScrollViewController = MovieOverviewScrollViewController()) {
-        
-        self.data = data
-        
+    init(movieDetailsViewController: MovieDetailsViewController,
+         movieOverviewController: MovieOverviewScrollViewController) {
+                
         self.movieDetailsViewController = movieDetailsViewController
         self.movieOverviewController = movieOverviewController
         
@@ -48,7 +43,10 @@ final class MainDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = ColorName.fontMain
         self.navigationController?.navigationBar.topItem?.title = ""
-        print(data.overview)
+        self.view.backgroundColor = ColorName.background
+        
+        addDetailsVC()
+        addOverviewVC()
     }
     
     // MARK: - Public methods
@@ -56,5 +54,20 @@ final class MainDetailsViewController: UIViewController {
     // MARK: - IBAction
     
     // MARK: - Private Methods
+    
+    private func addDetailsVC() {
+        add(movieDetailsViewController)
+        movieDetailsViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil,
+                                               right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
+                                               paddingRight: 0, width: 0, height: 190)
+    }
+    
+    private func addOverviewVC() {
+        add(movieOverviewController)
+        movieOverviewController.view.anchor(top: movieDetailsViewController.view.bottomAnchor,
+                                            left: view.leftAnchor, bottom: view.bottomAnchor,
+                                            right: view.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0,
+                                            paddingRight: 0, width: 0, height: 0)
+    }
 
 }

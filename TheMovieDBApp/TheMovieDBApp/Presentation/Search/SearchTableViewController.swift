@@ -73,10 +73,11 @@ final class SearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell", for: indexPath)
-        
+        let cell = tableView.cellForRow(at: indexPath) as! MoviesCell
+        let detailsVC = MovieDetailsViewController(with: cell)
+        let overviewVC = MovieOverviewScrollViewController(with: self.dataSource?.models[indexPath.row].overview ?? "")
         delegate?.pushVC(
-            MainDetailsViewController(with: (self.dataSource?.models[indexPath.row])!))
+            MainDetailsViewController(movieDetailsViewController: detailsVC, movieOverviewController: overviewVC))
         
         tableView.deselectRow(at: indexPath, animated: true)
     }

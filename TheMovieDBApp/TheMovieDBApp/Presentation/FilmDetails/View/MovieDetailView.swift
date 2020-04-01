@@ -21,6 +21,7 @@ final class MovieDetails: XibView {
     @IBOutlet weak var movieGanreLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var voteLabel: UILabel!
     // MARK: - Public Properties
     
     // MARK: - Private Properties

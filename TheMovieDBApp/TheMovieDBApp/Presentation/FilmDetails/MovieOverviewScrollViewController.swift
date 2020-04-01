@@ -26,20 +26,33 @@ final class MovieOverviewScrollViewController: UIViewController {
     
     // MARK: - Initializers
     
+    init(with text: String) {
+        self.overviewDescription = text
+        super.init(nibName: nil, bundle: nil)
+     }
+    
+     required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+     }
+    
     // MARK: - UIViewController(*)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.font = UIFont.systemFont(ofSize: 17.0)
+        scrollView.textColor = ColorName.fontMain
+        
         scrollView.text = overviewDescription
+        
         scrollView.backgroundColor = ColorName.background
         scrollView.isEditable = false
         
         view.addSubview(scrollView)
         
         scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                          paddingRight: 0, width: 0, height: 0)
+                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 24, paddingBottom: 0,
+                          paddingRight: 24, width: 0, height: 0)
 
     }
     

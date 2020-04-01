@@ -13,9 +13,10 @@
                 <outlet property="movieGanreLabel" destination="6G3-XN-5PH" id="Hmt-J9-iGz"/>
                 <outlet property="movieNameLabel" destination="TM9-Hu-t7e" id="lAo-1k-feB"/>
                 <outlet property="movieOriginalNameLabel" destination="n1m-po-ToJ" id="g8A-wQ-jqX"/>
-                <outlet property="popularityLabel" destination="Hvk-gU-Pbz" id="Xvp-is-V8o"/>
+                <outlet property="popularityLabel" destination="Hvk-gU-Pbz" id="wNC-pT-cEf"/>
                 <outlet property="posterImage" destination="34Y-xm-k0u" id="5tl-6B-lmX"/>
                 <outlet property="timeLabel" destination="Peo-Ig-CoI" id="XoI-kE-oiV"/>
+                <outlet property="voteLabel" destination="XWV-tN-WJE" id="3tM-9u-SWF"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
