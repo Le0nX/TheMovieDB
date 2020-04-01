@@ -9,13 +9,6 @@
 import UIKit
 
 final class MainDetailsViewController: UIViewController {
-    // MARK: - Types
-    
-    // MARK: - Constants
-    
-    // MARK: - IBOutlet
-    
-    // MARK: - Public Properties
     
     // MARK: - Private Properties
     
@@ -48,10 +41,6 @@ final class MainDetailsViewController: UIViewController {
         addDetailsVC()
         addOverviewVC()
     }
-    
-    // MARK: - Public methods
-    
-    // MARK: - IBAction
     
     // MARK: - Private Methods
     

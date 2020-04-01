@@ -9,15 +9,7 @@
 import UIKit
 
 final class MovieDetailsViewController: UIViewController {
-    
-    // MARK: - Types
-    
-    // MARK: - Constants
-    
-    // MARK: - IBOutlet
-    
-    // MARK: - Public Properties
-    
+
     // MARK: - Private Properties
     
     private let containerView: MovieDetails
@@ -46,11 +38,7 @@ final class MovieDetailsViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
-    
-    // MARK: - Public methods
-    
-    // MARK: - IBAction
-    
+
     // MARK: - Private Methods
     
     private func setup() {

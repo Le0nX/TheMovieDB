@@ -20,6 +20,8 @@ protocol SearchTableViewControllerDelegate: class {
     /// - Parameter poster: часть url постера без baseUrl
     func cancelTask(for poster: UUID)
     
+    /// Открытие нового VC на стеке
+    /// - Parameter viewController: VC
     func pushVC(_ viewController: UIViewController)
 }
 
@@ -73,13 +75,16 @@ final class SearchTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath) as! MoviesCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? MoviesCell else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        
         let detailsVC = MovieDetailsViewController(with: cell)
         let overviewVC = MovieOverviewScrollViewController(with: self.dataSource?.models[indexPath.row].overview ?? "")
         delegate?.pushVC(
             MainDetailsViewController(movieDetailsViewController: detailsVC, movieOverviewController: overviewVC))
-        
-        tableView.deselectRow(at: indexPath, animated: true)
+
     }
         
     // MARK: - Private Methods

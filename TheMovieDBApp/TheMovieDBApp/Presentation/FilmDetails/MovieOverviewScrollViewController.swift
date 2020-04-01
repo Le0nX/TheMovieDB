@@ -9,20 +9,12 @@
 import UIKit
 
 final class MovieOverviewScrollViewController: UIViewController {
-
-    // MARK: - Types
-    
-    // MARK: - Constants
-    
-    // MARK: - IBOutlet
-    
-    // MARK: - Public Properties
         
     // MARK: - Private Properties
     
     private var overviewDescription: String?
     
-    private lazy var scrollView = UITextView()
+    private lazy var textView = UITextView()
     
     // MARK: - Initializers
     
@@ -40,26 +32,20 @@ final class MovieOverviewScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.font = UIFont.systemFont(ofSize: 17.0)
-        scrollView.textColor = ColorName.fontMain
+        textView.font = UIFont.systemFont(ofSize: 17.0)
+        textView.textColor = ColorName.fontMain
         
-        scrollView.text = overviewDescription
+        textView.text = overviewDescription
         
-        scrollView.backgroundColor = ColorName.background
-        scrollView.isEditable = false
+        textView.backgroundColor = ColorName.background
+        textView.isEditable = false
         
-        view.addSubview(scrollView)
+        view.addSubview(textView)
         
-        scrollView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 24, paddingBottom: 0,
-                          paddingRight: 24, width: 0, height: 0)
+        textView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
+                        right: view.rightAnchor, paddingTop: 0, paddingLeft: 24, paddingBottom: 0,
+                        paddingRight: 24, width: 0, height: 0)
 
     }
-    
-    // MARK: - Public methods
-
-    // MARK: - IBAction
-    
-    // MARK: - Private Methods
 
 }

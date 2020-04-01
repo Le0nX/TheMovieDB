@@ -55,7 +55,7 @@ final class StoryFabric: StoriesAssembler {
                                                       image: ImageName.filmIcon,
                                                       tag: 0)
 
-        let secondViewController = UINavigationController(rootViewController: FavoritesViewController())
+        let secondViewController = UINavigationController(rootViewController: ZeroFavoritesViewController())
         secondViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
                                                        image: ImageName.favoriteIcon,
                                                        tag: 1)

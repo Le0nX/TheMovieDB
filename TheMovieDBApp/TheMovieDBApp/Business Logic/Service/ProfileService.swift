@@ -54,7 +54,8 @@ final public class UserProfileService: ProfileService {
         client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let profileDTO):
-                self?.fetchAvatar(hash: profileDTO.avatar?.gravatar?.hash,
+                self?.fetchAvatar(id: profileDTO.id,
+                                  hash: profileDTO.avatar?.gravatar?.hash,
                                   name: profileDTO.name,
                                   username: profileDTO.username, completion: completion)
                 
@@ -66,14 +67,18 @@ final public class UserProfileService: ProfileService {
     
     // MARK: - Private methods
     
-    private func fetchAvatar(hash: String?, name: String, username: String, completion: @escaping (Result) -> Void) {
+    private func fetchAvatar(id: Int,
+                             hash: String?,
+                             name: String,
+                             username: String,
+                             completion: @escaping (Result) -> Void) {
         guard let hash = hash else { return }
         
         let endpoint = GravatarEndpoint(hash: hash)
         imageClient.request(endpoint) { result in
             switch result {
             case .success(let imageDTO):
-                let userProfile = Profile(name: name, username: username, image: imageDTO)
+                let userProfile = Profile(id: id, name: name, username: username, image: imageDTO)
                 completion(.success(userProfile))
             case .failure(let error):
                 completion(.failure(error))
