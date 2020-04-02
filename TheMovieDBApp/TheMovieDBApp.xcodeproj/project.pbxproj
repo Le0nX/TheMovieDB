@@ -66,6 +66,13 @@
 		145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145033542412B45C00B3F404 /* TMDBTextField.swift */; };
 		14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0A2412FC01004226E7 /* TMDBButton.swift */; };
 		14582F0D24130D95004226E7 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14582F0C24130D95004226E7 /* Images.swift */; };
+		1458ED212435A0B100D5B6DC /* MainFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D92435719E00C0EECC /* MainFavoritesViewController.swift */; };
+		1458ED222435A0B500D5B6DC /* SearchFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4DB2435750800C0EECC /* SearchFavoritesViewController.swift */; };
+		1458ED232435A0BA00D5B6DC /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4E2243579DF00C0EECC /* FavoritesCollectionViewController.swift */; };
+		1458ED242435A0CA00D5B6DC /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D52435690000C0EECC /* FavoriteService.swift */; };
+		1458ED252435A0D000D5B6DC /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D724356F1C00C0EECC /* FavoritesPresenter.swift */; };
+		1458ED262435A0DF00D5B6DC /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4E424357A9100C0EECC /* CollectionViewDataSource.swift */; };
+		1458ED272435A0FF00D5B6DC /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4DE2435770E00C0EECC /* FavoriteCell.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -1417,11 +1424,14 @@
 				14D8DD5A24339BA5008FD2D5 /* SearchTableViewController.swift in Sources */,
 				14C29443242C0D680076EBB7 /* ServicesAssembler.swift in Sources */,
 				14C2946C242C32650076EBB7 /* ZeroFavoritesViewController.swift in Sources */,
+				1458ED212435A0B100D5B6DC /* MainFavoritesViewController.swift in Sources */,
+				1458ED232435A0BA00D5B6DC /* FavoritesCollectionViewController.swift in Sources */,
 				14636546242AF0FE001F34E6 /* MovieService.swift in Sources */,
 				14C2946B242C32560076EBB7 /* Images.swift in Sources */,
 				14C2945B242C31370076EBB7 /* UIViewController+Spinner.swift in Sources */,
 				14636541242AE0F1001F34E6 /* MovieServiceTest.swift in Sources */,
 				14C29454242C2F7D0076EBB7 /* AuthPresenter.swift in Sources */,
+				1458ED222435A0B500D5B6DC /* SearchFavoritesViewController.swift in Sources */,
 				14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */,
 				14C2945A242C312E0076EBB7 /* SearchPresenter.swift in Sources */,
 				14C29463242C31E00076EBB7 /* TMDBTextField.swift in Sources */,
@@ -1442,6 +1452,7 @@
 				1441E4D224355F2500C0EECC /* MovieOverviewScrollViewController.swift in Sources */,
 				14C29455242C2F850076EBB7 /* AuthCoordinator.swift in Sources */,
 				14D8DD6C2434B80A008FD2D5 /* UIView+constraint.swift in Sources */,
+				1458ED252435A0D000D5B6DC /* FavoritesPresenter.swift in Sources */,
 				14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */,
 				14C2945C242C313F0076EBB7 /* MoviesCell.swift in Sources */,
 				14636545242AEBC6001F34E6 /* Helpers.swift in Sources */,
@@ -1451,6 +1462,9 @@
 				1488CE102432EE8E00F4B9F1 /* TableViewDataSource.swift in Sources */,
 				14C29441242C0D420076EBB7 /* UserSessionData.swift in Sources */,
 				1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */,
+				1458ED242435A0CA00D5B6DC /* FavoriteService.swift in Sources */,
+				1458ED272435A0FF00D5B6DC /* FavoriteCell.swift in Sources */,
+				1458ED262435A0DF00D5B6DC /* CollectionViewDataSource.swift in Sources */,
 				14C29467242C32150076EBB7 /* AccountView.swift in Sources */,
 				14C29464242C31E70076EBB7 /* TMDBButton.swift in Sources */,
 				14C2946A242C323F0076EBB7 /* StoryAssembler.swift in Sources */,
