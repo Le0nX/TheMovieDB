@@ -23,6 +23,9 @@ protocol ServicesAssembler {
     
     /// Сервис получения списка фильмов
     var movieService: MovieService { get }
+    
+    /// Сервис работы с фаворитами
+    var favoriteService: FavoritesService { get }
 }
 
 /// Фабрика сервисов
@@ -62,6 +65,12 @@ final class ServiceFabric: ServicesAssembler {
     /// Сервис получения списка фильмов
     lazy var movieService: MovieService = {
         let service = MoviesService(client: client, posterClient: posterClient)
+        return service
+    }()
+    
+    /// Сервис работы с фаворитами
+    lazy var favoriteService: FavoritesService = {
+        let service = FavoriteService(client: client, posterClient: posterClient, accessService: accessService)
         return service
     }()
 }

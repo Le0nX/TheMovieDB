@@ -21,6 +21,9 @@ protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана поиска
     func makeSearchStory() -> MainSearchViewController
+    
+    /// Фабричный метод создания экрана фаворитов
+    func makeFavoritesStory() -> MainFavoritesViewController
 }
 
 final class StoryFabric: StoriesAssembler {
@@ -48,6 +51,14 @@ final class StoryFabric: StoriesAssembler {
         return loginVc
     }
     
+    func makeFavoritesStory() -> MainFavoritesViewController {
+        let mainFavoritesView = MainFavoritesViewController()
+        mainFavoritesView.output = FavoritesPresenter(WeakRef(mainFavoritesView),
+                                                      favoriteService: servicesAssembler.favoriteService)
+        
+        return mainFavoritesView
+    }
+    
     /// Фабричный метод создания экрана авторизации
     func makeTabBar() -> UITabBarController {
         let firstViewController = UINavigationController(rootViewController: makeSearchStory())
@@ -55,7 +66,7 @@ final class StoryFabric: StoriesAssembler {
                                                       image: ImageName.filmIcon,
                                                       tag: 0)
 
-        let secondViewController = UINavigationController(rootViewController: ZeroFavoritesViewController())
+        let secondViewController = UINavigationController(rootViewController: makeFavoritesStory())
         secondViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
                                                        image: ImageName.favoriteIcon,
                                                        tag: 1)

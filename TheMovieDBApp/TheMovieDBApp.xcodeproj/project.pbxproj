@@ -14,6 +14,14 @@
 		1441E4D224355F2500C0EECC /* MovieOverviewScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD6E2434B921008FD2D5 /* MovieOverviewScrollViewController.swift */; };
 		1441E4D324355F2C00C0EECC /* MainDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD622434877D008FD2D5 /* MainDetailsViewController.swift */; };
 		1441E4D424355F4000C0EECC /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD7224352554008FD2D5 /* MovieDetailView.swift */; };
+		1441E4D62435690000C0EECC /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D52435690000C0EECC /* FavoriteService.swift */; };
+		1441E4D824356F1C00C0EECC /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D724356F1C00C0EECC /* FavoritesPresenter.swift */; };
+		1441E4DA2435719E00C0EECC /* MainFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D92435719E00C0EECC /* MainFavoritesViewController.swift */; };
+		1441E4DC2435750800C0EECC /* SearchFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4DB2435750800C0EECC /* SearchFavoritesViewController.swift */; };
+		1441E4DF2435770E00C0EECC /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4DE2435770E00C0EECC /* FavoriteCell.swift */; };
+		1441E4E3243579DF00C0EECC /* FavoritesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4E2243579DF00C0EECC /* FavoritesCollectionViewController.swift */; };
+		1441E4E524357A9100C0EECC /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4E424357A9100C0EECC /* CollectionViewDataSource.swift */; };
+		1441E4E724357D8800C0EECC /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1441E4E624357D8800C0EECC /* FavoriteCell.xib */; };
 		1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */; };
 		1446254324202BFB00CF0DB7 /* SessionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */; };
 		1446254424202BFB00CF0DB7 /* ValidateTokenEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */; };
@@ -226,6 +234,14 @@
 		14100A812418312C0097421F /* UTCToLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTCToLocal.swift; sourceTree = "<group>"; };
 		143C1DCD242928400060D270 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		143C1DCF242952870060D270 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		1441E4D52435690000C0EECC /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		1441E4D724356F1C00C0EECC /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		1441E4D92435719E00C0EECC /* MainFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFavoritesViewController.swift; sourceTree = "<group>"; };
+		1441E4DB2435750800C0EECC /* SearchFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesViewController.swift; sourceTree = "<group>"; };
+		1441E4DE2435770E00C0EECC /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		1441E4E2243579DF00C0EECC /* FavoritesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewController.swift; sourceTree = "<group>"; };
+		1441E4E424357A9100C0EECC /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		1441E4E624357D8800C0EECC /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		1446253F24202BFB00CF0DB7 /* RequestTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTokenEndpoint.swift; sourceTree = "<group>"; };
 		1446254024202BFB00CF0DB7 /* SessionEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionEndpoint.swift; sourceTree = "<group>"; };
 		1446254124202BFB00CF0DB7 /* ValidateTokenEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidateTokenEndpoint.swift; sourceTree = "<group>"; };
@@ -426,6 +442,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		1441E4DD243576D900C0EECC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1441E4DE2435770E00C0EECC /* FavoriteCell.swift */,
+				1441E4E624357D8800C0EECC /* FavoriteCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		1446253A24202A1700CF0DB7 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,6 +647,7 @@
 				145033522412B42E00B3F404 /* Buttons */,
 				1450331324126AAD00B3F404 /* LaunchScreen.storyboard */,
 				1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */,
+				1441E4E424357A9100C0EECC /* CollectionViewDataSource.swift */,
 				145033442412975900B3F404 /* Colors.swift */,
 				1450334E2412A73300B3F404 /* XibView.swift */,
 				14582F0C24130D95004226E7 /* Images.swift */,
@@ -668,6 +694,7 @@
 				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
 				143C1DCF242952870060D270 /* ServiceError.swift */,
+				1441E4D52435690000C0EECC /* FavoriteService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -714,6 +741,10 @@
 			children = (
 				145E8B88241429D5007ACDBB /* View */,
 				145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */,
+				1441E4D92435719E00C0EECC /* MainFavoritesViewController.swift */,
+				1441E4D724356F1C00C0EECC /* FavoritesPresenter.swift */,
+				1441E4DB2435750800C0EECC /* SearchFavoritesViewController.swift */,
+				1441E4E2243579DF00C0EECC /* FavoritesCollectionViewController.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -732,6 +763,7 @@
 		145E8B88241429D5007ACDBB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1441E4DD243576D900C0EECC /* Cells */,
 				145E8B8B241431AE007ACDBB /* FavoritesView.xib */,
 				145E8B8D241431CC007ACDBB /* FavoritesView.swift */,
 			);
@@ -1141,6 +1173,7 @@
 				145E8BE22416AA00007ACDBB /* Localizable.strings in Resources */,
 				145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */,
 				1446257C2421A35200CF0DB7 /* MoviesCell.xib in Resources */,
+				1441E4E724357D8800C0EECC /* FavoriteCell.xib in Resources */,
 				145E8BA024144CAB007ACDBB /* AccountView.xib in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
 				14D8DD71243521C5008FD2D5 /* MovieDetails.xib in Resources */,
@@ -1311,6 +1344,7 @@
 				145E8BCD2415DE91007ACDBB /* AccessCredentialsService.swift in Sources */,
 				145E8BA7241577BF007ACDBB /* AuthPresenter.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
+				1441E4D824356F1C00C0EECC /* FavoritesPresenter.swift in Sources */,
 				145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */,
 				145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */,
 				14100A822418312C0097421F /* UTCToLocal.swift in Sources */,
@@ -1323,9 +1357,12 @@
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */,
 				145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */,
+				1441E4DC2435750800C0EECC /* SearchFavoritesViewController.swift in Sources */,
 				144625842421B42C00CF0DB7 /* MovieEntity.swift in Sources */,
+				1441E4D62435690000C0EECC /* FavoriteService.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
 				145E8BA5241571B8007ACDBB /* Coordinator.swift in Sources */,
+				1441E4E3243579DF00C0EECC /* FavoritesCollectionViewController.swift in Sources */,
 				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
 				145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */,
 				14D8DD5924339B1C008FD2D5 /* SearchTableViewController.swift in Sources */,
@@ -1341,6 +1378,7 @@
 				14D8DD67243496C9008FD2D5 /* ZeroSearchViewController.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
 				14D8DD5C24339E92008FD2D5 /* MainSearchViewController.swift in Sources */,
+				1441E4DF2435770E00C0EECC /* FavoriteCell.swift in Sources */,
 				145033552412B45D00B3F404 /* TMDBTextField.swift in Sources */,
 				14D8DD6F2434B921008FD2D5 /* MovieOverviewScrollViewController.swift in Sources */,
 				1446257124216A0200CF0DB7 /* Profile.swift in Sources */,
@@ -1350,6 +1388,8 @@
 				1446257E2421AEB300CF0DB7 /* MovieService.swift in Sources */,
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
+				1441E4DA2435719E00C0EECC /* MainFavoritesViewController.swift in Sources */,
+				1441E4E524357A9100C0EECC /* CollectionViewDataSource.swift in Sources */,
 				145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */,
 				143C1DD0242952870060D270 /* ServiceError.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
