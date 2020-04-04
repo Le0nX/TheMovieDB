@@ -60,15 +60,7 @@ final public class MoviesService: MovieService {
         client.request(endpoint) { result in
             switch result {
             case .success(let movieDTO):
-                let movies = movieDTO.results?.map { MovieEntity(title: $0.title ?? "",
-                                                                 originalTitle: $0.originalTitle ?? "",
-                                                                 overview: $0.overview ?? "",
-                                                                 popularity: $0.popularity,
-                                                                 voteCount: $0.voteCount,
-                                                                 genreIds: $0.genreIds,
-                                                                 image: $0.posterPath)
-                }
-                completion(.success(movies ?? []))
+                completion(.success(MovieMapper.map(from: movieDTO)))
             case .failure(let error):
                 completion(.failure(error))
             }
