@@ -73,6 +73,8 @@
 		1458ED252435A0D000D5B6DC /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4D724356F1C00C0EECC /* FavoritesPresenter.swift */; };
 		1458ED262435A0DF00D5B6DC /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4E424357A9100C0EECC /* CollectionViewDataSource.swift */; };
 		1458ED272435A0FF00D5B6DC /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441E4DE2435770E00C0EECC /* FavoriteCell.swift */; };
+		1458ED302438B38C00D5B6DC /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED2F2438B38C00D5B6DC /* MovieMapper.swift */; };
+		1458ED312438B4F600D5B6DC /* MovieMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED2F2438B38C00D5B6DC /* MovieMapper.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -298,6 +300,7 @@
 		145033542412B45C00B3F404 /* TMDBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTextField.swift; sourceTree = "<group>"; };
 		14582F0A2412FC01004226E7 /* TMDBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBButton.swift; sourceTree = "<group>"; };
 		14582F0C24130D95004226E7 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		1458ED2F2438B38C00D5B6DC /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
 		145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroFavoritesViewController.swift; sourceTree = "<group>"; };
 		145E8B8B241431AE007ACDBB /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -687,6 +690,7 @@
 		145033422412826200B3F404 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1458ED2E2438B38200D5B6DC /* Mappers */,
 				14100A812418312C0097421F /* UTCToLocal.swift */,
 			);
 			path = Helper;
@@ -765,6 +769,14 @@
 				145E8BDB24168175007ACDBB /* AccountPresenter.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		1458ED2E2438B38200D5B6DC /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				1458ED2F2438B38C00D5B6DC /* MovieMapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 		145E8B88241429D5007ACDBB /* View */ = {
@@ -1349,6 +1361,7 @@
 			files = (
 				14D8DD632434877D008FD2D5 /* MainDetailsViewController.swift in Sources */,
 				145E8BCD2415DE91007ACDBB /* AccessCredentialsService.swift in Sources */,
+				1458ED302438B38C00D5B6DC /* MovieMapper.swift in Sources */,
 				145E8BA7241577BF007ACDBB /* AuthPresenter.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				1441E4D824356F1C00C0EECC /* FavoritesPresenter.swift in Sources */,
@@ -1429,6 +1442,7 @@
 				14636546242AF0FE001F34E6 /* MovieService.swift in Sources */,
 				14C2946B242C32560076EBB7 /* Images.swift in Sources */,
 				14C2945B242C31370076EBB7 /* UIViewController+Spinner.swift in Sources */,
+				1458ED312438B4F600D5B6DC /* MovieMapper.swift in Sources */,
 				14636541242AE0F1001F34E6 /* MovieServiceTest.swift in Sources */,
 				14C29454242C2F7D0076EBB7 /* AuthPresenter.swift in Sources */,
 				1458ED222435A0B500D5B6DC /* SearchFavoritesViewController.swift in Sources */,
