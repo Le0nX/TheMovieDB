@@ -53,8 +53,8 @@ final class StoryFabric: StoriesAssembler {
     
     func makeFavoritesStory() -> MainFavoritesViewController {
         let mainFavoritesView = MainFavoritesViewController()
-        mainFavoritesView.output = FavoritesPresenter(WeakRef(mainFavoritesView),
-                                                      favoriteService: servicesAssembler.favoriteService)
+        mainFavoritesView.loader = FavoritesLoader(WeakRef(mainFavoritesView),
+                                                   favoriteService: servicesAssembler.favoriteService)
         
         return mainFavoritesView
     }

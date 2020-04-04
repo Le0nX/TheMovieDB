@@ -13,30 +13,13 @@ final class MainFavoritesViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public var output: FavoritesPresenterOutput?
+    public var loader: FavoritesLoaderOutput?
     
     // MARK: - Private Properties
     
-    private let searchViewController: SearchFavoritesViewController
-    private let favoritesCollectionViewController: FavoritesCollectionViewController
-    private let favoritesEmptyResultController: ZeroFavoritesViewController
-    
-    // MARK: - Initializers
-    
-    init(searchViewController: SearchFavoritesViewController = SearchFavoritesViewController(),
-         favoritesCollectionViewController: FavoritesCollectionViewController = FavoritesCollectionViewController(),
-         favoritesEmptyResultController: ZeroFavoritesViewController = ZeroFavoritesViewController()) {
-        
-        self.searchViewController = searchViewController
-        self.favoritesCollectionViewController = favoritesCollectionViewController
-        self.favoritesEmptyResultController = favoritesEmptyResultController
-        
-        super.init(nibName: nil, bundle: nil)
-     }
-    
-     required init?(coder: NSCoder) {
-         fatalError("init(coder:) has not been implemented")
-     }
+    private let searchViewController = SearchFavoritesViewController()
+    private let favoritesCollectionViewController = FavoritesCollectionViewController()
+    private let favoritesEmptyResultController = ZeroFavoritesViewController()
     
     // MARK: - UIViewController(*)
     
@@ -51,7 +34,7 @@ final class MainFavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         output?.getFavorites()
+         loader?.getFavorites()
     }
     
     // MARK: - Private Methods
@@ -111,11 +94,11 @@ extension MainFavoritesViewController: SearchViewInput {
 extension MainFavoritesViewController: FavoritesCollectionViewControllerDelegate {
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-        output?.fetchImage(for: poster, completion: completion)
+        loader?.fetchImage(for: poster, completion: completion)
     }
     
     func cancelTask(for poster: UUID) {
-        output?.cancelTask(for: poster)
+        loader?.cancelTask(for: poster)
     }
     
 }

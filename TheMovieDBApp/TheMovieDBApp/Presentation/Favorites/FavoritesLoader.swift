@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FavoritesPresenterOutput {
+protocol FavoritesLoaderOutput {
     
     /// Метод получения фаворитов
     func getFavorites()
@@ -27,7 +27,7 @@ protocol FavoritesPresenterOutput {
     func cancelTask(for poster: UUID)
 }
 
-final class FavoritesPresenter: FavoritesPresenterOutput {
+final class FavoritesLoader: FavoritesLoaderOutput {
     
     // MARK: - Private Properties
     
