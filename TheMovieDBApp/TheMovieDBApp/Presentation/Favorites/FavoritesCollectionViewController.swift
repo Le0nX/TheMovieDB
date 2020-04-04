@@ -77,7 +77,7 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
             if let poster = movie.image {
                 let uuid = self?.delegate?.fetchImage(for: poster) { data in
                     if let data = data {
-                        cell.posterImage.image = UIImage(data: data)
+                        cell.posterImage.image = DataConverter.toImage(from: data)
                     }
                 }
                 
