@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 
 final class MovieDetails: XibView {
-    // MARK: - Types
-    
-    // MARK: - Constants
     
     // MARK: - IBOutlet
     @IBOutlet weak var posterImage: UIImageView!
@@ -22,9 +19,6 @@ final class MovieDetails: XibView {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var voteLabel: UILabel!
-    // MARK: - Public Properties
-    
-    // MARK: - Private Properties
     
     // MARK: - Initializers
         
@@ -36,12 +30,4 @@ final class MovieDetails: XibView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    // MARK: - UIViewController(*)
-    
-    // MARK: - Public methods
-    
-    // MARK: - IBAction
-    
-    // MARK: - Private Methods
 }

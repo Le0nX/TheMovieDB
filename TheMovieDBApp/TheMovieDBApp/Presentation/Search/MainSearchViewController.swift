@@ -132,8 +132,8 @@ extension MainSearchViewController: SearchViewControllerDelegate {
 
 extension MainSearchViewController: SearchTableViewControllerDelegate {
     
-    func pushVC(_ viewController: UIViewController) {
-        self.navigationController?.pushViewController(viewController, animated: true)
+    func openDetailsViewController(with model: MovieDetail) {
+        self.navigationController?.pushViewController(MainDetailsViewController(with: model), animated: true)
     }
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {

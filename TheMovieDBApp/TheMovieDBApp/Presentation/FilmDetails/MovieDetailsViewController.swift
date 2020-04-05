@@ -12,13 +12,12 @@ final class MovieDetailsViewController: UIViewController {
 
     // MARK: - Private Properties
     
-    private let containerView: MovieDetails
-    private let data: MoviesCell
+    private let containerView = MovieDetails()
+    private let data: MovieDetail
     
     // MARK: - Initializers
     
-    init(_ view: MovieDetails = MovieDetails(), with data: MoviesCell) {
-        self.containerView = view
+    init(with data: MovieDetail) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
      }
@@ -42,12 +41,12 @@ final class MovieDetailsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setup() {
-        self.containerView.movieNameLabel.text = data.movieName.text
-        self.containerView.movieGanreLabel.text = data.ganreLabel.text
-        self.containerView.movieOriginalNameLabel.text = data.movieOriginalName.text
-        self.containerView.popularityLabel.text = data.popularityLabel.text
-        self.containerView.voteLabel.text = data.voteCountLabel.text
-        self.containerView.posterImage.image = data.posterImage.image
+        self.containerView.movieNameLabel.text = data.movieName
+        self.containerView.movieGanreLabel.text = data.genre
+        self.containerView.movieOriginalNameLabel.text = data.movieOriginalName
+        self.containerView.popularityLabel.text = data.popularity
+        self.containerView.voteLabel.text = data.votes
+        self.containerView.posterImage.image = data.poster
     }
 
 }

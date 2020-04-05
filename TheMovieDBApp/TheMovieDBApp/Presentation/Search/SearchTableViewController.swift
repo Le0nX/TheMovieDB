@@ -20,9 +20,9 @@ protocol SearchTableViewControllerDelegate: class {
     /// - Parameter poster: часть url постера без baseUrl
     func cancelTask(for poster: UUID)
     
-    /// Открытие нового VC на стеке
-    /// - Parameter viewController: VC
-    func pushVC(_ viewController: UIViewController)
+    /// Открыть детали фильма
+    /// - Parameter model: модель деталей фильма
+    func openDetailsViewController(with model: MovieDetail)
 }
 
 final class SearchTableViewController: UITableViewController {
@@ -80,11 +80,10 @@ final class SearchTableViewController: UITableViewController {
             return
         }
         
-        let detailsVC = MovieDetailsViewController(with: cell)
-        let overviewVC = MovieOverviewScrollViewController(with: self.dataSource?.models[indexPath.row].overview ?? "")
-        delegate?.pushVC(
-            MainDetailsViewController(movieDetailsViewController: detailsVC, movieOverviewController: overviewVC))
+        let detailsModel = DetailsModelConverter.toDetailsModel(from: cell,
+                                                                with: self.dataSource?.models[indexPath.row].overview)
 
+        delegate?.openDetailsViewController(with: detailsModel)
     }
         
     // MARK: - Private Methods

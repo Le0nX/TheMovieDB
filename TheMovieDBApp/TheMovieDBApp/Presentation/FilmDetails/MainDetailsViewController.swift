@@ -17,11 +17,10 @@ final class MainDetailsViewController: UIViewController {
         
     // MARK: - Initializers
     
-    init(movieDetailsViewController: MovieDetailsViewController,
-         movieOverviewController: MovieOverviewScrollViewController) {
+    init(with model: MovieDetail) {
                 
-        self.movieDetailsViewController = movieDetailsViewController
-        self.movieOverviewController = movieOverviewController
+        self.movieDetailsViewController = MovieDetailsViewController(with: model)
+        self.movieOverviewController = MovieOverviewScrollViewController(with: model.overview ?? "")
         
         super.init(nibName: nil, bundle: nil)
     }

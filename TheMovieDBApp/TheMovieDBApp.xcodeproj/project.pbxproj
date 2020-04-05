@@ -77,6 +77,8 @@
 		1458ED342438E66E00D5B6DC /* DataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED322438E3AE00D5B6DC /* DataConverter.swift */; };
 		1458ED362438F4AC00D5B6DC /* FavoritesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED352438F4AC00D5B6DC /* FavoritesLoader.swift */; };
 		1458ED372438F4C900D5B6DC /* FavoritesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED352438F4AC00D5B6DC /* FavoritesLoader.swift */; };
+		1458ED3A2439FE0100D5B6DC /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED392439FE0100D5B6DC /* MovieDetail.swift */; };
+		1458ED3D243A0AAF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -304,6 +306,8 @@
 		1458ED2F2438B38C00D5B6DC /* MovieMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMapper.swift; sourceTree = "<group>"; };
 		1458ED322438E3AE00D5B6DC /* DataConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConverter.swift; sourceTree = "<group>"; };
 		1458ED352438F4AC00D5B6DC /* FavoritesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesLoader.swift; sourceTree = "<group>"; };
+		1458ED392439FE0100D5B6DC /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModelConverter.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
 		145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroFavoritesViewController.swift; sourceTree = "<group>"; };
 		145E8B8B241431AE007ACDBB /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -673,6 +677,7 @@
 		145033402412823300B3F404 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				1458ED3B2439FE7A00D5B6DC /* Helper */,
 				1471BAC12413D07A00BA4592 /* View */,
 				1471BAC22413D08C00BA4592 /* SearchViewController.swift */,
 				14D8DD66243496C9008FD2D5 /* ZeroSearchViewController.swift */,
@@ -742,6 +747,7 @@
 		14582F0E2413C845004226E7 /* FilmDetails */ = {
 			isa = PBXGroup;
 			children = (
+				1458ED382439FDEC00D5B6DC /* Models */,
 				14D8DD65243487A6008FD2D5 /* View */,
 				14D8DD622434877D008FD2D5 /* MainDetailsViewController.swift */,
 				14D8DD682434B6A9008FD2D5 /* MovieDetailsViewController.swift */,
@@ -781,6 +787,22 @@
 				1458ED322438E3AE00D5B6DC /* DataConverter.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		1458ED382439FDEC00D5B6DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1458ED392439FE0100D5B6DC /* MovieDetail.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1458ED3B2439FE7A00D5B6DC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		145E8B88241429D5007ACDBB /* View */ = {
@@ -1414,8 +1436,10 @@
 				14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */,
 				1450334F2412A73300B3F404 /* XibView.swift in Sources */,
 				1441E4DA2435719E00C0EECC /* MainFavoritesViewController.swift in Sources */,
+				1458ED3D243A0AAF00D5B6DC /* DetailsModelConverter.swift in Sources */,
 				1441E4E524357A9100C0EECC /* CollectionViewDataSource.swift in Sources */,
 				145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */,
+				1458ED3A2439FE0100D5B6DC /* MovieDetail.swift in Sources */,
 				143C1DD0242952870060D270 /* ServiceError.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
