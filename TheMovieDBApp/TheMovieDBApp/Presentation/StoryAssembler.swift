@@ -59,24 +59,27 @@ final class StoryFabric: StoriesAssembler {
         return mainFavoritesView
     }
     
-    /// Фабричный метод создания экрана авторизации
+    /// Фабричный метод создания tabBar'a
     func makeTabBar() -> UITabBarController {
-        let firstViewController = UINavigationController(rootViewController: makeSearchStory())
-        firstViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
-                                                      image: ImageName.filmIcon,
-                                                      tag: 0)
+        let search = makeTabBarNavigationControllerItem(
+                                                    makeSearchStory(),
+                                                    title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
+                                                    image: ImageName.filmIcon,
+                                                    tag: 0)
 
-        let secondViewController = UINavigationController(rootViewController: makeFavoritesStory())
-        secondViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
-                                                       image: ImageName.favoriteIcon,
-                                                       tag: 1)
+        let favorites = makeTabBarNavigationControllerItem(
+                                                    makeFavoritesStory(),
+                                                    title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
+                                                    image: ImageName.favoriteIcon,
+                                                    tag: 1)
 
-        let thirdViewController = UINavigationController(rootViewController: makeAccountStory())
-        thirdViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("ACCOUNT_ICON", comment: "Профиль"),
-                                                      image: ImageName.accountIcon,
-                                                      tag: 2)
-
-        let tabBarList = [firstViewController, secondViewController, thirdViewController]
+        let account = makeTabBarNavigationControllerItem(
+                                                    makeAccountStory(),
+                                                    title: NSLocalizedString("ACCOUNT_ICON", comment: "Профиль"),
+                                                    image: ImageName.accountIcon,
+                                                    tag: 2)
+           
+        let tabBarList = [search, favorites, account]
 
         let tabBar = UITabBarController()
         tabBar.viewControllers = tabBarList
@@ -104,5 +107,15 @@ final class StoryFabric: StoriesAssembler {
                                                 moviesService: servicesAssembler.movieService)
         
         return mainSearchView
+    }
+    
+    private func makeTabBarNavigationControllerItem(_ viewController: UIViewController,
+                                                    title: String?,
+                                                    image: UIImage?,
+                                                    tag: Int) -> UIViewController {
+        let vc = UINavigationController(rootViewController: viewController)
+        vc.tabBarItem = UITabBarItem(title: title, image: image, tag: tag)
+        
+        return vc
     }
 }

@@ -81,6 +81,7 @@
 		1458ED3D243A0AAF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
 		1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED392439FE0100D5B6DC /* MovieDetail.swift */; };
 		1458ED3F243A22BF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
+		1458ED41243A591000D5B6DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED40243A591000D5B6DC /* ImageLoader.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -310,6 +311,7 @@
 		1458ED352438F4AC00D5B6DC /* FavoritesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesLoader.swift; sourceTree = "<group>"; };
 		1458ED392439FE0100D5B6DC /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModelConverter.swift; sourceTree = "<group>"; };
+		1458ED40243A591000D5B6DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
 		145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroFavoritesViewController.swift; sourceTree = "<group>"; };
 		145E8B8B241431AE007ACDBB /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 			children = (
 				1458ED2E2438B38200D5B6DC /* Mappers */,
 				14100A812418312C0097421F /* UTCToLocal.swift */,
+				1458ED40243A591000D5B6DC /* ImageLoader.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1401,6 +1404,7 @@
 				14D8DD692434B6A9008FD2D5 /* MovieDetailsViewController.swift in Sources */,
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
+				1458ED41243A591000D5B6DC /* ImageLoader.swift in Sources */,
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				1458ED332438E3AE00D5B6DC /* DataConverter.swift in Sources */,
 				1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */,
