@@ -70,7 +70,11 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис работы с фаворитами
     lazy var favoriteService: FavoritesService = {
-        let service = FavoriteService(client: client, posterClient: posterClient, accessService: accessService)
+        let simpleCache = NSCache<NSString, NSData>()
+        let service = FavoriteService(client: client,
+                                      posterClient: posterClient,
+                                      accessService: accessService,
+                                      cache: simpleCache)
         return service
     }()
 }

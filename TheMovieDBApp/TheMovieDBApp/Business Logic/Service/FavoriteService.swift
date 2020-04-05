@@ -17,8 +17,8 @@ protocol FavoritesService: MovieService {
     func getFavorites(completion: @escaping (APIResult<[MovieEntity]>) -> Void)
 }
 
-/// Сервис данных профиля пользователя.
-/// Позволяет получить аватарку и содержимое профиля
+/// Сервис фаворитов
+/// Позволяет получить данные о любимых фильмах
 final public class FavoriteService: FavoritesService {
     // MARK: - Types
     
@@ -29,15 +29,20 @@ final public class FavoriteService: FavoritesService {
     private let client: APIClient
     private let posterClient: APIClient
     private let accessService: AccessCredentialsService
-    private let simpleCache = NSCache<NSString, NSData>()
+    private let simpleCache: NSCache<NSString, NSData>
     private var runningTasks: [UUID: Progress] = [:]
 
     // MARK: - Initializers
     
-    init(client: APIClient, posterClient: APIClient, accessService: AccessCredentialsService) {
+    init(client: APIClient,
+         posterClient: APIClient,
+         accessService: AccessCredentialsService,
+         cache: NSCache<NSString, NSData>) {
+        
         self.accessService = accessService
         self.client = client
         self.posterClient = posterClient
+        self.simpleCache = cache
     }
     
     // MARK: - Public methods
