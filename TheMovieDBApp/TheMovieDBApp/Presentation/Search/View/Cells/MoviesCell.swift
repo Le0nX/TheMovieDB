@@ -10,6 +10,9 @@ import UIKit
 
 final class MoviesCell: UITableViewCell {
     
+    // MARK: - Constants
+    static let cellHight = CGFloat(100)
+    
     // MARK: - IBOutlet
     
     @IBOutlet weak var posterImage: UIImageView!
