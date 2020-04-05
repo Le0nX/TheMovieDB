@@ -82,6 +82,8 @@
 		1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED392439FE0100D5B6DC /* MovieDetail.swift */; };
 		1458ED3F243A22BF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
 		1458ED41243A591000D5B6DC /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED40243A591000D5B6DC /* ImageLoader.swift */; };
+		1458ED43243A779B00D5B6DC /* MainAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED42243A779B00D5B6DC /* MainAuthViewController.swift */; };
+		1458ED46243A818900D5B6DC /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED45243A818900D5B6DC /* LoginModel.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -92,7 +94,7 @@
 		145E8BA024144CAB007ACDBB /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B9F24144CAB007ACDBB /* AccountView.xib */; };
 		145E8BA3241523A9007ACDBB /* ApplicationAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA2241523A9007ACDBB /* ApplicationAppearance.swift */; };
 		145E8BA5241571B8007ACDBB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA4241571B8007ACDBB /* Coordinator.swift */; };
-		145E8BA7241577BF007ACDBB /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA6241577BF007ACDBB /* AuthPresenter.swift */; };
+		145E8BA7241577BF007ACDBB /* AuthLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA6241577BF007ACDBB /* AuthLoaderImpl.swift */; };
 		145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA824158983007ACDBB /* UIViewController+Spinner.swift */; };
 		145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BAA241592CE007ACDBB /* StoryAssembler.swift */; };
 		145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BAC24159400007ACDBB /* ServicesAssembler.swift */; };
@@ -101,7 +103,6 @@
 		145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCF24165869007ACDBB /* UserSessionData.swift */; };
 		145E8BD4241675C3007ACDBB /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD3241675C3007ACDBB /* Validator.swift */; };
 		145E8BD624167C18007ACDBB /* UIAplication+setRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */; };
-		145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */; };
 		145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */; };
 		145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDB24168175007ACDBB /* AccountPresenter.swift */; };
 		145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */; };
@@ -139,8 +140,7 @@
 		14C29448242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */; };
 		14C2944A242C26230076EBB7 /* AuthServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29449242C26230076EBB7 /* AuthServiceTest.swift */; };
 		14C2944E242C2DA20076EBB7 /* WeakRefTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C2944D242C2DA20076EBB7 /* WeakRefTest.swift */; };
-		14C29454242C2F7D0076EBB7 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA6241577BF007ACDBB /* AuthPresenter.swift */; };
-		14C29455242C2F850076EBB7 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */; };
+		14C29454242C2F7D0076EBB7 /* AuthLoaderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BA6241577BF007ACDBB /* AuthLoaderImpl.swift */; };
 		14C29457242C310C0076EBB7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		14C29458242C311A0076EBB7 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B8F241432D8007ACDBB /* SearchView.swift */; };
 		14C29459242C31230076EBB7 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
@@ -312,6 +312,8 @@
 		1458ED392439FE0100D5B6DC /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModelConverter.swift; sourceTree = "<group>"; };
 		1458ED40243A591000D5B6DC /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		1458ED42243A779B00D5B6DC /* MainAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAuthViewController.swift; sourceTree = "<group>"; };
+		1458ED45243A818900D5B6DC /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMBDSearchTextField.swift; sourceTree = "<group>"; };
 		145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroFavoritesViewController.swift; sourceTree = "<group>"; };
 		145E8B8B241431AE007ACDBB /* FavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesView.xib; sourceTree = "<group>"; };
@@ -322,7 +324,7 @@
 		145E8B9F24144CAB007ACDBB /* AccountView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountView.xib; sourceTree = "<group>"; };
 		145E8BA2241523A9007ACDBB /* ApplicationAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationAppearance.swift; sourceTree = "<group>"; };
 		145E8BA4241571B8007ACDBB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		145E8BA6241577BF007ACDBB /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
+		145E8BA6241577BF007ACDBB /* AuthLoaderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLoaderImpl.swift; sourceTree = "<group>"; };
 		145E8BA824158983007ACDBB /* UIViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Spinner.swift"; sourceTree = "<group>"; };
 		145E8BAA241592CE007ACDBB /* StoryAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAssembler.swift; sourceTree = "<group>"; };
 		145E8BAC24159400007ACDBB /* ServicesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesAssembler.swift; sourceTree = "<group>"; };
@@ -331,7 +333,6 @@
 		145E8BCF24165869007ACDBB /* UserSessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionData.swift; sourceTree = "<group>"; };
 		145E8BD3241675C3007ACDBB /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		145E8BD524167C18007ACDBB /* UIAplication+setRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+setRoot.swift"; sourceTree = "<group>"; };
-		145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		145E8BD9241680D6007ACDBB /* AccountCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCoordinator.swift; sourceTree = "<group>"; };
 		145E8BDB24168175007ACDBB /* AccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresenter.swift; sourceTree = "<group>"; };
 		145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+LocalizedString.swift"; sourceTree = "<group>"; };
@@ -651,11 +652,12 @@
 		1450333E241281C700B3F404 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				1458ED44243A817F00D5B6DC /* Models */,
 				145E8BD2241675B5007ACDBB /* Helpers */,
 				1450334624129C5200B3F404 /* View */,
 				1450330C24126AAA00B3F404 /* LoginViewController.swift */,
-				145E8BA6241577BF007ACDBB /* AuthPresenter.swift */,
-				145E8BD724167D9F007ACDBB /* AuthCoordinator.swift */,
+				145E8BA6241577BF007ACDBB /* AuthLoaderImpl.swift */,
+				1458ED42243A779B00D5B6DC /* MainAuthViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -808,6 +810,14 @@
 				1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		1458ED44243A817F00D5B6DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1458ED45243A818900D5B6DC /* LoginModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		145E8B88241429D5007ACDBB /* View */ = {
@@ -1393,7 +1403,7 @@
 				14D8DD632434877D008FD2D5 /* MainDetailsViewController.swift in Sources */,
 				145E8BCD2415DE91007ACDBB /* AccessCredentialsService.swift in Sources */,
 				1458ED302438B38C00D5B6DC /* MovieMapper.swift in Sources */,
-				145E8BA7241577BF007ACDBB /* AuthPresenter.swift in Sources */,
+				145E8BA7241577BF007ACDBB /* AuthLoaderImpl.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				145E8BDA241680D6007ACDBB /* AccountCoordinator.swift in Sources */,
 				145E8BDC24168175007ACDBB /* AccountPresenter.swift in Sources */,
@@ -1403,6 +1413,7 @@
 				1446257B2421A35200CF0DB7 /* MoviesCell.swift in Sources */,
 				14D8DD692434B6A9008FD2D5 /* MovieDetailsViewController.swift in Sources */,
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
+				1458ED43243A779B00D5B6DC /* MainAuthViewController.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
 				1458ED41243A591000D5B6DC /* ImageLoader.swift in Sources */,
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
@@ -1444,11 +1455,11 @@
 				1441E4DA2435719E00C0EECC /* MainFavoritesViewController.swift in Sources */,
 				1458ED3D243A0AAF00D5B6DC /* DetailsModelConverter.swift in Sources */,
 				1441E4E524357A9100C0EECC /* CollectionViewDataSource.swift in Sources */,
-				145E8BD824167D9F007ACDBB /* AuthCoordinator.swift in Sources */,
 				1458ED3A2439FE0100D5B6DC /* MovieDetail.swift in Sources */,
 				143C1DD0242952870060D270 /* ServiceError.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
+				1458ED46243A818900D5B6DC /* LoginModel.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
@@ -1480,7 +1491,7 @@
 				14C2945B242C31370076EBB7 /* UIViewController+Spinner.swift in Sources */,
 				1458ED312438B4F600D5B6DC /* MovieMapper.swift in Sources */,
 				14636541242AE0F1001F34E6 /* MovieServiceTest.swift in Sources */,
-				14C29454242C2F7D0076EBB7 /* AuthPresenter.swift in Sources */,
+				14C29454242C2F7D0076EBB7 /* AuthLoaderImpl.swift in Sources */,
 				1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */,
 				1458ED222435A0B500D5B6DC /* SearchFavoritesViewController.swift in Sources */,
 				14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */,
@@ -1501,7 +1512,6 @@
 				1441E4D124355F1F00C0EECC /* MovieDetailsViewController.swift in Sources */,
 				14C29458242C311A0076EBB7 /* SearchView.swift in Sources */,
 				1441E4D224355F2500C0EECC /* MovieOverviewScrollViewController.swift in Sources */,
-				14C29455242C2F850076EBB7 /* AuthCoordinator.swift in Sources */,
 				14D8DD6C2434B80A008FD2D5 /* UIView+constraint.swift in Sources */,
 				14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */,
 				14C2945C242C313F0076EBB7 /* MoviesCell.swift in Sources */,

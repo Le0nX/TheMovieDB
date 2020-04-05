@@ -11,7 +11,7 @@ import UIKit
 protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана логина
-    func makeAuthStory() -> LoginViewController
+    func makeAuthStory() -> MainAuthViewController
     
     /// Фабричный метод создания таббара
     func makeTabBar() -> UITabBarController
@@ -41,12 +41,10 @@ final class StoryFabric: StoriesAssembler {
     // MARK: - Public methods
     
     /// Фабричный метод создания экрана авторизации
-    func makeAuthStory() -> LoginViewController {
-        let loginVc = LoginViewController()
-        let authCoordinator = AuthCoordinator(storyAssembler: self)
-        loginVc.output = AuthPresenter(WeakRef(loginVc),
-                                       authService: servicesAssembler.authService,
-                                       authCoordinator: authCoordinator)
+    func makeAuthStory() -> MainAuthViewController {
+        let loginVc = MainAuthViewController(storyAssembler: self)
+        loginVc.loader = AuthLoaderImpl(WeakRef(loginVc),
+                                        authService: servicesAssembler.authService)
         
         return loginVc
     }

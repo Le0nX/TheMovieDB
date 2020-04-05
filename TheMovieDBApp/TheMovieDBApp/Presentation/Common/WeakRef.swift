@@ -32,6 +32,10 @@ extension WeakRef: AccountViewInput where T: AccountViewInput {
 }
 
 extension WeakRef: AuthViewInput where T: AuthViewInput {
+    func showMainScreen() {
+        ref?.showMainScreen()
+    }
+    
     func showError(with error: String) {
         ref?.showError(with: error)
     }
