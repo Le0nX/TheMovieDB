@@ -79,6 +79,8 @@
 		1458ED372438F4C900D5B6DC /* FavoritesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED352438F4AC00D5B6DC /* FavoritesLoader.swift */; };
 		1458ED3A2439FE0100D5B6DC /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED392439FE0100D5B6DC /* MovieDetail.swift */; };
 		1458ED3D243A0AAF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
+		1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED392439FE0100D5B6DC /* MovieDetail.swift */; };
+		1458ED3F243A22BF00D5B6DC /* DetailsModelConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1458ED3C243A0AAF00D5B6DC /* DetailsModelConverter.swift */; };
 		145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B842413E768007ACDBB /* TMBDSearchTextField.swift */; };
 		145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8B89241429E5007ACDBB /* ZeroFavoritesViewController.swift */; };
 		145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B8B241431AE007ACDBB /* FavoritesView.xib */; };
@@ -1475,6 +1477,7 @@
 				1458ED312438B4F600D5B6DC /* MovieMapper.swift in Sources */,
 				14636541242AE0F1001F34E6 /* MovieServiceTest.swift in Sources */,
 				14C29454242C2F7D0076EBB7 /* AuthPresenter.swift in Sources */,
+				1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */,
 				1458ED222435A0B500D5B6DC /* SearchFavoritesViewController.swift in Sources */,
 				14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */,
 				14C2945A242C312E0076EBB7 /* SearchPresenter.swift in Sources */,
@@ -1511,6 +1514,7 @@
 				1458ED262435A0DF00D5B6DC /* CollectionViewDataSource.swift in Sources */,
 				14C29467242C32150076EBB7 /* AccountView.swift in Sources */,
 				14C29464242C31E70076EBB7 /* TMDBButton.swift in Sources */,
+				1458ED3F243A22BF00D5B6DC /* DetailsModelConverter.swift in Sources */,
 				14C2946A242C323F0076EBB7 /* StoryAssembler.swift in Sources */,
 				14C2944E242C2DA20076EBB7 /* WeakRefTest.swift in Sources */,
 				14C2946E242C32AB0076EBB7 /* UIAplication+setRoot.swift in Sources */,

@@ -28,26 +28,9 @@ final class MainSearchViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let searchViewController: SearchViewController
-    private let searchTableViewController: SearchTableViewController
-    private let searchEmptyResultController: ZeroSearchViewController
-    
-    // MARK: - Initializers
-    
-    init(searchViewController: SearchViewController = SearchViewController(),
-         searchTableViewController: SearchTableViewController = SearchTableViewController(),
-         searchEmptyResultController: ZeroSearchViewController = ZeroSearchViewController()) {
-        
-        self.searchViewController = searchViewController
-        self.searchTableViewController = searchTableViewController
-        self.searchEmptyResultController = searchEmptyResultController
-        
-        super.init(nibName: nil, bundle: nil)
-     }
-    
-     required init?(coder: NSCoder) {
-         fatalError("init(coder:) has not been implemented")
-     }
+    private let searchViewController = SearchViewController()
+    private let searchTableViewController = SearchTableViewController()
+    private let searchEmptyResultController = ZeroSearchViewController()
     
     // MARK: - UIViewController(*)
     
