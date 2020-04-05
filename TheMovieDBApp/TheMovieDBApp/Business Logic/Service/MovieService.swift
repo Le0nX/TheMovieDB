@@ -92,7 +92,6 @@ final public class MoviesService: MovieService {
                 completion(.success(posterData))
                     
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
             

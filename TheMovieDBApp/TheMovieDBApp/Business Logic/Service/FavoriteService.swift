@@ -109,7 +109,6 @@ final public class FavoriteService: FavoritesService {
                 completion(.success(posterData))
                     
             case .failure(let error):
-                print(error)
                 completion(.failure(error))
             }
             
