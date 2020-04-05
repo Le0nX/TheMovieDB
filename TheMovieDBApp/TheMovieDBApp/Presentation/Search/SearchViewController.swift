@@ -12,7 +12,7 @@ protocol SearchViewControllerDelegate: class {
     
     /// Метод-триггер ввода в поле поиска фильмов
     /// - Parameter name: введенный текст
-    func textFieldEditingDidChange(with name: String)
+    func searchTextFieldDidChange(with name: String)
     
     /// Метод скрытия результатов поиска
     func hideSearchResults()
@@ -75,7 +75,7 @@ final class SearchViewController: UIViewController {
         guard let text = textField.text, !text.isEmpty else {
             return
         }
-        delegate?.textFieldEditingDidChange(with: text)
+        delegate?.searchTextFieldDidChange(with: text)
         
         if isSearching { return }
         

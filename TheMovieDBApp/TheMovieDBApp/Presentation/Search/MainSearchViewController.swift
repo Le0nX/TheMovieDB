@@ -98,7 +98,7 @@ extension MainSearchViewController: SearchViewInput {
 
 extension MainSearchViewController: SearchViewControllerDelegate {
     
-    func textFieldEditingDidChange(with name: String) {
+    func searchTextFieldDidChange(with name: String) {
         output?.didEnteredMovie(name: name)
         UIView.animate(withDuration: 0.5) {
             self.searchTableViewController.tableView.alpha = 1
