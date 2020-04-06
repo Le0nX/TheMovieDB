@@ -32,12 +32,11 @@ final class WeakRefTest: XCTestCase {
     }
     
     func test_accountVCmemNoLeak() {
-        let accountVc = AccountViewController()
+        let serviceFabric = ServiceFabric()
+        let accountVc = MainAccountViewController(storyAssembler: StoryFabric(servicesAssembler: serviceFabric))
         let loader = AccountLoaderImpl(WeakRef(accountVc),
-                                       credentailsService: ServiceFabric().accessService,
-                                       profileService: ServiceFabric().profileService,
-                                       accountCoordinator: AccountCoordinator(storyAssembler:
-                                            StoryFabric(servicesAssembler: ServiceFabric())))
+                                       credentailsService: serviceFabric.accessService,
+                                       profileService: serviceFabric.profileService)
         accountVc.loader = loader
         
         trackForMemoryLeaks(accountVc)
@@ -45,12 +44,11 @@ final class WeakRefTest: XCTestCase {
     }
     
     func test_accountVCmemLeak() {
-        let accountVc = AccountViewController()
+        let serviceFabric = ServiceFabric()
+        let accountVc = MainAccountViewController(storyAssembler: StoryFabric(servicesAssembler: serviceFabric))
         let loader = AccountLoaderImpl(accountVc,
-                                       credentailsService: ServiceFabric().accessService,
-                                       profileService: ServiceFabric().profileService,
-                                       accountCoordinator: AccountCoordinator(storyAssembler:
-                                         StoryFabric(servicesAssembler: ServiceFabric())))
+                                       credentailsService: serviceFabric.accessService,
+                                       profileService: serviceFabric.profileService)
         accountVc.loader = loader
         
         addTeardownBlock { [weak accountVc] in

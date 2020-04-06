@@ -111,6 +111,7 @@
 		145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BDD241699A6007ACDBB /* UILabel+LocalizedString.swift */; };
 		145E8BE22416AA00007ACDBB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 145E8BE42416AA00007ACDBB /* Localizable.strings */; };
 		146331A1243B60E0009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
+		146331A2243B67CC009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
 		14636523242A833E001F34E6 /* SearchFilmEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636522242A833E001F34E6 /* SearchFilmEndpointTest.swift */; };
 		14636525242A9012001F34E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636524242A9012001F34E6 /* Constants.swift */; };
 		14636527242A93F4001F34E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636526242A93F4001F34E6 /* Helpers.swift */; };
@@ -1483,6 +1484,7 @@
 				14D8DD5A24339BA5008FD2D5 /* SearchTableViewController.swift in Sources */,
 				14C29443242C0D680076EBB7 /* ServicesAssembler.swift in Sources */,
 				14C2946C242C32650076EBB7 /* ZeroFavoritesViewController.swift in Sources */,
+				146331A2243B67CC009B8CA0 /* MainAccountViewController.swift in Sources */,
 				1458ED212435A0B100D5B6DC /* MainFavoritesViewController.swift in Sources */,
 				1458ED232435A0BA00D5B6DC /* FavoritesCollectionViewController.swift in Sources */,
 				1458ED54243B5B7A00D5B6DC /* LoginModel.swift in Sources */,
