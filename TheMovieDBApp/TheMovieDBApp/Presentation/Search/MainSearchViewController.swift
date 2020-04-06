@@ -27,17 +27,16 @@ final class MainSearchViewController: UIViewController {
     public var loader: SearchLoader?
 
     // MARK: - Private Properties
-    
-    private let imageLoader: ImageLoader
+        
+    private let searchTableViewController: SearchTableViewController
     
     private let searchViewController = SearchViewController()
-    private let searchTableViewController = SearchTableViewController()
     private let searchEmptyResultController = ZeroSearchViewController()
     
     // MARK: - Initializers
     
     init(imageLoader: ImageLoader) {
-        self.imageLoader = imageLoader
+        self.searchTableViewController = SearchTableViewController(imageLoader: imageLoader)
         super.init(nibName: nil, bundle: nil)
      }
     
@@ -130,14 +129,6 @@ extension MainSearchViewController: SearchTableViewControllerDelegate {
     
     func openDetailsViewController(with model: MovieDetail) {
         self.navigationController?.pushViewController(MainDetailsViewController(with: model), animated: true)
-    }
-    
-    func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-        imageLoader.fetchImage(for: poster, completion: completion)
-    }
-    
-    func cancelTask(for poster: UUID) {
-        imageLoader.cancelTask(for: poster)
     }
     
 }

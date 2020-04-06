@@ -11,15 +11,6 @@ import UIKit
 
 protocol SearchTableViewControllerDelegate: class {
     
-    /// Метод запроса картинки постера фильма
-    /// - Parameter for: линк постера
-    /// - Parameter completion: обрработчик
-    func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID?
-    
-    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
-    /// - Parameter poster: часть url постера без baseUrl
-    func cancelTask(for poster: UUID)
-    
     /// Открыть детали фильма
     /// - Parameter model: модель деталей фильма
     func openDetailsViewController(with model: MovieDetail)
@@ -36,10 +27,13 @@ final class SearchTableViewController: UITableViewController {
     /// нужна strong ссылка на datasource, т.к. у tableView она weak
     private var dataSource: TableViewDataSource<MovieEntity, MoviesCell>?
     
+    private let imageLoader: ImageLoader
+    
     // MARK: - Initializers
     
-    init() {
-         super.init(nibName: nil, bundle: nil)
+    init(imageLoader: ImageLoader) {
+        self.imageLoader = imageLoader
+        super.init(nibName: nil, bundle: nil)
      }
     
      required init?(coder: NSCoder) {
@@ -99,14 +93,14 @@ final class SearchTableViewController: UITableViewController {
             cell.popularityLabel.text = String(movie.popularity ?? 0)
 
             if let poster = movie.image {
-                let uuid = self?.delegate?.fetchImage(for: poster) { data in
+                let uuid = self?.imageLoader.fetchImage(for: poster) { data in
                     if let data = data {
                         cell.posterImage.image = DataConverter.toImage(from: data)
                     }
                 }
                 
                 cell.onReuse = {
-                    self?.delegate?.cancelTask(for: uuid ?? UUID())
+                    self?.imageLoader.cancelTask(for: uuid ?? UUID())
                 }
             }
             
