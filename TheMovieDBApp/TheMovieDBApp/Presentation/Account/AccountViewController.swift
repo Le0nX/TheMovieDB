@@ -8,17 +8,10 @@
 
 import UIKit
 
-protocol AccountViewInput {
+protocol AcocuntViewControllerDelegate: class {
     
-    /// Метод выставления данных профиля на экране
-    /// - Parameter profile: DTO профиля
-    func setRemoteProfileData(profile: Profile)
-    
-    /// Показать спиннер на экране
-    func showProgress()
-    
-    /// Скрыть спиннер
-    func hideProgress()
+    /// Обработка нажатия кнопки разлогина
+    func didPressedLogout()
 }
 
 final class AccountViewController: UIViewController {
@@ -29,7 +22,7 @@ final class AccountViewController: UIViewController {
         
     // MARK: - Public Properties
     
-    public var output: AccountPresenter?
+    public weak var delegate: AcocuntViewControllerDelegate?
         
     // MARK: - Initializers
     
@@ -46,8 +39,8 @@ final class AccountViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        containerView.output = self
         
+        containerView.delegate = self
         self.view = self.containerView
     }
     
@@ -57,34 +50,25 @@ final class AccountViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
 
         self.hideKeyboardWhenTappedAround()
-        
-        output?.updateProfile()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
-}
-
-extension AccountViewController: AccountViewOutput {
-    func logout() {
-        self.output?.didPressedLogoutButton()
-    }
-}
-
-extension AccountViewController: AccountViewInput {
     
-    func showProgress() {
-        self.showSpinner(onView: self.containerView.usernameLabel)
-    }
+    // MARK: - Public Mthods
     
-    func hideProgress() {
-        self.removeSpinner()
-    }
-    
+    /// Метод установки данных пользователя пришедших по сети
+    /// - Parameter profile: модель профиля
     func setRemoteProfileData(profile: Profile) {
         self.containerView.nameLabel.text = profile.name
         self.containerView.usernameLabel.text = profile.username
         self.containerView.avatarImage.image = UIImage(data: profile.image)
+    }
+}
+
+extension AccountViewController: AccountViewDelegate {
+    func logout() {
+        delegate?.didPressedLogout()
     }
 }

@@ -8,35 +8,27 @@
 
 import UIKit
 
-protocol SearchViewInput {
+protocol SearchViewControllerDelegate: class {
     
-    /// Метод закладки данных в таблицу фильмов
-    /// - Parameter movies: DTO фильмов
-    func setMoviesData(movies: [MovieEntity])
+    /// Метод-триггер ввода в поле поиска фильмов
+    /// - Parameter name: введенный текст
+    func searchTextFieldDidChange(with name: String)
     
-    /// Метод отображения ошибки поиска
-    /// - Parameter error: описание ошибки
-    func showError(error: Error)
-    
-    /// Метод показа спиннера
-    func showProgress()
-    
-    /// Метод скрытия спиннера
-    func hideProgress()
+    /// Метод скрытия результатов поиска
+    func hideSearchResults()
 }
 
 final class SearchViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public var output: SearchPresenterOutput?
+    weak var delegate: SearchViewControllerDelegate?
     
     // MARK: - Private Properties
     
     private let containerView: SearchView
     private var isSearching = false
-    
-    private var moviesData = [MovieEntity]()
+    private var errorIsShown = false
     
     // MARK: - Initializers
     
@@ -68,11 +60,7 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.tabBarController?.tabBar.isHidden = true
-        
-        self.containerView.tableView.delegate = self
-        self.containerView.tableView.dataSource = self
-        
+                
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -87,7 +75,7 @@ final class SearchViewController: UIViewController {
         guard let text = textField.text, !text.isEmpty else {
             return
         }
-        output?.didEnteredMovie(name: text)
+        delegate?.searchTextFieldDidChange(with: text)
         
         if isSearching { return }
         
@@ -96,7 +84,6 @@ final class SearchViewController: UIViewController {
             self.containerView.headerLabel.alpha = 0
             self.containerView.imageView.alpha = 0
             self.containerView.topConstraint.constant -= 150
-            self.containerView.tableView.alpha = 1
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
@@ -111,80 +98,9 @@ final class SearchViewController: UIViewController {
             self.containerView.headerLabel.alpha = 1
             self.containerView.imageView.alpha = 1
             self.containerView.topConstraint.constant += 150
-            self.containerView.tableView.alpha = 0
+            self.delegate?.hideSearchResults()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
-    }
-}
-
-extension SearchViewController: SearchViewInput {
-    
-    func setMoviesData(movies: [MovieEntity]) {
-        self.moviesData = movies
-        self.containerView.tableView.reloadData()
-    }
-    
-    func showError(error: Error) {
-        // TODO: - переделать по возможности красиво
-        let alert = UIAlertController(title: "Error",
-                                      message: error.localizedDescription,
-                                      preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-
-        self.present(alert, animated: true)
-    }
-    
-    func showProgress() {
-        self.showSpinner(onView: self.view)
-    }
-    
-    func hideProgress() {
-        self.removeSpinner()
-    }
-}
-
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        moviesData.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesCell") as? MoviesCell else {
-            return UITableViewCell()
-        }
-        cell.configure(with: moviesData[indexPath.row])
-
-        if let poster = moviesData[indexPath.row].image {
-            let uuid = output?.fetchImage(for: poster) { data in
-                if let data = data {
-                    cell.posterImage.image = UIImage(data: data)
-                }
-            }
-            
-            cell.onReuse = { 
-                self.output?.cancelTask(for: uuid ?? UUID())
-            }
-        }
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-}
-
-extension MoviesCell {
-    func configure(with model: MovieEntity) {
-        self.movieName.text = model.title
-        self.movieOriginalName.text = model.originalTitle
-        self.popularityLabel.text = String(model.popularity ?? 0)
     }
 }

@@ -31,3 +31,8 @@
 "FILMS_ICON" = "Фильмы";
 "FAVORITES_ICON" = "Избранное";
 "ACCOUNT_ICON" = "Профиль";
+
+"Nothing found for your request" = "По вашему запросу ничего
+не найдено";
+
+"Favorites" = "Избранное";

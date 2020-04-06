@@ -8,39 +8,22 @@
 
 import UIKit
 
-protocol AuthViewInput {
+protocol LoginViewControllerDelegate: class {
     
-    /// Метод отображения ошибки
-    /// - Parameter error: текст ошибки
-    func showError(with error: String)
-    
-    /// Метод показа спиннера
-    func showProgress()
-    
-    /// Метод скрытия спиннера
-    func hideProgress()
+    /// Метод аутентификации с данными пользователя
+    /// - Parameter data: логин/пароль
+    func loginWith(data: LoginModel)
 }
 
 final class LoginViewController: UIViewController {
     
     // MARK: - Constants
     
-    private let containerView: LoginView
+    private let containerView = LoginView()
         
     // MARK: - Public Properties
     
-    public var output: AuthPresenterOutput?
-        
-    // MARK: - Initializers
-    
-    init(_ view: LoginView = LoginView()) {
-        self.containerView = view
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    public weak var delegate: LoginViewControllerDelegate?
     
     // MARK: - UIViewController(*)
     
@@ -61,29 +44,23 @@ final class LoginViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
-}
-
-extension LoginViewController: AuthViewInput {
     
-    func showProgress() {
-        self.showSpinner(onView: self.view)
-    }
+    // MARK: - Public Methods
     
-    func hideProgress() {
-        self.removeSpinner()
-    }
-    
-    func showError(with error: String) {
+    /// Показать ошибку авторизации
+    /// - Parameter error: описание ошибки
+    func setError(with error: String) {
         containerView.setErrorLabel(with: error)
         containerView.errorLabel.isHidden = false
     }
+    
 }
 
 extension LoginViewController: LoginViewDelegate {
     func loginAction() {
         
-        output?.didPressedLoginButton(login: containerView.loginTextField.text ?? "",
-                                      password: containerView.passwordTextField.text ?? "")
+        delegate?.loginWith(data: LoginModel(login: containerView.loginTextField.text ?? "",
+                                             password: containerView.passwordTextField.text ?? ""))
         containerView.errorLabel.isHidden = true
     }
 }

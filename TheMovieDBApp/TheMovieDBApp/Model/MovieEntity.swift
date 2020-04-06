@@ -11,6 +11,7 @@ import Foundation
 struct MovieEntity: Equatable {
     let title: String
     let originalTitle: String
+    let overview: String
     let popularity: Double?
     let voteCount: Int?
     let genreIds: [Int]?

@@ -6,15 +6,15 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import TheMovieDBApp
+@testable import TheMovieDBApp
 import XCTest
 
 final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemLeak() {
-        let searchVc = SearchViewController()
-        let presenter = SearchPresenter(searchVc, moviesService: ServiceFabric().movieService)
-        searchVc.output = presenter
+        let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
+        let loader = SearchLoaderImpl(searchVc, moviesService: ServiceFabric().movieService)
+        searchVc.loader = loader
         
         addTeardownBlock { [weak searchVc] in
             XCTAssertNotNil(searchVc, "Пропускаем утечку")
@@ -23,39 +23,47 @@ final class WeakRefTest: XCTestCase {
     }
     
     func test_searchVCmemNoLeak() {
-        let searchVc = SearchViewController()
-        let presenter = SearchPresenter(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
-        searchVc.output = presenter
+        let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
+        let loader = SearchLoaderImpl(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
+        searchVc.loader = loader
         
         trackForMemoryLeaks(searchVc)
-        trackForMemoryLeaks(presenter)
+        trackForMemoryLeaks(loader)
     }
     
     func test_accountVCmemNoLeak() {
-        let accountVc = AccountViewController()
-        let presenter = AccountPresenter(WeakRef(accountVc),
-                                         credentailsService: ServiceFabric().accessService,
-                                         profileService: ServiceFabric().profileService,
-                                         accountCoordinator: AccountCoordinator(storyAssembler:
-                                         StoryFabric(servicesAssembler: ServiceFabric())))
-        accountVc.output = presenter
+        let serviceFabric = ServiceFabric()
+        let accountVc = MainAccountViewController(storyAssembler: StoryFabric(servicesAssembler: serviceFabric))
+        let loader = AccountLoaderImpl(WeakRef(accountVc),
+                                       credentailsService: serviceFabric.accessService,
+                                       profileService: serviceFabric.profileService)
+        accountVc.loader = loader
         
         trackForMemoryLeaks(accountVc)
-        trackForMemoryLeaks(presenter)
+        trackForMemoryLeaks(loader)
     }
     
     func test_accountVCmemLeak() {
-        let accountVc = AccountViewController()
-        let presenter = AccountPresenter(accountVc,
-                                         credentailsService: ServiceFabric().accessService,
-                                         profileService: ServiceFabric().profileService,
-                                         accountCoordinator: AccountCoordinator(storyAssembler:
-                                         StoryFabric(servicesAssembler: ServiceFabric())))
-        accountVc.output = presenter
+        let serviceFabric = ServiceFabric()
+        let accountVc = MainAccountViewController(storyAssembler: StoryFabric(servicesAssembler: serviceFabric))
+        let loader = AccountLoaderImpl(accountVc,
+                                       credentailsService: serviceFabric.accessService,
+                                       profileService: serviceFabric.profileService)
+        accountVc.loader = loader
         
         addTeardownBlock { [weak accountVc] in
             XCTAssertNotNil(accountVc, "Пропускаем утечку")
         }
         
+    }
+    
+    private final class ImageLoaderMock: ImageLoader {
+        func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID? {
+            nil
+        }
+        
+        func cancelTask(for poster: UUID) {
+            
+        }
     }
 }

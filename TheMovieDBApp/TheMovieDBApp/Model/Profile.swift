@@ -9,6 +9,7 @@
 import Foundation
 
 struct Profile: Equatable {
+    let id: Int
     let name: String
     let username: String
     let image: Data

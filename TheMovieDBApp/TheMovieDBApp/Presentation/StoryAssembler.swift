@@ -11,16 +11,19 @@ import UIKit
 protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана логина
-    func makeAuthStory() -> LoginViewController
+    func makeAuthStory() -> MainAuthViewController
     
     /// Фабричный метод создания таббара
     func makeTabBar() -> UITabBarController
     
     /// Фабричный метод создания экрана профиля
-    func makeAccountStory() -> AccountViewController
+    func makeAccountStory() -> MainAccountViewController
     
     /// Фабричный метод создания экрана поиска
-    func makeSearchStory() -> SearchViewController
+    func makeSearchStory() -> MainSearchViewController
+    
+    /// Фабричный метод создания экрана фаворитов
+    func makeFavoritesStory() -> MainFavoritesViewController
 }
 
 final class StoryFabric: StoriesAssembler {
@@ -38,34 +41,44 @@ final class StoryFabric: StoriesAssembler {
     // MARK: - Public methods
     
     /// Фабричный метод создания экрана авторизации
-    func makeAuthStory() -> LoginViewController {
-        let loginVc = LoginViewController()
-        let authCoordinator = AuthCoordinator(storyAssembler: self)
-        loginVc.output = AuthPresenter(WeakRef(loginVc),
-                                       authService: servicesAssembler.authService,
-                                       authCoordinator: authCoordinator)
+    func makeAuthStory() -> MainAuthViewController {
+        let loginVc = MainAuthViewController(storyAssembler: self)
+        loginVc.loader = AuthLoaderImpl(WeakRef(loginVc),
+                                        authService: servicesAssembler.authService)
         
         return loginVc
     }
     
-    /// Фабричный метод создания экрана авторизации
+    func makeFavoritesStory() -> MainFavoritesViewController {
+        let mainFavoritesView = MainFavoritesViewController(imageLoader: servicesAssembler.imageLoader())
+        mainFavoritesView.loader = FavoritesLoaderImpl(WeakRef(mainFavoritesView),
+                                                       favoriteService: servicesAssembler.favoriteService,
+                                                       movieService: servicesAssembler.movieService)
+        
+        return mainFavoritesView
+    }
+    
+    /// Фабричный метод создания tabBar'a
     func makeTabBar() -> UITabBarController {
-        let firstViewController = makeSearchStory()
-        firstViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
-                                                      image: ImageName.filmIcon,
-                                                      tag: 0)
+        let search = makeTabBarNavigationControllerItem(
+                                                    makeSearchStory(),
+                                                    title: NSLocalizedString("FILMS_ICON", comment: "Фильмы"),
+                                                    image: ImageName.filmIcon,
+                                                    tag: 0)
 
-        let secondViewController = FavoritesViewController()
-        secondViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
-                                                       image: ImageName.favoriteIcon,
-                                                       tag: 1)
+        let favorites = makeTabBarNavigationControllerItem(
+                                                    makeFavoritesStory(),
+                                                    title: NSLocalizedString("FAVORITES_ICON", comment: "Избранное"),
+                                                    image: ImageName.favoriteIcon,
+                                                    tag: 1)
 
-        let thirdViewController = makeAccountStory()
-        thirdViewController.tabBarItem = UITabBarItem(title: NSLocalizedString("ACCOUNT_ICON", comment: "Профиль"),
-                                                      image: ImageName.accountIcon,
-                                                      tag: 2)
-
-        let tabBarList = [firstViewController, secondViewController, thirdViewController]
+        let account = makeTabBarNavigationControllerItem(
+                                                    makeAccountStory(),
+                                                    title: NSLocalizedString("ACCOUNT_ICON", comment: "Профиль"),
+                                                    image: ImageName.accountIcon,
+                                                    tag: 2)
+           
+        let tabBarList = [search, favorites, account]
 
         let tabBar = UITabBarController()
         tabBar.viewControllers = tabBarList
@@ -75,23 +88,31 @@ final class StoryFabric: StoriesAssembler {
     }
     
     /// Фабричный метод создания экрана профиля
-    func makeAccountStory() -> AccountViewController {
-        let accountVc = AccountViewController()
-        let accountCoordinator = AccountCoordinator(storyAssembler: self)
-        accountVc.output = AccountPresenter(WeakRef(accountVc),
-                                            credentailsService: servicesAssembler.accessService,
-                                            profileService: servicesAssembler.profileService,
-                                            accountCoordinator: accountCoordinator)
+    func makeAccountStory() -> MainAccountViewController {
+        let accountVc = MainAccountViewController(storyAssembler: self)
+        accountVc.loader = AccountLoaderImpl(WeakRef(accountVc),
+                                             credentailsService: servicesAssembler.accessService,
+                                             profileService: servicesAssembler.profileService)
         
         return accountVc
     }
     
     /// Фабричный метод создания экрана поиска
-    func makeSearchStory() -> SearchViewController {
-        let searchVc = SearchViewController()
-        searchVc.output = SearchPresenter(WeakRef(searchVc),
-                                          moviesService: servicesAssembler.movieService)
+    func makeSearchStory() -> MainSearchViewController {
+        let mainSearchView = MainSearchViewController(imageLoader: servicesAssembler.imageLoader())
+        mainSearchView.loader = SearchLoaderImpl(WeakRef(mainSearchView),
+                                                 moviesService: servicesAssembler.movieService)
         
-        return searchVc
+        return mainSearchView
+    }
+    
+    private func makeTabBarNavigationControllerItem(_ viewController: UIViewController,
+                                                    title: String?,
+                                                    image: UIImage?,
+                                                    tag: Int) -> UIViewController {
+        let vc = UINavigationController(rootViewController: viewController)
+        vc.tabBarItem = UITabBarItem(title: title, image: image, tag: tag)
+        
+        return vc
     }
 }

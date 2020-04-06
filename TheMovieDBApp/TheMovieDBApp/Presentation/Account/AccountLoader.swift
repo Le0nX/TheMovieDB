@@ -1,5 +1,5 @@
 //
-//  AccountPresenter.swift
+//  AccountLoader.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 09.03.2020.
@@ -8,20 +8,21 @@
 
 import Foundation
 
-protocol AccountPresenterOutput {
+protocol AccountLoader {
     
-    /// Обработчик нажатия кнопки логаута
-    func didPressedLogoutButton()
+    /// Удаляем пользовательские данные
+    func deleteAccountData() throws
     
     /// Обновление профиля при загрузке экрана
     func updateProfile()
 }
 
-final class AccountPresenter: AccountPresenterOutput {
+/// Лоадер-фасад экрана профиля,
+/// который скрывает за собой работу других сервисов
+final class AccountLoaderImpl: AccountLoader {
     
     // MARK: - Private Properties
     
-    private var accountCoordinator: AccountCoordinator
     private var credentailsService: AccessCredentialsService
     private var profileService: ProfileService
     
@@ -31,20 +32,17 @@ final class AccountPresenter: AccountPresenterOutput {
     
     init(_ view: AccountViewInput,
          credentailsService: AccessCredentialsService,
-         profileService: ProfileService,
-         accountCoordinator: AccountCoordinator
+         profileService: ProfileService
     ) {
         self.view = view
         self.credentailsService = credentailsService
         self.profileService = profileService
-        self.accountCoordinator = accountCoordinator
     }
         
     // MARK: - Public methods
     
-    func didPressedLogoutButton() {
-        try? credentailsService.delete()
-        accountCoordinator.start()
+    func deleteAccountData() throws {
+        try credentailsService.delete()
     }
     
     /// Обновление профиля при загрузке экрана

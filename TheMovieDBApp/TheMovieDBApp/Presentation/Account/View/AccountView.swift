@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol AccountViewOutput {
+protocol AccountViewDelegate: class {
     
     /// Хендлер выхода из профиля
     func logout()
@@ -25,7 +25,7 @@ final class AccountView: XibView {
     
     // MARK: - Public Properties
     
-    var output: AccountViewOutput?
+    weak var delegate: AccountViewDelegate?
         
     // MARK: - Initializers
     
@@ -48,6 +48,6 @@ final class AccountView: XibView {
     // MARK: - IBAction
     
     @IBAction func logoutAction(_ sender: Any) {
-        output?.logout()
+        delegate?.logout()
     }
 }

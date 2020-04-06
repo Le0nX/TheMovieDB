@@ -18,7 +18,7 @@ public struct ProfileDTO: Decodable {
     }
     
     public let avatar: Avatar?
-    public let id: Int?
+    public let id: Int
     public let name: String
     public let includeAdult: Bool?
     public let username: String

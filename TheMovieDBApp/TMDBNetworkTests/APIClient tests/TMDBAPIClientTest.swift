@@ -10,10 +10,7 @@
 import XCTest
 
 final class TMDBAPIClientTest: XCTestCase {
-   
-    
-    
-    
+
     /// make System Under Test
     private func makeSUT(url: String, file: StaticString = #file, line: UInt = #line) -> APIClient {
         let config = APIClientConfig(base: url)

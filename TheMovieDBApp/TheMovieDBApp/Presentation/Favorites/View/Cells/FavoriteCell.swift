@@ -1,17 +1,14 @@
 //
-//  MoviesCell.swift
+//  FavoriteCell.swift
 //  TheMovieDBApp
 //
-//  Created by Denis Nefedov on 18.03.2020.
+//  Created by Denis Nefedov on 02.04.2020.
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
 import UIKit
 
-final class MoviesCell: UITableViewCell {
-    
-    // MARK: - Constants
-    static let cellHight = CGFloat(100)
+final class FavoriteCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     
@@ -25,23 +22,23 @@ final class MoviesCell: UITableViewCell {
     // MARK: - Public Properties
     
     var onReuse: () -> Void = {}
+        
+    // MARK: - Initializers
     
-    // MARK: - UIViewController(*)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    // MARK: - UIViewController
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = ColorName.background
-        self.imageView?.frame = CGRect(x: 0, y: 0, width: 64, height: 96)
         self.posterImage?.layer.cornerRadius = 8
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        onReuse()
-        posterImage.image = ImageName.filmIconSelected
-    }
 }
