@@ -33,25 +33,25 @@ final class WeakRefTest: XCTestCase {
     
     func test_accountVCmemNoLeak() {
         let accountVc = AccountViewController()
-        let presenter = AccountPresenter(WeakRef(accountVc),
-                                         credentailsService: ServiceFabric().accessService,
-                                         profileService: ServiceFabric().profileService,
-                                         accountCoordinator: AccountCoordinator(storyAssembler:
-                                         StoryFabric(servicesAssembler: ServiceFabric())))
-        accountVc.output = presenter
+        let loader = AccountLoaderImpl(WeakRef(accountVc),
+                                       credentailsService: ServiceFabric().accessService,
+                                       profileService: ServiceFabric().profileService,
+                                       accountCoordinator: AccountCoordinator(storyAssembler:
+                                            StoryFabric(servicesAssembler: ServiceFabric())))
+        accountVc.loader = loader
         
         trackForMemoryLeaks(accountVc)
-        trackForMemoryLeaks(presenter)
+        trackForMemoryLeaks(loader)
     }
     
     func test_accountVCmemLeak() {
         let accountVc = AccountViewController()
-        let presenter = AccountPresenter(accountVc,
-                                         credentailsService: ServiceFabric().accessService,
-                                         profileService: ServiceFabric().profileService,
-                                         accountCoordinator: AccountCoordinator(storyAssembler:
+        let loader = AccountLoaderImpl(accountVc,
+                                       credentailsService: ServiceFabric().accessService,
+                                       profileService: ServiceFabric().profileService,
+                                       accountCoordinator: AccountCoordinator(storyAssembler:
                                          StoryFabric(servicesAssembler: ServiceFabric())))
-        accountVc.output = presenter
+        accountVc.loader = loader
         
         addTeardownBlock { [weak accountVc] in
             XCTAssertNotNil(accountVc, "Пропускаем утечку")

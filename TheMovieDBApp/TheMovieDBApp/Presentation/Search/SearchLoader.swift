@@ -1,5 +1,5 @@
 //
-//  SearchPresenter.swift
+//  SearchLoader.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 18.03.2020.

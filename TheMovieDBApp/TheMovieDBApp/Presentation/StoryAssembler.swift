@@ -17,7 +17,7 @@ protocol StoriesAssembler {
     func makeTabBar() -> UITabBarController
     
     /// Фабричный метод создания экрана профиля
-    func makeAccountStory() -> AccountViewController
+    func makeAccountStory() -> MainAccountViewController
     
     /// Фабричный метод создания экрана поиска
     func makeSearchStory() -> MainSearchViewController
@@ -88,13 +88,11 @@ final class StoryFabric: StoriesAssembler {
     }
     
     /// Фабричный метод создания экрана профиля
-    func makeAccountStory() -> AccountViewController {
-        let accountVc = AccountViewController()
-        let accountCoordinator = AccountCoordinator(storyAssembler: self)
-        accountVc.output = AccountPresenter(WeakRef(accountVc),
-                                            credentailsService: servicesAssembler.accessService,
-                                            profileService: servicesAssembler.profileService,
-                                            accountCoordinator: accountCoordinator)
+    func makeAccountStory() -> MainAccountViewController {
+        let accountVc = MainAccountViewController(storyAssembler: self)
+        accountVc.loader = AccountLoaderImpl(WeakRef(accountVc),
+                                             credentailsService: servicesAssembler.accessService,
+                                             profileService: servicesAssembler.profileService)
         
         return accountVc
     }
