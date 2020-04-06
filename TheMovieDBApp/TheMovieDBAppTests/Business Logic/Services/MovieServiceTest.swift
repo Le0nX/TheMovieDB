@@ -94,39 +94,12 @@ final class MovieServiceTest: XCTestCase {
         })
     }
     
-    /// Проверка на то, что два вызова подряд будут в правильном кол-ве и порядке
-    func test_twicePosterSearchCall() {
-        
-        let (client, service) = makeSUT()
-        
-        let film1 = "film1"
-        let film2 = "film2"
-        
-        _ = service.fetchMoviePoster(for: film1) { _ in }
-        _ = service.fetchMoviePoster(for: film2) { _ in }
-        
-        let endpoint = PosterEndpoint(poster: film1)
-        let endpoint2 = PosterEndpoint(poster: film2)
-        
-        XCTAssertEqual(client.urlRequests, [try? endpoint.makeRequest(), try? endpoint2.makeRequest()])
-    }
-
-    func test_onPosterResultsDataAndCancell() {
-        let (client, service) = makeSUT()
-        let search = "poster"
-        let endpoint = PosterEndpoint(poster: search)
-        
-        expectSearchPoster(service, toCompleteWith: .success(Data()), when: {
-            client.complete(for: endpoint, with: Data())
-        })
-    }
-    
     // MARK: - Private helpers
     
     /// make System Under Test
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (APIClientSpy, MoviesService) {
         let client = APIClientSpy()
-        let service = MoviesService(client: client, posterClient: client)
+        let service = MoviesService(client: client)
         trackForMemoryLeaks(client, file: file, line: line)
         trackForMemoryLeaks(service, file: file, line: line)
         
@@ -164,36 +137,4 @@ final class MovieServiceTest: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-    @discardableResult
-    private func expectSearchPoster(_ sut: MoviesService,
-                                    toCompleteWith expectedResult: Result<Data, Error>,
-                                    when action: () -> Void,
-                                    file: StaticString = #file,
-                                    line: UInt = #line) -> UUID? {
-            
-        let exp = expectation(description: "Ждем конца загрузки")
-        
-        let uuid = sut.fetchMoviePoster(for: name) { receivedResult in
-            switch (receivedResult, expectedResult) {
-            case let (.success(receivedItems), .success(expectedItems)):
-                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
-                
-            case let (.failure(receivedError as APIError), .failure(expectedError as APIError)):
-                XCTAssertEqual(receivedError.localizedDescription,
-                               expectedError.localizedDescription,
-                               file: file,
-                               line: line)
-                
-            default:
-                XCTFail("Ожидали результат \(expectedResult),получили \(receivedResult) вместо", file: file, line: line)
-            }
-            
-            exp.fulfill()
-        }
-        
-        action()
-        
-        wait(for: [exp], timeout: 1.0)
-        return uuid
-    }
 }

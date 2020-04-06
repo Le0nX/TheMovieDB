@@ -6,15 +6,15 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import TheMovieDBApp
+@testable import TheMovieDBApp
 import XCTest
 
 final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemLeak() {
-        let searchVc = MainSearchViewController()
-        let presenter = SearchPresenter(searchVc, moviesService: ServiceFabric().movieService)
-        searchVc.output = presenter
+        let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
+        let loader = SearchLoaderImpl(searchVc, moviesService: ServiceFabric().movieService)
+        searchVc.loader = loader
         
         addTeardownBlock { [weak searchVc] in
             XCTAssertNotNil(searchVc, "Пропускаем утечку")
@@ -23,12 +23,12 @@ final class WeakRefTest: XCTestCase {
     }
     
     func test_searchVCmemNoLeak() {
-        let searchVc = MainSearchViewController()
-        let presenter = SearchPresenter(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
-        searchVc.output = presenter
+        let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
+        let loader = SearchLoaderImpl(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
+        searchVc.loader = loader
         
         trackForMemoryLeaks(searchVc)
-        trackForMemoryLeaks(presenter)
+        trackForMemoryLeaks(loader)
     }
     
     func test_accountVCmemNoLeak() {
@@ -57,5 +57,15 @@ final class WeakRefTest: XCTestCase {
             XCTAssertNotNil(accountVc, "Пропускаем утечку")
         }
         
+    }
+    
+    private final class ImageLoaderMock: ImageLoader {
+        func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID? {
+            nil
+        }
+        
+        func cancelTask(for poster: UUID) {
+            
+        }
     }
 }
