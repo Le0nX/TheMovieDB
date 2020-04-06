@@ -43,6 +43,17 @@ final class SearchViewController: UIViewController {
     
     // MARK: - UIViewController(*)
     
+    override func loadView() {
+        super.loadView()
+        self.view = self.containerView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         containerView.searchTextField.addTarget(self,
@@ -51,17 +62,7 @@ final class SearchViewController: UIViewController {
         containerView.searchTextField.addTarget(self,
                                                 action: #selector(textFieldShouldClear(textField:)),
                                                 for: .editingDidEnd)
-    }
-    
-    override func loadView() {
-        super.loadView()
-        self.view = self.containerView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                
-        self.hideKeyboardWhenTappedAround()
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

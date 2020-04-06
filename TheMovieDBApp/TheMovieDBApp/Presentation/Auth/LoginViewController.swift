@@ -19,7 +19,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Constants
     
-    private let containerView = LoginView()
+    public let containerView = LoginView()
         
     // MARK: - Public Properties
     
@@ -52,13 +52,14 @@ final class LoginViewController: UIViewController {
     func setError(with error: String) {
         containerView.setErrorLabel(with: error)
         containerView.errorLabel.isHidden = false
+        containerView.shakeLastActiveTextField()
     }
     
 }
 
 extension LoginViewController: LoginViewDelegate {
     func loginAction() {
-        
+        containerView.animateLoginButtonPress()
         delegate?.loginWith(data: LoginModel(login: containerView.loginTextField.text ?? "",
                                              password: containerView.passwordTextField.text ?? ""))
         containerView.errorLabel.isHidden = true

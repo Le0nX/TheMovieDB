@@ -49,10 +49,20 @@ final class MainSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.view.alpha = 0
+        
         searchTableViewController.delegate = self
         searchViewController.delegate = self
         
         addSearchVC()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.navigationController?.view.alpha = 1
+        }, completion: nil)
     }
     
     // MARK: - Private Methods

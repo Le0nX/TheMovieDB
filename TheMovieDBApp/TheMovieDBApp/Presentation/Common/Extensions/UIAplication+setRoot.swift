@@ -21,7 +21,7 @@ extension UIApplication {
         let options: UIView.AnimationOptions = .transitionCrossDissolve
 
         /// продолжительность анимации
-        let duration: TimeInterval = 0.3
+        let duration: TimeInterval = 0.6
 
         /// создает транизитную анимацию
         UIView.transition(with: UIApplication.shared.keyWindow!,
