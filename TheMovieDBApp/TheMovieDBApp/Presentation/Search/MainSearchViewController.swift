@@ -24,13 +24,26 @@ final class MainSearchViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public var output: SearchPresenterOutput?
-    
+    public var loader: SearchLoader?
+
     // MARK: - Private Properties
+    
+    private let imageLoader: ImageLoader
     
     private let searchViewController = SearchViewController()
     private let searchTableViewController = SearchTableViewController()
     private let searchEmptyResultController = ZeroSearchViewController()
+    
+    // MARK: - Initializers
+    
+    init(imageLoader: ImageLoader) {
+        self.imageLoader = imageLoader
+        super.init(nibName: nil, bundle: nil)
+     }
+    
+     required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+     }
     
     // MARK: - UIViewController(*)
     
@@ -99,7 +112,7 @@ extension MainSearchViewController: SearchViewInput {
 extension MainSearchViewController: SearchViewControllerDelegate {
     
     func searchTextFieldDidChange(with name: String) {
-        output?.didEnteredMovie(name: name)
+        loader?.didEnteredMovie(name: name)
         UIView.animate(withDuration: 0.5) {
             self.searchTableViewController.tableView.alpha = 1
             self.view.layoutIfNeeded()
@@ -120,11 +133,11 @@ extension MainSearchViewController: SearchTableViewControllerDelegate {
     }
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-        output?.fetchImage(for: poster, completion: completion)
+        imageLoader.fetchImage(for: poster, completion: completion)
     }
     
     func cancelTask(for poster: UUID) {
-        output?.cancelTask(for: poster)
+        imageLoader.cancelTask(for: poster)
     }
     
 }

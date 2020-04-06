@@ -1,5 +1,5 @@
 //
-//  AuthPresenter.swift
+//  AuthLoader.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 08.03.2020.
