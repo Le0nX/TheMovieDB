@@ -8,25 +8,30 @@
 
 import UIKit
 
-protocol FavoritesCollectionViewControllerDelegate: class {
-    
-    /// Метод запроса картинки постера фильма
-    /// - Parameter for: линк постера
-    /// - Parameter completion: обрработчик
-    func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID?
-    
-    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
-    /// - Parameter poster: часть url постера без baseUrl
-    func cancelTask(for poster: UUID)
-}
-
 final class FavoritesCollectionViewController: UIViewController,
 UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+     
+    // MARK: - Public Properties
+    
+    public let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
-    var collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    // MARK: - Private Properties
+    
+    private let imageLoader: ImageLoader
     private var dataSource: CollectionViewDataSource<MovieEntity, FavoriteCell>?
     
-    public weak var delegate: FavoritesCollectionViewControllerDelegate?
+    // MARK: - Initializers
+    
+    init(imageLoader: ImageLoader) {
+        self.imageLoader = imageLoader
+        super.init(nibName: nil, bundle: nil)
+     }
+    
+     required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+     }
+    
+    // MARK: - UIViewController(*)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,14 +80,14 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
             cell.ganreLabel.text = "жанр"
 
             if let poster = movie.image {
-                let uuid = self?.delegate?.fetchImage(for: poster) { data in
+                let uuid = self?.imageLoader.fetchImage(for: poster) { data in
                     if let data = data {
                         cell.posterImage.image = DataConverter.toImage(from: data)
                     }
                 }
                 
                 cell.onReuse = {
-                    self?.delegate?.cancelTask(for: uuid ?? UUID())
+                    self?.imageLoader.cancelTask(for: uuid ?? UUID())
                 }
             }
             

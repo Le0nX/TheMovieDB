@@ -17,14 +17,15 @@ final class MainFavoritesViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let imageLoader: ImageLoader
-    
+    private let favoritesCollectionViewController: FavoritesCollectionViewController
+        
     private let searchViewController = SearchFavoritesViewController()
-    private let favoritesCollectionViewController = FavoritesCollectionViewController()
     private let favoritesEmptyResultController = ZeroFavoritesViewController()
     
+    // MARK: - Initializers
+    
     init(imageLoader: ImageLoader) {
-        self.imageLoader = imageLoader
+        self.favoritesCollectionViewController = FavoritesCollectionViewController(imageLoader: imageLoader)
         super.init(nibName: nil, bundle: nil)
      }
     
@@ -36,9 +37,7 @@ final class MainFavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        favoritesCollectionViewController.delegate = self
-        
+                
         addSearchVC()
         addFavoritesCollectionVC()
     }
@@ -100,16 +99,4 @@ extension MainFavoritesViewController: SearchViewInput {
 
         self.present(alert, animated: true)
     }
-}
-
-extension MainFavoritesViewController: FavoritesCollectionViewControllerDelegate {
-    
-    func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-        imageLoader.fetchImage(for: poster, completion: completion)
-    }
-    
-    func cancelTask(for poster: UUID) {
-        imageLoader.cancelTask(for: poster)
-    }
-    
 }
