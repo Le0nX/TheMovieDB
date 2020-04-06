@@ -26,6 +26,8 @@ protocol ServicesAssembler {
     
     /// Сервис работы с фаворитами
     var favoriteService: FavoritesService { get }
+    
+    func imageLoader() -> ImageLoader
 }
 
 /// Фабрика сервисов
@@ -64,7 +66,7 @@ final class ServiceFabric: ServicesAssembler {
     
     /// Сервис получения списка фильмов
     lazy var movieService: MovieService = {
-        let service = MoviesService(client: client, posterClient: posterClient)
+        let service = MoviesService(client: client)
         return service
     }()
     
@@ -72,9 +74,12 @@ final class ServiceFabric: ServicesAssembler {
     lazy var favoriteService: FavoritesService = {
         let simpleCache = NSCache<NSString, NSData>()
         let service = FavoriteService(client: client,
-                                      posterClient: posterClient,
-                                      accessService: accessService,
-                                      cache: simpleCache)
+                                      accessService: accessService)
         return service
     }()
+    
+    func imageLoader() -> ImageLoader {
+        let loader = TMDBImageLoader(posterClient)
+        return loader
+    }
 }

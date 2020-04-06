@@ -50,9 +50,10 @@ final class StoryFabric: StoriesAssembler {
     }
     
     func makeFavoritesStory() -> MainFavoritesViewController {
-        let mainFavoritesView = MainFavoritesViewController()
-        mainFavoritesView.loader = FavoritesLoader(WeakRef(mainFavoritesView),
-                                                   favoriteService: servicesAssembler.favoriteService)
+        let mainFavoritesView = MainFavoritesViewController(imageLoader: servicesAssembler.imageLoader())
+        mainFavoritesView.loader = FavoritesLoaderImpl(WeakRef(mainFavoritesView),
+                                                       favoriteService: servicesAssembler.favoriteService,
+                                                       movieService: servicesAssembler.movieService)
         
         return mainFavoritesView
     }
@@ -100,9 +101,9 @@ final class StoryFabric: StoriesAssembler {
     
     /// Фабричный метод создания экрана поиска
     func makeSearchStory() -> MainSearchViewController {
-        let mainSearchView = MainSearchViewController()
-        mainSearchView.output = SearchPresenter(WeakRef(mainSearchView),
-                                                moviesService: servicesAssembler.movieService)
+        let mainSearchView = MainSearchViewController(imageLoader: servicesAssembler.imageLoader())
+        mainSearchView.loader = SearchLoaderImpl(WeakRef(mainSearchView),
+                                                 moviesService: servicesAssembler.movieService)
         
         return mainSearchView
     }

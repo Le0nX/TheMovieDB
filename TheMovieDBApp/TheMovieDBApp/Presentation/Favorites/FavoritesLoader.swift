@@ -1,5 +1,5 @@
 //
-//  FavoritesPresenter.swift
+//  FavoritesLoader.swift
 //  TheMovieDBApp
 //
 //  Created by Denis Nefedov on 02.04.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FavoritesLoaderOutput {
+protocol FavoritesLoader {
     
     /// Метод получения фаворитов
     func getFavorites()
@@ -16,31 +16,27 @@ protocol FavoritesLoaderOutput {
     /// Метод обработки ввода названия фильма
     /// - Parameter name: название фильма
     func didEnteredMovie(name: String)
-    
-    /// Метод запроса картинки постера фильма
-    /// - Parameter for: линк постера
-    /// - Parameter completion: обрработчик
-    func fetchImage(for: String, completion: @escaping (Data?) -> Void) -> UUID?
-    
-    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
-    /// - Parameter poster: часть url постера без baseUrl
-    func cancelTask(for poster: UUID)
 }
 
-final class FavoritesLoader: FavoritesLoaderOutput {
+/// Лоадер-фасад экрана  фаворитов,
+/// который скрывает за собой работу других сервисов
+final class FavoritesLoaderImpl: FavoritesLoader {
     
     // MARK: - Private Properties
     
-    private var favoriteService: FavoritesService
-    private var view: SearchViewInput
+    private let favoriteService: FavoritesService
+    private let movieService: MovieService
+    private let view: SearchViewInput
     
     // MARK: - Initializers
     
     init(_ view: SearchViewInput,
-         favoriteService: FavoritesService
+         favoriteService: FavoritesService,
+         movieService: MovieService
     ) {
         self.view = view
         self.favoriteService = favoriteService
+        self.movieService = movieService
     }
         
     // MARK: - Public methods
@@ -60,7 +56,7 @@ final class FavoritesLoader: FavoritesLoaderOutput {
     /// - Parameter name: название фильма
     func didEnteredMovie(name: String) {
                 
-        favoriteService.searchFilm(name: name) { [weak self] result in
+        movieService.searchFilm(name: name) { [weak self] result in
             switch result {
             case .success(let movies):
                 self?.view.setMoviesData(movies: movies)
@@ -68,32 +64,5 @@ final class FavoritesLoader: FavoritesLoaderOutput {
                 self?.view.showError(error: error)
             }
         }
-    }
-    
-    /// Метод запроса картинки постера фильма
-    /// - Parameter for: линк постера
-    /// - Parameter completion: обрработчик
-    func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-                
-        let uuid = favoriteService.fetchMoviePoster(for: poster) { result in
-            DispatchQueue.main.async {
-                            
-                switch result {
-                case .success(let data):
-                    completion(data)
-                case .failure:
-                    completion(nil)
-                }
-            }
-            
-        }
-        
-        return uuid
-    }
-    
-    /// Метод удаления таска из пула запущенных тасков, после того как постер был загружен
-    /// - Parameter poster: часть url постера без baseUrl
-    func cancelTask(for poster: UUID) {
-        favoriteService.cancelTask(for: poster)
     }
 }

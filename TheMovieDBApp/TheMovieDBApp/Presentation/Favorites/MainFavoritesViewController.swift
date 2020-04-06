@@ -13,13 +13,24 @@ final class MainFavoritesViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    public var loader: FavoritesLoaderOutput?
+    public var  loader: FavoritesLoader?
     
     // MARK: - Private Properties
+    
+    private let imageLoader: ImageLoader
     
     private let searchViewController = SearchFavoritesViewController()
     private let favoritesCollectionViewController = FavoritesCollectionViewController()
     private let favoritesEmptyResultController = ZeroFavoritesViewController()
+    
+    init(imageLoader: ImageLoader) {
+        self.imageLoader = imageLoader
+        super.init(nibName: nil, bundle: nil)
+     }
+    
+     required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+     }
     
     // MARK: - UIViewController(*)
     
@@ -94,11 +105,11 @@ extension MainFavoritesViewController: SearchViewInput {
 extension MainFavoritesViewController: FavoritesCollectionViewControllerDelegate {
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
-        loader?.fetchImage(for: poster, completion: completion)
+        imageLoader.fetchImage(for: poster, completion: completion)
     }
     
     func cancelTask(for poster: UUID) {
-        loader?.cancelTask(for: poster)
+        imageLoader.cancelTask(for: poster)
     }
     
 }
