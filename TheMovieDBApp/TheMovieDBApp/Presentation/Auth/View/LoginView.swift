@@ -27,7 +27,7 @@ final class LoginView: XibView {
     
     // MARK: - Public Properties
     
-    weak var delegate: LoginViewDelegate!
+    weak var delegate: LoginViewDelegate?
     
     // MARK: - Private Properties
     
@@ -95,7 +95,7 @@ final class LoginView: XibView {
     // MARK: - IBAction
     
     @IBAction func loginAction(_ sender: Any) {
-        delegate.loginAction()
+        delegate?.loginAction()
     }
     
     // MARK: - Private Methods

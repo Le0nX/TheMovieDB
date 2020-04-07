@@ -12,6 +12,9 @@ protocol AccountViewDelegate: class {
     
     /// Хендлер выхода из профиля
     func logout()
+    
+    /// Временный метод показа pincode vc
+    func showPinCodeVC()
 }
 
 final class AccountView: XibView {
@@ -43,11 +46,37 @@ final class AccountView: XibView {
     
     func setup() {
         contentView.backgroundColor = ColorName.background
+        setupTempPinCodeVC()
     }
     
     // MARK: - IBAction
     
     @IBAction func logoutAction(_ sender: Any) {
         delegate?.logout()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupTempPinCodeVC() {
+        // TODO: - убрать
+        let button = UIButton(type: .system)
+        button.setTitle("PinCode", for: .normal)
+        
+        addSubview(button)
+        button.anchor(top: nil,
+                      left: leftAnchor,
+                      bottom: logoutButton.topAnchor,
+                      right: rightAnchor,
+                      paddingTop: 0,
+                      paddingLeft: 24,
+                      paddingBottom: -25,
+                      paddingRight: 24,
+                      width: 0,
+                      height: 0)
+        button.addTarget(self, action: #selector(showPinCodeVC), for: .touchUpInside)
+    }
+    
+    @objc private func showPinCodeVC() {
+        delegate?.showPinCodeVC()
     }
 }

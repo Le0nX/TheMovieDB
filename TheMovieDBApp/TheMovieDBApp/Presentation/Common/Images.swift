@@ -26,4 +26,6 @@ struct ImageName {
     static let listIcon = #imageLiteral(resourceName: "listIcon")
     
     static let noMoviesError = #imageLiteral(resourceName: "NoMoviesError")
+    
+    static let backSpace = #imageLiteral(resourceName: "backSpace")
 }

@@ -68,6 +68,10 @@ final class AccountViewController: UIViewController {
 }
 
 extension AccountViewController: AccountViewDelegate {
+    func showPinCodeVC() {
+        navigationController?.pushViewController(MainPinCodeViewController(), animated: true)
+    }
+    
     func logout() {
         delegate?.didPressedLogout()
     }

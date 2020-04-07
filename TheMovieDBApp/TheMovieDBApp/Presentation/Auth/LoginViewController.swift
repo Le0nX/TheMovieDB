@@ -19,7 +19,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Constants
     
-    public let containerView = LoginView()
+    private let containerView = LoginView()
         
     // MARK: - Public Properties
     
