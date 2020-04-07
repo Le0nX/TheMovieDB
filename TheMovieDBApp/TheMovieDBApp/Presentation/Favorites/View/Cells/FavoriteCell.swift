@@ -19,6 +19,9 @@ final class FavoriteCell: UICollectionViewCell {
     @IBOutlet weak var popularityLabel: UILabel!
     @IBOutlet weak var voteCountLabel: UILabel!
     
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var textStack: UIStackView!
+    
     // MARK: - Public Properties
     
     var onReuse: () -> Void = {}
@@ -33,12 +36,36 @@ final class FavoriteCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
+    override func layoutSubviews() {
+       super.layoutSubviews()
+       updateContentStyle()
+   }
+    
     // MARK: - UIViewController
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = ColorName.background
+        self.posterImage.clipsToBounds = true
         self.posterImage?.layer.cornerRadius = 8
     }
 
+    // MARK: - Private Methods
+    
+    private func updateContentStyle() {
+        let isHorizontalStyle = bounds.width > 2 * bounds.height
+        let oldAxis = stackView.axis
+        let newAxis: NSLayoutConstraint.Axis = isHorizontalStyle ? .horizontal : .vertical
+        guard oldAxis != newAxis else { return }
+
+        stackView.axis = newAxis
+        stackView.spacing = isHorizontalStyle ? 16 : 4
+        
+//        let fontTransform: CGAffineTransform = isHorizontalStyle ? .identity : CGAffineTransform(scaleX: 0.8, y: 0.8)
+        
+        UIView.animate(withDuration: 0.3) {
+//            self.ibLabel.transform = fontTransform
+            self.layoutIfNeeded()
+        }
+    }
 }

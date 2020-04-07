@@ -53,10 +53,9 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat = 50
-        let collectionViewSize = collectionView.frame.size.width - padding
+        let collectionViewSize = collectionView.frame.size.width
 
-        return CGSize(width: collectionViewSize / 2, height: collectionViewSize)
+        return CGSize(width: collectionViewSize, height: collectionViewSize / 3)
     }
     
     /// Инжектор данных

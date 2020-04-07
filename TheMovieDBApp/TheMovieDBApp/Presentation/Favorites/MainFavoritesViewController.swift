@@ -11,11 +11,31 @@ import UIKit
 
 final class MainFavoritesViewController: UIViewController {
     
+    // MARK: - Type
+    
+    private enum PresentationStyle: String, CaseIterable {
+        case table
+        case defaultGrid
+        
+        var buttonImage: UIImage {
+            switch self {
+            case .table:
+                return ImageName.listIcon
+            case .defaultGrid:
+                return ImageName.collectionIcon
+            }
+        }
+    }
+    
     // MARK: - Public Properties
     
     public var  loader: FavoritesLoader?
     
     // MARK: - Private Properties
+    
+    private var selectedStyle: PresentationStyle = .table {
+        didSet { updatePresentationStyle() }
+    }
     
     private let favoritesCollectionViewController: FavoritesCollectionViewController
         
@@ -40,6 +60,12 @@ final class MainFavoritesViewController: UIViewController {
                 
         addSearchVC()
         addFavoritesCollectionVC()
+        updatePresentationStyle()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: selectedStyle.buttonImage,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(changeContentLayout))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +100,18 @@ final class MainFavoritesViewController: UIViewController {
                                                    bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 125,
                                                    paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
                                                    width: 0, height: 0)
+    }
+    
+    private func updatePresentationStyle() {
+        navigationItem.rightBarButtonItem?.image = selectedStyle.buttonImage
+    }
+    
+    @objc private func changeContentLayout() {
+        let allCases = PresentationStyle.allCases
+        guard let index = allCases.firstIndex(of: selectedStyle) else { return }
+        let nextIndex = (index + 1) % allCases.count // циклический обход буфера
+        selectedStyle = allCases[nextIndex]
+        
     }
 }
 
