@@ -20,6 +20,7 @@ final class URLBuilder {
     enum ParameterEnconding {
         case defaultEncoding
         case jsonEncoding
+        case compositeEncoding
     }
     
     // MARK: - Public methods
@@ -51,6 +52,12 @@ final class URLBuilder {
         switch parameterEncoding {
         case .defaultEncoding:
             request.httpBody = params.percentEncode()
+        case .compositeEncoding:
+            if let bodyParams = params["body"] as? [String: Any] {
+                request.setJSONContentType()
+                let jsonData = try? JSONSerialization.data(withJSONObject: bodyParams)
+                request.httpBody = jsonData
+            }
         case .jsonEncoding:
             request.setJSONContentType()
             let jsonData = try JSONSerialization.data(withJSONObject: params)
@@ -81,6 +88,8 @@ final class URLBuilder {
                     return item
                 })
             }
+        case .compositeEncoding:
+            break
         case .jsonEncoding:
             break
         }
