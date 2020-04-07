@@ -20,7 +20,6 @@ final class FavoriteCell: UICollectionViewCell {
     @IBOutlet weak var voteCountLabel: UILabel!
     
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var textStack: UIStackView!
     
     // MARK: - Public Properties
     
@@ -49,7 +48,11 @@ final class FavoriteCell: UICollectionViewCell {
         self.posterImage.clipsToBounds = true
         self.posterImage?.layer.cornerRadius = 8
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     // MARK: - Private Methods
     
     private func updateContentStyle() {
@@ -59,12 +62,9 @@ final class FavoriteCell: UICollectionViewCell {
         guard oldAxis != newAxis else { return }
 
         stackView.axis = newAxis
-        stackView.spacing = isHorizontalStyle ? 16 : 4
-        
-//        let fontTransform: CGAffineTransform = isHorizontalStyle ? .identity : CGAffineTransform(scaleX: 0.8, y: 0.8)
-        
+        stackView.alignment = isHorizontalStyle ? .center : .leading
+
         UIView.animate(withDuration: 0.3) {
-//            self.ibLabel.transform = fontTransform
             self.layoutIfNeeded()
         }
     }

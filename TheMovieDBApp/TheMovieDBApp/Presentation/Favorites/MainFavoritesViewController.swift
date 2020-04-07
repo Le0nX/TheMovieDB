@@ -37,6 +37,14 @@ final class MainFavoritesViewController: UIViewController {
         didSet { updatePresentationStyle() }
     }
     
+    private var styleDelegates: [PresentationStyle: UICollectionViewDelegateFlowLayout] = {
+        let result: [PresentationStyle: UICollectionViewDelegateFlowLayout] = [
+            .table: TableContentLayoutFlowDelegate(),
+            .defaultGrid: CollectionContentLayoutFlowDelegate()
+        ]
+        return result
+    }()
+    
     private let favoritesCollectionViewController: FavoritesCollectionViewController
         
     private let searchViewController = SearchFavoritesViewController()
@@ -103,6 +111,7 @@ final class MainFavoritesViewController: UIViewController {
     }
     
     private func updatePresentationStyle() {
+        favoritesCollectionViewController.updatePresentation(with: styleDelegates[selectedStyle]!)
         navigationItem.rightBarButtonItem?.image = selectedStyle.buttonImage
     }
     

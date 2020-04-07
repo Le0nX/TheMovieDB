@@ -8,9 +8,8 @@
 
 import UIKit
 
-final class FavoritesCollectionViewController: UIViewController,
-UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-     
+final class FavoritesCollectionViewController: UIViewController {
+         
     // MARK: - Public Properties
     
     public let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -36,7 +35,6 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDataSource()
-        collection.delegate = self
         collection.register(UINib(nibName: "FavoriteCell", bundle: nil), forCellWithReuseIdentifier: "FavoritesCell")
 
         collection.backgroundColor = ColorName.background
@@ -50,19 +48,18 @@ UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Public methods
     
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewSize = collectionView.frame.size.width
-
-        return CGSize(width: collectionViewSize, height: collectionViewSize / 3)
-    }
-    
     /// Инжектор данных
     /// - Parameter movies: фильмы
     func setData(movies: [MovieEntity]) {
         dataSource?.models = movies
         collection.reloadData()
+    }
+    
+    func updatePresentation(with configuration: UICollectionViewDelegateFlowLayout) {
+        collection.delegate = configuration
+        collection.performBatchUpdates({
+            collection.reloadData()
+        }, completion: nil)
     }
     
     // MARK: - Private Methods

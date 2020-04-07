@@ -113,6 +113,8 @@
 		1461819C243BF45200DD4CA3 /* PinCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1461819B243BF45200DD4CA3 /* PinCodeView.xib */; };
 		1461819E243BF46B00DD4CA3 /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461819D243BF46B00DD4CA3 /* PinCodeView.swift */; };
 		146181A0243BF66A00DD4CA3 /* KeyBoardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461819F243BF66A00DD4CA3 /* KeyBoardButton.swift */; };
+		146181A3243CB17A00DD4CA3 /* TableContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A2243CB17900DD4CA3 /* TableContentLayoutFlowDelegate.swift */; };
+		146181A5243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */; };
 		146331A1243B60E0009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
 		146331A2243B67CC009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
 		146331A6243BE359009B8CA0 /* MainPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */; };
@@ -349,6 +351,8 @@
 		1461819B243BF45200DD4CA3 /* PinCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinCodeView.xib; sourceTree = "<group>"; };
 		1461819D243BF46B00DD4CA3 /* PinCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeView.swift; sourceTree = "<group>"; };
 		1461819F243BF66A00DD4CA3 /* KeyBoardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardButton.swift; sourceTree = "<group>"; };
+		146181A2243CB17900DD4CA3 /* TableContentLayoutFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableContentLayoutFlowDelegate.swift; sourceTree = "<group>"; };
+		146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionContentLayoutFlowDelegate.swift; sourceTree = "<group>"; };
 		146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountViewController.swift; sourceTree = "<group>"; };
 		146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPinCodeViewController.swift; sourceTree = "<group>"; };
 		146331A7243BE394009B8CA0 /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
@@ -837,6 +841,7 @@
 		145E8B88241429D5007ACDBB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				146181A1243CB0B800DD4CA3 /* Collection FlowLayouts */,
 				1441E4DD243576D900C0EECC /* Cells */,
 				145E8B8B241431AE007ACDBB /* FavoritesView.xib */,
 				145E8B8D241431CC007ACDBB /* FavoritesView.swift */,
@@ -877,6 +882,15 @@
 				145E8BD3241675C3007ACDBB /* Validator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		146181A1243CB0B800DD4CA3 /* Collection FlowLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				146181A2243CB17900DD4CA3 /* TableContentLayoutFlowDelegate.swift */,
+				146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */,
+			);
+			path = "Collection FlowLayouts";
 			sourceTree = "<group>";
 		};
 		146331A3243BE337009B8CA0 /* PinCode */ = {
@@ -1451,6 +1465,7 @@
 				1446257B2421A35200CF0DB7 /* MoviesCell.swift in Sources */,
 				14D8DD692434B6A9008FD2D5 /* MovieDetailsViewController.swift in Sources */,
 				145E8B9E24144C72007ACDBB /* AccountView.swift in Sources */,
+				146181A5243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift in Sources */,
 				1458ED43243A779B00D5B6DC /* MainAuthViewController.swift in Sources */,
 				145E8BA924158983007ACDBB /* UIViewController+Spinner.swift in Sources */,
 				1458ED41243A591000D5B6DC /* ImageLoader.swift in Sources */,
@@ -1460,6 +1475,7 @@
 				145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */,
 				1441E4DC2435750800C0EECC /* SearchFavoritesViewController.swift in Sources */,
 				144625842421B42C00CF0DB7 /* MovieEntity.swift in Sources */,
+				146181A3243CB17A00DD4CA3 /* TableContentLayoutFlowDelegate.swift in Sources */,
 				1441E4D62435690000C0EECC /* FavoriteService.swift in Sources */,
 				145E8B852413E768007ACDBB /* TMBDSearchTextField.swift in Sources */,
 				1441E4E3243579DF00C0EECC /* FavoritesCollectionViewController.swift in Sources */,
