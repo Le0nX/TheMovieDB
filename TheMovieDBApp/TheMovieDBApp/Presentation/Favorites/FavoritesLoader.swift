@@ -26,23 +26,32 @@ final class FavoritesLoaderImpl: FavoritesLoader {
     
     private let favoriteService: FavoritesService
     private let movieService: MovieService
-    private let view: SearchViewInput
+    private let accessService: AccessCredentialsService
     
+    private var userData: FavoriteServiceModel?
+    
+    private let view: SearchViewInput
+        
     // MARK: - Initializers
     
     init(_ view: SearchViewInput,
          favoriteService: FavoritesService,
-         movieService: MovieService
+         movieService: MovieService,
+         accessService: AccessCredentialsService
     ) {
         self.view = view
         self.favoriteService = favoriteService
         self.movieService = movieService
+        self.accessService = accessService
     }
         
     // MARK: - Public methods
     
     func getFavorites() {
-        favoriteService.getFavorites { [weak self] result in
+        let model = FavoriteServiceModel(sessionId: accessService.credentials?.session ?? "",
+                                         profileId: accessService.credentials?.accountId ?? 0,
+                                         page: 1)
+        favoriteService.getFavorites(for: model) { [weak self] result in
             switch result {
             case .success(let movies):
                 self?.view.setMoviesData(movies: movies)

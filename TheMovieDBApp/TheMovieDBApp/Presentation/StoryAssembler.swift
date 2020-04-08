@@ -53,7 +53,8 @@ final class StoryFabric: StoriesAssembler {
         let mainFavoritesView = MainFavoritesViewController(imageLoader: servicesAssembler.imageLoader())
         mainFavoritesView.loader = FavoritesLoaderImpl(WeakRef(mainFavoritesView),
                                                        favoriteService: servicesAssembler.favoriteService,
-                                                       movieService: servicesAssembler.movieService)
+                                                       movieService: servicesAssembler.movieService,
+                                                       accessService: servicesAssembler.accessService)
         
         return mainFavoritesView
     }

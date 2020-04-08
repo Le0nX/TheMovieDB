@@ -91,15 +91,37 @@ final public class LoginService: AuthService {
                     completion(.failure(ServiceError.invalidSessionIdResponse))
                     return
                 }
+                self?.fetchProfileMetadata(for: sessionId, token: validatedToken, completion: completion)
                 completion(.success(sessionResult))
-                let credentials = UserSessionData(token: validatedToken.requestToken,
-                                                  expires: validatedToken.expiresAt,
-                                                  session: sessionId)
-                self?.accessService.credentials = credentials
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+    
+    private func fetchProfileMetadata(for session: String,
+                                      token: ValidateToken,
+                                      completion: @escaping (Result) -> Void) {
+        
+        let endpoint = ProfileEndpoint(sessionId: session)
+        client.request(endpoint) { [weak self] result in
+            switch result {
+            case .success(let profileDTO):
+                self?.saveProfileMetadata(for: session, token: token, accountId: profileDTO.id)
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+
+    }
+    
+    private func saveProfileMetadata(for session: String, token: ValidateToken, accountId: Int) {
+        
+        let credentials = UserSessionData(token: token.requestToken,
+                                          expires: token.expiresAt,
+                                          session: session,
+                                          accountId: accountId)
+        self.accessService.credentials = credentials
     }
     
 }

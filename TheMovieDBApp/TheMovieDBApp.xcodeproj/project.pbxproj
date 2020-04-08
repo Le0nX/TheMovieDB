@@ -116,6 +116,7 @@
 		146181A7243CF22800DD4CA3 /* MarkAsFavoriteEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A6243CF22800DD4CA3 /* MarkAsFavoriteEndpoint.swift */; };
 		146181AA243CF50700DD4CA3 /* MarkAsFavoriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A9243CF50700DD4CA3 /* MarkAsFavoriteResponse.swift */; };
 		146181AC243D1A9900DD4CA3 /* FavoritesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181AB243D1A9900DD4CA3 /* FavoritesLoader.swift */; };
+		146181B2243D396900DD4CA3 /* FavoriteServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181B1243D396900DD4CA3 /* FavoriteServiceModel.swift */; };
 		146331A1243B60E0009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
 		146331A2243B67CC009B8CA0 /* MainAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */; };
 		146331A6243BE359009B8CA0 /* MainPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */; };
@@ -356,6 +357,7 @@
 		146181A6243CF22800DD4CA3 /* MarkAsFavoriteEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAsFavoriteEndpoint.swift; sourceTree = "<group>"; };
 		146181A9243CF50700DD4CA3 /* MarkAsFavoriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkAsFavoriteResponse.swift; sourceTree = "<group>"; };
 		146181AB243D1A9900DD4CA3 /* FavoritesLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesLoader.swift; sourceTree = "<group>"; };
+		146181B1243D396900DD4CA3 /* FavoriteServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceModel.swift; sourceTree = "<group>"; };
 		146331A0243B60E0009B8CA0 /* MainAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountViewController.swift; sourceTree = "<group>"; };
 		146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPinCodeViewController.swift; sourceTree = "<group>"; };
 		146331A7243BE394009B8CA0 /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
@@ -736,13 +738,13 @@
 		145033432412826800B3F404 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				146181B0243D395200DD4CA3 /* FavoriteService */,
 				145E8BB224159B77007ACDBB /* AuthService */,
 				145E8BAC24159400007ACDBB /* ServicesAssembler.swift */,
 				145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */,
 				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
 				143C1DCF242952870060D270 /* ServiceError.swift */,
-				1441E4D52435690000C0EECC /* FavoriteService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -903,6 +905,15 @@
 				146181A9243CF50700DD4CA3 /* MarkAsFavoriteResponse.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		146181B0243D395200DD4CA3 /* FavoriteService */ = {
+			isa = PBXGroup;
+			children = (
+				1441E4D52435690000C0EECC /* FavoriteService.swift */,
+				146181B1243D396900DD4CA3 /* FavoriteServiceModel.swift */,
+			);
+			path = FavoriteService;
 			sourceTree = "<group>";
 		};
 		146331A3243BE337009B8CA0 /* PinCode */ = {
@@ -1533,6 +1544,7 @@
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
 				146331A8243BE394009B8CA0 /* PinCodeViewController.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
+				146181B2243D396900DD4CA3 /* FavoriteServiceModel.swift in Sources */,
 				1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
