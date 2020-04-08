@@ -24,7 +24,8 @@ final class MovieMapper {
                                             popularity: $0.popularity,
                                             voteCount: $0.voteCount,
                                             genreIds: $0.genreIds,
-                                            image: $0.posterPath)
+                                            image: $0.posterPath,
+                                            id: $0.id)
         } ?? []
     }
 }

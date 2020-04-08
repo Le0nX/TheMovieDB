@@ -29,11 +29,14 @@ final class MainDetailsViewController: UIViewController {
     
     private let movieDetailsViewController: MovieDetailsViewController
     private let movieOverviewController: MovieOverviewScrollViewController
+    
+    private let movieId: Int
         
     // MARK: - Initializers
     
     init(with model: MovieDetail) {
-                
+            
+        self.movieId = model.movieId
         self.movieDetailsViewController = MovieDetailsViewController(with: model)
         self.movieOverviewController = MovieOverviewScrollViewController(with: model.overview ?? "")
         
@@ -79,7 +82,7 @@ final class MainDetailsViewController: UIViewController {
     }
     
     @objc private func markFavorite() {
-        delegate?.markFavorite(movieId: 123)
+        delegate?.markFavorite(movieId: movieId)
     }
 
 }

@@ -18,4 +18,6 @@ struct MovieDetail {
     let poster: UIImage?
     
     let overview: String?
+    
+    let movieId: Int
 }

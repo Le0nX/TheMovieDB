@@ -19,6 +19,7 @@ final class DetailsModelConverter {
                     popularity: cell.popularityLabel.text,
                     votes: cell.voteCountLabel.text,
                     poster: cell.posterImage.image,
-                    overview: overview)
+                    overview: overview,
+                    movieId: cell.movieId)
     }
 }

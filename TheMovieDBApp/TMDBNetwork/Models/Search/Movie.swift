@@ -29,4 +29,5 @@ public struct Movie: Decodable {
     public let voteCount: Int?
     public let video: Bool?
     public let voteAverage: Double?
+    public let id: Int
 }

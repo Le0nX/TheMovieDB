@@ -24,6 +24,8 @@ final class MoviesCell: UITableViewCell {
     
     // MARK: - Public Properties
     
+    var movieId = 0
+    
     var onReuse: () -> Void = {}
     
     // MARK: - UIViewController(*)

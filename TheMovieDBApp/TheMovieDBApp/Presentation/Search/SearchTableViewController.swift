@@ -88,6 +88,7 @@ final class SearchTableViewController: UITableViewController {
             models: [],
             reuseIdentifier: "MoviesCell"
         ) { [weak self] movie, cell in
+            cell.movieId = movie.id
             cell.movieName.text = movie.title
             cell.movieOriginalName.text = movie.originalTitle
             cell.popularityLabel.text = String(movie.popularity ?? 0)

@@ -16,4 +16,5 @@ struct MovieEntity: Equatable {
     let voteCount: Int?
     let genreIds: [Int]?
     let image: String?
+    let id: Int
 }
