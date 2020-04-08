@@ -45,7 +45,7 @@ public struct MarkAsFavoriteFavoriteEndpoint: Endpoint {
     // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
-        try URLBuilder().build(for: path, method: .get, params: params)
+        try URLBuilder().build(for: path, method: .post, parameterEncoding: .compositeEncoding, params: params)
     }
 
     public func content(from data: Data, response: URLResponse?) throws -> Content {
@@ -54,7 +54,7 @@ public struct MarkAsFavoriteFavoriteEndpoint: Endpoint {
             throw APIError.invalidData
         }
         
-        if response.statusCode != 200 {
+        if response.statusCode != 201 {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let content = try decoder.decode(ErrorResponse.self, from: data)

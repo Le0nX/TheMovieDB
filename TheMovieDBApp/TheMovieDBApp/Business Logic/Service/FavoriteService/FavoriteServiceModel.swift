@@ -14,3 +14,11 @@ struct FavoriteServiceModel {
     let profileId: Int
     let page: Int
 }
+
+
+struct FavoriteServiceMarkModel {
+    let accountId: Int
+    let sessionId: String
+    let movieId: Int
+    let isFavorite: Bool
+}

@@ -89,7 +89,12 @@ final class URLBuilder {
                 })
             }
         case .compositeEncoding:
-            break
+            if let params = params,
+                let queryParams = params["query"] as? [String: Any] {
+                queryItems.append(contentsOf: queryParams.map {
+                    return URLQueryItem(name: "\($0)", value: "\($1)")
+                })
+            }
         case .jsonEncoding:
             break
         }

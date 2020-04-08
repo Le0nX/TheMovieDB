@@ -8,7 +8,22 @@
 
 import UIKit
 
+protocol MainDetailsViewControllerDelegate: class  {
+    /// Метод создания фаворита
+    /// - Parameter movieId: id фильма
+    func markFavorite(movieId: Int)
+    
+    /// Метод удаления фаворита
+    /// - Parameter movieId: id фильма
+    func unmarkFavorite(movieId: Int)
+}
+
 final class MainDetailsViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: MainDetailsViewControllerDelegate?
+    
     
     // MARK: - Private Properties
     
@@ -37,6 +52,11 @@ final class MainDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         self.view.backgroundColor = ColorName.background
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: ImageName.favoriteIcon,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(markFavorite))
+        
         addDetailsVC()
         addOverviewVC()
     }
@@ -56,6 +76,10 @@ final class MainDetailsViewController: UIViewController {
                                             left: view.leftAnchor, bottom: view.bottomAnchor,
                                             right: view.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0,
                                             paddingRight: 0, width: 0, height: 0)
+    }
+    
+    @objc private func markFavorite() {
+        delegate?.markFavorite(movieId: 123)
     }
 
 }

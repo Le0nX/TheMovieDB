@@ -12,10 +12,6 @@ protocol FavoritesLoader {
     
     /// Метод получения фаворитов
     func getFavorites()
-    
-    /// Метод обработки ввода названия фильма
-    /// - Parameter name: название фильма
-    func didEnteredMovie(name: String)
 }
 
 /// Лоадер-фасад экрана  фаворитов,
@@ -25,7 +21,6 @@ final class FavoritesLoaderImpl: FavoritesLoader {
     // MARK: - Private Properties
     
     private let favoriteService: FavoritesService
-    private let movieService: MovieService
     private let accessService: AccessCredentialsService
     
     private var userData: FavoriteServiceModel?
@@ -36,12 +31,10 @@ final class FavoritesLoaderImpl: FavoritesLoader {
     
     init(_ view: SearchViewInput,
          favoriteService: FavoritesService,
-         movieService: MovieService,
          accessService: AccessCredentialsService
     ) {
         self.view = view
         self.favoriteService = favoriteService
-        self.movieService = movieService
         self.accessService = accessService
     }
         
@@ -52,20 +45,6 @@ final class FavoritesLoaderImpl: FavoritesLoader {
                                          profileId: accessService.credentials?.accountId ?? 0,
                                          page: 1)
         favoriteService.getFavorites(for: model) { [weak self] result in
-            switch result {
-            case .success(let movies):
-                self?.view.setMoviesData(movies: movies)
-            case .failure(let error):
-                self?.view.showError(error: error)
-            }
-        }
-    }
-
-    /// Метод обработки ввода названия фильма
-    /// - Parameter name: название фильма
-    func didEnteredMovie(name: String) {
-                
-        movieService.searchFilm(name: name) { [weak self] result in
             switch result {
             case .success(let movies):
                 self?.view.setMoviesData(movies: movies)

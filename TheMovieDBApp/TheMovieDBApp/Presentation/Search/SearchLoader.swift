@@ -13,6 +13,14 @@ protocol SearchLoader {
     /// Метод обработки ввода названия фильма
     /// - Parameter name: название фильма
     func didEnteredMovie(name: String)
+    
+    /// Метод создания фаворита
+    /// - Parameter movieId: id фильма
+    func markFavorite(movieId: Int)
+    
+    /// Метод удаления фаворита
+    /// - Parameter movieId: id фильма
+    func unmarkFavorite(movieId: Int)
 }
 
 /// Лоадер-фасад экрана поиска фильмов,
@@ -22,22 +30,26 @@ final class SearchLoaderImpl: SearchLoader {
     // MARK: - Private Properties
     
     private let moviesService: MovieService
+    private let favoriteService: FavoritesService
+    private let accessService: AccessCredentialsService
 
     private let view: SearchViewInput
     
     // MARK: - Initializers
     
     init(_ view: SearchViewInput,
-         moviesService: MovieService
+         favoriteService: FavoritesService,
+         moviesService: MovieService,
+         accessService: AccessCredentialsService
     ) {
         self.view = view
         self.moviesService = moviesService
+        self.favoriteService = favoriteService
+        self.accessService = accessService
     }
         
     // MARK: - Public methods
 
-    /// Метод обработки ввода названия фильма
-    /// - Parameter name: название фильма
     func didEnteredMovie(name: String) {
                 
         moviesService.searchFilm(name: name) { [weak self] result in
@@ -49,4 +61,21 @@ final class SearchLoaderImpl: SearchLoader {
             }
         }
     }
+    
+    func markFavorite(movieId: Int) {
+        let model = FavoriteServiceMarkModel(accountId: accessService.credentials?.accountId ?? 0,
+                                             sessionId: accessService.credentials?.session ?? "",
+                                             movieId: movieId,
+                                             isFavorite: true)
+        favoriteService.markFavorite(for: model) { _ in }
+    }
+    
+    func unmarkFavorite(movieId: Int) {
+        let model = FavoriteServiceMarkModel(accountId: accessService.credentials?.accountId ?? 0,
+                                             sessionId: accessService.credentials?.session ?? "",
+                                             movieId: movieId,
+                                             isFavorite: false)
+        favoriteService.markFavorite(for: model) { _ in }
+    }
+
 }

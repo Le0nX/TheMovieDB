@@ -15,6 +15,12 @@ protocol FavoritesService {
     ///
     /// - Parameter completion: обработчик данных профиля
     func getFavorites(for model: FavoriteServiceModel, completion: @escaping (APIResult<[MovieEntity]>) -> Void)
+    
+    /// Метод обработки нажатиия на добавление/удаление фаворитов
+    /// - Parameter model: модель с данным для запроса
+    /// - Parameter completion: результат операции
+    func markFavorite(for model: FavoriteServiceMarkModel,
+                      completion: @escaping (APIResult<MarkAsFavoriteResponse>) -> Void)
 }
 
 /// Сервис фаворитов
@@ -45,6 +51,23 @@ final public class FavoriteService: FavoritesService {
             switch result {
             case .success(let movieDTO):
                 completion(.success(MovieMapper.map(from: movieDTO)))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func markFavorite(for model: FavoriteServiceMarkModel,
+                      completion: @escaping (APIResult<MarkAsFavoriteResponse>) -> Void) {
+        let endpoint = MarkAsFavoriteFavoriteEndpoint(accountId: model.accountId,
+                                                      sessionId: model.sessionId,
+                                                      movieId: model.movieId,
+                                                      isFavorite: model.isFavorite)
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let favoriteMark):
+                completion(.success(favoriteMark))
             case .failure(let error):
                 completion(.failure(error))
             }

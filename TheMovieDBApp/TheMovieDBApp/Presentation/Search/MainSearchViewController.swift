@@ -138,7 +138,20 @@ extension MainSearchViewController: SearchViewControllerDelegate {
 extension MainSearchViewController: SearchTableViewControllerDelegate {
     
     func openDetailsViewController(with model: MovieDetail) {
-        self.navigationController?.pushViewController(MainDetailsViewController(with: model), animated: true)
+        let vc = MainDetailsViewController(with: model)
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension MainSearchViewController: MainDetailsViewControllerDelegate {
+    
+    func markFavorite(movieId: Int) {
+        loader?.markFavorite(movieId: movieId)
+    }
+    
+    func unmarkFavorite(movieId: Int) {
+        loader?.unmarkFavorite(movieId: movieId)
+    }
 }
