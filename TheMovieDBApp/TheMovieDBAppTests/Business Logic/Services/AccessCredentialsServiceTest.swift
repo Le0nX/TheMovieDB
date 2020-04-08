@@ -19,7 +19,7 @@ final class AccessCredentialsServiceTest: XCTestCase {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
         
-        let data = UserSessionData(token: "token", expires: dateString, session: "testSession")
+        let data = UserSessionData(token: "token", expires: dateString, session: "testSession", accountId: 0)
         service.credentials = data
         
         XCTAssertEqual(data, service.credentials)
@@ -33,7 +33,7 @@ final class AccessCredentialsServiceTest: XCTestCase {
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         let dateString = dateFormatter.string(from: Date())
         
-        let data = UserSessionData(token: "token", expires: dateString, session: "testSession")
+        let data = UserSessionData(token: "token", expires: dateString, session: "testSession", accountId: 0)
         service.credentials = data
         
         XCTAssertFalse(service.sessionIsValid())
@@ -46,7 +46,7 @@ final class AccessCredentialsServiceTest: XCTestCase {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: Date())
         
-        let data = UserSessionData(token: "token", expires: dateString, session: "testSession")
+        let data = UserSessionData(token: "token", expires: dateString, session: "testSession", accountId: 0)
         service.credentials = data
         
         XCTAssertNotNil(service.credentials)

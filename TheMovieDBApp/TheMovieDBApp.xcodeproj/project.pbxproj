@@ -199,6 +199,15 @@
 		14D8DD71243521C5008FD2D5 /* MovieDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D8DD70243521C5008FD2D5 /* MovieDetails.xib */; };
 		14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD7224352554008FD2D5 /* MovieDetailView.swift */; };
 		14E175F2243D63CF00E3B54D /* PinIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E175F1243D63CF00E3B54D /* PinIndicator.swift */; };
+		14E175F3243D776300E3B54D /* FavoriteServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181B1243D396900DD4CA3 /* FavoriteServiceModel.swift */; };
+		14E175F4243D779A00E3B54D /* FavoritesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181AB243D1A9900DD4CA3 /* FavoritesLoader.swift */; };
+		14E175F5243D781400E3B54D /* MainPinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */; };
+		14E175F7243D782200E3B54D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331AB243BE3CD009B8CA0 /* ProfileViewController.swift */; };
+		14E175F8243D782500E3B54D /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146331A7243BE394009B8CA0 /* PinCodeViewController.swift */; };
+		14E175F9243D782900E3B54D /* PinCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461819D243BF46B00DD4CA3 /* PinCodeView.swift */; };
+		14E175FA243D783900E3B54D /* KeyBoardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461819F243BF66A00DD4CA3 /* KeyBoardButton.swift */; };
+		14E175FB243D783E00E3B54D /* TableContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A2243CB17900DD4CA3 /* TableContentLayoutFlowDelegate.swift */; };
+		14E175FC243D784200E3B54D /* CollectionContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1563,6 +1572,8 @@
 				14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */,
 				14C29459242C31230076EBB7 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				14C2945F242C31AE0076EBB7 /* Colors.swift in Sources */,
+				14E175F7243D782200E3B54D /* ProfileViewController.swift in Sources */,
+				14E175FB243D783E00E3B54D /* TableContentLayoutFlowDelegate.swift in Sources */,
 				1441E4D424355F4000C0EECC /* MovieDetailView.swift in Sources */,
 				14C29445242C0D880076EBB7 /* ServiceError.swift in Sources */,
 				1458ED53243B59C000D5B6DC /* ImageLoaderTest.swift in Sources */,
@@ -1585,13 +1596,16 @@
 				14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */,
 				14C29463242C31E00076EBB7 /* TMDBTextField.swift in Sources */,
 				1458ED4B243B57A700D5B6DC /* MainAuthViewController.swift in Sources */,
+				14E175F4243D779A00E3B54D /* FavoritesLoader.swift in Sources */,
 				14C2944A242C26230076EBB7 /* AuthServiceTest.swift in Sources */,
 				1446255B242038DD00CF0DB7 /* Validator.swift in Sources */,
+				14E175F5243D781400E3B54D /* MainPinCodeViewController.swift in Sources */,
 				14636543242AE17F001F34E6 /* APIClientSpy.swift in Sources */,
 				14C29460242C31BC0076EBB7 /* LoginViewController.swift in Sources */,
 				14C29468242C32290076EBB7 /* AccountLoader.swift in Sources */,
 				14636547242AF116001F34E6 /* MovieEntity.swift in Sources */,
 				14C2945E242C31A80076EBB7 /* TMBDSearchTextField.swift in Sources */,
+				14E175FA243D783900E3B54D /* KeyBoardButton.swift in Sources */,
 				14C29465242C31F80076EBB7 /* WeakRef.swift in Sources */,
 				14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */,
 				14C29446242C0DDE0076EBB7 /* Profile.swift in Sources */,
@@ -1609,18 +1623,22 @@
 				1488CE102432EE8E00F4B9F1 /* TableViewDataSource.swift in Sources */,
 				14C29441242C0D420076EBB7 /* UserSessionData.swift in Sources */,
 				1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */,
+				14E175F8243D782500E3B54D /* PinCodeViewController.swift in Sources */,
 				1458ED342438E66E00D5B6DC /* DataConverter.swift in Sources */,
 				1458ED242435A0CA00D5B6DC /* FavoriteService.swift in Sources */,
 				1458ED272435A0FF00D5B6DC /* FavoriteCell.swift in Sources */,
 				1458ED262435A0DF00D5B6DC /* CollectionViewDataSource.swift in Sources */,
 				14C29467242C32150076EBB7 /* AccountView.swift in Sources */,
+				14E175FC243D784200E3B54D /* CollectionContentLayoutFlowDelegate.swift in Sources */,
 				14C29464242C31E70076EBB7 /* TMDBButton.swift in Sources */,
 				1458ED3F243A22BF00D5B6DC /* DetailsModelConverter.swift in Sources */,
 				14C2946A242C323F0076EBB7 /* StoryAssembler.swift in Sources */,
 				14C2944E242C2DA20076EBB7 /* WeakRefTest.swift in Sources */,
+				14E175F9243D782900E3B54D /* PinCodeView.swift in Sources */,
 				14C2946E242C32AB0076EBB7 /* UIAplication+setRoot.swift in Sources */,
 				1458ED4F243B58A700D5B6DC /* SearchLoader.swift in Sources */,
 				14D8DD6A2434B759008FD2D5 /* MainSearchViewController.swift in Sources */,
+				14E175F3243D776300E3B54D /* FavoriteServiceModel.swift in Sources */,
 				14C29462242C31D10076EBB7 /* LoginView.swift in Sources */,
 				14C29444242C0D7A0076EBB7 /* AuthService.swift in Sources */,
 				14C29448242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift in Sources */,
