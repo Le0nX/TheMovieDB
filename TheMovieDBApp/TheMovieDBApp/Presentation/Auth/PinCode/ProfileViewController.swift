@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Класс для отображения шапки профиля на экране пинкода
+/// Класс для отображения шапки профиля на экране пинкода (будет реализован в будущем)
 final class ProfileViewController: UIViewController {
     
     // MARK: - UIViewController(*)
