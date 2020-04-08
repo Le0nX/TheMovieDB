@@ -24,7 +24,7 @@ protocol FavoritesService {
 }
 
 /// Сервис фаворитов
-/// Позволяет получить данные о любимых фильмах
+/// Позволяет получить/модифицировать данные о любимых фильмах
 final public class FavoriteService: FavoritesService {
     
     // MARK: - Types

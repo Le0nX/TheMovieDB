@@ -41,6 +41,7 @@ final class FavoritesLoaderImpl: FavoritesLoader {
     // MARK: - Public methods
     
     func getFavorites() {
+        // TODO: - пагинация
         let model = FavoriteServiceModel(sessionId: accessService.credentials?.session ?? "",
                                          profileId: accessService.credentials?.accountId ?? 0,
                                          page: 1)

@@ -17,15 +17,14 @@ final class KeyboardButton: UIButton {
         setupButton()
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupButton()
     }
     
-    // MARK: - Public Methods
+    // MARK: - Private Methods
 
-    func setupButton() {
+    private func setupButton() {
         setTitleColor(ColorName.fontMain, for: .normal)
         backgroundColor = ColorName.background
         titleLabel?.font = UIFont.systemFont(ofSize: 32.0)

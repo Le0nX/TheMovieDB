@@ -27,6 +27,7 @@ protocol ServicesAssembler {
     /// Сервис работы с фаворитами
     var favoriteService: FavoritesService { get }
     
+    /// Загрузчик постеров с TMDB
     func imageLoader() -> ImageLoader
 }
 

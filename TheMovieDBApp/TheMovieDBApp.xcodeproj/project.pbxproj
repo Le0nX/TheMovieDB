@@ -198,6 +198,7 @@
 		14D8DD6F2434B921008FD2D5 /* MovieOverviewScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD6E2434B921008FD2D5 /* MovieOverviewScrollViewController.swift */; };
 		14D8DD71243521C5008FD2D5 /* MovieDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D8DD70243521C5008FD2D5 /* MovieDetails.xib */; };
 		14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD7224352554008FD2D5 /* MovieDetailView.swift */; };
+		14E175F2243D63CF00E3B54D /* PinIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E175F1243D63CF00E3B54D /* PinIndicator.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -397,6 +398,7 @@
 		14D8DD6E2434B921008FD2D5 /* MovieOverviewScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOverviewScrollViewController.swift; sourceTree = "<group>"; };
 		14D8DD70243521C5008FD2D5 /* MovieDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetails.xib; sourceTree = "<group>"; };
 		14D8DD7224352554008FD2D5 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		14E175F1243D63CF00E3B54D /* PinIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -933,6 +935,7 @@
 				1461819B243BF45200DD4CA3 /* PinCodeView.xib */,
 				1461819D243BF46B00DD4CA3 /* PinCodeView.swift */,
 				1461819F243BF66A00DD4CA3 /* KeyBoardButton.swift */,
+				14E175F1243D63CF00E3B54D /* PinIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1508,6 +1511,7 @@
 				1450330D24126AAA00B3F404 /* LoginViewController.swift in Sources */,
 				145E8BAD24159400007ACDBB /* ServicesAssembler.swift in Sources */,
 				14D8DD5924339B1C008FD2D5 /* SearchTableViewController.swift in Sources */,
+				14E175F2243D63CF00E3B54D /* PinIndicator.swift in Sources */,
 				145E8B8E241431CC007ACDBB /* FavoritesView.swift in Sources */,
 				145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */,
 				145E8BA3241523A9007ACDBB /* ApplicationAppearance.swift in Sources */,

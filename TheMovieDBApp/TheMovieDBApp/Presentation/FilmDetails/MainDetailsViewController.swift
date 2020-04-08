@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainDetailsViewControllerDelegate: class  {
+protocol MainDetailsViewControllerDelegate: class {
     /// Метод создания фаворита
     /// - Parameter movieId: id фильма
     func markFavorite(movieId: Int)
@@ -23,7 +23,6 @@ final class MainDetailsViewController: UIViewController {
     // MARK: - Public Properties
     
     weak var delegate: MainDetailsViewControllerDelegate?
-    
     
     // MARK: - Private Properties
     

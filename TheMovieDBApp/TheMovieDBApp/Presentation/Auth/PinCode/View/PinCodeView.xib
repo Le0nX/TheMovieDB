@@ -107,7 +107,7 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-0b-Ulu">
                     <rect key="frame" x="114" y="25" width="147" height="15"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-eC-MMp">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-eC-MMp" customClass="PinIndicator" customModule="TheMovieDBApp" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                             <color key="backgroundColor" red="0.13414046169999999" green="0.1440388262" blue="0.200006932" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
@@ -115,15 +115,15 @@
                                 <constraint firstAttribute="width" constant="15" id="djh-9J-CKu"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-du-Vb1">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbt-du-Vb1" customClass="PinIndicator" customModule="TheMovieDBApp" customModuleProvider="target">
                             <rect key="frame" x="44" y="0.0" width="15" height="15"/>
                             <color key="backgroundColor" red="0.13414046169999999" green="0.1440388262" blue="0.200006932" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-hx-sm4">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MR5-hx-sm4" customClass="PinIndicator" customModule="TheMovieDBApp" customModuleProvider="target">
                             <rect key="frame" x="88" y="0.0" width="15" height="15"/>
                             <color key="backgroundColor" red="0.13414046169999999" green="0.1440388262" blue="0.200006932" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-Ci-rKg">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPD-Ci-rKg" customClass="PinIndicator" customModule="TheMovieDBApp" customModuleProvider="target">
                             <rect key="frame" x="132" y="0.0" width="15" height="15"/>
                             <color key="backgroundColor" red="0.13414046169999999" green="0.1440388262" blue="0.200006932" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </view>

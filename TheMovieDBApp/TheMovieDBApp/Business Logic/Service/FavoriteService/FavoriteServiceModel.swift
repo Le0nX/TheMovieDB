@@ -15,7 +15,7 @@ struct FavoriteServiceModel {
     let page: Int
 }
 
-
+/// Модель для метода установки/удаления фаворита
 struct FavoriteServiceMarkModel {
     let accountId: Int
     let sessionId: String

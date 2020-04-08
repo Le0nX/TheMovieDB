@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Бизнес-модель фильма
 struct MovieEntity: Equatable {
     let title: String
     let originalTitle: String
