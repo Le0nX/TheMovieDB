@@ -21,6 +21,12 @@ protocol SearchLoader {
     /// Метод удаления фаворита
     /// - Parameter movieId: id фильма
     func unmarkFavorite(movieId: Int)
+    
+    /// Метод проверки того, что фильм принадлежит фаворитам
+    /// - Parameters:
+    ///   - movieId: id фильма
+    ///   - complition: обрботчик
+    func checkIfFavorite(movieId: Int, complition: @escaping (Result<Bool, Error>) -> Void)
 }
 
 /// Лоадер-фасад экрана поиска фильмов,
@@ -77,5 +83,19 @@ final class SearchLoaderImpl: SearchLoader {
                                              isFavorite: false)
         favoriteService.markFavorite(for: model) { _ in }
     }
-
+    
+    func checkIfFavorite(movieId: Int, complition: @escaping (Result<Bool, Error>) -> Void) {
+        guard let session = accessService.credentials?.session else {
+            complition(.failure(ServiceError.currentSessionCorrupted))
+            return
+        }
+        favoriteService.checkIfFavorite(sessionId: session, movieId: movieId) { result in
+            switch result {
+            case .success(let accountStatus):
+                complition(.success(accountStatus.favorite))
+            case .failure(let error):
+                complition(.failure(error))
+            }
+        }
+    }
 }

@@ -1,51 +1,43 @@
 //
-//  MarkAsFavoriteEndpoint.swift
+//  AccountStateEndpoint.swift
 //  TMDBNetwork
 //
-//  Created by Denis Nefedov on 07.04.2020.
+//  Created by Denis Nefedov on 08.04.2020.
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
 import Foundation
 
-public struct MarkAsFavoriteEndpoint: Endpoint {
+public struct AccountStateEndpoint: Endpoint {
     
     // MARK: - Types
     
-    public typealias Content = MarkAsFavoriteResponse
+    public typealias Content = AccountStateResponse
     
     // MARK: - Private Properties
     
     private var path: String {
-        "/3/account/\(accountId)/favorite"
+        "/3/movie/\(movieId)/account_states"
     }
         
     private var params: [String: Any]? {
-        let queryParams: [String: Any] = ["session_id": sessionId]
-        let bodyParams: [String: Any] = ["media_type": "movie",
-                                         "media_id": movieId,
-                                         "favorite": isFavorite]
-        return ["query": queryParams, "body": bodyParams]
+        ["session_id": sessionId]
     }
 
-    private let accountId: Int
     private let sessionId: String
     private let movieId: Int
-    private let isFavorite: Bool
     
     // MARK: - Initializers
 
-    public init(accountId: Int, sessionId: String, movieId: Int, isFavorite: Bool) {
-        self.accountId = accountId
+    public init(sessionId: String, movieId: Int) {
         self.sessionId = sessionId
         self.movieId = movieId
-        self.isFavorite = isFavorite
     }
     
     // MARK: - Public methods
     
     public func makeRequest() throws -> URLRequest {
-        try URLBuilder().build(for: path, method: .post, parameterEncoding: .compositeEncoding, params: params)
+        try URLBuilder().build(for: path, method: .get, params: params)
     }
 
     public func content(from data: Data, response: URLResponse?) throws -> Content {
@@ -54,7 +46,8 @@ public struct MarkAsFavoriteEndpoint: Endpoint {
             throw APIError.invalidData
         }
         
-        if response.statusCode != 201 {
+        if response.statusCode != 200 {
+            print(response.statusCode)
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let content = try decoder.decode(ErrorResponse.self, from: data)

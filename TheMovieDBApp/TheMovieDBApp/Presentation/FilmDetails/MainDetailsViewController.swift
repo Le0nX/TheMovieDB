@@ -16,6 +16,12 @@ protocol MainDetailsViewControllerDelegate: class {
     /// Метод удаления фаворита
     /// - Parameter movieId: id фильма
     func unmarkFavorite(movieId: Int)
+    
+    /// Метод проверки текущего фильма на принадлежность к фаворитам
+    /// - Parameters:
+    ///   - movieId: id фильма
+    ///   - complition: хендлер установки цвета кнопки
+    func checkIfFavorite(movieId: Int, complition: @escaping(Result<Bool, Error>) -> Void)
 }
 
 final class MainDetailsViewController: UIViewController {
@@ -30,6 +36,7 @@ final class MainDetailsViewController: UIViewController {
     private let movieOverviewController: MovieOverviewScrollViewController
     
     private let movieId: Int
+    private var isFavorite: Bool?
         
     // MARK: - Initializers
     
@@ -53,11 +60,13 @@ final class MainDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = ColorName.fontMain
         self.navigationController?.navigationBar.topItem?.title = ""
         self.view.backgroundColor = ColorName.background
-        
+                
         setBarItem()
         
         addDetailsVC()
         addOverviewVC()
+        
+        checkFavoriteStatus(movieId: movieId)
     }
     
     // MARK: - Private Methods
@@ -77,6 +86,34 @@ final class MainDetailsViewController: UIViewController {
                                             paddingRight: 0, width: 0, height: 0)
     }
     
+    private func showError(error: Error) {
+        let alert = UIAlertController(title: "Error",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
+    private func checkFavoriteStatus(movieId: Int) {
+        delegate?.checkIfFavorite(movieId: movieId) { [weak self] result in
+            switch result {
+            case .success(let status):
+                if status {
+                    self?.animateButton(with: ColorName.link)
+                    self?.isFavorite = status
+                } else {
+                    self?.navigationItem.rightBarButtonItem?.customView?.tintColor = ColorName.fontMain
+                    self?.isFavorite = status
+                }
+            case .failure(let error):
+                self?.showError(error: error)
+            }
+            
+        }
+    }
+    
     private func setBarItem() {
         let icon = ImageName.favoriteIcon
         let iconSize = CGRect(origin: .zero, size: icon.size)
@@ -87,11 +124,19 @@ final class MainDetailsViewController: UIViewController {
     }
     
     @objc private func markFavorite() {
-        animateButton()
-        delegate?.markFavorite(movieId: movieId)
+        guard let isFavorite = isFavorite else { return }
+        
+        if isFavorite {
+            animateButton(with: ColorName.fontMain)
+            delegate?.unmarkFavorite(movieId: movieId)
+        } else {
+            animateButton(with: ColorName.link)
+            delegate?.markFavorite(movieId: movieId)
+        }
+        self.isFavorite = !isFavorite
     }
     
-    private func animateButton() {
+    private func animateButton(with color: UIColor) {
         navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 2.0,
                        delay: 0,
@@ -99,6 +144,7 @@ final class MainDetailsViewController: UIViewController {
                        initialSpringVelocity: 6.0,
                        options: .allowUserInteraction,
                        animations: {
+                        self.navigationItem.rightBarButtonItem?.customView?.tintColor = color
                         self.navigationItem.rightBarButtonItem?.customView?.transform = .identity
                         },
                        completion: nil)

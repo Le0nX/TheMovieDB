@@ -208,6 +208,8 @@
 		14E175FA243D783900E3B54D /* KeyBoardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461819F243BF66A00DD4CA3 /* KeyBoardButton.swift */; };
 		14E175FB243D783E00E3B54D /* TableContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A2243CB17900DD4CA3 /* TableContentLayoutFlowDelegate.swift */; };
 		14E175FC243D784200E3B54D /* CollectionContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */; };
+		14EB0E73243E5E730099F298 /* AccountStateEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E72243E5E730099F298 /* AccountStateEndpoint.swift */; };
+		14EB0E75243E77080099F298 /* AccountStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E74243E77080099F298 /* AccountStateResponse.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -408,6 +410,8 @@
 		14D8DD70243521C5008FD2D5 /* MovieDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetails.xib; sourceTree = "<group>"; };
 		14D8DD7224352554008FD2D5 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		14E175F1243D63CF00E3B54D /* PinIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
+		14EB0E72243E5E730099F298 /* AccountStateEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStateEndpoint.swift; sourceTree = "<group>"; };
+		14EB0E74243E77080099F298 /* AccountStateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStateResponse.swift; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -545,6 +549,7 @@
 		1446256D2421646A00CF0DB7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				14EB0E72243E5E730099F298 /* AccountStateEndpoint.swift */,
 				144625652420564C00CF0DB7 /* ProfileEnpoint.swift */,
 				1446256E2421648200CF0DB7 /* GravatarEndpoint.swift */,
 			);
@@ -914,6 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				146181A9243CF50700DD4CA3 /* MarkAsFavoriteResponse.swift */,
+				14EB0E74243E77080099F298 /* AccountStateResponse.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -1658,6 +1664,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14EB0E75243E77080099F298 /* AccountStateResponse.swift in Sources */,
+				14EB0E73243E5E730099F298 /* AccountStateEndpoint.swift in Sources */,
 				1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */,
 				1446255824202C8100CF0DB7 /* AuthModels.swift in Sources */,
 				14462564242046F300CF0DB7 /* FavoriteEndpoint.swift in Sources */,

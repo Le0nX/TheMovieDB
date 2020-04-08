@@ -21,6 +21,15 @@ protocol FavoritesService {
     /// - Parameter completion: результат операции
     func markFavorite(for model: FavoriteServiceMarkModel,
                       completion: @escaping (APIResult<MarkAsFavoriteResponse>) -> Void)
+    
+    /// Метод проверки текущего фильма на принадлежность к фаворитам
+    /// - Parameters:
+    ///   - sesssionId: текущая сессия
+    ///   - movieId: id фильма
+    ///   - complition: обработчик
+    func checkIfFavorite(sessionId: String,
+                         movieId: Int,
+                         complition: @escaping (APIResult<AccountStateResponse>) -> Void)
 }
 
 /// Сервис фаворитов
@@ -59,10 +68,10 @@ final public class FavoriteService: FavoritesService {
     
     func markFavorite(for model: FavoriteServiceMarkModel,
                       completion: @escaping (APIResult<MarkAsFavoriteResponse>) -> Void) {
-        let endpoint = MarkAsFavoriteFavoriteEndpoint(accountId: model.accountId,
-                                                      sessionId: model.sessionId,
-                                                      movieId: model.movieId,
-                                                      isFavorite: model.isFavorite)
+        let endpoint = MarkAsFavoriteEndpoint(accountId: model.accountId,
+                                              sessionId: model.sessionId,
+                                              movieId: model.movieId,
+                                              isFavorite: model.isFavorite)
         
         client.request(endpoint) { result in
             switch result {
@@ -71,6 +80,22 @@ final public class FavoriteService: FavoritesService {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func checkIfFavorite(sessionId: String,
+                         movieId: Int,
+                         complition: @escaping (APIResult<AccountStateResponse>) -> Void) {
+        let endpoint = AccountStateEndpoint(sessionId: sessionId, movieId: movieId)
+        
+        client.request(endpoint) { result in
+            switch result {
+            case .success(let accountState):
+                complition(.success(accountState))
+            case .failure(let error):
+                complition(.failure(error))
+            }
+            
         }
     }
     

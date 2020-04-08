@@ -146,6 +146,10 @@ extension MainSearchViewController: SearchTableViewControllerDelegate {
 }
 
 extension MainSearchViewController: MainDetailsViewControllerDelegate {
+    func checkIfFavorite(movieId: Int, complition: @escaping (Result<Bool, Error>) -> Void) {
+        loader?.checkIfFavorite(movieId: movieId, complition: complition)
+    }
+    
     
     func markFavorite(movieId: Int) {
         loader?.markFavorite(movieId: movieId)
