@@ -83,13 +83,16 @@ final class LoginView: XibView {
     
     /// Метод анимации кнопки логина
     func animateLoginButtonPress() {
-        UIView.animate(withDuration: 0.15, animations: {
-            self.loginButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1) {
-                self.loginButton.transform = CGAffineTransform.identity
-            }
-        })
+        self.loginButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 1.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.loginButton.transform = .identity
+                        },
+                       completion: nil)
     }
                 
     // MARK: - IBAction
