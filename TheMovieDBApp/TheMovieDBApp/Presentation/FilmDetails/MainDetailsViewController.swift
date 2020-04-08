@@ -55,10 +55,7 @@ final class MainDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         self.view.backgroundColor = ColorName.background
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: ImageName.favoriteIcon,
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(markFavorite))
+        setBarItem()
         
         addDetailsVC()
         addOverviewVC()
@@ -81,8 +78,31 @@ final class MainDetailsViewController: UIViewController {
                                             paddingRight: 0, width: 0, height: 0)
     }
     
+    private func setBarItem() {
+        let icon = ImageName.favoriteIcon
+        let iconSize = CGRect(origin: .zero, size: icon.size)
+        let iconButton = UIButton(frame: iconSize)
+        iconButton.addTarget(self, action: #selector(markFavorite), for: .touchUpInside)
+        iconButton.setBackgroundImage(icon, for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: iconButton)
+    }
+    
     @objc private func markFavorite() {
+        animateButton()
         delegate?.markFavorite(movieId: movieId)
+    }
+    
+    private func animateButton() {
+        navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.navigationItem.rightBarButtonItem?.customView?.transform = .identity
+                        },
+                       completion: nil)
     }
 
 }
