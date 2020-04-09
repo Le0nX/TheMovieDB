@@ -210,6 +210,8 @@
 		14E175FC243D784200E3B54D /* CollectionContentLayoutFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146181A4243CB19D00DD4CA3 /* CollectionContentLayoutFlowDelegate.swift */; };
 		14EB0E73243E5E730099F298 /* AccountStateEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E72243E5E730099F298 /* AccountStateEndpoint.swift */; };
 		14EB0E75243E77080099F298 /* AccountStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E74243E77080099F298 /* AccountStateResponse.swift */; };
+		14EB0E77243E87FA0099F298 /* ZeroFavoritesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14EB0E76243E87FA0099F298 /* ZeroFavoritesView.xib */; };
+		14EB0E79243E8E650099F298 /* ZeroFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E78243E8E650099F298 /* ZeroFavoritesView.swift */; };
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -412,6 +414,8 @@
 		14E175F1243D63CF00E3B54D /* PinIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
 		14EB0E72243E5E730099F298 /* AccountStateEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStateEndpoint.swift; sourceTree = "<group>"; };
 		14EB0E74243E77080099F298 /* AccountStateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStateResponse.swift; sourceTree = "<group>"; };
+		14EB0E76243E87FA0099F298 /* ZeroFavoritesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroFavoritesView.xib; sourceTree = "<group>"; };
+		14EB0E78243E8E650099F298 /* ZeroFavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroFavoritesView.swift; sourceTree = "<group>"; };
 		14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TMDBNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14FE8F7D2420258D00115A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -867,6 +871,8 @@
 				1441E4DD243576D900C0EECC /* Cells */,
 				145E8B8B241431AE007ACDBB /* FavoritesView.xib */,
 				145E8B8D241431CC007ACDBB /* FavoritesView.swift */,
+				14EB0E76243E87FA0099F298 /* ZeroFavoritesView.xib */,
+				14EB0E78243E8E650099F298 /* ZeroFavoritesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1330,6 +1336,7 @@
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
 				14D8DD71243521C5008FD2D5 /* MovieDetails.xib in Resources */,
 				1461819C243BF45200DD4CA3 /* PinCodeView.xib in Resources */,
+				14EB0E77243E87FA0099F298 /* ZeroFavoritesView.xib in Resources */,
 				1450334C2412A2AF00B3F404 /* SF-Pro-Display-Regular.otf in Resources */,
 				1450334824129C7A00B3F404 /* LoginView.xib in Resources */,
 			);
@@ -1531,6 +1538,7 @@
 				145E8BD024165869007ACDBB /* UserSessionData.swift in Sources */,
 				145E8BA3241523A9007ACDBB /* ApplicationAppearance.swift in Sources */,
 				146331A6243BE359009B8CA0 /* MainPinCodeViewController.swift in Sources */,
+				14EB0E79243E8E650099F298 /* ZeroFavoritesView.swift in Sources */,
 				145E8BAB241592CE007ACDBB /* StoryAssembler.swift in Sources */,
 				145033452412975900B3F404 /* Colors.swift in Sources */,
 				146331AC243BE3CD009B8CA0 /* ProfileViewController.swift in Sources */,

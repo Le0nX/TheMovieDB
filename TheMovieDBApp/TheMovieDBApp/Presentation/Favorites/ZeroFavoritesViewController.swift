@@ -39,6 +39,12 @@ final class ZeroFavoritesViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        containerView.zeroView.rotateCircle()
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }

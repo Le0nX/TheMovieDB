@@ -9,6 +9,7 @@
 import Foundation
 
 final class FavoritesView: XibView {
+    @IBOutlet weak var zeroView: ZeroFavoritesView!
     
     // MARK: - Initializers
     
