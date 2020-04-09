@@ -45,6 +45,12 @@ final class ZeroFavoritesViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        emitter.removeAllAnimations()
+        emitter.removeFromSuperlayer()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -61,6 +67,8 @@ final class ZeroFavoritesViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+    
+    // MARK: - Private Methods
     
     private func generateEmitterCells() -> [CAEmitterCell] {
         var cells: [CAEmitterCell] = [CAEmitterCell]()
