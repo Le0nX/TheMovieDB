@@ -11,8 +11,11 @@ import UIKit
 final class ZeroFavoritesView: XibView {
     
     // MARK: - IBOutlets
+    
     @IBOutlet weak var cocaColla: UIImageView!
     @IBOutlet weak var circleMovable: UIImageView!
+    @IBOutlet weak var popCornBucket: UIImageView!
+    @IBOutlet weak var tubeImage: UIImageView!
     
     // MARK: - Initializers
     

@@ -30,4 +30,6 @@ struct ImageName {
     static let noMoviesError = #imageLiteral(resourceName: "NoMoviesError")
     
     static let backSpace = #imageLiteral(resourceName: "backSpace")
+    
+    static let popCorn = #imageLiteral(resourceName: "popCorn")
 }

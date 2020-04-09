@@ -12,6 +12,8 @@
             <connections>
                 <outlet property="circleMovable" destination="ZN3-m3-i3H" id="eed-ka-x9a"/>
                 <outlet property="cocaColla" destination="nJo-Vs-RUi" id="NIq-mZ-GPx"/>
+                <outlet property="popCornBucket" destination="Ng4-sb-LT4" id="cyI-w0-AlI"/>
+                <outlet property="tubeImage" destination="drw-WR-ngi" id="hH6-gl-ImL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

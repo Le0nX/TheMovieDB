@@ -105,7 +105,7 @@ final class MainFavoritesViewController: UIViewController {
         add(favoritesEmptyResultController)
         
         favoritesEmptyResultController.view.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 125,
+                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 80,
                                                    paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
                                                    width: 0, height: 0)
     }
