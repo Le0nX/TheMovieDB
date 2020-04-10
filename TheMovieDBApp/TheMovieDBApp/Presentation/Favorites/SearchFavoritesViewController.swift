@@ -33,9 +33,10 @@ final class SearchFavoritesViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setConstraints() {
-        favoriteLabel.anchor(top: view.topAnchor, left: view.leftAnchor,
-                             bottom: nil, right: nil, paddingTop: 45, paddingLeft: 24, paddingBottom: 0,
-                             paddingRight: 0, width: 0, height: 0)
+        favoriteLabel.anchor(top: view.topAnchor,
+                             left: view.leftAnchor,
+                             paddingTop: 45,
+                             paddingLeft: 24)
     }
 
 }

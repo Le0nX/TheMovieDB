@@ -73,17 +73,19 @@ final class MainDetailsViewController: UIViewController {
     
     private func addDetailsVC() {
         add(movieDetailsViewController)
-        movieDetailsViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil,
-                                               right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                               paddingRight: 0, width: 0, height: 190)
+        movieDetailsViewController.view.anchor(top: view.topAnchor,
+                                               left: view.leftAnchor,
+                                               right: view.rightAnchor,
+                                               height: 190)
     }
     
     private func addOverviewVC() {
         add(movieOverviewController)
         movieOverviewController.view.anchor(top: movieDetailsViewController.view.bottomAnchor,
-                                            left: view.leftAnchor, bottom: view.bottomAnchor,
-                                            right: view.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0,
-                                            paddingRight: 0, width: 0, height: 0)
+                                            left: view.leftAnchor,
+                                            bottom: view.bottomAnchor,
+                                            right: view.rightAnchor,
+                                            paddingTop: 5)
     }
     
     private func showError(error: Error) {

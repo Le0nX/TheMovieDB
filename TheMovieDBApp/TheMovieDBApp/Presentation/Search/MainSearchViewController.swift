@@ -70,27 +70,32 @@ final class MainSearchViewController: UIViewController {
     private func addSearchVC() {
         
         add(searchViewController)
-        searchViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                                         right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                         paddingRight: 0, width: 0, height: 0)
+        searchViewController.view.anchor(top: view.topAnchor,
+                                         left: view.leftAnchor,
+                                         bottom: view.bottomAnchor,
+                                         right: view.rightAnchor)
     }
     
     private func addSearchTableVC() {
         add(searchTableViewController)
         
-        searchTableViewController.tableView.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 85,
-                                                   paddingLeft: 24, paddingBottom: 0, paddingRight: 24,
-                                                   width: 0, height: 0)
+        searchTableViewController.tableView.anchor(top: view.topAnchor,
+                                                   left: view.leftAnchor,
+                                                   bottom: view.bottomAnchor,
+                                                   right: view.rightAnchor,
+                                                   paddingTop: 85,
+                                                   paddingLeft: 24,
+                                                   paddingRight: 24)
     }
     
     private func addEmptyResultVC() {
         add(searchEmptyResultController)
         
-        searchEmptyResultController.view.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 55,
-                                                paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
-                                                width: 0, height: 0)
+        searchEmptyResultController.view.anchor(top: view.topAnchor,
+                                                left: view.leftAnchor,
+                                                bottom: view.bottomAnchor,
+                                                right: view.rightAnchor,
+                                                paddingTop: 55)
     }
 }
 
@@ -149,7 +154,6 @@ extension MainSearchViewController: MainDetailsViewControllerDelegate {
     func checkIfFavorite(movieId: Int, complition: @escaping (Result<Bool, Error>) -> Void) {
         loader?.checkIfFavorite(movieId: movieId, complition: complition)
     }
-    
     
     func markFavorite(movieId: Int) {
         loader?.markFavorite(movieId: movieId)

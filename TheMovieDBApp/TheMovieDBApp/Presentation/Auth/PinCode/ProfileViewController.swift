@@ -42,11 +42,8 @@ final class ProfileViewController: UIViewController {
                      left: view.leftAnchor,
                      bottom: view.bottomAnchor,
                      right: view.rightAnchor,
-                     paddingTop: 0,
                      paddingLeft: 24,
                      paddingBottom: 25,
-                     paddingRight: 24,
-                     width: 0,
-                     height: 0)
+                     paddingRight: 24)
     }
 }

@@ -29,18 +29,18 @@ final class MainPinCodeViewController: UIViewController {
     
     private func addProfileVC() {
         add(profileViewController)
-        profileViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil,
-                                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                          paddingRight: 0, width: 0,
+        profileViewController.view.anchor(top: view.topAnchor,
+                                          left: view.leftAnchor,
+                                          right: view.rightAnchor,
                                           height: 95)
     }
     
     private func addPincodeVC() {
         add(pinCodeViewController)
         pinCodeViewController.view.anchor(top: profileViewController.view.bottomAnchor,
-                                          left: view.leftAnchor, bottom: view.bottomAnchor,
-                                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                          paddingRight: 0, width: 0, height: 0)
+                                          left: view.leftAnchor,
+                                          bottom: view.bottomAnchor,
+                                          right: view.rightAnchor)
     }
 
 }

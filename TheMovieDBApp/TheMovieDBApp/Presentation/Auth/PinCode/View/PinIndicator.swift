@@ -24,7 +24,6 @@ final class PinIndicator: UIView {
             self.backgroundColor = ColorName.buttonActive
         }
     }
-
     
     public func animateResetFilling() {
         UIView.animate(withDuration: 2) {

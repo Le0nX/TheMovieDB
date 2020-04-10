@@ -86,28 +86,33 @@ final class MainFavoritesViewController: UIViewController {
     private func addSearchVC() {
         
         add(searchViewController)
-        searchViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                                         right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                         paddingRight: 0, width: 0, height: 0)
+        searchViewController.view.anchor(top: view.topAnchor,
+                                         left: view.leftAnchor,
+                                         bottom: view.bottomAnchor,
+                                         right: view.rightAnchor)
     }
     
     private func addFavoritesCollectionVC() {
         add(favoritesCollectionViewController)
         
         favoritesCollectionViewController.collection.anchor(
-                                                   top: view.topAnchor, left: view.leftAnchor,
-                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 125,
-                                                   paddingLeft: 24, paddingBottom: 0, paddingRight: 24,
-                                                   width: 0, height: 0)
+                                                   top: view.topAnchor,
+                                                   left: view.leftAnchor,
+                                                   bottom: view.bottomAnchor,
+                                                   right: view.rightAnchor,
+                                                   paddingTop: 125,
+                                                   paddingLeft: 24,
+                                                   paddingRight: 24)
     }
     
     private func addEmptyResultVC() {
         add(favoritesEmptyResultController)
         
-        favoritesEmptyResultController.view.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 80,
-                                                   paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
-                                                   width: 0, height: 0)
+        favoritesEmptyResultController.view.anchor(top: view.topAnchor,
+                                                   left: view.leftAnchor,
+                                                   bottom: view.bottomAnchor,
+                                                   right: view.rightAnchor,
+                                                   paddingTop: 80)
     }
     
     private func updatePresentationStyle() {

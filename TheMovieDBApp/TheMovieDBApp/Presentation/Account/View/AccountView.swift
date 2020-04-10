@@ -63,16 +63,13 @@ final class AccountView: XibView {
         button.setTitle("PinCode", for: .normal)
         
         addSubview(button)
-        button.anchor(top: nil,
-                      left: leftAnchor,
+        button.anchor(left: leftAnchor,
                       bottom: logoutButton.topAnchor,
                       right: rightAnchor,
-                      paddingTop: 0,
                       paddingLeft: 24,
                       paddingBottom: -25,
-                      paddingRight: 24,
-                      width: 0,
-                      height: 0)
+                      paddingRight: 24)
+        
         button.addTarget(self, action: #selector(showPinCodeVC), for: .touchUpInside)
     }
     
