@@ -13,16 +13,46 @@ final class FavoriteCell: UICollectionViewCell {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var movieName: UILabel!
-    @IBOutlet weak var movieOriginalName: UILabel!
-    @IBOutlet weak var ganreLabel: UILabel!
-    @IBOutlet weak var popularityLabel: UILabel!
-    @IBOutlet weak var voteCountLabel: UILabel!
+    @IBOutlet private var posterImage: UIImageView!
+    @IBOutlet private var movieName: UILabel!
+    @IBOutlet private var movieOriginalName: UILabel!
+    @IBOutlet private var ganreLabel: UILabel!
+    @IBOutlet private var popularityLabel: UILabel!
+    @IBOutlet private var voteCountLabel: UILabel!
     
     @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - Public Properties
+        
+    var poster: UIImage? {
+        set { posterImage.image = newValue }
+        get { posterImage.image }
+    }
+    
+    var moviesName: String? {
+        set { movieName.text = newValue ?? "" }
+        get { movieName.text ?? "" }
+    }
+    
+    var movieGenre: String? {
+        set { ganreLabel.text = newValue ?? "" }
+        get { ganreLabel.text ?? "" }
+    }
+    
+    var movieOriginalsName: String? {
+        set { movieOriginalName.text = newValue ?? "" }
+        get { movieOriginalName.text ?? "" }
+    }
+    
+    var popularity: String? {
+        set { popularityLabel.text = newValue ?? "" }
+        get { popularityLabel.text ?? "" }
+    }
+    
+    var vote: String? {
+        set { voteCountLabel.text = newValue ?? "" }
+        get { voteCountLabel.text ?? "" }
+    }
     
     var onReuse: () -> Void = {}
         

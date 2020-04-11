@@ -71,15 +71,15 @@ final class FavoritesCollectionViewController: UIViewController {
             models: [],
             reuseIdentifier: "FavoritesCell"
         ) { [weak self] movie, cell in
-            cell.movieName.text = movie.title
-            cell.movieOriginalName.text = movie.originalTitle
-            cell.popularityLabel.text = String(movie.popularity ?? 0)
-            cell.ganreLabel.text = "жанр"
+            cell.moviesName = movie.title
+            cell.movieOriginalsName = movie.originalTitle
+            cell.popularity = String(movie.popularity ?? 0)
+            cell.movieGenre = "жанр"
 
             if let poster = movie.image {
                 let uuid = self?.imageLoader.fetchImage(for: poster) { data in
                     if let data = data {
-                        cell.posterImage.image = DataConverter.toImage(from: data)
+                        cell.poster = DataConverter.toImage(from: data)
                     }
                 }
                 
