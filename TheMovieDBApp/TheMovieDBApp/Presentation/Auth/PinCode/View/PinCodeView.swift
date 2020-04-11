@@ -25,7 +25,7 @@ protocol PinCodeViewDelegate: class {
 final class PinCodeView: XibView {
 
     // MARK: - IBOutlet
-    @IBOutlet var numPudButtons: [KeyboardButton]!
+    @IBOutlet private var numPudButtons: [KeyboardButton]!
     
     // MARK: - Public Properties
     

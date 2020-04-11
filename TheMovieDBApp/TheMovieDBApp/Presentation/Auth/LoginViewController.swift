@@ -51,7 +51,6 @@ final class LoginViewController: UIViewController {
     /// - Parameter error: описание ошибки
     func setError(with error: String) {
         containerView.setErrorLabel(with: error)
-        containerView.errorLabel.isHidden = false
         containerView.shakeLastActiveTextField()
     }
     
@@ -60,8 +59,8 @@ final class LoginViewController: UIViewController {
 extension LoginViewController: LoginViewDelegate {
     func loginAction() {
         containerView.animateLoginButtonPress()
-        delegate?.loginWith(data: LoginModel(login: containerView.loginTextField.text ?? "",
-                                             password: containerView.passwordTextField.text ?? ""))
-        containerView.errorLabel.isHidden = true
+        delegate?.loginWith(data: LoginModel(login: containerView.loginField,
+                                             password: containerView.passwordField))
+        containerView.hideError()
     }
 }

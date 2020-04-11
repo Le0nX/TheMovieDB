@@ -21,12 +21,22 @@ final class LoginView: XibView {
     
     @IBOutlet private var headerLabel: UILabel!
     @IBOutlet private var subHeaderLabel: UILabel!
-    @IBOutlet var loginTextField: TMDBTextField!
-    @IBOutlet var passwordTextField: TMDBTextField!
-    @IBOutlet var loginButton: TMDBButton!
-    @IBOutlet var errorLabel: UILabel!
+    @IBOutlet private var loginTextField: TMDBTextField!
+    @IBOutlet private var passwordTextField: TMDBTextField!
+    @IBOutlet private var loginButton: TMDBButton!
+    @IBOutlet private var errorLabel: UILabel!
     
     // MARK: - Public Properties
+    
+    var loginField: String {
+        set { loginTextField.text = newValue }
+        get { loginTextField.text ?? "" }
+    }
+    
+    var passwordField: String {
+        set { passwordTextField.text = newValue }
+        get { passwordTextField.text ?? "" }
+    }
     
     weak var delegate: LoginViewDelegate?
     
@@ -66,6 +76,12 @@ final class LoginView: XibView {
     /// - Parameter message: ошибка
     func setErrorLabel(with message: String) {
         errorLabel.text = message
+        errorLabel.isHidden = false
+    }
+    
+    /// Метод скрытия ошибки
+    func hideError() {
+        errorLabel.isHidden = true
     }
     
     /// Хендлер того, что содержимое поля изменилось
