@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// бизнес-модель профиля 
 struct Profile: Equatable {
     let id: Int
     let name: String

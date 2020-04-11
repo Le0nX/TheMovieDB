@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint поиска постеров
 public struct PosterEndpoint: Endpoint {
     
     // MARK: - Types

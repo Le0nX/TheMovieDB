@@ -8,17 +8,42 @@
 
 import UIKit
 
+protocol MainDetailsViewControllerDelegate: class {
+    /// Метод создания фаворита
+    /// - Parameter movieId: id фильма
+    func markFavorite(movieId: Int)
+    
+    /// Метод удаления фаворита
+    /// - Parameter movieId: id фильма
+    func unmarkFavorite(movieId: Int)
+    
+    /// Метод проверки текущего фильма на принадлежность к фаворитам
+    /// - Parameters:
+    ///   - movieId: id фильма
+    ///   - complition: хендлер установки цвета кнопки
+    func checkIfFavorite(movieId: Int, complition: @escaping(Result<Bool, Error>) -> Void)
+}
+
+/// Контейнер ViewController для экрана информации о фиильме
 final class MainDetailsViewController: UIViewController {
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: MainDetailsViewControllerDelegate?
     
     // MARK: - Private Properties
     
     private let movieDetailsViewController: MovieDetailsViewController
     private let movieOverviewController: MovieOverviewScrollViewController
+    
+    private let movieId: Int
+    private var isFavorite: Bool?
         
     // MARK: - Initializers
     
     init(with model: MovieDetail) {
-                
+            
+        self.movieId = model.movieId
         self.movieDetailsViewController = MovieDetailsViewController(with: model)
         self.movieOverviewController = MovieOverviewScrollViewController(with: model.overview ?? "")
         
@@ -36,26 +61,96 @@ final class MainDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = ColorName.fontMain
         self.navigationController?.navigationBar.topItem?.title = ""
         self.view.backgroundColor = ColorName.background
+                
+        setBarItem()
         
-        addDetailsVC()
-        addOverviewVC()
+        addDetailsViewController()
+        addOverviewViewController()
+        
+        checkFavoriteStatus(movieId: movieId)
     }
     
     // MARK: - Private Methods
     
-    private func addDetailsVC() {
+    private func addDetailsViewController() {
         add(movieDetailsViewController)
-        movieDetailsViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil,
-                                               right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                               paddingRight: 0, width: 0, height: 190)
+        movieDetailsViewController.view.anchor(top: view.topAnchor,
+                                               left: view.leftAnchor,
+                                               right: view.rightAnchor,
+                                               height: 190)
     }
     
-    private func addOverviewVC() {
+    private func addOverviewViewController() {
         add(movieOverviewController)
         movieOverviewController.view.anchor(top: movieDetailsViewController.view.bottomAnchor,
-                                            left: view.leftAnchor, bottom: view.bottomAnchor,
-                                            right: view.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0,
-                                            paddingRight: 0, width: 0, height: 0)
+                                            left: view.leftAnchor,
+                                            bottom: view.bottomAnchor,
+                                            right: view.rightAnchor,
+                                            paddingTop: 5)
+    }
+    
+    private func showError(error: Error) {
+        let alert = UIAlertController(title: "Error",
+                                      message: error.localizedDescription,
+                                      preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
+    private func checkFavoriteStatus(movieId: Int) {
+        delegate?.checkIfFavorite(movieId: movieId) { [weak self] result in
+            switch result {
+            case .success(let status):
+                if status {
+                    self?.animateButton(with: ColorName.link)
+                    self?.isFavorite = status
+                } else {
+                    self?.navigationItem.rightBarButtonItem?.customView?.tintColor = ColorName.fontMain
+                    self?.isFavorite = status
+                }
+            case .failure(let error):
+                self?.showError(error: error)
+            }
+            
+        }
+    }
+    
+    private func setBarItem() {
+        let icon = ImageName.favoriteIcon
+        let iconSize = CGRect(origin: .zero, size: icon.size)
+        let iconButton = UIButton(frame: iconSize)
+        iconButton.addTarget(self, action: #selector(markFavorite), for: .touchUpInside)
+        iconButton.setBackgroundImage(icon, for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: iconButton)
+    }
+    
+    @objc private func markFavorite() {
+        guard let isFavorite = isFavorite else { return }
+        
+        if isFavorite {
+            animateButton(with: ColorName.fontMain)
+            delegate?.unmarkFavorite(movieId: movieId)
+        } else {
+            animateButton(with: ColorName.link)
+            delegate?.markFavorite(movieId: movieId)
+        }
+        self.isFavorite = !isFavorite
+    }
+    
+    private func animateButton(with color: UIColor) {
+        navigationItem.rightBarButtonItem?.customView?.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.navigationItem.rightBarButtonItem?.customView?.tintColor = color
+                        self.navigationItem.rightBarButtonItem?.customView?.transform = .identity
+                        },
+                       completion: nil)
     }
 
 }

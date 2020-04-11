@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController пустого результата поиска фильма
 final class ZeroSearchViewController: UIViewController {
     
     // MARK: - Private Properties
@@ -35,13 +36,18 @@ final class ZeroSearchViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setConstraints() {
-        errorLabel.anchor(top: view.topAnchor, left: view.leftAnchor,
-                          bottom: nil, right: nil, paddingTop: 45, paddingLeft: 24, paddingBottom: 0,
-                          paddingRight: 0, width: 0, height: 0)
+        errorLabel.anchor(top: view.topAnchor,
+                          left: view.leftAnchor,
+                          paddingTop: 45,
+                          paddingLeft: 24)
         
-        errorImageView.anchor(top: errorLabel.bottomAnchor, left: view.leftAnchor,
-                              bottom: nil, right: view.rightAnchor, paddingTop: 45, paddingLeft: 64,
-                              paddingBottom: 0, paddingRight: 64, width: 0, height: 215)
+        errorImageView.anchor(top: errorLabel.bottomAnchor,
+                              left: view.leftAnchor,
+                              right: view.rightAnchor,
+                              paddingTop: 45,
+                              paddingLeft: 64,
+                              paddingRight: 64,
+                              height: 215)
     }
 
 }

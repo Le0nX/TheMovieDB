@@ -72,7 +72,8 @@ final class MovieServiceTest: XCTestCase {
                                        popularity: 6.0,
                                        voteCount: 1,
                                        genreIds: nil,
-                                       image: nil)
+                                       image: nil,
+                                       id: 0)
         
         expectSearchFilm(service, toCompleteWith: .success([expectedData]), when: {
             let movie = Movie(posterPath: nil,
@@ -87,7 +88,8 @@ final class MovieServiceTest: XCTestCase {
                               popularity: 6.0,
                               voteCount: 1,
                               video: nil,
-                              voteAverage: nil
+                              voteAverage: nil,
+                              id: 0
             )
             let data = MovieResponse(page: 1, results: [movie], totalResults: 0, totalPages: 0)
             client.complete(for: endpoint, with: data)

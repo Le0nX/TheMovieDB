@@ -61,7 +61,10 @@ final class ProfileServiceTest: XCTestCase {
         
         // MARK: - Private Properties
         
-        private var data: UserSessionData? = UserSessionData(token: "token", expires: "", session: "session_id")
+        private var data: UserSessionData? = UserSessionData(token: "token",
+                                                             expires: "",
+                                                             session: "session_id",
+                                                             accountId: 0)
 
         // MARK: - Public methods
        

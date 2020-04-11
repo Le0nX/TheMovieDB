@@ -25,6 +25,7 @@ protocol AuthViewInput {
     func hideProgress()
 }
 
+/// Контейнер ViewController для экрана авториизации
 final class MainAuthViewController: UIViewController {
     
     // MARK: - Public Properties
@@ -54,16 +55,17 @@ final class MainAuthViewController: UIViewController {
         
         loginViewController.delegate = self
         
-        addLoginVC()
+        addLoginViewController()
     }
     
     // MARK: - Private Methods
     
-    private func addLoginVC() {
+    private func addLoginViewController() {
         add(loginViewController)
-        loginViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                                        right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                        paddingRight: 0, width: 0, height: 0)
+        loginViewController.view.anchor(top: view.topAnchor,
+                                        left: view.leftAnchor,
+                                        bottom: view.bottomAnchor,
+                                        right: view.rightAnchor)
     }
 
 }

@@ -26,6 +26,7 @@ protocol StoriesAssembler {
     func makeFavoritesStory() -> MainFavoritesViewController
 }
 
+/// Фабрика экранов
 final class StoryFabric: StoriesAssembler {
     
     // MARK: - Private Properties
@@ -53,7 +54,7 @@ final class StoryFabric: StoriesAssembler {
         let mainFavoritesView = MainFavoritesViewController(imageLoader: servicesAssembler.imageLoader())
         mainFavoritesView.loader = FavoritesLoaderImpl(WeakRef(mainFavoritesView),
                                                        favoriteService: servicesAssembler.favoriteService,
-                                                       movieService: servicesAssembler.movieService)
+                                                       accessService: servicesAssembler.accessService)
         
         return mainFavoritesView
     }
@@ -101,7 +102,9 @@ final class StoryFabric: StoriesAssembler {
     func makeSearchStory() -> MainSearchViewController {
         let mainSearchView = MainSearchViewController(imageLoader: servicesAssembler.imageLoader())
         mainSearchView.loader = SearchLoaderImpl(WeakRef(mainSearchView),
-                                                 moviesService: servicesAssembler.movieService)
+                                                 favoriteService: servicesAssembler.favoriteService,
+                                                 moviesService: servicesAssembler.movieService,
+                                                 accessService: servicesAssembler.accessService)
         
         return mainSearchView
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint валидации токена
 public struct ValidateTokenEndpoint: Endpoint {
     
     // MARK: - Types

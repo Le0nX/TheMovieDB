@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Бизнес-модель деталей фильма
 struct MovieDetail {
     let movieName: String?
     let genre: String?
@@ -18,4 +19,6 @@ struct MovieDetail {
     let poster: UIImage?
     
     let overview: String?
+    
+    let movieId: Int
 }

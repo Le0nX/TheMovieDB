@@ -14,20 +14,35 @@ protocol LoginViewDelegate: class {
     func loginAction()
 }
 
+/// Экран логина
 final class LoginView: XibView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var subHeaderLabel: UILabel!
-    @IBOutlet weak var loginTextField: TMDBTextField!
-    @IBOutlet weak var passwordTextField: TMDBTextField!
-    @IBOutlet weak var loginButton: TMDBButton!
-    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var subHeaderLabel: UILabel!
+    @IBOutlet private var loginTextField: TMDBTextField!
+    @IBOutlet private var passwordTextField: TMDBTextField!
+    @IBOutlet private var loginButton: TMDBButton!
+    @IBOutlet private var errorLabel: UILabel!
     
     // MARK: - Public Properties
     
-    weak var delegate: LoginViewDelegate!
+    var loginField: String {
+        set { loginTextField.text = newValue }
+        get { loginTextField.text ?? "" }
+    }
+    
+    var passwordField: String {
+        set { passwordTextField.text = newValue }
+        get { passwordTextField.text ?? "" }
+    }
+    
+    weak var delegate: LoginViewDelegate?
+    
+    // MARK: - Private Properties
+    
+    var lastActiveTextField: TMDBTextField?
         
     // MARK: - Initializers
     
@@ -61,17 +76,46 @@ final class LoginView: XibView {
     /// - Parameter message: ошибка
     func setErrorLabel(with message: String) {
         errorLabel.text = message
+        errorLabel.isHidden = false
+    }
+    
+    /// Метод скрытия ошибки
+    func hideError() {
+        errorLabel.isHidden = true
     }
     
     /// Хендлер того, что содержимое поля изменилось
     @objc func textFieldValueChanged(_ textField: UITextField) {
         loginButton.isEnabled = isValid(loginTextField.text ?? "", with: passwordTextField.text ?? "")
     }
+    
+    /// Метод анимации ошибки последнего активно поля ввода
+    func shakeLastActiveTextField() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        lastActiveTextField?.layer.add(animation, forKey: "shake")
+    }
+    
+    /// Метод анимации кнопки логина
+    func animateLoginButtonPress() {
+        self.loginButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 1.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.loginButton.transform = .identity
+                        },
+                       completion: nil)
+    }
                 
     // MARK: - IBAction
     
-    @IBAction func loginAction(_ sender: Any) {
-        delegate.loginAction()
+    @IBAction private func loginAction(_ sender: Any) {
+        delegate?.loginAction()
     }
     
     // MARK: - Private Methods
@@ -92,10 +136,12 @@ final class LoginView: XibView {
 extension LoginView: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        lastActiveTextField = textField as? TMDBTextField
         textField.layer.borderColor = ColorName.borderActive.cgColor
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
+        lastActiveTextField = textField as? TMDBTextField
         textField.layer.borderColor = ColorName.borderUnactive.cgColor
     }
 }

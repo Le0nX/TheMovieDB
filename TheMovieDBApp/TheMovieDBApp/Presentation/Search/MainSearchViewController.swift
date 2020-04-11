@@ -20,6 +20,7 @@ protocol SearchViewInput {
     func showError(error: Error)
 }
 
+/// Контейнер ViewController для экрана поиска фильмов
 final class MainSearchViewController: UIViewController {
     
     // MARK: - Public Properties
@@ -49,38 +50,53 @@ final class MainSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.view.alpha = 0
+        
         searchTableViewController.delegate = self
         searchViewController.delegate = self
         
-        addSearchVC()
+        addSearchViewController()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+            self.navigationController?.view.alpha = 1
+        }, completion: nil)
     }
     
     // MARK: - Private Methods
     
-    private func addSearchVC() {
+    private func addSearchViewController() {
         
         add(searchViewController)
-        searchViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                                         right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                         paddingRight: 0, width: 0, height: 0)
+        searchViewController.view.anchor(top: view.topAnchor,
+                                         left: view.leftAnchor,
+                                         bottom: view.bottomAnchor,
+                                         right: view.rightAnchor)
     }
     
-    private func addSearchTableVC() {
+    private func addSearchTableViewController() {
         add(searchTableViewController)
         
-        searchTableViewController.tableView.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                   bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 85,
-                                                   paddingLeft: 24, paddingBottom: 0, paddingRight: 24,
-                                                   width: 0, height: 0)
+        searchTableViewController.tableView.anchor(top: view.topAnchor,
+                                                   left: view.leftAnchor,
+                                                   bottom: view.bottomAnchor,
+                                                   right: view.rightAnchor,
+                                                   paddingTop: 85,
+                                                   paddingLeft: 24,
+                                                   paddingRight: 24)
     }
     
-    private func addEmptyResultVC() {
+    private func addEmptyResultViewController() {
         add(searchEmptyResultController)
         
-        searchEmptyResultController.view.anchor(top: view.topAnchor, left: view.leftAnchor,
-                                                bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 55,
-                                                paddingLeft: 0, paddingBottom: 0, paddingRight: 0,
-                                                width: 0, height: 0)
+        searchEmptyResultController.view.anchor(top: view.topAnchor,
+                                                left: view.leftAnchor,
+                                                bottom: view.bottomAnchor,
+                                                right: view.rightAnchor,
+                                                paddingTop: 55)
     }
 }
 
@@ -89,9 +105,9 @@ extension MainSearchViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         if movies.isEmpty {
             searchTableViewController.remove()
-            addEmptyResultVC()
+            addEmptyResultViewController()
         } else {
-            addSearchTableVC()
+            addSearchTableViewController()
             searchEmptyResultController.remove()
             searchTableViewController.searhTableViewSetData(movies: movies)
         }
@@ -128,7 +144,23 @@ extension MainSearchViewController: SearchViewControllerDelegate {
 extension MainSearchViewController: SearchTableViewControllerDelegate {
     
     func openDetailsViewController(with model: MovieDetail) {
-        self.navigationController?.pushViewController(MainDetailsViewController(with: model), animated: true)
+        let vc = MainDetailsViewController(with: model)
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension MainSearchViewController: MainDetailsViewControllerDelegate {
+    func checkIfFavorite(movieId: Int, complition: @escaping (Result<Bool, Error>) -> Void) {
+        loader?.checkIfFavorite(movieId: movieId, complition: complition)
+    }
+    
+    func markFavorite(movieId: Int) {
+        loader?.markFavorite(movieId: movieId)
+    }
+    
+    func unmarkFavorite(movieId: Int) {
+        loader?.unmarkFavorite(movieId: movieId)
+    }
 }

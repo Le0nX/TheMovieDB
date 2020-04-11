@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Структура картинок в проекте
 struct ImageName {
     static let loginEye = #imageLiteral(resourceName: "LoginEye")
     
@@ -25,5 +26,11 @@ struct ImageName {
     
     static let listIcon = #imageLiteral(resourceName: "listIcon")
     
+    static let collectionIcon = #imageLiteral(resourceName: "collectionIcom")
+    
     static let noMoviesError = #imageLiteral(resourceName: "NoMoviesError")
+    
+    static let backSpace = #imageLiteral(resourceName: "backSpace")
+    
+    static let popCorn = #imageLiteral(resourceName: "popCorn")
 }

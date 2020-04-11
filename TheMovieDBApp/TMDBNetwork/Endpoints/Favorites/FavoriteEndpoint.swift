@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint поиска по фаворитам
 public struct FavoriteEndpoint: Endpoint {
     
     // MARK: - Types

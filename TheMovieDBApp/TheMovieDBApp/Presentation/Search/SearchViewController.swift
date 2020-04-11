@@ -18,6 +18,7 @@ protocol SearchViewControllerDelegate: class {
     func hideSearchResults()
 }
 
+/// ViewController поиска фильмов
 final class SearchViewController: UIViewController {
     
     // MARK: - Public Properties
@@ -43,6 +44,17 @@ final class SearchViewController: UIViewController {
     
     // MARK: - UIViewController(*)
     
+    override func loadView() {
+        super.loadView()
+        self.view = self.containerView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         containerView.searchTextField.addTarget(self,
@@ -51,17 +63,7 @@ final class SearchViewController: UIViewController {
         containerView.searchTextField.addTarget(self,
                                                 action: #selector(textFieldShouldClear(textField:)),
                                                 for: .editingDidEnd)
-    }
-    
-    override func loadView() {
-        super.loadView()
-        self.view = self.containerView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                
-        self.hideKeyboardWhenTappedAround()
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -81,9 +83,7 @@ final class SearchViewController: UIViewController {
         
         isSearching = true
         UIView.animate(withDuration: 0.5) {
-            self.containerView.headerLabel.alpha = 0
-            self.containerView.imageView.alpha = 0
-            self.containerView.topConstraint.constant -= 150
+            self.containerView.showUP()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
@@ -95,9 +95,7 @@ final class SearchViewController: UIViewController {
         
         isSearching = false
         UIView.animate(withDuration: 0.5) {
-            self.containerView.headerLabel.alpha = 1
-            self.containerView.imageView.alpha = 1
-            self.containerView.topConstraint.constant += 150
+            self.containerView.showDown()
             self.delegate?.hideSearchResults()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint поиска фильмов
 public struct SearchFilmEndpoint: Endpoint {
     
     // MARK: - Types

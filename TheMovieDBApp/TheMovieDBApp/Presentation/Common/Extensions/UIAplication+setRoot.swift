@@ -14,22 +14,26 @@ extension UIApplication {
     /// - Parameter viewController: viewcontroller, который будет сделан рутовым
     public static func setRootView(_ viewController: UIViewController) {
         
-        let snapshot = (UIApplication.shared.keyWindow?.snapshotView(afterScreenUpdates: true))!
+        guard let root = UIApplication.shared.keyWindow else {
+            return
+        }
+        
+        let snapshot = (root.snapshotView(afterScreenUpdates: true))!
         viewController.view.addSubview(snapshot)
         
         /// маска анимаций
         let options: UIView.AnimationOptions = .transitionCrossDissolve
 
         /// продолжительность анимации
-        let duration: TimeInterval = 0.3
+        let duration: TimeInterval = 0.6
 
         /// создает транизитную анимацию
-        UIView.transition(with: UIApplication.shared.keyWindow!,
+        UIView.transition(with: root,
                           duration: duration,
                           options: options,
                           animations: { snapshot.layer.opacity = 0 },
                           completion: { _ in
-                                UIApplication.shared.keyWindow?.rootViewController = viewController
+                                root.rootViewController = viewController
         })
     }
 }

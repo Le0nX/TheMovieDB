@@ -20,6 +20,7 @@ final class URLBuilder {
     enum ParameterEnconding {
         case defaultEncoding
         case jsonEncoding
+        case compositeEncoding
     }
     
     // MARK: - Public methods
@@ -51,6 +52,12 @@ final class URLBuilder {
         switch parameterEncoding {
         case .defaultEncoding:
             request.httpBody = params.percentEncode()
+        case .compositeEncoding:
+            if let bodyParams = params["body"] as? [String: Any] {
+                request.setJSONContentType()
+                let jsonData = try? JSONSerialization.data(withJSONObject: bodyParams)
+                request.httpBody = jsonData
+            }
         case .jsonEncoding:
             request.setJSONContentType()
             let jsonData = try JSONSerialization.data(withJSONObject: params)
@@ -79,6 +86,13 @@ final class URLBuilder {
                 queryItems.append(contentsOf: params.map {
                     let item = URLQueryItem(name: "\($0)", value: "\($1)")
                     return item
+                })
+            }
+        case .compositeEncoding:
+            if let params = params,
+                let queryParams = params["query"] as? [String: Any] {
+                queryItems.append(contentsOf: queryParams.map {
+                    URLQueryItem(name: "\($0)", value: "\($1)")
                 })
             }
         case .jsonEncoding:

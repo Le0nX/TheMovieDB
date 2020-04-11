@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Бизнес-модель фильма
 struct MovieEntity: Equatable {
     let title: String
     let originalTitle: String
@@ -16,4 +17,5 @@ struct MovieEntity: Equatable {
     let voteCount: Int?
     let genreIds: [Int]?
     let image: String?
+    let id: Int
 }

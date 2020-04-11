@@ -13,7 +13,10 @@ final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemLeak() {
         let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
-        let loader = SearchLoaderImpl(searchVc, moviesService: ServiceFabric().movieService)
+        let loader = SearchLoaderImpl(searchVc,
+                                      favoriteService: ServiceFabric().favoriteService,
+                                      moviesService: ServiceFabric().movieService,
+                                      accessService: ServiceFabric().accessService)
         searchVc.loader = loader
         
         addTeardownBlock { [weak searchVc] in
@@ -24,7 +27,10 @@ final class WeakRefTest: XCTestCase {
     
     func test_searchVCmemNoLeak() {
         let searchVc = MainSearchViewController(imageLoader: ImageLoaderMock())
-        let loader = SearchLoaderImpl(WeakRef(searchVc), moviesService: ServiceFabric().movieService)
+        let loader = SearchLoaderImpl(WeakRef(searchVc),
+                                      favoriteService: ServiceFabric().favoriteService,
+                                      moviesService: ServiceFabric().movieService,
+                                      accessService: ServiceFabric().accessService)
         searchVc.loader = loader
         
         trackForMemoryLeaks(searchVc)

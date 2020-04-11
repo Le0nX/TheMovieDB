@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Конфигурация APIClient'a
 public struct APIClientConfig {
     let session: URLSession
     let baseUrl: URL

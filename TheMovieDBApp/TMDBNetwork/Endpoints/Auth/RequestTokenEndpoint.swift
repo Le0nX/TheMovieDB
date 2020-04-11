@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint запроса токена
 public struct RequestTokenEndpoint: Endpoint {
     
     // MARK: - Types

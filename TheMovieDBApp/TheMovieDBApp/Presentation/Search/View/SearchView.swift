@@ -8,14 +8,22 @@
 
 import UIKit
 
+/// Экран поиска  с текстфиелдом
 final class SearchView: XibView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var searchTextField: TMDBSearchTextField!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet public var searchTextField: TMDBSearchTextField!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var topConstraint: NSLayoutConstraint!
+    
+    // MARK: - Public Properties
+    
+    var header: String {
+        set { headerLabel.text = newValue }
+        get { headerLabel.text ?? "" }
+    }
     
     // MARK: - Initializers
     
@@ -33,5 +41,19 @@ final class SearchView: XibView {
     
     func setup() {
         contentView.backgroundColor = ColorName.background
+    }
+    
+    /// Поднимаем текстфиелд вверх и скрываем все остальное
+    func showUP() {
+        headerLabel.alpha = 0
+        imageView.alpha = 0
+        topConstraint.constant -= 150
+    }
+    
+    /// Опускаем текстфиелд вниз и показываем все остальное
+    func showDown() {
+        headerLabel.alpha = 1
+        imageView.alpha = 1
+        topConstraint.constant += 150
     }
 }

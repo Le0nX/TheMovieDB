@@ -23,6 +23,7 @@ protocol AccountViewInput {
     func hideProgress()
 }
 
+/// Контейнер-ViewController экрана профиля
 final class MainAccountViewController: UIViewController {
     
     // MARK: - Public Properties
@@ -51,18 +52,19 @@ final class MainAccountViewController: UIViewController {
         super.viewDidLoad()
         
         accountViewController.delegate = self
-        addAccountVC()
+        addAccountViewController()
         
         loader?.updateProfile()
     }
     
     // MARK: - Private Methods
     
-    private func addAccountVC() {
+    private func addAccountViewController() {
         add(accountViewController)
-        accountViewController.view.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                                          right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0,
-                                          paddingRight: 0, width: 0, height: 0)
+        accountViewController.view.anchor(top: view.topAnchor,
+                                          left: view.leftAnchor,
+                                          bottom: view.bottomAnchor,
+                                          right: view.rightAnchor)
     }
 
 }

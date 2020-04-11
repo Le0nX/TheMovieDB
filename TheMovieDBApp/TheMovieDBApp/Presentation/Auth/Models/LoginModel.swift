@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// DTO для передачи между дочерними контроллерами
 struct LoginModel {
     let login: String
     let password: String

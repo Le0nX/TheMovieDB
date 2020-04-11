@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint сессии
 public struct SessionEndpoint: Endpoint {
     
     // MARK: - Types

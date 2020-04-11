@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController c overview информацией о фильме
 final class MovieOverviewScrollViewController: UIViewController {
         
     // MARK: - Private Properties
@@ -42,9 +43,12 @@ final class MovieOverviewScrollViewController: UIViewController {
         
         view.addSubview(textView)
         
-        textView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor,
-                        right: view.rightAnchor, paddingTop: 0, paddingLeft: 24, paddingBottom: 0,
-                        paddingRight: 24, width: 0, height: 0)
+        textView.anchor(top: view.topAnchor,
+                        left: view.leftAnchor,
+                        bottom: view.bottomAnchor,
+                        right: view.rightAnchor,
+                        paddingLeft: 24,
+                        paddingRight: 24)
 
     }
 

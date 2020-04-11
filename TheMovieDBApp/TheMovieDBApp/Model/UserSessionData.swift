@@ -8,8 +8,10 @@
 
 import Foundation
 
+/// бизнес-модель пользовательских данных о текущей сессии
 struct UserSessionData: Equatable {
     let token: String
     let expires: String
     let session: String
+    let accountId: Int
 }

@@ -14,6 +14,7 @@ protocol AcocuntViewControllerDelegate: class {
     func didPressedLogout()
 }
 
+/// ViewController профиля
 final class AccountViewController: UIViewController {
         
     // MARK: - Constants
@@ -61,13 +62,17 @@ final class AccountViewController: UIViewController {
     /// Метод установки данных пользователя пришедших по сети
     /// - Parameter profile: модель профиля
     func setRemoteProfileData(profile: Profile) {
-        self.containerView.nameLabel.text = profile.name
-        self.containerView.usernameLabel.text = profile.username
-        self.containerView.avatarImage.image = UIImage(data: profile.image)
+        self.containerView.name = profile.name
+        self.containerView.userName = profile.username
+        self.containerView.avatar = UIImage(data: profile.image)
     }
 }
 
 extension AccountViewController: AccountViewDelegate {
+    func showPinCodeViewController() {
+        navigationController?.pushViewController(MainPinCodeViewController(), animated: true)
+    }
+    
     func logout() {
         delegate?.didPressedLogout()
     }

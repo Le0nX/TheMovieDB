@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Датасоурс коллекции экрана избранного
 final class CollectionViewDataSource<Model, Cell>: NSObject,
 UICollectionViewDataSource where Cell: UICollectionViewCell {
     

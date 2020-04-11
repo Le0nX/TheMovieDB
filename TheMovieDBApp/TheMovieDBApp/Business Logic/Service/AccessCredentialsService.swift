@@ -62,6 +62,7 @@ final class AccessCredentials: AccessCredentialsService {
         keychain["token"] = nil
         keychain["expires"] = nil
         keychain["sessionId"] = nil
+        keychain["accountId"] = nil
     }
         
     // MARK: - Private Methods
@@ -69,16 +70,19 @@ final class AccessCredentials: AccessCredentialsService {
     private func obtainData() -> UserSessionData? {
         guard let token = keychain["token"],
             let expires = keychain["expires"],
-            let sessionId = keychain["sessionId"] else { return nil }
+            let sessionId = keychain["sessionId"],
+            let accountId = keychain["accountId"] else { return nil }
         
         return UserSessionData(token: token,
                                expires: expires,
-                               session: sessionId)
+                               session: sessionId,
+                               accountId: Int(accountId)!)
     }
     
     private func saveData(data: UserSessionData) {
         keychain["token"] = data.token
         keychain["expires"] = data.expires
         keychain["sessionId"] = data.session
+        keychain["accountId"] = String(data.accountId)
     }
 }

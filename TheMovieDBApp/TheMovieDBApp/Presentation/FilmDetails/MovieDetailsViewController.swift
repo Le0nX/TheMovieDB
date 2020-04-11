@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewContoller подробной информации о фильме
 final class MovieDetailsViewController: UIViewController {
 
     // MARK: - Private Properties
@@ -41,12 +42,12 @@ final class MovieDetailsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setup() {
-        self.containerView.movieNameLabel.text = data.movieName
-        self.containerView.movieGanreLabel.text = data.genre
-        self.containerView.movieOriginalNameLabel.text = data.movieOriginalName
-        self.containerView.popularityLabel.text = data.popularity
-        self.containerView.voteLabel.text = data.votes
-        self.containerView.posterImage.image = data.poster
+        self.containerView.movieName = data.movieName
+        self.containerView.movieGenre = data.genre
+        self.containerView.movieOriginalName = data.movieOriginalName
+        self.containerView.popularity = data.popularity
+        self.containerView.vote = data.votes
+        self.containerView.poster = data.poster
     }
 
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Датасоурс таблицы поиска фильмов
 final class TableViewDataSource<Model, Cell>: NSObject, UITableViewDataSource where Cell: UITableViewCell {
     
     // MARK: - Types
