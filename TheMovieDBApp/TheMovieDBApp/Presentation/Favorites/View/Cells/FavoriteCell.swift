@@ -20,7 +20,7 @@ final class FavoriteCell: UICollectionViewCell {
     @IBOutlet private var popularityLabel: UILabel!
     @IBOutlet private var voteCountLabel: UILabel!
     
-    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView!
     
     // MARK: - Public Properties
         

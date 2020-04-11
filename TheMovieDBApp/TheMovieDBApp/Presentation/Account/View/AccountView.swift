@@ -22,12 +22,27 @@ final class AccountView: XibView {
     
     // MARK: - IBOutlet
     
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var avatarImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet private var logoutButton: UIButton!
+    @IBOutlet private var avatarImage: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var usernameLabel: UILabel!
     
     // MARK: - Public Properties
+    
+    var name: String {
+        set { nameLabel.text = newValue }
+        get { nameLabel.text ?? "" }
+    }
+    
+    var userName: String {
+        set { nameLabel.text = newValue }
+        get { nameLabel.text ?? "" }
+    }
+    
+    var avatar: UIImage? {
+        set { avatarImage.image = newValue }
+        get { avatarImage.image }
+    }
     
     weak var delegate: AccountViewDelegate?
         
