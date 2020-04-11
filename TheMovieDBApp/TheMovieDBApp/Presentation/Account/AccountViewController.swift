@@ -69,7 +69,7 @@ final class AccountViewController: UIViewController {
 }
 
 extension AccountViewController: AccountViewDelegate {
-    func showPinCodeVC() {
+    func showPinCodeViewController() {
         navigationController?.pushViewController(MainPinCodeViewController(), animated: true)
     }
     

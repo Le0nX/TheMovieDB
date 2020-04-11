@@ -52,14 +52,14 @@ final class MainAccountViewController: UIViewController {
         super.viewDidLoad()
         
         accountViewController.delegate = self
-        addAccountVC()
+        addAccountViewController()
         
         loader?.updateProfile()
     }
     
     // MARK: - Private Methods
     
-    private func addAccountVC() {
+    private func addAccountViewController() {
         add(accountViewController)
         accountViewController.view.anchor(top: view.topAnchor,
                                           left: view.leftAnchor,

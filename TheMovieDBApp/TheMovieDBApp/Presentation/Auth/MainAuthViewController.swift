@@ -55,12 +55,12 @@ final class MainAuthViewController: UIViewController {
         
         loginViewController.delegate = self
         
-        addLoginVC()
+        addLoginViewController()
     }
     
     // MARK: - Private Methods
     
-    private func addLoginVC() {
+    private func addLoginViewController() {
         add(loginViewController)
         loginViewController.view.anchor(top: view.topAnchor,
                                         left: view.leftAnchor,

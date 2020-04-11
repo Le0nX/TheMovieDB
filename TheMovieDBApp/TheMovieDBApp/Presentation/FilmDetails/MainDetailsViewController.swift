@@ -64,15 +64,15 @@ final class MainDetailsViewController: UIViewController {
                 
         setBarItem()
         
-        addDetailsVC()
-        addOverviewVC()
+        addDetailsViewController()
+        addOverviewViewController()
         
         checkFavoriteStatus(movieId: movieId)
     }
     
     // MARK: - Private Methods
     
-    private func addDetailsVC() {
+    private func addDetailsViewController() {
         add(movieDetailsViewController)
         movieDetailsViewController.view.anchor(top: view.topAnchor,
                                                left: view.leftAnchor,
@@ -80,7 +80,7 @@ final class MainDetailsViewController: UIViewController {
                                                height: 190)
     }
     
-    private func addOverviewVC() {
+    private func addOverviewViewController() {
         add(movieOverviewController)
         movieOverviewController.view.anchor(top: movieDetailsViewController.view.bottomAnchor,
                                             left: view.leftAnchor,

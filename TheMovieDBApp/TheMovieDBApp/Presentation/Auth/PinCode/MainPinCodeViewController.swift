@@ -22,13 +22,13 @@ final class MainPinCodeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = ColorName.background
         
-        addProfileVC()
-        addPincodeVC()
+        addProfileViewController()
+        addPincodeViewController()
     }
     
     // MARK: - Private Methods
     
-    private func addProfileVC() {
+    private func addProfileViewController() {
         add(profileViewController)
         profileViewController.view.anchor(top: view.topAnchor,
                                           left: view.leftAnchor,
@@ -36,7 +36,7 @@ final class MainPinCodeViewController: UIViewController {
                                           height: 95)
     }
     
-    private func addPincodeVC() {
+    private func addPincodeViewController() {
         add(pinCodeViewController)
         pinCodeViewController.view.anchor(top: profileViewController.view.bottomAnchor,
                                           left: view.leftAnchor,

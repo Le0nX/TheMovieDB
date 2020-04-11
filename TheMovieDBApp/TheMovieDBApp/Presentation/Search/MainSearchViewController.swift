@@ -55,7 +55,7 @@ final class MainSearchViewController: UIViewController {
         searchTableViewController.delegate = self
         searchViewController.delegate = self
         
-        addSearchVC()
+        addSearchViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +68,7 @@ final class MainSearchViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func addSearchVC() {
+    private func addSearchViewController() {
         
         add(searchViewController)
         searchViewController.view.anchor(top: view.topAnchor,
@@ -77,7 +77,7 @@ final class MainSearchViewController: UIViewController {
                                          right: view.rightAnchor)
     }
     
-    private func addSearchTableVC() {
+    private func addSearchTableViewController() {
         add(searchTableViewController)
         
         searchTableViewController.tableView.anchor(top: view.topAnchor,
@@ -89,7 +89,7 @@ final class MainSearchViewController: UIViewController {
                                                    paddingRight: 24)
     }
     
-    private func addEmptyResultVC() {
+    private func addEmptyResultViewController() {
         add(searchEmptyResultController)
         
         searchEmptyResultController.view.anchor(top: view.topAnchor,
@@ -105,9 +105,9 @@ extension MainSearchViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         if movies.isEmpty {
             searchTableViewController.remove()
-            addEmptyResultVC()
+            addEmptyResultViewController()
         } else {
-            addSearchTableVC()
+            addSearchTableViewController()
             searchEmptyResultController.remove()
             searchTableViewController.searhTableViewSetData(movies: movies)
         }

@@ -67,8 +67,8 @@ final class MainFavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        addSearchVC()
-        addFavoritesCollectionVC()
+        addSearchViewController()
+        addFavoritesCollectionViewController()
         updatePresentationStyle()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: selectedStyle.buttonImage,
@@ -84,7 +84,7 @@ final class MainFavoritesViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func addSearchVC() {
+    private func addSearchViewController() {
         
         add(searchViewController)
         searchViewController.view.anchor(top: view.topAnchor,
@@ -93,7 +93,7 @@ final class MainFavoritesViewController: UIViewController {
                                          right: view.rightAnchor)
     }
     
-    private func addFavoritesCollectionVC() {
+    private func addFavoritesCollectionViewController() {
         add(favoritesCollectionViewController)
         
         favoritesCollectionViewController.collection.anchor(
@@ -106,7 +106,7 @@ final class MainFavoritesViewController: UIViewController {
                                                    paddingRight: 24)
     }
     
-    private func addEmptyResultVC() {
+    private func addEmptyResultViewController() {
         add(favoritesEmptyResultController)
         
         favoritesEmptyResultController.view.anchor(top: view.topAnchor,
@@ -135,9 +135,9 @@ extension MainFavoritesViewController: SearchViewInput {
     func setMoviesData(movies: [MovieEntity]) {
         if movies.isEmpty {
             favoritesCollectionViewController.remove()
-            addEmptyResultVC()
+            addEmptyResultViewController()
         } else {
-            addFavoritesCollectionVC()
+            addFavoritesCollectionViewController()
             favoritesEmptyResultController.remove()
             favoritesCollectionViewController.setData(movies: movies)
         }

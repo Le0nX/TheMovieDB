@@ -99,7 +99,8 @@ final public class LoginService: AuthService {
         }
     }
     
-    private func fetchProfileMetadata(for session: String,
+    private func fetchProfileMetadata(for
+                                      session: String,
                                       token: ValidateToken,
                                       completion: @escaping (Result) -> Void) {
         
