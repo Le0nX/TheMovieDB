@@ -14,12 +14,12 @@ final class DetailsModelConverter {
     // MARK: - Public methods
     
     static func toDetailsModel(from cell: MoviesCell, with overview: String?) -> MovieDetail {
-        MovieDetail(movieName: cell.movieName.text,
-                    genre: cell.ganreLabel.text,
-                    movieOriginalName: cell.movieOriginalName.text,
-                    popularity: cell.popularityLabel.text,
-                    votes: cell.voteCountLabel.text,
-                    poster: cell.posterImage.image,
+        MovieDetail(movieName: cell.movieNameLabel,
+                    genre: cell.genre,
+                    movieOriginalName: cell.movieOriginalNameLabel,
+                    popularity: cell.popularity,
+                    votes: cell.vote,
+                    poster: cell.poster,
                     overview: overview,
                     movieId: cell.movieId)
     }

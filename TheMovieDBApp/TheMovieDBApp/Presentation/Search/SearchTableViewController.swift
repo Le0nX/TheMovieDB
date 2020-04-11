@@ -90,14 +90,14 @@ final class SearchTableViewController: UITableViewController {
             reuseIdentifier: "MoviesCell"
         ) { [weak self] movie, cell in
             cell.movieId = movie.id
-            cell.movieName.text = movie.title
-            cell.movieOriginalName.text = movie.originalTitle
-            cell.popularityLabel.text = String(movie.popularity ?? 0)
+            cell.movieNameLabel = movie.title
+            cell.movieOriginalNameLabel = movie.originalTitle
+            cell.popularity = String(movie.popularity ?? 0)
 
             if let poster = movie.image {
                 let uuid = self?.imageLoader.fetchImage(for: poster) { data in
                     if let data = data {
-                        cell.posterImage.image = DataConverter.toImage(from: data)
+                        cell.poster = DataConverter.toImage(from: data)
                     }
                 }
                 
