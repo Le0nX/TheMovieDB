@@ -13,7 +13,7 @@ final class PinIndicator: UIView {
 
     // MARK: - UIViewController(*)
     
-    override func draw(_ rect: CGRect) {
+    override func layoutSubviews() {
         layer.cornerRadius = frame.width / 2
         clipsToBounds = true
     }
