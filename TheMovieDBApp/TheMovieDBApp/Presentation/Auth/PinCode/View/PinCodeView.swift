@@ -29,7 +29,7 @@ final class PinCodeView: XibView {
     
     // MARK: - Public Properties
     
-    weak var delegate: PinCodeViewDelegate!
+    weak var delegate: PinCodeViewDelegate?
         
     // MARK: - Initializers
     
