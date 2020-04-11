@@ -83,9 +83,7 @@ final class SearchViewController: UIViewController {
         
         isSearching = true
         UIView.animate(withDuration: 0.5) {
-            self.containerView.headerLabel.alpha = 0
-            self.containerView.imageView.alpha = 0
-            self.containerView.topConstraint.constant -= 150
+            self.containerView.showUP()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
         }
@@ -97,9 +95,7 @@ final class SearchViewController: UIViewController {
         
         isSearching = false
         UIView.animate(withDuration: 0.5) {
-            self.containerView.headerLabel.alpha = 1
-            self.containerView.imageView.alpha = 1
-            self.containerView.topConstraint.constant += 150
+            self.containerView.showDown()
             self.delegate?.hideSearchResults()
             self.containerView.layoutIfNeeded()
             self.view.layoutIfNeeded()
