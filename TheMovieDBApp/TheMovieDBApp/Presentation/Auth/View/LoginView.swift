@@ -98,7 +98,7 @@ final class LoginView: XibView {
                 
     // MARK: - IBAction
     
-    @IBAction func loginAction(_ sender: Any) {
+    @IBAction private func loginAction(_ sender: Any) {
         delegate?.loginAction()
     }
     
