@@ -55,8 +55,9 @@ public struct MarkAsFavoriteEndpoint: Endpoint {
             throw APIError.invalidData
         }
         
+        let decoder = JSONDecoder()
+        
         if response.statusCode != 201 {
-            let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let content = try decoder.decode(ErrorResponse.self, from: data)
             switch content.statusCode {
@@ -67,7 +68,6 @@ public struct MarkAsFavoriteEndpoint: Endpoint {
             }
         }
         
-        let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let content = try decoder.decode(Content.self, from: data)
         return content
