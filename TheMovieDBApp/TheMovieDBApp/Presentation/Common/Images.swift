@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Структура картинок в проекте
 struct ImageName {
     static let loginEye = #imageLiteral(resourceName: "LoginEye")
     

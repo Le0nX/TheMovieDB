@@ -21,6 +21,7 @@ protocol PinCodeViewDelegate: class {
     func showErrorMessage(_ message: String)
 }
 
+/// Класс отображения экрана PinCode
 final class PinCodeView: XibView {
 
     // MARK: - IBOutlet

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint профиля
 public struct ProfileEndpoint: Endpoint {
     
     // MARK: - Types

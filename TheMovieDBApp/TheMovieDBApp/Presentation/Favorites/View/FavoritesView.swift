@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Экран избранного
 final class FavoritesView: XibView {
     @IBOutlet weak var zeroView: ZeroFavoritesView!
     

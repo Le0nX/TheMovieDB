@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// DTO MarkAsFavoriteEndpoint'a
 public struct MarkAsFavoriteResponse: Decodable {
     let statusCode: Int
     let statusMessage: String

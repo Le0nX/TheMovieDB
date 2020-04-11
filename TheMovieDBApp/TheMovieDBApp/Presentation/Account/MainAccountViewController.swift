@@ -23,6 +23,7 @@ protocol AccountViewInput {
     func hideProgress()
 }
 
+/// Контейнер-ViewController экрана профиля
 final class MainAccountViewController: UIViewController {
     
     // MARK: - Public Properties

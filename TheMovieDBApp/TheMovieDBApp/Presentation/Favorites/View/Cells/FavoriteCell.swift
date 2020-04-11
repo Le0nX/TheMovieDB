@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Ячейка избранного
 final class FavoriteCell: UICollectionViewCell {
     
     // MARK: - IBOutlet

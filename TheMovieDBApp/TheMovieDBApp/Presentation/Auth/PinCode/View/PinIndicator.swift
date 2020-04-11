@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Индикатор заполнения пинкода
 final class PinIndicator: UIView {
 
     // MARK: - UIViewController(*)

@@ -20,6 +20,7 @@ protocol SearchViewInput {
     func showError(error: Error)
 }
 
+/// Контейнер ViewController для экрана поиска фильмов
 final class MainSearchViewController: UIViewController {
     
     // MARK: - Public Properties

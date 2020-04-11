@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// FlowLayout для вида таблицы
 final class TableContentLayoutFlowDelegate: NSObject, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,

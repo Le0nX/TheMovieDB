@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// DTO MovieEndpoint'a
 public struct MovieResponse: Decodable {
     public let page: Int?
     public let results: [Movie]?
@@ -15,6 +16,7 @@ public struct MovieResponse: Decodable {
     public let totalPages: Int?
 }
 
+/// DTO фильма
 public struct Movie: Decodable {
     public let posterPath: String?
     public let adult: Bool?

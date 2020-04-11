@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController пустого результата поиска фильма
 final class ZeroSearchViewController: UIViewController {
     
     // MARK: - Private Properties

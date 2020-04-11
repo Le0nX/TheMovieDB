@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController нулевого результата в избранном с анимацией
 final class ZeroFavoritesViewController: UIViewController {
     
     // MARK: - Private Properties

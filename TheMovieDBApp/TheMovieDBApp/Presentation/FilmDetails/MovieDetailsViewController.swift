@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewContoller подробной информации о фильме
 final class MovieDetailsViewController: UIViewController {
 
     // MARK: - Private Properties

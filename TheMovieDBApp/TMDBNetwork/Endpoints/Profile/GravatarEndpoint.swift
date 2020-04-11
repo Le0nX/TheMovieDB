@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint поиска картинки в Gravatar
 public struct GravatarEndpoint: Endpoint {
     
     // MARK: - Types

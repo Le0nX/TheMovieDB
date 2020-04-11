@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Бизнес-модель деталей фильма
 struct MovieDetail {
     let movieName: String?
     let genre: String?

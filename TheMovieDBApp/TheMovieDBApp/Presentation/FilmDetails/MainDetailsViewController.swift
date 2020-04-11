@@ -24,6 +24,7 @@ protocol MainDetailsViewControllerDelegate: class {
     func checkIfFavorite(movieId: Int, complition: @escaping(Result<Bool, Error>) -> Void)
 }
 
+/// Контейнер ViewController для экрана информации о фиильме
 final class MainDetailsViewController: UIViewController {
     
     // MARK: - Public Properties

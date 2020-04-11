@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Контейнер ViewController для экрана пинкода
 final class MainPinCodeViewController: UIViewController {
 
     // MARK: - Private Properties

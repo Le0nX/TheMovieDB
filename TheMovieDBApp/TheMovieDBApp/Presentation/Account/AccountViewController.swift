@@ -14,6 +14,7 @@ protocol AcocuntViewControllerDelegate: class {
     func didPressedLogout()
 }
 
+/// ViewController профиля
 final class AccountViewController: UIViewController {
         
     // MARK: - Constants

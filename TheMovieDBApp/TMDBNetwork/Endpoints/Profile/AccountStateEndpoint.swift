@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint стейта фильма. Необходим для определения принадлежности к избьранному
 public struct AccountStateEndpoint: Endpoint {
     
     // MARK: - Types

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Ячейка фильма
 final class MoviesCell: UITableViewCell {
     
     // MARK: - Constants

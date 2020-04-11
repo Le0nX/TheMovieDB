@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewConrtoller экрана пинкода
 final class PinCodeViewController: UIViewController {
     
     // MARK: - Constants

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Класс кастомной кнопки клавиатуры PinCode
 final class KeyboardButton: UIButton {
     
     // MARK: - Initialization

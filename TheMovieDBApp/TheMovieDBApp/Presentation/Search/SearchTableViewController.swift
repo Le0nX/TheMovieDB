@@ -16,6 +16,7 @@ protocol SearchTableViewControllerDelegate: class {
     func openDetailsViewController(with model: MovieDetail)
 }
 
+/// ViewController таблицы результатов поиска
 final class SearchTableViewController: UITableViewController {
     
     // MARK: - Public Properties

@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Конввертер ячейки в модель для экрана деталей о фильме
 final class DetailsModelConverter {
     
     // MARK: - Public methods

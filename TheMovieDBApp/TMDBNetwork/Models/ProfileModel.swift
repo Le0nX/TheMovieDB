@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// DTO профиля 
 public struct ProfileDTO: Decodable {
     public struct Avatar: Decodable {
         public let gravatar: Gravatar?

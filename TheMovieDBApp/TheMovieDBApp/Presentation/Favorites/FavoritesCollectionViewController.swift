@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController коллекции избранного
 final class FavoritesCollectionViewController: UIViewController {
          
     // MARK: - Public Properties

@@ -18,6 +18,7 @@ protocol SearchViewControllerDelegate: class {
     func hideSearchResults()
 }
 
+/// ViewController поиска фильмов
 final class SearchViewController: UIViewController {
     
     // MARK: - Public Properties

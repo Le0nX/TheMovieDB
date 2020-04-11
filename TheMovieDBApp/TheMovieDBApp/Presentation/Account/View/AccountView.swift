@@ -17,6 +17,7 @@ protocol AccountViewDelegate: class {
     func showPinCodeVC()
 }
 
+/// Экран профиля
 final class AccountView: XibView {
     
     // MARK: - IBOutlet

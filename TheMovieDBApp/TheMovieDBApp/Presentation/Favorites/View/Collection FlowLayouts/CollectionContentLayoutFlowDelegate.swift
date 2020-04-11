@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// FlowLayout для вида коллекции
 final class CollectionContentLayoutFlowDelegate: NSObject, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,

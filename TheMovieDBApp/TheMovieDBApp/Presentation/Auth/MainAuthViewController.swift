@@ -25,6 +25,7 @@ protocol AuthViewInput {
     func hideProgress()
 }
 
+/// Контейнер ViewController для экрана авториизации
 final class MainAuthViewController: UIViewController {
     
     // MARK: - Public Properties

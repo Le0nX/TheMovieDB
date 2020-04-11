@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Endpoint добавления/удаления фильма в избранные
 public struct MarkAsFavoriteEndpoint: Endpoint {
     
     // MARK: - Types

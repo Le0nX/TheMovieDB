@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// ViewController поиска по избранному
 final class SearchFavoritesViewController: UIViewController {
     
     // MARK: - Private Properties

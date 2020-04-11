@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Экран подробной информации о фильме
 final class MovieDetails: XibView {
     
     // MARK: - IBOutlet

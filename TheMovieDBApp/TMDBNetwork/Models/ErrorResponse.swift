@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// DTO ошибки
 public struct ErrorResponse: Decodable {
     let statusCode: Int
     let statusMessage: String

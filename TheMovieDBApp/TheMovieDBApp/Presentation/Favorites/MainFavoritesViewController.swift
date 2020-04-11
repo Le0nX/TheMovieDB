@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Контейнер-ViewController избранного
 final class MainFavoritesViewController: UIViewController {
     
     // MARK: - Type

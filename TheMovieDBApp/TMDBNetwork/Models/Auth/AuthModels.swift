@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// бизнес-модель request-token
 public struct RequestToken: Decodable {
     
     public let success: Bool
@@ -20,6 +21,7 @@ public struct RequestToken: Decodable {
 
 }
 
+/// бизнес-модель validate-token
 public struct ValidateToken: Decodable {
     
     public let success: Bool
@@ -28,6 +30,7 @@ public struct ValidateToken: Decodable {
 
 }
 
+/// бизнес-модель юзер-сессии
 public struct UserSession: Decodable, Equatable {
     
     public let success: Bool

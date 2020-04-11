@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Экран поиска  с текстфиелдом
 final class SearchView: XibView {
     
     // MARK: - IBOutlet

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Структура цветов в проекте
 struct ColorName {
     static let background = #colorLiteral(red: 0.09803921569, green: 0.1019607843, blue: 0.1450980392, alpha: 1)
     

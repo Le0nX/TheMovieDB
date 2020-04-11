@@ -26,6 +26,7 @@ protocol StoriesAssembler {
     func makeFavoritesStory() -> MainFavoritesViewController
 }
 
+/// Фабрика экранов
 final class StoryFabric: StoriesAssembler {
     
     // MARK: - Private Properties

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Кастомная кнопка разлогина 
 final class TMDBButton: UIButton {
 
     // MARK: - Initializers

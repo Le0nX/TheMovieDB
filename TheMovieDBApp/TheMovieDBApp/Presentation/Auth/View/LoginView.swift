@@ -14,6 +14,7 @@ protocol LoginViewDelegate: class {
     func loginAction()
 }
 
+/// Экран логина
 final class LoginView: XibView {
     
     // MARK: - IBOutlet

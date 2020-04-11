@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// ViewController c overview информацией о фильме
 final class MovieOverviewScrollViewController: UIViewController {
         
     // MARK: - Private Properties
