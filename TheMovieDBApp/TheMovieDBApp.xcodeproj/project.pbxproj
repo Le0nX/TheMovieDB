@@ -139,6 +139,10 @@
 		14636545242AEBC6001F34E6 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14636544242AEBC6001F34E6 /* Helpers.swift */; };
 		14636546242AF0FE001F34E6 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446257D2421AEB300CF0DB7 /* MovieService.swift */; };
 		14636547242AF116001F34E6 /* MovieEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144625832421B42C00CF0DB7 /* MovieEntity.swift */; };
+		14690C2E24449AFF00EEDC45 /* DAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14690C2524449AFE00EEDC45 /* DAO.framework */; };
+		14690C3524449AFF00EEDC45 /* DAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C3424449AFF00EEDC45 /* DAOTests.swift */; };
+		14690C3A24449AFF00EEDC45 /* DAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14690C2524449AFE00EEDC45 /* DAO.framework */; };
+		14690C3B24449AFF00EEDC45 /* DAO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14690C2524449AFE00EEDC45 /* DAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
@@ -235,6 +239,27 @@
 			remoteGlobalIDString = 1450330424126AAA00B3F404;
 			remoteInfo = TheMovieDBApp;
 		};
+		14690C2F24449AFF00EEDC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 145032FD24126AAA00B3F404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14690C2424449AFE00EEDC45;
+			remoteInfo = DAO;
+		};
+		14690C3124449AFF00EEDC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 145032FD24126AAA00B3F404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1450330424126AAA00B3F404;
+			remoteInfo = TheMovieDBApp;
+		};
+		14690C3824449AFF00EEDC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 145032FD24126AAA00B3F404 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14690C2424449AFE00EEDC45;
+			remoteInfo = DAO;
+		};
 		14FE8F842420258D00115A49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 145032FD24126AAA00B3F404 /* Project object */;
@@ -266,6 +291,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */,
+				14690C3B24449AFF00EEDC45 /* DAO.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +417,11 @@
 		14636540242AE0F1001F34E6 /* MovieServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieServiceTest.swift; sourceTree = "<group>"; };
 		14636542242AE17F001F34E6 /* APIClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientSpy.swift; sourceTree = "<group>"; };
 		14636544242AEBC6001F34E6 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		14690C2524449AFE00EEDC45 /* DAO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DAO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14690C2824449AFE00EEDC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14690C2D24449AFF00EEDC45 /* DAOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DAOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14690C3424449AFF00EEDC45 /* DAOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOTests.swift; sourceTree = "<group>"; };
+		14690C3624449AFF00EEDC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
@@ -439,6 +470,7 @@
 			files = (
 				14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */,
 				27350C5AA253357CCBC8DB51 /* Pods_TheMovieDBApp.framework in Frameworks */,
+				14690C3A24449AFF00EEDC45 /* DAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +487,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7446A8E17FB054C1D6CE5A4 /* Pods_TheMovieDBApp_TheMovieDBAppUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14690C2224449AFE00EEDC45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14690C2A24449AFF00EEDC45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14690C2E24449AFF00EEDC45 /* DAO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +633,8 @@
 				1450332924126AAE00B3F404 /* TheMovieDBAppUITests */,
 				14FE8F7B2420258D00115A49 /* TMDBNetwork */,
 				14FE8F882420258D00115A49 /* TMDBNetworkTests */,
+				14690C2624449AFE00EEDC45 /* DAO */,
+				14690C3324449AFF00EEDC45 /* DAOTests */,
 				1450330624126AAA00B3F404 /* Products */,
 				C4B327AF8FD08C159EB1A9DC /* Pods */,
 				1CDB74FE29759F05C94F14A0 /* Frameworks */,
@@ -600,6 +649,8 @@
 				1450332624126AAE00B3F404 /* TheMovieDBAppUITests.xctest */,
 				14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */,
 				14FE8F822420258D00115A49 /* TMDBNetworkTests.xctest */,
+				14690C2524449AFE00EEDC45 /* DAO.framework */,
+				14690C2D24449AFF00EEDC45 /* DAOTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1046,6 +1097,23 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		14690C2624449AFE00EEDC45 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				14690C2824449AFE00EEDC45 /* Info.plist */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		14690C3324449AFF00EEDC45 /* DAOTests */ = {
+			isa = PBXGroup;
+			children = (
+				14690C3424449AFF00EEDC45 /* DAOTests.swift */,
+				14690C3624449AFF00EEDC45 /* Info.plist */,
+			);
+			path = DAOTests;
+			sourceTree = "<group>";
+		};
 		1471BAC12413D07A00BA4592 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1160,6 +1228,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		14690C2024449AFE00EEDC45 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14FE8F752420258D00115A49 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1186,6 +1261,7 @@
 			);
 			dependencies = (
 				14FE8F8E2420258D00115A49 /* PBXTargetDependency */,
+				14690C3924449AFF00EEDC45 /* PBXTargetDependency */,
 			);
 			name = TheMovieDBApp;
 			productName = TheMovieDBApp;
@@ -1231,6 +1307,43 @@
 			productReference = 1450332624126AAE00B3F404 /* TheMovieDBAppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		14690C2424449AFE00EEDC45 /* DAO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14690C4024449AFF00EEDC45 /* Build configuration list for PBXNativeTarget "DAO" */;
+			buildPhases = (
+				14690C2024449AFE00EEDC45 /* Headers */,
+				14690C2124449AFE00EEDC45 /* Sources */,
+				14690C2224449AFE00EEDC45 /* Frameworks */,
+				14690C2324449AFE00EEDC45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DAO;
+			productName = DAO;
+			productReference = 14690C2524449AFE00EEDC45 /* DAO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		14690C2C24449AFF00EEDC45 /* DAOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14690C4124449AFF00EEDC45 /* Build configuration list for PBXNativeTarget "DAOTests" */;
+			buildPhases = (
+				14690C2924449AFF00EEDC45 /* Sources */,
+				14690C2A24449AFF00EEDC45 /* Frameworks */,
+				14690C2B24449AFF00EEDC45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14690C3024449AFF00EEDC45 /* PBXTargetDependency */,
+				14690C3224449AFF00EEDC45 /* PBXTargetDependency */,
+			);
+			name = DAOTests;
+			productName = DAOTests;
+			productReference = 14690C2D24449AFF00EEDC45 /* DAOTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		14FE8F792420258D00115A49 /* TMDBNetwork */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14FE8F912420258D00115A49 /* Build configuration list for PBXNativeTarget "TMDBNetwork" */;
@@ -1274,7 +1387,7 @@
 		145032FD24126AAA00B3F404 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1110;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Den4ik's Team";
 				TargetAttributes = {
@@ -1287,6 +1400,13 @@
 					};
 					1450332524126AAE00B3F404 = {
 						CreatedOnToolsVersion = 11.1;
+					};
+					14690C2424449AFE00EEDC45 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					14690C2C24449AFF00EEDC45 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 1450330424126AAA00B3F404;
 					};
 					14FE8F792420258D00115A49 = {
 						CreatedOnToolsVersion = 11.1;
@@ -1317,6 +1437,8 @@
 				1450332524126AAE00B3F404 /* TheMovieDBAppUITests */,
 				14FE8F792420258D00115A49 /* TMDBNetwork */,
 				14FE8F812420258D00115A49 /* TMDBNetworkTests */,
+				14690C2424449AFE00EEDC45 /* DAO */,
+				14690C2C24449AFF00EEDC45 /* DAOTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1353,6 +1475,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1450332424126AAE00B3F404 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14690C2324449AFE00EEDC45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14690C2B24449AFF00EEDC45 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1668,6 +1804,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		14690C2124449AFE00EEDC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14690C2924449AFF00EEDC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14690C3524449AFF00EEDC45 /* DAOTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		14FE8F762420258D00115A49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1732,6 +1883,21 @@
 			isa = PBXTargetDependency;
 			target = 1450330424126AAA00B3F404 /* TheMovieDBApp */;
 			targetProxy = 1450332724126AAE00B3F404 /* PBXContainerItemProxy */;
+		};
+		14690C3024449AFF00EEDC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14690C2424449AFE00EEDC45 /* DAO */;
+			targetProxy = 14690C2F24449AFF00EEDC45 /* PBXContainerItemProxy */;
+		};
+		14690C3224449AFF00EEDC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1450330424126AAA00B3F404 /* TheMovieDBApp */;
+			targetProxy = 14690C3124449AFF00EEDC45 /* PBXContainerItemProxy */;
+		};
+		14690C3924449AFF00EEDC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14690C2424449AFE00EEDC45 /* DAO */;
+			targetProxy = 14690C3824449AFF00EEDC45 /* PBXContainerItemProxy */;
 		};
 		14FE8F852420258D00115A49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2016,6 +2182,104 @@
 			};
 			name = Release;
 		};
+		14690C3C24449AFF00EEDC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 28XXG6S5AU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DAO/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.DAO;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		14690C3D24449AFF00EEDC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 28XXG6S5AU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DAO/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.DAO;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		14690C3E24449AFF00EEDC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 275G629DQW;
+				INFOPLIST_FILE = DAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.DAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMovieDBApp.app/TheMovieDBApp";
+			};
+			name = Debug;
+		};
+		14690C3F24449AFF00EEDC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 275G629DQW;
+				INFOPLIST_FILE = DAOTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.DAOTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMovieDBApp.app/TheMovieDBApp";
+			};
+			name = Release;
+		};
 		14FE8F922420258D00115A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2154,6 +2418,24 @@
 			buildConfigurations = (
 				1450333624126AAE00B3F404 /* Debug */,
 				1450333724126AAE00B3F404 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14690C4024449AFF00EEDC45 /* Build configuration list for PBXNativeTarget "DAO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14690C3C24449AFF00EEDC45 /* Debug */,
+				14690C3D24449AFF00EEDC45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14690C4124449AFF00EEDC45 /* Build configuration list for PBXNativeTarget "DAOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14690C3E24449AFF00EEDC45 /* Debug */,
+				14690C3F24449AFF00EEDC45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

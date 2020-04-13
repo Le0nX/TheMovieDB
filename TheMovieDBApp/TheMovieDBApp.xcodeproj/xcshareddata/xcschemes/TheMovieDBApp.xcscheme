@@ -65,6 +65,16 @@
                ReferencedContainer = "container:TheMovieDBApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "14690C2C24449AFF00EEDC45"
+               BuildableName = "DAOTests.xctest"
+               BlueprintName = "DAOTests"
+               ReferencedContainer = "container:TheMovieDBApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
