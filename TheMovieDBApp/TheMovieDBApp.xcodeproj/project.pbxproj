@@ -143,6 +143,10 @@
 		14690C3524449AFF00EEDC45 /* DAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C3424449AFF00EEDC45 /* DAOTests.swift */; };
 		14690C3A24449AFF00EEDC45 /* DAO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14690C2524449AFE00EEDC45 /* DAO.framework */; };
 		14690C3B24449AFF00EEDC45 /* DAO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14690C2524449AFE00EEDC45 /* DAO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14690C442444A44400EEDC45 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C432444A44400EEDC45 /* DAO.swift */; };
+		14690C452444A44400EEDC45 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C432444A44400EEDC45 /* DAO.swift */; };
+		14690C472444A45C00EEDC45 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C462444A45C00EEDC45 /* Entity.swift */; };
+		14690C482444A45C00EEDC45 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C462444A45C00EEDC45 /* Entity.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
@@ -422,6 +426,8 @@
 		14690C2D24449AFF00EEDC45 /* DAOTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DAOTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14690C3424449AFF00EEDC45 /* DAOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOTests.swift; sourceTree = "<group>"; };
 		14690C3624449AFF00EEDC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14690C432444A44400EEDC45 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		14690C462444A45C00EEDC45 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
@@ -1100,6 +1106,7 @@
 		14690C2624449AFE00EEDC45 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				14690C422444A42800EEDC45 /* Core */,
 				14690C2824449AFE00EEDC45 /* Info.plist */,
 			);
 			path = DAO;
@@ -1112,6 +1119,15 @@
 				14690C3624449AFF00EEDC45 /* Info.plist */,
 			);
 			path = DAOTests;
+			sourceTree = "<group>";
+		};
+		14690C422444A42800EEDC45 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				14690C432444A44400EEDC45 /* DAO.swift */,
+				14690C462444A45C00EEDC45 /* Entity.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		1471BAC12413D07A00BA4592 /* View */ = {
@@ -1403,6 +1419,7 @@
 					};
 					14690C2424449AFE00EEDC45 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					14690C2C24449AFF00EEDC45 = {
 						CreatedOnToolsVersion = 11.4;
@@ -1808,6 +1825,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14690C472444A45C00EEDC45 /* Entity.swift in Sources */,
+				14690C442444A44400EEDC45 /* DAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1815,7 +1834,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14690C452444A44400EEDC45 /* DAO.swift in Sources */,
 				14690C3524449AFF00EEDC45 /* DAOTests.swift in Sources */,
+				14690C482444A45C00EEDC45 /* Entity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2185,6 +2206,7 @@
 		14690C3C24449AFF00EEDC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -2203,6 +2225,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.DAO;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -2213,6 +2236,7 @@
 		14690C3D24449AFF00EEDC45 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
