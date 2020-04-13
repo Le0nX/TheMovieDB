@@ -66,15 +66,13 @@ final class MainFavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchViewController.delegate = self
                 
         addSearchViewController()
         addFavoritesCollectionViewController()
         updatePresentationStyle()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: selectedStyle.buttonImage,
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(changeContentLayout))
+        setNavigationItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,6 +126,10 @@ final class MainFavoritesViewController: UIViewController {
         selectedStyle = allCases[nextIndex]
         
     }
+    
+    @objc private func activateSearch() {
+        searchViewController.addSearchBar(self)
+    }
 }
 
 extension MainFavoritesViewController: SearchViewInput {
@@ -151,5 +153,32 @@ extension MainFavoritesViewController: SearchViewInput {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 
         self.present(alert, animated: true)
+    }
+}
+
+extension MainFavoritesViewController: SearchFavoritesViewControllerDelegate {
+    func removerSearchNavigationItem() {
+        let style = UIBarButtonItem(image: selectedStyle.buttonImage,
+                                    style: .plain,
+                                    target: self,
+                                    action: #selector(changeContentLayout))
+        navigationItem.rightBarButtonItems = [style]
+    }
+    
+    func setNavigationItems() {
+        let style = UIBarButtonItem(image: selectedStyle.buttonImage,
+                                    style: .plain,
+                                    target: self,
+                                    action: #selector(changeContentLayout))
+        
+        let searchBtn = UIButton(type: .custom)
+        searchBtn.frame = CGRect(x: 0.0, y: 0.0, width: 5, height: 5)
+        searchBtn.contentMode = .scaleAspectFit
+        searchBtn.imageEdgeInsets = UIEdgeInsets(top: 15, left: 35, bottom: 15, right: 0)
+        searchBtn.setImage(ImageName.searching, for: .normal)
+        searchBtn.addTarget(self, action: #selector(activateSearch), for: .touchUpInside)
+        let search = UIBarButtonItem(customView: searchBtn)
+        
+        navigationItem.rightBarButtonItems = [style, search]
     }
 }
