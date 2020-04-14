@@ -147,6 +147,12 @@
 		14690C452444A44400EEDC45 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C432444A44400EEDC45 /* DAO.swift */; };
 		14690C472444A45C00EEDC45 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C462444A45C00EEDC45 /* Entity.swift */; };
 		14690C482444A45C00EEDC45 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C462444A45C00EEDC45 /* Entity.swift */; };
+		14690C4E244593A600EEDC45 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C4D244593A600EEDC45 /* CoreDataDAO.swift */; };
+		14690C4F244593A600EEDC45 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C4D244593A600EEDC45 /* CoreDataDAO.swift */; };
+		14690C51244593C300EEDC45 /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C50244593C300EEDC45 /* CoreDataTranslator.swift */; };
+		14690C52244593C300EEDC45 /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C50244593C300EEDC45 /* CoreDataTranslator.swift */; };
+		14690C572445A83100EEDC45 /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C562445A83100EEDC45 /* CoreDataConfiguration.swift */; };
+		14690C582445A83100EEDC45 /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C562445A83100EEDC45 /* CoreDataConfiguration.swift */; };
 		1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1471BAC22413D08C00BA4592 /* SearchViewController.swift */; };
 		1471BAC52413DF0600BA4592 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */; };
@@ -428,6 +434,9 @@
 		14690C3624449AFF00EEDC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14690C432444A44400EEDC45 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		14690C462444A45C00EEDC45 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		14690C4D244593A600EEDC45 /* CoreDataDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDAO.swift; sourceTree = "<group>"; };
+		14690C50244593C300EEDC45 /* CoreDataTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTranslator.swift; sourceTree = "<group>"; };
+		14690C562445A83100EEDC45 /* CoreDataConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConfiguration.swift; sourceTree = "<group>"; };
 		1471BAC22413D08C00BA4592 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1471BAC42413DF0600BA4592 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		1488CE0E2432E49900F4B9F1 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
@@ -1106,6 +1115,7 @@
 		14690C2624449AFE00EEDC45 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
+				14690C4924458FF000EEDC45 /* Core Data */,
 				14690C422444A42800EEDC45 /* Core */,
 				14690C2824449AFE00EEDC45 /* Info.plist */,
 			);
@@ -1128,6 +1138,16 @@
 				14690C462444A45C00EEDC45 /* Entity.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		14690C4924458FF000EEDC45 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				14690C4D244593A600EEDC45 /* CoreDataDAO.swift */,
+				14690C50244593C300EEDC45 /* CoreDataTranslator.swift */,
+				14690C562445A83100EEDC45 /* CoreDataConfiguration.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		1471BAC12413D07A00BA4592 /* View */ = {
@@ -1825,8 +1845,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14690C51244593C300EEDC45 /* CoreDataTranslator.swift in Sources */,
 				14690C472444A45C00EEDC45 /* Entity.swift in Sources */,
 				14690C442444A44400EEDC45 /* DAO.swift in Sources */,
+				14690C4E244593A600EEDC45 /* CoreDataDAO.swift in Sources */,
+				14690C572445A83100EEDC45 /* CoreDataConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1837,6 +1860,9 @@
 				14690C452444A44400EEDC45 /* DAO.swift in Sources */,
 				14690C3524449AFF00EEDC45 /* DAOTests.swift in Sources */,
 				14690C482444A45C00EEDC45 /* Entity.swift in Sources */,
+				14690C582445A83100EEDC45 /* CoreDataConfiguration.swift in Sources */,
+				14690C52244593C300EEDC45 /* CoreDataTranslator.swift in Sources */,
+				14690C4F244593A600EEDC45 /* CoreDataDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
