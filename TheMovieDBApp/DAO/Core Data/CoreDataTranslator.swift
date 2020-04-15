@@ -9,7 +9,7 @@
 import CoreData
 
 /// Перепаковщик из `Entity` в `CoreDataModel` и обратно
-public class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
+open class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
     
     // MARK: - Public Properties
     
@@ -18,6 +18,8 @@ public class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
         NSStringFromClass(CoreDataModel.self).components(separatedBy: ".").last!
     }
     
+    public required init() {}
+    
     // MARK: - Public Methods
     
     /// Перезапись всех полей entity из Entry
@@ -25,7 +27,7 @@ public class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
     /// - Parameters:
     ///   - entity: entity типа `Model`
     ///   - fromEntry: запись типа `CoreDataModel`.
-    public func fill(_ entity: Model, fromEntry: CoreDataModel) {
+    open func fill(_ entity: Model, fromEntry: CoreDataModel) {
         fatalError("Abstact method")
     }
     
@@ -35,7 +37,7 @@ public class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
     ///   - entry: запись типа `CoreDataModel`.
     ///   - fromEntity: entity типа `Model`
     ///   - context: managed object context для текущей транзакции
-    public func fill(_ entry: CoreDataModel, fromEntity: Model, in context: NSManagedObjectContext) {
+    open func fill(_ entry: CoreDataModel, fromEntity: Model, in context: NSManagedObjectContext) {
         fatalError("Abstact method")
     }
 }

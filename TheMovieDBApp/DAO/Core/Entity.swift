@@ -9,7 +9,7 @@
 import Foundation
 
 /// Базовый класс Entity
-public class Entity: Hashable {
+open class Entity: Hashable {
     
     // MARK: - Public Properties
     
@@ -32,12 +32,12 @@ public class Entity: Hashable {
     ///
     /// - Parameter other: entity compare with.
     /// - Returns: result of comparison.
-    public func equals<T>(_ other: T) -> Bool where T: Entity {
+    open func equals<T>(_ other: T) -> Bool where T: Entity {
         self.entityId == other.entityId
     }
     
     /// Hash для сравнения сущностей
-    public func hash(into hasher: inout Hasher) {
+    open func hash(into hasher: inout Hasher) {
         hasher.combine(entityId)
     }
 }

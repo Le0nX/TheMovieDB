@@ -6,6 +6,8 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import DAO
+import CoreData
 import Foundation
 import TMDBNetwork
 
@@ -43,11 +45,16 @@ final public class FavoriteService: FavoritesService {
     // MARK: - Private Properties
     
     private let client: APIClient
+    private let dao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?
 
     // MARK: - Initializers
     
     init(client: APIClient) {
         self.client = client
+        let translator = CoreDataMovieTranslator()
+        let configuration = CoreDataConfiguration(containerName: "FavoriteMovies",
+                                                  storeType: NSInMemoryStoreType)
+        self.dao = try? CoreDataDAO<MovieEntity, CoreDataMovieEntry>(translator, configuration: configuration)
     }
     
     // MARK: - Public methods
@@ -59,7 +66,10 @@ final public class FavoriteService: FavoritesService {
         client.request(endpoint) { result in
             switch result {
             case .success(let movieDTO):
-                completion(.success(MovieMapper.map(from: movieDTO)))
+                let movies = MovieMapper.map(from: movieDTO)
+                try? self.dao?.persist(movies)
+                print(try? self.dao?.read())
+                completion(.success(movies))
             case .failure(let error):
                 completion(.failure(error))
             }
