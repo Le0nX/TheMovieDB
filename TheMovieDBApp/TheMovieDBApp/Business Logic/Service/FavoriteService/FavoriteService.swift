@@ -68,7 +68,7 @@ final public class FavoriteService: FavoritesService {
             case .success(let movieDTO):
                 let movies = MovieMapper.map(from: movieDTO)
                 try? self.dao?.persist(movies)
-                print(try? self.dao?.read())
+                print(try? self.dao?.read()[0].title)
                 completion(.success(movies))
             case .failure(let error):
                 completion(.failure(error))

@@ -167,6 +167,8 @@
 		14B0D0052447B31300D0E894 /* CoreDataMovieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0042447B31300D0E894 /* CoreDataMovieEntry.swift */; };
 		14B0D0072447B5BF00D0E894 /* CoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0062447B5BF00D0E894 /* CoreDataEntity.swift */; };
 		14B0D00A2447B7F600D0E894 /* FavoriteMovies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0082447B7F600D0E894 /* FavoriteMovies.xcdatamodeld */; };
+		14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */; };
+		14B0D0102447D35900D0E894 /* Reachbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00F2447D35900D0E894 /* Reachbility.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -463,6 +465,8 @@
 		14B0D0042447B31300D0E894 /* CoreDataMovieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMovieEntry.swift; sourceTree = "<group>"; };
 		14B0D0062447B5BF00D0E894 /* CoreDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEntity.swift; sourceTree = "<group>"; };
 		14B0D0092447B7F600D0E894 /* FavoriteMovies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteMovies.xcdatamodel; sourceTree = "<group>"; };
+		14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieEntry.swift; sourceTree = "<group>"; };
+		14B0D00F2447D35900D0E894 /* Reachbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachbility.swift; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -571,6 +575,7 @@
 				1446254724202C0C00CF0DB7 /* APIResult.swift */,
 				1446254624202C0C00CF0DB7 /* TMDBAPIClient.swift */,
 				144625692420BF1C00CF0DB7 /* APIClientConfig.swift */,
+				14B0D00F2447D35900D0E894 /* Reachbility.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -1204,11 +1209,28 @@
 		14B0D0012447A7F300D0E894 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				14B0D0082447B7F600D0E894 /* FavoriteMovies.xcdatamodeld */,
-				14B0D0022447A80300D0E894 /* CoreDataMovieTranslator.swift */,
-				14B0D0042447B31300D0E894 /* CoreDataMovieEntry.swift */,
+				14B0D00C2447C34000D0E894 /* Realm */,
+				14B0D00B2447C33300D0E894 /* CoreData */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		14B0D00B2447C33300D0E894 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D0042447B31300D0E894 /* CoreDataMovieEntry.swift */,
+				14B0D0022447A80300D0E894 /* CoreDataMovieTranslator.swift */,
+				14B0D0082447B7F600D0E894 /* FavoriteMovies.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		14B0D00C2447C34000D0E894 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		14C2944C242C2BAB0076EBB7 /* Presentation */ = {
@@ -1826,6 +1848,7 @@
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
 				146331A8243BE394009B8CA0 /* PinCodeViewController.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
+				14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */,
 				146181B2243D396900DD4CA3 /* FavoriteServiceModel.swift in Sources */,
 				1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */,
 			);
@@ -1959,6 +1982,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14B0D0102447D35900D0E894 /* Reachbility.swift in Sources */,
 				14EB0E75243E77080099F298 /* AccountStateResponse.swift in Sources */,
 				14EB0E73243E5E730099F298 /* AccountStateEndpoint.swift in Sources */,
 				1446254224202BFB00CF0DB7 /* RequestTokenEndpoint.swift in Sources */,

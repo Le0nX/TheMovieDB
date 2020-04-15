@@ -9,9 +9,8 @@
 import Realm
 import RealmSwift
 
-
-/// Parent class for `Realm` entries.
-public class RealmEntity: Object {
+/// Родительский класс для `Realm` entity.
+open class RealmEntity: Object {
     
     // MARK: - Public Properties
     
@@ -34,11 +33,10 @@ public class RealmEntity: Object {
         fatalError("init(value:schema:) has not been implemented")
     }
     
-    
     /// Возврат Primary Key для таблицы
     /// - Returns: primary key
-    override public class func primaryKey() -> String? {
-        return "entryId"
+    override open class func primaryKey() -> String? {
+        "entryId"
     }
     
 }

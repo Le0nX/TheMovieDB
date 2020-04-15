@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 /// Перепаковщик из `Entity` в `RealmEntity` и обратно
-public class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
+open class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
     
     // MARK: - Public Methods
     
