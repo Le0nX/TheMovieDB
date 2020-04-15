@@ -9,7 +9,7 @@
 import CoreData
 
 /// Перепаковщик из `Entity` в `CoreDataModel` и обратно
-public final class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
+public class CoreDataTranslator<Model: Entity, CoreDataModel: NSManagedObject> {
     
     // MARK: - Public Properties
     
