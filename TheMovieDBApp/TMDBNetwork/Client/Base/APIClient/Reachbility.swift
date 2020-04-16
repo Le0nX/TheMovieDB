@@ -12,17 +12,23 @@ import Network
 /// Класс проверки соединения
 final class NetworkReachability {
 
-    var pathMonitor: NWPathMonitor!
-    var path: NWPath?
-    lazy var pathUpdateHandler: ((NWPath) -> Void) = { path in self.path = path }
+    // MARK:- Private Properties
+    
+    private let pathMonitor: NWPathMonitor!
+    private var path: NWPath?
+    private lazy var pathUpdateHandler: ((NWPath) -> Void) = { path in self.path = path }
 
-    let backgroudQueue = DispatchQueue.global(qos: .background)
+    private let backgroudQueue = DispatchQueue.global(qos: .background)
 
+    // MARK: - Initializers
+    
     init() {
         pathMonitor = NWPathMonitor()
         pathMonitor.pathUpdateHandler = self.pathUpdateHandler
         pathMonitor.start(queue: backgroudQueue)
     }
+    
+    // MARK: - Public Methods
     
     /// Проверка доступности сети
     /// - Returns: достпен/недоступен
