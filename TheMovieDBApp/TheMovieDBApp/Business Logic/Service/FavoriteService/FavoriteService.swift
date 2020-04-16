@@ -46,6 +46,7 @@ final public class FavoriteService: FavoritesService {
     
     private let client: APIClient
     private let dao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?
+    private let realmDao: RealmDAO<MovieEntity, RealmMovieEntry>?
 
     // MARK: - Initializers
     
@@ -55,6 +56,10 @@ final public class FavoriteService: FavoritesService {
         let configuration = CoreDataConfiguration(containerName: "FavoriteMovies",
                                                   storeType: NSInMemoryStoreType)
         self.dao = try? CoreDataDAO<MovieEntity, CoreDataMovieEntry>(translator, configuration: configuration)
+        
+        let realmTranslator = RealmMovieTranslator()
+        let realmConfig = RealmConfiguration()
+        self.realmDao = RealmDAO<MovieEntity, RealmMovieEntry>(realmTranslator, configuration: realmConfig)
     }
     
     // MARK: - Public methods
@@ -67,6 +72,8 @@ final public class FavoriteService: FavoritesService {
             switch result {
             case .success(let movieDTO):
                 let movies = MovieMapper.map(from: movieDTO)
+                try? self.realmDao?.persist(movies)
+                print(try? self.realmDao?.read()[0].title)
                 try? self.dao?.persist(movies)
                 print(try? self.dao?.read()[0].title)
                 completion(.success(movies))

@@ -12,7 +12,7 @@ import Network
 /// Класс проверки соединения
 final class NetworkReachability {
 
-    // MARK:- Private Properties
+    // MARK: - Private Properties
     
     private let pathMonitor: NWPathMonitor!
     private var path: NWPath?

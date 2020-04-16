@@ -12,6 +12,10 @@ import RealmSwift
 /// Перепаковщик из `Entity` в `RealmEntity` и обратно
 open class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
     
+    // MARK: - Initializers
+    
+    public required init() {}
+    
     // MARK: - Public Methods
     
     /// Перезапись всех полей entity из Entry
@@ -19,7 +23,7 @@ open class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
     /// - Parameters:
     ///   - entity: entity типа `Model`
     ///   - fromEntry: запись типа `RealmModel`.
-    public func fill(_ entity: Model, fromEntry: RealmModel) {
+    open func fill(_ entity: Model, fromEntry: RealmModel) {
         fatalError("Abstact method")
     }
     
@@ -29,7 +33,7 @@ open class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
     ///   - entry: запись типа `RealmModel`.
     ///   - fromEntity: entity типа `Model`
     ///   - context: managed object context для текущей транзакции
-    public func fill(_ entry: RealmModel, fromEntity: Model) {
+    open func fill(_ entry: RealmModel, fromEntity: Model) {
         fatalError("Abstact method")
     }
     
@@ -45,7 +49,7 @@ open class RealmTranslator<Model: Entity, RealmModel: RealmEntity> {
         /// зполняем массив RealmModel
         fromEntities.map { entity -> (RealmModel, Model) in
                 
-            let entry = entries.filter { $0.entityId == entity.entityId }.first
+            let entry = entries.first(where: { $0.entityId == entity.entityId })
             
             if let entry = entry {
                 return (entry, entity)

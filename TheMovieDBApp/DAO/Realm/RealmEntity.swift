@@ -36,7 +36,7 @@ open class RealmEntity: Object {
     /// Возврат Primary Key для таблицы
     /// - Returns: primary key
     override open class func primaryKey() -> String? {
-        "entryId"
+        "entityId"
     }
     
 }
