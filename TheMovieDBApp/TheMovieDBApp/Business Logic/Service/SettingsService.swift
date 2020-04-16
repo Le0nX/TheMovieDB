@@ -32,9 +32,9 @@ final public class AppSettings: SettingsService {
     
     static func checkDataBaseSettings() -> DataBaseType {
         if UserDefaults.standard.bool(forKey: dbSettingsKey) {
-            return .realm
-        } else {
             return .coreData
+        } else {
+            return .realm
         }
     }
 }

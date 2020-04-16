@@ -19,17 +19,13 @@ final class RealmPosterTranslator: RealmTranslator<PosterEntity, RealmPosterEntr
     
     override func fill(_ entity: PosterEntity?, fromEntry entry: RealmPosterEntry) {
         entity?.entityId = entry.entityId
-        entity?.id = entry.id
         entity?.poster = entry.poster
     }
 
     override func fill(_ entry: RealmPosterEntry,
                        fromEntity entity: PosterEntity) {
-        
-        if entry.entityId != entity.entityId {
-            entry.entityId = entity.entityId
-        }
-        entry.id = entity.id
+
+        entry.entityId = entity.entityId
         entry.poster = entity.poster
     }
 }

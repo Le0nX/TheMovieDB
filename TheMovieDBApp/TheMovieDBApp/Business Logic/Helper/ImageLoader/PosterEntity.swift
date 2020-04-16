@@ -11,17 +11,14 @@ import Foundation
 
 final class PosterEntity: Entity {
     
-    public var id: String
     public var poster: Data?
     
     init(id: String, poster: Data? = nil) {
-        self.id = id
         self.poster = poster
-        super.init()
+        super.init(entityId: id)
     }
     
     required init() {
-        self.id = ""
         self.poster = nil
         super.init()
     }

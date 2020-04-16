@@ -60,10 +60,9 @@ final public class UserProfileService: ProfileService {
         let profiles = self.dao.read()
         if let profile = profiles.first {
             completion(.success(profile))
-        }
-        
-        if !networkChecker.isNetworkAvailable() {
-            return
+            if !networkChecker.isNetworkAvailable() {
+                return
+            }
         }
         
         guard let session = accessService.credentials?.session else {

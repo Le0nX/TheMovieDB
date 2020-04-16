@@ -39,7 +39,7 @@ public final class RealmDAO<Model: Entity, RealmModel: RealmEntity>: DAO<Model> 
     /// - Throws: ошибка, если entity не может быть сохранен
     public override func persist(_ entity: Model) throws {
         if let entry = try realmRead(entity.entityId) {
-            try autoreleasepool { // TODO: - посмотри
+            try autoreleasepool {
                 try realm().beginWrite()
                 translator.fill(entry, fromEntity: entity)
                 try realm().commitWrite()

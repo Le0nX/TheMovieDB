@@ -13,7 +13,6 @@ final class RealmPosterEntry: RealmEntity {
     
     // MARK: Public Properties
     
-    @objc dynamic public var id: String = ""
     @objc dynamic public var poster: Data?
     
     // MARK: - Initalizers
@@ -22,7 +21,7 @@ final class RealmPosterEntry: RealmEntity {
                                     poster: Data?) -> RealmPosterEntry {
         
         let profile = RealmPosterEntry()
-        profile.id = id
+        profile.entityId = profile.entityId
         profile.poster = poster
         
         return profile
