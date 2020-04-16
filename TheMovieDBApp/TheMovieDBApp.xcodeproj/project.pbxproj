@@ -174,6 +174,9 @@
 		14B0D0182447EBCA00D0E894 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0172447EBCA00D0E894 /* SettingsService.swift */; };
 		14B0D01E2447FF9800D0E894 /* RealmProfileEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */; };
 		14B0D020244802E700D0E894 /* RealmProfileTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */; };
+		14B0D025244809FA00D0E894 /* RealmPosterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D024244809FA00D0E894 /* RealmPosterEntry.swift */; };
+		14B0D02724480AB300D0E894 /* RealmPosterTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02624480AB300D0E894 /* RealmPosterTranslator.swift */; };
+		14B0D02924480B1900D0E894 /* PosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02824480B1900D0E894 /* PosterEntity.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -477,6 +480,9 @@
 		14B0D0172447EBCA00D0E894 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProfileEntry.swift; sourceTree = "<group>"; };
 		14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProfileTranslator.swift; sourceTree = "<group>"; };
+		14B0D024244809FA00D0E894 /* RealmPosterEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPosterEntry.swift; sourceTree = "<group>"; };
+		14B0D02624480AB300D0E894 /* RealmPosterTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmPosterTranslator.swift; sourceTree = "<group>"; };
+		14B0D02824480B1900D0E894 /* PosterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterEntity.swift; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -856,9 +862,9 @@
 		145033422412826200B3F404 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				14B0D021244809D100D0E894 /* ImageLoader */,
 				1458ED2E2438B38200D5B6DC /* Mappers */,
 				14100A812418312C0097421F /* UTCToLocal.swift */,
-				1458ED40243A591000D5B6DC /* ImageLoader.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1258,7 +1264,6 @@
 		14B0D01A2447FF6800D0E894 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				14B0D01C2447FF7800D0E894 /* CoreData */,
 				14B0D01B2447FF7300D0E894 /* Realm */,
 			);
 			path = DAO;
@@ -1273,11 +1278,31 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
-		14B0D01C2447FF7800D0E894 /* CoreData */ = {
+		14B0D021244809D100D0E894 /* ImageLoader */ = {
 			isa = PBXGroup;
 			children = (
+				14B0D022244809DB00D0E894 /* DAO */,
+				1458ED40243A591000D5B6DC /* ImageLoader.swift */,
+				14B0D02824480B1900D0E894 /* PosterEntity.swift */,
 			);
-			path = CoreData;
+			path = ImageLoader;
+			sourceTree = "<group>";
+		};
+		14B0D022244809DB00D0E894 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D023244809DE00D0E894 /* Realm */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		14B0D023244809DE00D0E894 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D024244809FA00D0E894 /* RealmPosterEntry.swift */,
+				14B0D02624480AB300D0E894 /* RealmPosterTranslator.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		14C2944C242C2BAB0076EBB7 /* Presentation */ = {
@@ -1893,6 +1918,7 @@
 				143C1DD0242952870060D270 /* ServiceError.swift in Sources */,
 				14582F0D24130D95004226E7 /* Images.swift in Sources */,
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
+				14B0D025244809FA00D0E894 /* RealmPosterEntry.swift in Sources */,
 				1458ED46243A818900D5B6DC /* LoginModel.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
@@ -1900,8 +1926,10 @@
 				146331A8243BE394009B8CA0 /* PinCodeViewController.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
 				14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */,
+				14B0D02924480B1900D0E894 /* PosterEntity.swift in Sources */,
 				146181B2243D396900DD4CA3 /* FavoriteServiceModel.swift in Sources */,
 				14B0D0182447EBCA00D0E894 /* SettingsService.swift in Sources */,
+				14B0D02724480AB300D0E894 /* RealmPosterTranslator.swift in Sources */,
 				1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

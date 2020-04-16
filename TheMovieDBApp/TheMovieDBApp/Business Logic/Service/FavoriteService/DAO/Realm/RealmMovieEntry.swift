@@ -16,7 +16,7 @@ final class RealmMovieEntry: RealmEntity {
     @objc dynamic public var overview: String = ""
     @objc dynamic public var popularity: Double = 0
     @objc dynamic public var voteCount: Int = 0
-    @objc dynamic public var image: NSData?
+    @objc dynamic public var image: String = ""
     @objc dynamic public var id: Int = 0
     
     class func makeRealmMovieEntry(title: String,
@@ -24,7 +24,7 @@ final class RealmMovieEntry: RealmEntity {
                                    overview: String,
                                    popularity: Double,
                                    voteCount: Int,
-                                   image: NSData? = nil,
+                                   image: String,
                                    id: Int) -> RealmMovieEntry {
         
         let movie = RealmMovieEntry()

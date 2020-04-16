@@ -65,6 +65,15 @@ final class ServiceFabric: ServicesAssembler {
             return realmDao
     }()
     
+    private lazy var posterDao: RealmDAO<PosterEntity, RealmPosterEntry> = {
+            
+            let realmTranslator = RealmPosterTranslator()
+            let realmConfig = RealmConfiguration(databaseFileName: "poster.realm")
+            let realmDao = RealmDAO<PosterEntity, RealmPosterEntry>(realmTranslator, configuration: realmConfig)
+            
+            return realmDao
+    }()
+    
     private lazy var posterClient: APIClient = {
         let config = APIClientConfig(base: "https://image.tmdb.org")
         return TMDBAPIClient(config: config)
@@ -109,7 +118,7 @@ final class ServiceFabric: ServicesAssembler {
     }()
     
     func imageLoader() -> ImageLoader {
-        let loader = TMDBImageLoader(posterClient)
+        let loader = TMDBImageLoader(posterClient, dao: posterDao)
         return loader
     }
 }

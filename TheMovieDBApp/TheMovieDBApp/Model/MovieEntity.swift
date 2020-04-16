@@ -31,7 +31,7 @@ final class MovieEntity: Entity {
          popularity: Double? = nil,
          voteCount: Int? = nil,
          genreIds: [Int]? = nil,
-         image: String? = nil,
+         image: String?,
          id: Int) {
         
         self.title = title
@@ -51,6 +51,7 @@ final class MovieEntity: Entity {
         self.originalTitle = ""
         self.overview = ""
         self.id = 0
+        self.image = ""
         super.init()
     }
 }
