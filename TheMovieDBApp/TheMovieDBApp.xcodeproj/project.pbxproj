@@ -170,6 +170,7 @@
 		14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */; };
 		14B0D0102447D35900D0E894 /* Reachbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00F2447D35900D0E894 /* Reachbility.swift */; };
 		14B0D0122447DA9600D0E894 /* RealmMovieTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */; };
+		14B0D0162447E2B500D0E894 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14B0D0152447E2B500D0E894 /* Settings.bundle */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -469,6 +470,7 @@
 		14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieEntry.swift; sourceTree = "<group>"; };
 		14B0D00F2447D35900D0E894 /* Reachbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachbility.swift; sourceTree = "<group>"; };
 		14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieTranslator.swift; sourceTree = "<group>"; };
+		14B0D0152447E2B500D0E894 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				1450333A241280A200B3F404 /* Resources */,
 				145033392412808C00B3F404 /* Presentation */,
 				1450330824126AAA00B3F404 /* AppDelegate.swift */,
+				14B0D0152447E2B500D0E894 /* Settings.bundle */,
 			);
 			path = TheMovieDBApp;
 			sourceTree = "<group>";
@@ -1573,6 +1576,7 @@
 				145E8B8C241431AE007ACDBB /* FavoritesView.xib in Resources */,
 				1446257C2421A35200CF0DB7 /* MoviesCell.xib in Resources */,
 				1441E4E724357D8800C0EECC /* FavoriteCell.xib in Resources */,
+				14B0D0162447E2B500D0E894 /* Settings.bundle in Resources */,
 				145E8BA024144CAB007ACDBB /* AccountView.xib in Resources */,
 				1450331224126AAD00B3F404 /* Assets.xcassets in Resources */,
 				14D8DD71243521C5008FD2D5 /* MovieDetails.xib in Resources */,

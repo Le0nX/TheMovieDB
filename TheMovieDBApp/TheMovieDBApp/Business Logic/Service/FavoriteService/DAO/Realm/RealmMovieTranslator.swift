@@ -28,7 +28,9 @@ final class RealmMovieTranslator: RealmTranslator<MovieEntity, RealmMovieEntry> 
     override func fill(_ entry: RealmMovieEntry,
                        fromEntity entity: MovieEntity) {
         
-        entry.entityId = entity.entityId
+        if entry.entityId != entity.entityId {
+            entry.entityId = entity.entityId
+        }
         entry.title = entity.title
         entry.originalTitle = entity.originalTitle
         entry.overview = entity.overview
