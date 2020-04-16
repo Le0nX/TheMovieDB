@@ -6,10 +6,9 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import DAO
-import CoreData
-import Foundation
 import TMDBNetwork
+import CoreData
+import DAO
 
 protocol FavoritesService {
     

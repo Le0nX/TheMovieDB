@@ -6,8 +6,8 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import DAO
 import CoreData
+import DAO
 
 @objc(CoreDataMovieEntity)
 public final class CoreDataMovieEntry: CoreDataEntity {

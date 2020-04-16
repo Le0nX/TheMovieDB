@@ -6,9 +6,9 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import DAO
 import Foundation
 import TMDBNetwork
-import DAO
 
 protocol ImageLoader {
     

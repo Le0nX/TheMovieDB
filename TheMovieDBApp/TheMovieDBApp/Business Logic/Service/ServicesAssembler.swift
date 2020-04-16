@@ -6,11 +6,10 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
-import Foundation
+import DAO
 import CoreData
 import KeychainAccess
 import TMDBNetwork
-import DAO
 
 protocol ServicesAssembler {
     

@@ -177,6 +177,28 @@
 		14B0D025244809FA00D0E894 /* RealmPosterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D024244809FA00D0E894 /* RealmPosterEntry.swift */; };
 		14B0D02724480AB300D0E894 /* RealmPosterTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02624480AB300D0E894 /* RealmPosterTranslator.swift */; };
 		14B0D02924480B1900D0E894 /* PosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02824480B1900D0E894 /* PosterEntity.swift */; };
+		14B0D02B2448237B00D0E894 /* RealmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0CFF42447072A00D0E894 /* RealmEntity.swift */; };
+		14B0D02E2448238900D0E894 /* CoreDataDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C4D244593A600EEDC45 /* CoreDataDAO.swift */; };
+		14B0D02F2448238E00D0E894 /* CoreDataTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C50244593C300EEDC45 /* CoreDataTranslator.swift */; };
+		14B0D0302448239100D0E894 /* CoreDataConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C562445A83100EEDC45 /* CoreDataConfiguration.swift */; };
+		14B0D0312448239400D0E894 /* CoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0062447B5BF00D0E894 /* CoreDataEntity.swift */; };
+		14B0D0342448239E00D0E894 /* DAOErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C6924465B6200EEDC45 /* DAOErrors.swift */; };
+		14B0D0352448245200D0E894 /* RealmMovieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00D2447CAB000D0E894 /* RealmMovieEntry.swift */; };
+		14B0D0362448245500D0E894 /* RealmMovieTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */; };
+		14B0D0372448245900D0E894 /* CoreDataMovieEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0042447B31300D0E894 /* CoreDataMovieEntry.swift */; };
+		14B0D0382448245C00D0E894 /* CoreDataMovieTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0022447A80300D0E894 /* CoreDataMovieTranslator.swift */; };
+		14B0D0392448246400D0E894 /* RealmProfileEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */; };
+		14B0D03A2448246600D0E894 /* RealmProfileTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */; };
+		14B0D03B2448247700D0E894 /* PosterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02824480B1900D0E894 /* PosterEntity.swift */; };
+		14B0D03C2448247C00D0E894 /* RealmPosterEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D024244809FA00D0E894 /* RealmPosterEntry.swift */; };
+		14B0D03D2448247F00D0E894 /* RealmPosterTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D02624480AB300D0E894 /* RealmPosterTranslator.swift */; };
+		14B0D03E2448256A00D0E894 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C432444A44400EEDC45 /* DAO.swift */; };
+		14B0D03F2448257200D0E894 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14690C462444A45C00EEDC45 /* Entity.swift */; };
+		14B0D040244825ED00D0E894 /* RealmConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0CFFA2447618C00D0E894 /* RealmConfiguration.swift */; };
+		14B0D041244825F000D0E894 /* RealmTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0CFF82447398500D0E894 /* RealmTranslator.swift */; };
+		14B0D042244825F400D0E894 /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0CFF22447062800D0E894 /* RealmDAO.swift */; };
+		14B0D0432448260D00D0E894 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0172447EBCA00D0E894 /* SettingsService.swift */; };
+		14B0D0442448261300D0E894 /* ZeroFavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EB0E78243E8E650099F298 /* ZeroFavoritesView.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -1942,18 +1964,21 @@
 				14C2946D242C32710076EBB7 /* FavoritesView.swift in Sources */,
 				14C29466242C32070076EBB7 /* AccountViewController.swift in Sources */,
 				14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */,
+				14B0D0382448245C00D0E894 /* CoreDataMovieTranslator.swift in Sources */,
 				14C29459242C31230076EBB7 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				14C2945F242C31AE0076EBB7 /* Colors.swift in Sources */,
 				14E175F7243D782200E3B54D /* ProfileViewController.swift in Sources */,
 				14E175FB243D783E00E3B54D /* TableContentLayoutFlowDelegate.swift in Sources */,
 				1441E4D424355F4000C0EECC /* MovieDetailView.swift in Sources */,
 				14C29445242C0D880076EBB7 /* ServiceError.swift in Sources */,
+				14B0D03B2448247700D0E894 /* PosterEntity.swift in Sources */,
 				1458ED53243B59C000D5B6DC /* ImageLoaderTest.swift in Sources */,
 				14D8DD5A24339BA5008FD2D5 /* SearchTableViewController.swift in Sources */,
 				14C29443242C0D680076EBB7 /* ServicesAssembler.swift in Sources */,
 				14C2946C242C32650076EBB7 /* ZeroFavoritesViewController.swift in Sources */,
 				146331A2243B67CC009B8CA0 /* MainAccountViewController.swift in Sources */,
 				1458ED212435A0B100D5B6DC /* MainFavoritesViewController.swift in Sources */,
+				14B0D0342448239E00D0E894 /* DAOErrors.swift in Sources */,
 				1458ED232435A0BA00D5B6DC /* FavoritesCollectionViewController.swift in Sources */,
 				1458ED54243B5B7A00D5B6DC /* LoginModel.swift in Sources */,
 				1458ED4C243B57AD00D5B6DC /* ImageLoader.swift in Sources */,
@@ -1961,6 +1986,8 @@
 				14C2946B242C32560076EBB7 /* Images.swift in Sources */,
 				14C2945B242C31370076EBB7 /* UIViewController+Spinner.swift in Sources */,
 				1458ED312438B4F600D5B6DC /* MovieMapper.swift in Sources */,
+				14B0D0392448246400D0E894 /* RealmProfileEntry.swift in Sources */,
+				14B0D03A2448246600D0E894 /* RealmProfileTranslator.swift in Sources */,
 				14636541242AE0F1001F34E6 /* MovieServiceTest.swift in Sources */,
 				14C29454242C2F7D0076EBB7 /* AuthLoader.swift in Sources */,
 				1458ED3E243A22BA00D5B6DC /* MovieDetail.swift in Sources */,
@@ -1968,8 +1995,12 @@
 				14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */,
 				14C29463242C31E00076EBB7 /* TMDBTextField.swift in Sources */,
 				1458ED4B243B57A700D5B6DC /* MainAuthViewController.swift in Sources */,
+				14B0D0302448239100D0E894 /* CoreDataConfiguration.swift in Sources */,
 				14E175F4243D779A00E3B54D /* FavoritesLoader.swift in Sources */,
+				14B0D040244825ED00D0E894 /* RealmConfiguration.swift in Sources */,
 				14C2944A242C26230076EBB7 /* AuthServiceTest.swift in Sources */,
+				14B0D03C2448247C00D0E894 /* RealmPosterEntry.swift in Sources */,
+				14B0D0432448260D00D0E894 /* SettingsService.swift in Sources */,
 				1446255B242038DD00CF0DB7 /* Validator.swift in Sources */,
 				14E175F5243D781400E3B54D /* MainPinCodeViewController.swift in Sources */,
 				14636543242AE17F001F34E6 /* APIClientSpy.swift in Sources */,
@@ -1979,23 +2010,35 @@
 				14C2945E242C31A80076EBB7 /* TMBDSearchTextField.swift in Sources */,
 				14E175FA243D783900E3B54D /* KeyBoardButton.swift in Sources */,
 				14C29465242C31F80076EBB7 /* WeakRef.swift in Sources */,
+				14B0D02B2448237B00D0E894 /* RealmEntity.swift in Sources */,
 				14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */,
 				14C29446242C0DDE0076EBB7 /* Profile.swift in Sources */,
+				14B0D02E2448238900D0E894 /* CoreDataDAO.swift in Sources */,
 				14C29457242C310C0076EBB7 /* SearchViewController.swift in Sources */,
 				1441E4D124355F1F00C0EECC /* MovieDetailsViewController.swift in Sources */,
+				14B0D03F2448257200D0E894 /* Entity.swift in Sources */,
+				14B0D03E2448256A00D0E894 /* DAO.swift in Sources */,
 				14C29458242C311A0076EBB7 /* SearchView.swift in Sources */,
 				1441E4D224355F2500C0EECC /* MovieOverviewScrollViewController.swift in Sources */,
+				14B0D0312448239400D0E894 /* CoreDataEntity.swift in Sources */,
+				14B0D0352448245200D0E894 /* RealmMovieEntry.swift in Sources */,
+				14B0D02F2448238E00D0E894 /* CoreDataTranslator.swift in Sources */,
 				14D8DD6C2434B80A008FD2D5 /* UIView+constraint.swift in Sources */,
 				14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */,
+				14B0D042244825F400D0E894 /* RealmDAO.swift in Sources */,
 				14C2945C242C313F0076EBB7 /* MoviesCell.swift in Sources */,
 				14636545242AEBC6001F34E6 /* Helpers.swift in Sources */,
 				14C29442242C0D5E0076EBB7 /* UTCToLocal.swift in Sources */,
 				1441E4D324355F2C00C0EECC /* MainDetailsViewController.swift in Sources */,
 				14C2945D242C319F0076EBB7 /* XibView.swift in Sources */,
+				14B0D03D2448247F00D0E894 /* RealmPosterTranslator.swift in Sources */,
+				14B0D0442448261300D0E894 /* ZeroFavoritesView.swift in Sources */,
 				1488CE102432EE8E00F4B9F1 /* TableViewDataSource.swift in Sources */,
+				14B0D0372448245900D0E894 /* CoreDataMovieEntry.swift in Sources */,
 				14C29441242C0D420076EBB7 /* UserSessionData.swift in Sources */,
 				1450332024126AAE00B3F404 /* AuthValidationTests.swift in Sources */,
 				14E175F8243D782500E3B54D /* PinCodeViewController.swift in Sources */,
+				14B0D041244825F000D0E894 /* RealmTranslator.swift in Sources */,
 				1458ED342438E66E00D5B6DC /* DataConverter.swift in Sources */,
 				1458ED242435A0CA00D5B6DC /* FavoriteService.swift in Sources */,
 				1458ED272435A0FF00D5B6DC /* FavoriteCell.swift in Sources */,
@@ -2007,6 +2050,7 @@
 				14C2946A242C323F0076EBB7 /* StoryAssembler.swift in Sources */,
 				14C2944E242C2DA20076EBB7 /* WeakRefTest.swift in Sources */,
 				14E175F9243D782900E3B54D /* PinCodeView.swift in Sources */,
+				14B0D0362448245500D0E894 /* RealmMovieTranslator.swift in Sources */,
 				14C2946E242C32AB0076EBB7 /* UIAplication+setRoot.swift in Sources */,
 				1458ED4F243B58A700D5B6DC /* SearchLoader.swift in Sources */,
 				14D8DD6A2434B759008FD2D5 /* MainSearchViewController.swift in Sources */,

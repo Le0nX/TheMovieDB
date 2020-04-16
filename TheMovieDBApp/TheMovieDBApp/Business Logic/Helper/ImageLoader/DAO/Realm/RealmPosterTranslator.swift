@@ -7,9 +7,7 @@
 //
 
 import Foundation
-
 import DAO
-import Foundation
 
 final class RealmPosterTranslator: RealmTranslator<PosterEntity, RealmPosterEntry> {
     
