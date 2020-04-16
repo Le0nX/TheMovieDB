@@ -15,6 +15,9 @@ protocol ProfileService {
     ///
     /// - Parameter completion: обработчик данных профиля
     func userInfo(completion: @escaping (APIResult<Profile>) -> Void)
+    
+    /// Выход из приложения
+    func logout()
 }
 
 /// Сервис данных профиля пользователя.
@@ -57,7 +60,7 @@ final public class UserProfileService: ProfileService {
         let profiles = self.dao.read()
         if let profile = profiles.first {
             completion(.success(profile))
-        }        
+        }
         
         if !networkChecker.isNetworkAvailable() {
             return
@@ -79,6 +82,10 @@ final public class UserProfileService: ProfileService {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func logout() {
+        try? dao.erase()
     }
     
     // MARK: - Private methods

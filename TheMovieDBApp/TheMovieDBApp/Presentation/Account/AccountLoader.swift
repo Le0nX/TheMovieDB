@@ -43,6 +43,7 @@ final class AccountLoaderImpl: AccountLoader {
     
     func deleteAccountData() throws {
         try credentailsService.delete()
+        profileService.logout()
     }
     
     /// Обновление профиля при загрузке экрана
