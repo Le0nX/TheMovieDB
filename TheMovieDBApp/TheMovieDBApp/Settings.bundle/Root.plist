@@ -18,7 +18,7 @@
 			<key>Title</key>
 			<string>Использовать Realm</string>
 			<key>Key</key>
-			<string>enabled_preference</string>
+			<string>REALM_IS_SELECTED</string>
 			<key>DefaultValue</key>
 			<true/>
 		</dict>

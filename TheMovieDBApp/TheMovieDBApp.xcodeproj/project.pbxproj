@@ -171,6 +171,7 @@
 		14B0D0102447D35900D0E894 /* Reachbility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D00F2447D35900D0E894 /* Reachbility.swift */; };
 		14B0D0122447DA9600D0E894 /* RealmMovieTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */; };
 		14B0D0162447E2B500D0E894 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14B0D0152447E2B500D0E894 /* Settings.bundle */; };
+		14B0D0182447EBCA00D0E894 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0172447EBCA00D0E894 /* SettingsService.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -471,6 +472,7 @@
 		14B0D00F2447D35900D0E894 /* Reachbility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachbility.swift; sourceTree = "<group>"; };
 		14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieTranslator.swift; sourceTree = "<group>"; };
 		14B0D0152447E2B500D0E894 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		14B0D0172447EBCA00D0E894 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
 				143C1DCF242952870060D270 /* ServiceError.swift */,
+				14B0D0172447EBCA00D0E894 /* SettingsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1858,6 +1861,7 @@
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
 				14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */,
 				146181B2243D396900DD4CA3 /* FavoriteServiceModel.swift in Sources */,
+				14B0D0182447EBCA00D0E894 /* SettingsService.swift in Sources */,
 				1446256C242136A200CF0DB7 /* ProfileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
