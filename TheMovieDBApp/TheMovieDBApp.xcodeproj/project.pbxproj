@@ -172,6 +172,8 @@
 		14B0D0122447DA9600D0E894 /* RealmMovieTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */; };
 		14B0D0162447E2B500D0E894 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14B0D0152447E2B500D0E894 /* Settings.bundle */; };
 		14B0D0182447EBCA00D0E894 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D0172447EBCA00D0E894 /* SettingsService.swift */; };
+		14B0D01E2447FF9800D0E894 /* RealmProfileEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */; };
+		14B0D020244802E700D0E894 /* RealmProfileTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */; };
 		14C2943A242C09F40076EBB7 /* ProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */; };
 		14C2943F242C0D270076EBB7 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1446256B242136A200CF0DB7 /* ProfileService.swift */; };
 		14C29440242C0D330076EBB7 /* AccessCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */; };
@@ -473,6 +475,8 @@
 		14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMovieTranslator.swift; sourceTree = "<group>"; };
 		14B0D0152447E2B500D0E894 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		14B0D0172447EBCA00D0E894 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProfileEntry.swift; sourceTree = "<group>"; };
+		14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProfileTranslator.swift; sourceTree = "<group>"; };
 		14C29439242C09F40076EBB7 /* ProfileServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceTest.swift; sourceTree = "<group>"; };
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
@@ -862,11 +866,11 @@
 		145033432412826800B3F404 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				14B0D0192447FF3A00D0E894 /* ProfileService */,
 				146181B0243D395200DD4CA3 /* FavoriteService */,
 				145E8BB224159B77007ACDBB /* AuthService */,
 				145E8BAC24159400007ACDBB /* ServicesAssembler.swift */,
 				145E8BCC2415DE91007ACDBB /* AccessCredentialsService.swift */,
-				1446256B242136A200CF0DB7 /* ProfileService.swift */,
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
 				143C1DCF242952870060D270 /* ServiceError.swift */,
 				14B0D0172447EBCA00D0E894 /* SettingsService.swift */,
@@ -1240,6 +1244,40 @@
 				14B0D0112447DA9600D0E894 /* RealmMovieTranslator.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		14B0D0192447FF3A00D0E894 /* ProfileService */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D01A2447FF6800D0E894 /* DAO */,
+				1446256B242136A200CF0DB7 /* ProfileService.swift */,
+			);
+			path = ProfileService;
+			sourceTree = "<group>";
+		};
+		14B0D01A2447FF6800D0E894 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D01C2447FF7800D0E894 /* CoreData */,
+				14B0D01B2447FF7300D0E894 /* Realm */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		14B0D01B2447FF7300D0E894 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				14B0D01D2447FF9800D0E894 /* RealmProfileEntry.swift */,
+				14B0D01F244802E700D0E894 /* RealmProfileTranslator.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		14B0D01C2447FF7800D0E894 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		14C2944C242C2BAB0076EBB7 /* Presentation */ = {
@@ -1790,6 +1828,7 @@
 				1458ED302438B38C00D5B6DC /* MovieMapper.swift in Sources */,
 				146181A0243BF66A00DD4CA3 /* KeyBoardButton.swift in Sources */,
 				145E8BA7241577BF007ACDBB /* AuthLoader.swift in Sources */,
+				14B0D01E2447FF9800D0E894 /* RealmProfileEntry.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				145E8BDC24168175007ACDBB /* AccountLoader.swift in Sources */,
 				14100A822418312C0097421F /* UTCToLocal.swift in Sources */,
@@ -1857,6 +1896,7 @@
 				1458ED46243A818900D5B6DC /* LoginModel.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
+				14B0D020244802E700D0E894 /* RealmProfileTranslator.swift in Sources */,
 				146331A8243BE394009B8CA0 /* PinCodeViewController.swift in Sources */,
 				1450330924126AAA00B3F404 /* AppDelegate.swift in Sources */,
 				14B0D00E2447CAB000D0E894 /* RealmMovieEntry.swift in Sources */,

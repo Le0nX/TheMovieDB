@@ -38,5 +38,4 @@ final class RealmMovieTranslator: RealmTranslator<MovieEntity, RealmMovieEntry> 
         entry.voteCount = entity.voteCount ?? 0
         entry.id = entity.id
     }
-
 }

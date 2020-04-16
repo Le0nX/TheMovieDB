@@ -51,16 +51,13 @@ final public class FavoriteService: FavoritesService {
 
     // MARK: - Initializers
     
-    init(client: APIClient) {
-        self.client = client
-        let translator = CoreDataMovieTranslator()
-        let configuration = CoreDataConfiguration(containerName: "FavoriteMovies",
-                                                  storeType: NSInMemoryStoreType)
-        self.dao = try? CoreDataDAO<MovieEntity, CoreDataMovieEntry>(translator, configuration: configuration)
+    init(client: APIClient,
+         realmDao: RealmDAO<MovieEntity, RealmMovieEntry>?,
+         coredataDao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?) {
         
-        let realmTranslator = RealmMovieTranslator()
-        let realmConfig = RealmConfiguration()
-        self.realmDao = RealmDAO<MovieEntity, RealmMovieEntry>(realmTranslator, configuration: realmConfig)
+        self.client = client
+        self.dao = coredataDao
+        self.realmDao = realmDao
     }
     
     // MARK: - Public methods
@@ -83,12 +80,12 @@ final public class FavoriteService: FavoritesService {
         
         let endpoint = FavoriteEndpoint(accountId: model.profileId, page: model.page, sessionId: model.sessionId)
         
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let movieDTO):
                 let movies = MovieMapper.map(from: movieDTO)
-                try? self.realmDao?.persist(movies)
-                try? self.dao?.persist(movies)
+                try? self?.realmDao?.persist(movies)
+                try? self?.dao?.persist(movies)
                 completion(.success(movies))
             case .failure(let error):
                 completion(.failure(error))

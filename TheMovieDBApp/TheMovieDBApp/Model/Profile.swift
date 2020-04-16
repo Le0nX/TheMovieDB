@@ -6,12 +6,34 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import DAO
 import Foundation
 
 /// бизнес-модель профиля 
-struct Profile: Equatable {
-    let id: Int
-    let name: String
-    let username: String
-    let image: Data
+final class Profile: Entity {
+    
+    // MARK: Public Properties
+    
+    var id: Int = 0
+    var name: String = ""
+    var username: String = ""
+    var image: Data?
+    
+    // MARK: - Initalizers
+    
+    init(id: Int,
+         name: String,
+         username: String,
+         image: Data?) {
+        
+        self.id = id
+        self.name = name
+        self.username = username
+        self.image = image
+        super.init()
+    }
+    
+    required init() {
+        super.init()
+    }
 }

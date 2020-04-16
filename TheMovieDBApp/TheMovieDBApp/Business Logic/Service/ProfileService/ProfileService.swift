@@ -5,6 +5,7 @@
 //  Created by Denis Nefedov on 17.03.2020.
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 
+import DAO
 import Foundation
 import TMDBNetwork
 
@@ -28,6 +29,8 @@ final public class UserProfileService: ProfileService {
     
     private let client: APIClient
     private let imageClient: APIClient
+    private let dao: RealmDAO<Profile, RealmProfileEntry>
+    private let networkChecker = NetworkReachability()
             
     // MARK: - Private Properties
     
@@ -35,10 +38,14 @@ final public class UserProfileService: ProfileService {
     
     // MARK: - Initializers
     
-    init(client: APIClient, imageClient: APIClient, accessService: AccessCredentialsService) {
+    init(client: APIClient,
+         imageClient: APIClient,
+         accessService: AccessCredentialsService,
+         dao: RealmDAO<Profile, RealmProfileEntry>) {
         self.client = client
         self.imageClient = imageClient
         self.accessService = accessService
+        self.dao = dao
     }
     
     // MARK: - Public methods
@@ -46,6 +53,15 @@ final public class UserProfileService: ProfileService {
     /// Метод получения данных пользователя
     /// - Parameter completion: обработчик данных профиля
     func userInfo(completion: @escaping (Result) -> Void) {
+        
+        let profiles = self.dao.read()
+        if let profile = profiles.first {
+            completion(.success(profile))
+        }        
+        
+        if !networkChecker.isNetworkAvailable() {
+            return
+        }
         
         guard let session = accessService.credentials?.session else {
             return
@@ -75,10 +91,11 @@ final public class UserProfileService: ProfileService {
         guard let hash = hash else { return }
         
         let endpoint = GravatarEndpoint(hash: hash)
-        imageClient.request(endpoint) { result in
+        imageClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let imageDTO):
                 let userProfile = Profile(id: id, name: name, username: username, image: imageDTO)
+                try? self?.dao.persist(userProfile)
                 completion(.success(userProfile))
             case .failure(let error):
                 completion(.failure(error))

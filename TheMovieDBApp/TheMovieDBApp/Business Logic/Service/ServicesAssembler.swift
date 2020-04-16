@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
 import KeychainAccess
 import TMDBNetwork
+import DAO
 
 protocol ServicesAssembler {
     
@@ -39,6 +41,30 @@ final class ServiceFabric: ServicesAssembler {
         return TMDBAPIClient(config: config)
     }()
     
+    private lazy var favoritesDao: (CoreDataDAO<MovieEntity, CoreDataMovieEntry>?,
+        RealmDAO<MovieEntity, RealmMovieEntry>) = {
+            let translator = CoreDataMovieTranslator()
+            let configuration = CoreDataConfiguration(containerName: "FavoriteMovies",
+                                                      storeType: NSInMemoryStoreType)
+            let coreDataDao = try? CoreDataDAO<MovieEntity, CoreDataMovieEntry>(translator,
+                                                                                configuration: configuration)
+            
+            let realmTranslator = RealmMovieTranslator()
+            let realmConfig = RealmConfiguration()
+            let realmDao = RealmDAO<MovieEntity, RealmMovieEntry>(realmTranslator, configuration: realmConfig)
+            
+            return (coreDataDao, realmDao)
+    }()
+    
+    private lazy var profileDao: RealmDAO<Profile, RealmProfileEntry> = {
+            
+            let realmTranslator = RealmProfileTranslator()
+            let realmConfig = RealmConfiguration(databaseFileName: "profile.realm")
+            let realmDao = RealmDAO<Profile, RealmProfileEntry>(realmTranslator, configuration: realmConfig)
+            
+            return realmDao
+    }()
+    
     private lazy var posterClient: APIClient = {
         let config = APIClientConfig(base: "https://image.tmdb.org")
         return TMDBAPIClient(config: config)
@@ -54,7 +80,10 @@ final class ServiceFabric: ServicesAssembler {
     lazy var profileService: ProfileService = {
         let config = APIClientConfig(base: "https://secure.gravatar.com/avatar/")
         let imageClient = TMDBAPIClient(config: config)
-        let service = UserProfileService(client: client, imageClient: imageClient, accessService: accessService)
+        let service = UserProfileService(client: client,
+                                         imageClient: imageClient,
+                                         accessService: accessService,
+                                         dao: profileDao)
         return service
     }()
     
@@ -74,7 +103,8 @@ final class ServiceFabric: ServicesAssembler {
     /// Сервис работы с фаворитами
     lazy var favoriteService: FavoritesService = {
         let simpleCache = NSCache<NSString, NSData>()
-        let service = FavoriteService(client: client)
+        let (coredataDao, realmDao) = favoritesDao
+        let service = FavoriteService(client: client, realmDao: realmDao, coredataDao: coredataDao)
         return service
     }()
     
