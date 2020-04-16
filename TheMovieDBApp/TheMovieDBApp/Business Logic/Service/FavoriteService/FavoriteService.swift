@@ -47,6 +47,7 @@ final public class FavoriteService: FavoritesService {
     private let client: APIClient
     private let dao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?
     private let realmDao: RealmDAO<MovieEntity, RealmMovieEntry>?
+    private let networkChecker = NetworkReachability()
 
     // MARK: - Initializers
     
@@ -65,7 +66,21 @@ final public class FavoriteService: FavoritesService {
     // MARK: - Public methods
     
     func getFavorites(for model: FavoriteServiceModel, completion: @escaping (APIResult<[MovieEntity]>) -> Void) {
-
+        switch AppSettings.checkDataBaseSettings() {
+        case .coreData:
+            if let movies = self.dao?.read() {
+                completion(.success(movies))
+            }
+        case .realm:
+            if let movies = self.realmDao?.read() {
+                completion(.success(movies))
+            }
+        }
+        
+        if !networkChecker.isNetworkAvailable() {
+            return
+        }
+        
         let endpoint = FavoriteEndpoint(accountId: model.profileId, page: model.page, sessionId: model.sessionId)
         
         client.request(endpoint) { result in
@@ -73,9 +88,7 @@ final public class FavoriteService: FavoritesService {
             case .success(let movieDTO):
                 let movies = MovieMapper.map(from: movieDTO)
                 try? self.realmDao?.persist(movies)
-                print(try? self.realmDao?.read()[0].title)
                 try? self.dao?.persist(movies)
-                print(try? self.dao?.read()[0].title)
                 completion(.success(movies))
             case .failure(let error):
                 completion(.failure(error))

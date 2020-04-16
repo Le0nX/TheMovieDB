@@ -6,6 +6,7 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import TMDBNetwork
 import UIKit
 
 @UIApplicationMain
@@ -32,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let credentialsService = serviceAssembler.accessService
             
-            if credentialsService.sessionIsValid() {
+            if credentialsService.sessionIsValid() ||
+                (credentialsService.credentials != nil && !NetworkReachability().isNetworkAvailable()) {
                 window?.rootViewController = storyAssembler.makeTabBar()
             } else {
                 let navigationViewController = UINavigationController(

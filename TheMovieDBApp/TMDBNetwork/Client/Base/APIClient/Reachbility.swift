@@ -10,7 +10,7 @@ import Foundation
 import Network
 
 /// Класс проверки соединения
-final class NetworkReachability {
+public final class NetworkReachability {
 
     // MARK: - Private Properties
     
@@ -22,7 +22,7 @@ final class NetworkReachability {
 
     // MARK: - Initializers
     
-    init() {
+    public init() {
         pathMonitor = NWPathMonitor()
         pathMonitor.pathUpdateHandler = self.pathUpdateHandler
         pathMonitor.start(queue: backgroudQueue)
@@ -32,7 +32,7 @@ final class NetworkReachability {
     
     /// Проверка доступности сети
     /// - Returns: достпен/недоступен
-    func isNetworkAvailable() -> Bool {
+    public func isNetworkAvailable() -> Bool {
         if let path = self.path {
             if path.status == NWPath.Status.satisfied {
                 return true
