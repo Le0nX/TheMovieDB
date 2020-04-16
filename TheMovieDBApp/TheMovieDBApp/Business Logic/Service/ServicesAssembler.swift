@@ -92,7 +92,10 @@ final class ServiceFabric: ServicesAssembler {
         let service = UserProfileService(client: client,
                                          imageClient: imageClient,
                                          accessService: accessService,
-                                         dao: profileDao)
+                                         dao: profileDao,
+                                         favoritesRealmDao: favoritesDao.1,
+                                         favoritesCoredataDao: favoritesDao.0!,
+                                         posterDao: posterDao)
         return service
     }()
     
@@ -113,7 +116,9 @@ final class ServiceFabric: ServicesAssembler {
     lazy var favoriteService: FavoritesService = {
         let simpleCache = NSCache<NSString, NSData>()
         let (coredataDao, realmDao) = favoritesDao
-        let service = FavoriteService(client: client, realmDao: realmDao, coredataDao: coredataDao)
+        let service = FavoriteService(client: client,
+                                      realmDao: realmDao,
+                                      coredataDao: coredataDao)
         return service
     }()
     

@@ -28,14 +28,17 @@ final public class UserProfileService: ProfileService {
     
     typealias Result = APIResult<Profile>
     
-    // MARK: - Constants
-    
+    // MARK: - Private Properties
+
     private let client: APIClient
     private let imageClient: APIClient
     private let dao: RealmDAO<Profile, RealmProfileEntry>
     private let networkChecker = NetworkReachability()
             
-    // MARK: - Private Properties
+    /// DAO на удаление при разлогине
+    private let posterDao: RealmDAO<PosterEntity, RealmPosterEntry>
+    private let favoritesCoredataDao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>
+    private let favoritesRealmDao: RealmDAO<MovieEntity, RealmMovieEntry>
     
     private var accessService: AccessCredentialsService
     
@@ -44,11 +47,19 @@ final public class UserProfileService: ProfileService {
     init(client: APIClient,
          imageClient: APIClient,
          accessService: AccessCredentialsService,
-         dao: RealmDAO<Profile, RealmProfileEntry>) {
+         dao: RealmDAO<Profile, RealmProfileEntry>,
+         favoritesRealmDao: RealmDAO<MovieEntity, RealmMovieEntry>,
+         favoritesCoredataDao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>,
+         posterDao: RealmDAO<PosterEntity, RealmPosterEntry>) {
+        
         self.client = client
         self.imageClient = imageClient
         self.accessService = accessService
         self.dao = dao
+        
+        self.posterDao = posterDao
+        self.favoritesCoredataDao = favoritesCoredataDao
+        self.favoritesRealmDao = favoritesRealmDao
     }
     
     // MARK: - Public methods
@@ -85,6 +96,9 @@ final public class UserProfileService: ProfileService {
     
     func logout() {
         try? dao.erase()
+        try? favoritesRealmDao.erase()
+        try? favoritesCoredataDao.erase()
+        try? posterDao.erase()
     }
     
     // MARK: - Private methods
