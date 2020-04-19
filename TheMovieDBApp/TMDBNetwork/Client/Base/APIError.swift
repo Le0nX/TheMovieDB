@@ -19,11 +19,14 @@ enum APIError: Error {
     case unknown(HTTPURLResponse?)
     case invalidService
     case invalidSessionIdResponse
+    case noConnection
 }
 
 extension APIError: LocalizedError {
     public var errorDescription: String? {
         switch self {
+        case .noConnection:
+            return NSLocalizedString("No internet connection", comment: "no internet connection")
         case .invalidApiKey:
             return NSLocalizedString("Invalid API key: You must be granted a valid key.", comment: "Invalid api key")
         case .invalidService:

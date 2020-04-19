@@ -54,6 +54,10 @@ final class MainAccountViewController: UIViewController {
         accountViewController.delegate = self
         addAccountViewController()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         loader?.updateProfile()
     }
     

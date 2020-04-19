@@ -64,7 +64,7 @@ final class AccountViewController: UIViewController {
     func setRemoteProfileData(profile: Profile) {
         self.containerView.name = profile.name
         self.containerView.userName = profile.username
-        self.containerView.avatar = UIImage(data: profile.image)
+        self.containerView.avatar = UIImage(data: profile.image ?? Data())
     }
 }
 

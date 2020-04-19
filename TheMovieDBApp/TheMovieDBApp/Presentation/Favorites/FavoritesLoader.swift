@@ -51,6 +51,7 @@ final class FavoritesLoaderImpl: FavoritesLoader {
                 self?.view.setMoviesData(movies: movies)
             case .failure(let error):
                 self?.view.showError(error: error)
+                self?.view.setMoviesData(movies: [])
             }
         }
     }
