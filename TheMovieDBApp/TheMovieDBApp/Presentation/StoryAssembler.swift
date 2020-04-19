@@ -24,6 +24,9 @@ protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана фаворитов
     func makeFavoritesStory() -> MainFavoritesViewController
+    
+    /// Фабричный метод создания экрана пинкода
+    func makePinCodeStory() -> UINavigationController
 }
 
 /// Фабрика экранов
@@ -107,6 +110,10 @@ final class StoryFabric: StoriesAssembler {
                                                  accessService: servicesAssembler.accessService)
         
         return mainSearchView
+    }
+    
+    func makePinCodeStory() -> UINavigationController {
+        UINavigationController(rootViewController: MainPinCodeViewController())
     }
     
     private func makeTabBarNavigationControllerItem(_ viewController: UIViewController,

@@ -32,6 +32,7 @@ final class ProfileViewController: UIViewController {
     
     private func setup() {
         let label = UILabel()
+        label.textAlignment = .center
         label.numberOfLines = 2
         label.text = "Придумайте пин-код\nдля быстрого входа"
         label.font = UIFont.systemFont(ofSize: 32.0)
