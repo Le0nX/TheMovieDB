@@ -62,7 +62,7 @@ final class MainPinCodeViewController: UIViewController {
         profileViewController.view.anchor(top: view.topAnchor,
                                           left: view.leftAnchor,
                                           right: view.rightAnchor,
-                                          height: 95)
+                                          height: 120)
     }
     
     private func addPincodeViewController() {
@@ -81,13 +81,20 @@ extension MainPinCodeViewController: PinCodeViewControllerDelegate {
         switch state {
         case .lock:
             print("locked")
-            // TODO: - профиль с фоточкой 
-            profileViewController.set(profile: "Denis Nefedov")
+            pinCodeLoader?.getProfile { [weak self] result in
+                switch result {
+                case .success(let profileDTO):
+                    self?.profileViewController.set(profile: profileDTO)
+                case .failure:
+                    // TODO: - обработка ошибок
+                    print("error")
+                }
+            }
         case let .setup(step):
             if step == 1 {
-                profileViewController.set(profile: "Придумайте пин-код\nдля быстрого входа")
+                profileViewController.set(text: "Придумайте пин-код\nдля быстрого входа")
             } else {
-                profileViewController.set(profile: "Повторите\nваш пин-код")
+                profileViewController.set(text: "Повторите\nваш пин-код")
             }
         }
     }

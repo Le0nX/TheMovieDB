@@ -114,7 +114,8 @@ final class StoryFabric: StoriesAssembler {
     
     func makePinCodeStory(with state: MainPinCodeViewController.State) -> UINavigationController {
         let pincode = MainPinCodeViewController(with: state, storyAssembler: self)
-        pincode.pinCodeLoader = PinCodeLoaderImpl(servicesAssembler.accessService)
+        pincode.pinCodeLoader = PinCodeLoaderImpl(servicesAssembler.accessService,
+                                                  profileService: servicesAssembler.profileService)
         return UINavigationController(rootViewController: pincode)
     }
     

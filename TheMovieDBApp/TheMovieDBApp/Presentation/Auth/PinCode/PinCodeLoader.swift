@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TMDBNetwork
 
 protocol PinCodeLoader {
     func save(pinCode: String)
@@ -14,6 +15,8 @@ protocol PinCodeLoader {
     func check(pinCode: String) -> Bool
     
     func logout()
+    
+    func getProfile(completion: @escaping (APIResult<Profile>) -> Void)
 }
 
 /// Лоадер-фасад экрана профиля,
@@ -23,10 +26,13 @@ final class PinCodeLoaderImpl: PinCodeLoader {
     // MARK: - Private Properties
     
     private var accessService: AccessCredentialsService
+    private var profileService: ProfileService
     
     // MARK: - Initializers
     
-    init(_ accessService: AccessCredentialsService) {
+    init(_ accessService: AccessCredentialsService,
+         profileService: ProfileService ) {
+        self.profileService = profileService
         self.accessService = accessService
     }
     
@@ -43,6 +49,10 @@ final class PinCodeLoaderImpl: PinCodeLoader {
     
     func logout() {
         try? accessService.delete()
+    }
+    
+    func getProfile(completion: @escaping (APIResult<Profile>) -> Void) {
+        profileService.userInfo(completion: completion)
     }
     
 }

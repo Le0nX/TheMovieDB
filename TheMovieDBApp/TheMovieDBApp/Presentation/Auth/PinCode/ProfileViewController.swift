@@ -13,7 +13,8 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var label = UILabel()
+    private lazy var label = UILabel()
+    private lazy var profileImage = UIImageView(image: ImageName.accountIcon)
     
     // MARK: - UIViewController(*)
     
@@ -33,10 +34,19 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - Public Methods
+    // TODO: - приберись тут
+    func set(text: String) {
+        profileImage.isHidden = true
+        label.text = text
+        label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+    }
     
-    func set(profile: String) {
-        // TODO: - замени на бизнес модель
-        label.text = profile
+    func set(profile: Profile) {
+        label.topAnchor.constraint(equalTo: profileImage.bottomAnchor).isActive = true
+        label.text = profile.name
+        if let data = profile.image {
+            profileImage.image = UIImage(data: data)!
+        }
     }
     
     // MARK: - Private Methods
@@ -48,8 +58,14 @@ final class ProfileViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 32.0)
         label.textColor = ColorName.fontMain
         
+        view.addSubview(profileImage)
+        profileImage.anchor(top: view.topAnchor,
+                            width: 70,
+                            height: 70)
+        profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         view.addSubview(label)
-        label.anchor(top: view.topAnchor,
+        label.anchor(top: profileImage.bottomAnchor,
                      left: view.leftAnchor,
                      bottom: view.bottomAnchor,
                      right: view.rightAnchor,
