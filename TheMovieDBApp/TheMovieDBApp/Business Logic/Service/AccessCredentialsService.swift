@@ -14,6 +14,9 @@ protocol AccessCredentialsService {
     /// Доступ к структуре sensetive пользовательских данных
     var credentials: UserSessionData? { get set }
     
+    /// Доступ к пинкоду пользователя
+    var pinCode: String? { get set }
+    
     /// Метод проверки валидности текущей сессии
     func sessionIsValid() -> Bool
     
@@ -38,6 +41,16 @@ final class AccessCredentials: AccessCredentialsService {
         
         set {
             saveData(data: newValue!)
+        }
+    }
+    
+    var pinCode: String? {
+        get {
+            keychain["pincode"]
+        }
+        
+        set {
+            keychain["pincode"] = newValue
         }
     }
         

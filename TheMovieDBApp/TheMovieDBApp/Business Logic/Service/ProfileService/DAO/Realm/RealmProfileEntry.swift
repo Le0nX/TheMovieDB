@@ -11,7 +11,7 @@ import Foundation
 
 final class RealmProfileEntry: RealmEntity {
     
-    // MARK: Public Properties
+    // MARK: - Public Properties
     
     @objc dynamic public var id: Int = 0
     @objc dynamic public var name: String = ""

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var isUnitTesting: Bool {
-      /// ускоритель юнит-тестов
+      // ускоритель юнит-тестов
       ProcessInfo.processInfo.arguments.contains("-UNITTEST")
     }
 
@@ -36,8 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             if credentialsService.sessionIsValid() ||
                 (credentialsService.credentials != nil && !NetworkReachability().isNetworkAvailable()) {
-//                window?.rootViewController = storyAssembler.makeTabBar()
-                window?.rootViewController = storyAssembler.makePinCodeStory()
+                
+                window?.rootViewController = storyAssembler.makePinCodeStory(with: .lock(image: ImageName.faceId))
             } else {
                 let navigationViewController = UINavigationController(
                                                                      rootViewController: storyAssembler.makeAuthStory())

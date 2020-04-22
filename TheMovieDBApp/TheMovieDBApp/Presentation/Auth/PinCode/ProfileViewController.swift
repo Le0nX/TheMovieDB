@@ -11,6 +11,10 @@ import UIKit
 /// Класс для отображения шапки профиля на экране пинкода (будет реализован в будущем)
 final class ProfileViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private var label = UILabel()
+    
     // MARK: - UIViewController(*)
     
     override func loadView() {
@@ -28,10 +32,16 @@ final class ProfileViewController: UIViewController {
         .lightContent
     }
     
+    // MARK: - Public Methods
+    
+    func set(profile: String) {
+        // TODO: - замени на бизнес модель
+        label.text = profile
+    }
+    
     // MARK: - Private Methods
     
     private func setup() {
-        let label = UILabel()
         label.textAlignment = .center
         label.numberOfLines = 2
         label.text = "Придумайте пин-код\nдля быстрого входа"
