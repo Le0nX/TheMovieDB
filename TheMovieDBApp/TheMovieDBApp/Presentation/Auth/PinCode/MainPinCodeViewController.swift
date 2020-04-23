@@ -113,7 +113,8 @@ extension MainPinCodeViewController: PinCodeViewControllerDelegate {
     
     func pinCodeDidSet(with pin: String) {
         pinCodeLoader?.save(pinCode: pin)
-        UIApplication.setRootView(storyAssembler.makeTabBar())
+        UIApplication.setRootView(storyAssembler.makePinCodeStory(with: .lock(image: ImageName.faceId)))
+//        UIApplication.setRootView(storyAssembler.makeTabBar())
     }
     
     func bioAuth(completion: @escaping(Bool) -> Void) {
