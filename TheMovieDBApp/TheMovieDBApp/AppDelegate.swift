@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         #endif
         
+        if JaibreakDetector.jailbroken() {
+            fatalError()
+        }
+        
         if !isUnitTesting {
             
             window = UIWindow(frame: UIScreen.main.bounds)

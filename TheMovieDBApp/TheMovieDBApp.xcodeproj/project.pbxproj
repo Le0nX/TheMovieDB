@@ -217,6 +217,7 @@
 		14D4FF05244DD51B002DDE98 /* PinCodeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF04244DD51B002DDE98 /* PinCodeLoader.swift */; };
 		14D4FF08245106EB002DDE98 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF07245106EB002DDE98 /* AES.swift */; };
 		14D4FF0A24511D12002DDE98 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF0924511D12002DDE98 /* BiometricAuthService.swift */; };
+		14D4FF0D245130A3002DDE98 /* JailbreakDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */; };
@@ -492,6 +493,7 @@
 		14D4FF04244DD51B002DDE98 /* PinCodeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeLoader.swift; sourceTree = "<group>"; };
 		14D4FF07245106EB002DDE98 /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		14D4FF0924511D12002DDE98 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
+		14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakDetector.swift; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 		14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTest.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 		145033422412826200B3F404 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				14D4FF0B2451308D002DDE98 /* Jailbreak */,
 				14D4FF06245106D3002DDE98 /* Crypto */,
 				14B0D021244809D100D0E894 /* ImageLoader */,
 				1458ED2E2438B38200D5B6DC /* Mappers */,
@@ -1318,6 +1321,14 @@
 				14D4FF07245106EB002DDE98 /* AES.swift */,
 			);
 			path = Crypto;
+			sourceTree = "<group>";
+		};
+		14D4FF0B2451308D002DDE98 /* Jailbreak */ = {
+			isa = PBXGroup;
+			children = (
+				14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */,
+			);
+			path = Jailbreak;
 			sourceTree = "<group>";
 		};
 		14D55F592412ED4C001CDE97 /* Extensions */ = {
@@ -1879,6 +1890,7 @@
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				1458ED332438E3AE00D5B6DC /* DataConverter.swift in Sources */,
 				1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */,
+				14D4FF0D245130A3002DDE98 /* JailbreakDetector.swift in Sources */,
 				14B0D00A2447B7F600D0E894 /* FavoriteMovies.xcdatamodeld in Sources */,
 				145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */,
 				1441E4DC2435750800C0EECC /* SearchFavoritesViewController.swift in Sources */,
