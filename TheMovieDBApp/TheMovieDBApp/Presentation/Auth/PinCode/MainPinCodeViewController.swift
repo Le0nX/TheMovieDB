@@ -100,7 +100,6 @@ extension MainPinCodeViewController: PinCodeViewControllerDelegate {
     }
     
     func pinCodeDidUnlock(with pin: String, _ view: PinCodeView) {
-        // TODO: - check pin
         if pinCodeLoader?.check(pinCode: pin) ?? false {
             UIApplication.setRootView(storyAssembler.makeTabBar())
         } else {

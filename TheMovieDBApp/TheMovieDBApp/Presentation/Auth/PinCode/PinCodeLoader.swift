@@ -43,10 +43,11 @@ final class PinCodeLoaderImpl: PinCodeLoader {
     
     func save(pinCode: String) {
         accessService.pinCode = pinCode
+        accessService.crypt(pinCode)
     }
     
     func check(pinCode: String) -> Bool {
-        accessService.pinCode == pinCode
+        accessService.decrypt(pinCode)
     }
     
     func logout() {

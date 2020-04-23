@@ -92,7 +92,7 @@ final class PinCodeView: XibView {
                         self.pinIndicators.forEach { $0.animateFilling() }
                         self.delegate?.biometryDidUnlock()
                     } else {
-                        // TODO: - нету биометриии
+                        self.fail()
                     }
                 }
                 print("faceid")
