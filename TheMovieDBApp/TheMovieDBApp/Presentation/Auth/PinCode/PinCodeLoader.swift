@@ -17,6 +17,8 @@ protocol PinCodeLoader {
     func logout()
     
     func getProfile(completion: @escaping (APIResult<Profile>) -> Void)
+    
+    func bioAuth(completion: @escaping (Bool) -> Void)
 }
 
 /// Лоадер-фасад экрана профиля,
@@ -27,6 +29,7 @@ final class PinCodeLoaderImpl: PinCodeLoader {
     
     private var accessService: AccessCredentialsService
     private var profileService: ProfileService
+    private var biometricService = BioMetricAuthenticatorServiceImp()
     
     // MARK: - Initializers
     
@@ -35,7 +38,6 @@ final class PinCodeLoaderImpl: PinCodeLoader {
         self.profileService = profileService
         self.accessService = accessService
     }
-    
     
     // MARK: - Public Methods
     
@@ -53,6 +55,10 @@ final class PinCodeLoaderImpl: PinCodeLoader {
     
     func getProfile(completion: @escaping (APIResult<Profile>) -> Void) {
         profileService.userInfo(completion: completion)
+    }
+    
+    func bioAuth(completion: @escaping (Bool) -> Void) {
+        biometricService.authenticate(completion: completion)
     }
     
 }

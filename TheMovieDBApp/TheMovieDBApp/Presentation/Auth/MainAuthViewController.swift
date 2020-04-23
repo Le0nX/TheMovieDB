@@ -74,7 +74,6 @@ extension MainAuthViewController: AuthViewInput {
     
     func showMainScreen() {
         UIApplication.setRootView(storyAssembler.makePinCodeStory(with: .setup(stage: 1)))
-//        UIApplication.setRootView(storyAssembler.makeTabBar())
     }
     
     func showProgress() {

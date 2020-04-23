@@ -18,9 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // ускоритель юнит-тестов
       ProcessInfo.processInfo.arguments.contains("-UNITTEST")
     }
+    
+    func isDebuggerAttached() -> Bool {
+        getppid() != 1
+    }
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        #if RELEASE
+        if isDebuggerAttached() {
+            fatalError()
+        }
+        #endif
         
         if !isUnitTesting {
             

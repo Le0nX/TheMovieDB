@@ -99,12 +99,26 @@ extension MainPinCodeViewController: PinCodeViewControllerDelegate {
         }
     }
     
-    func getPinCode() -> String {
-        "1234" // TODO: - loader
+    func pinCodeDidUnlock(with pin: String, _ view: PinCodeView) {
+        // TODO: - check pin
+        if pinCodeLoader?.check(pinCode: pin) ?? false {
+            UIApplication.setRootView(storyAssembler.makeTabBar())
+        } else {
+            view.fail()
+        }
     }
     
-    func pinCodeDidUnlock() {
+    func biometryDidUnlock() {
         UIApplication.setRootView(storyAssembler.makeTabBar())
+    }
+    
+    func pinCodeDidSet(with pin: String) {
+        pinCodeLoader?.save(pinCode: pin)
+        UIApplication.setRootView(storyAssembler.makeTabBar())
+    }
+    
+    func bioAuth(completion: @escaping(Bool) -> Void) {
+        pinCodeLoader?.bioAuth(completion: completion)
     }
     
     func exit() {

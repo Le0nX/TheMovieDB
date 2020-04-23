@@ -10,10 +10,14 @@ import UIKit
 
 protocol PinCodeViewDelegate: class {
     func update(state: MainPinCodeViewController.State)
+        
+    func pinCodeDidUnlock(with pin: String, _ view: PinCodeView)
     
-    func getPinCode() -> String
+    func biometryDidUnlock()
     
-    func pinCodeDidUnlock()
+    func pinCodeDidSet(with pin: String)
+    
+    func bioAuth(completion: @escaping (Bool) -> Void)
     
     func exit()
 }
@@ -69,7 +73,7 @@ final class PinCodeView: XibView {
         if !errorLabel.isHidden {
            hideError()
         }
-        
+
         sender.pressButton()
         pinPress += pin
         
@@ -82,7 +86,14 @@ final class PinCodeView: XibView {
         switch state {
         case .lock(let img):
             if img == ImageName.faceId {
-                // TODO: - faceid
+                delegate?.bioAuth { result in
+                    if result {
+                        self.pinIndicators.forEach { $0.animateFilling() }
+                        self.delegate?.biometryDidUnlock()
+                    } else {
+                        // TODO: - нету биометриии
+                    }
+                }
                 print("faceid")
                 break
             } else {
@@ -106,6 +117,15 @@ final class PinCodeView: XibView {
         pinPress.removeLast()
         pinIndicators[pinPress.count].animateResetFilling()
     }
+    
+    // MARK: - Public Methods
+    
+    func fail() {
+        indicateError()
+        pinPress = ""
+    }
+    
+    // MARK: - Private Mthods
     
     private func render() {
         switch state {
@@ -152,6 +172,7 @@ final class PinCodeView: XibView {
         shakeAllIndicators()
         pinIndicators.forEach { $0.makeRed() }
         errorLabel.isHidden = false
+        state = .lock(image: ImageName.faceId)
     }
     
     private func hideError() {
@@ -163,20 +184,20 @@ final class PinCodeView: XibView {
         if pinPress.count == 4 {
             switch state {
             case .lock:
-                let passcode = delegate?.getPinCode()
-                if passcode == pinPress {
-                    print("unlocked")
-                    delegate?.pinCodeDidUnlock()
-                } else {
-                    print("fail to unlock")
-                    indicateError()
-                    pinPress = ""
+//                let passcode = delegate?.getPinCode()
+//                if passcode == pinPress {
+//                    print("unlocked")
+                    delegate?.pinCodeDidUnlock(with: pinPress, self)
+//                } else {
+//                    print("fail to unlock")
+//                    indicateError()
+//                    pinPress = ""
                     // TODO: - счетчик ошибок
 //                    failUnclockCount += 1
 //                    if failUnclockCount == 3 {
 //                        output.pinCodeViewDidFailUnlock(self)
 //                    }
-                }
+//                }
             case .setup(let step) where  step == 1:
                 pin = pinPress
                 pinPress = ""
@@ -189,8 +210,7 @@ final class PinCodeView: XibView {
                     startAgain()
                 } else {
                     print("setuped")
-                    // TODO: - save new pin
-                    delegate?.pinCodeDidUnlock()
+                    delegate?.pinCodeDidSet(with: pinPress)
                 }
             default:
                 break

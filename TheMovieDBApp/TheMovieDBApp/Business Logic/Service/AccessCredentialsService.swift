@@ -76,6 +76,7 @@ final class AccessCredentials: AccessCredentialsService {
         keychain["expires"] = nil
         keychain["sessionId"] = nil
         keychain["accountId"] = nil
+        keychain["pincode"] = nil
     }
         
     // MARK: - Private Methods

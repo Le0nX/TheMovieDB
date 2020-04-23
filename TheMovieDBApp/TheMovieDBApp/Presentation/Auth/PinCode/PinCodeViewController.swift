@@ -10,10 +10,14 @@ import UIKit
 
 protocol PinCodeViewControllerDelegate: class {
     func update(state: MainPinCodeViewController.State)
+        
+    func pinCodeDidUnlock(with pin: String, _ view: PinCodeView)
     
-    func getPinCode() -> String
+    func pinCodeDidSet(with pin: String)
     
-    func pinCodeDidUnlock()
+    func biometryDidUnlock()
+    
+    func bioAuth(completion: @escaping (Bool) -> Void)
     
     func exit()
 }
@@ -63,19 +67,28 @@ final class PinCodeViewController: UIViewController {
 }
 
 extension PinCodeViewController: PinCodeViewDelegate {
-    func getPinCode() -> String {
-        delegate?.getPinCode() ?? ""
+    
+    func pinCodeDidSet(with pin: String) {
+        delegate?.pinCodeDidSet(with: pin)
     }
     
     func update(state: MainPinCodeViewController.State) {
         delegate?.update(state: state)
     }
     
-    func pinCodeDidUnlock() {
-        delegate?.pinCodeDidUnlock()
+    func pinCodeDidUnlock(with pin: String, _ view: PinCodeView) {
+        delegate?.pinCodeDidUnlock(with: pin, view)
     }
     
     func exit() {
         delegate?.exit()
+    }
+    
+    func bioAuth(completion: @escaping (Bool) -> Void) {
+        delegate?.bioAuth(completion: completion)
+    }
+    
+    func biometryDidUnlock() {
+        delegate?.biometryDidUnlock()
     }
 }

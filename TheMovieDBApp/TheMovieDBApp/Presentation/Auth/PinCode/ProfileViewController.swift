@@ -14,7 +14,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
     
     private lazy var label = UILabel()
-    private lazy var profileImage = UIImageView(image: ImageName.accountIcon)
+    private lazy var profileImage = UIImageView()
     
     // MARK: - UIViewController(*)
     
@@ -54,7 +54,7 @@ final class ProfileViewController: UIViewController {
     private func setup() {
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.text = "Придумайте пин-код\nдля быстрого входа"
+        label.text = ""
         label.font = UIFont.systemFont(ofSize: 32.0)
         label.textColor = ColorName.fontMain
         
