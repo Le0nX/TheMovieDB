@@ -63,5 +63,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        self.window?.viewWithTag(99999)?.removeFromSuperview()
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = window!.frame
+        blurEffectView.tag = 99999
+
+        self.window?.addSubview(blurEffectView)
+    }
 
 }
