@@ -34,13 +34,17 @@ final class ProfileViewController: UIViewController {
     }
     
     // MARK: - Public Methods
-    // TODO: - приберись тут
+    
+    /// Метод установки текущего заголовка
+    /// - Parameter text: заголовок
     func set(text: String) {
         profileImage.isHidden = true
         label.text = text
         label.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     }
     
+    /// Метод установки профиля
+    /// - Parameter profile: профиль
     func set(profile: Profile) {
         label.topAnchor.constraint(equalTo: profileImage.bottomAnchor).isActive = true
         label.text = profile.name

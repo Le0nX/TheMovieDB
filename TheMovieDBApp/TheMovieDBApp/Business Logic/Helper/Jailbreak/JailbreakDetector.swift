@@ -17,7 +17,6 @@ final class JaibreakDetector {
         return UIApplication.shared.canOpenURL(cydiaUrlScheme as URL) || isJailbroken()
     }
     
-    
     static private func isJailbroken() -> Bool {
         
         if TARGET_IPHONE_SIMULATOR != 0 {
@@ -52,7 +51,6 @@ final class JaibreakDetector {
             return false
         }
     }
-    
     
     static private func canOpen(path: String) -> Bool {
         let file = fopen(path, "r")

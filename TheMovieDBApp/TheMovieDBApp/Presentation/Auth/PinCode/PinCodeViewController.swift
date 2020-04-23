@@ -9,16 +9,28 @@
 import UIKit
 
 protocol PinCodeViewControllerDelegate: class {
+    
+    /// Обновление состояния экрана пинкода
     func update(state: MainPinCodeViewController.State)
-        
+    
+    /// Пинкод разлочил экран
+    /// - Parameters:
+    ///   - pin: пинкод
+    ///   - view: вью пинкода
     func pinCodeDidUnlock(with pin: String, _ view: PinCodeView)
     
+    /// Пиинкод был задан
+    /// - Parameter pin: пинкод
     func pinCodeDidSet(with pin: String)
     
+    /// Попытка авторизации по биометрии
     func biometryDidUnlock()
     
+    /// Обработка ответа из сервиса авторизации по биометрии
+    /// - Parameter completion: хендлер
     func bioAuth(completion: @escaping (Bool) -> Void)
     
+    /// выход
     func exit()
 }
 
@@ -33,6 +45,8 @@ final class PinCodeViewController: UIViewController {
     
     private let containerView = PinCodeView()
     private let state: MainPinCodeViewController.State
+    
+    // MARK: - Initializers
     
     init(with state: MainPinCodeViewController.State) {
         self.state = state

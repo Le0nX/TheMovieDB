@@ -10,18 +10,24 @@ import Foundation
 import TMDBNetwork
 
 protocol PinCodeLoader {
+    
+    /// Метод сохранения пинкода в keychain
     func save(pinCode: String)
     
+    /// Метод проверки пинкода на основе сессии
     func check(pinCode: String) -> Bool
     
+    /// выход
     func logout()
     
+    /// Метод получения данных профиля для верхней части ViewControllera
     func getProfile(completion: @escaping (APIResult<Profile>) -> Void)
     
+    /// Метод авторизации по faceId/touchId
     func bioAuth(completion: @escaping (Bool) -> Void)
 }
 
-/// Лоадер-фасад экрана профиля,
+/// Лоадер-фасад экрана пиинкода,
 /// который скрывает за собой работу других сервисов
 final class PinCodeLoaderImpl: PinCodeLoader {
     
