@@ -40,6 +40,7 @@ final class PinCodeView: XibView {
     // MARK: - Private Properties
     
     private var pinPress = ""
+    private var errorCount = 0
     
     /// копия пина
     private var pin: String = "" {
@@ -123,6 +124,10 @@ final class PinCodeView: XibView {
     func fail() {
         indicateError()
         pinPress = ""
+        errorCount += 1
+        if errorCount > 5 {
+            delegate?.exit()
+        }
     }
     
     // MARK: - Private Mthods
@@ -184,20 +189,7 @@ final class PinCodeView: XibView {
         if pinPress.count == 4 {
             switch state {
             case .lock:
-//                let passcode = delegate?.getPinCode()
-//                if passcode == pinPress {
-//                    print("unlocked")
                     delegate?.pinCodeDidUnlock(with: pinPress, self)
-//                } else {
-//                    print("fail to unlock")
-//                    indicateError()
-//                    pinPress = ""
-                    // TODO: - счетчик ошибок
-//                    failUnclockCount += 1
-//                    if failUnclockCount == 3 {
-//                        output.pinCodeViewDidFailUnlock(self)
-//                    }
-//                }
             case .setup(let step) where  step == 1:
                 pin = pinPress
                 pinPress = ""
