@@ -70,7 +70,7 @@ final class AccountViewController: UIViewController {
 
 extension AccountViewController: AccountViewDelegate {
     func showPinCodeViewController() {
-        navigationController?.pushViewController(MainPinCodeViewController(), animated: true)
+        // TODO: - убрать
     }
     
     func logout() {

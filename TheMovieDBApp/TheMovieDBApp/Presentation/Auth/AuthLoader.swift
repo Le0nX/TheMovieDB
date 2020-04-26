@@ -16,7 +16,8 @@ protocol AuthLoader {
     func didPressedLoginButton(login: String, password: String)
 }
 
-/// Класс перезентации экрана' Auth
+/// Лоадер-фасад экрана авториизации,
+/// который скрывает за собой работу других сервисов
 final class AuthLoaderImpl: AuthLoader {
     
     // MARK: - Private Properties

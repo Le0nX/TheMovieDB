@@ -214,6 +214,11 @@
 		14C2946F242C33800076EBB7 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1471BAC42413DF0600BA4592 /* SearchView.xib */; };
 		14C29470242C35BA0076EBB7 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1450334724129C7A00B3F404 /* LoginView.xib */; };
 		14C29471242C35E40076EBB7 /* AccountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145E8B9F24144CAB007ACDBB /* AccountView.xib */; };
+		14D4FF05244DD51B002DDE98 /* PinCodeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF04244DD51B002DDE98 /* PinCodeLoader.swift */; };
+		14D4FF08245106EB002DDE98 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF07245106EB002DDE98 /* AES.swift */; };
+		14D4FF0A24511D12002DDE98 /* BiometricAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF0924511D12002DDE98 /* BiometricAuthService.swift */; };
+		14D4FF0D245130A3002DDE98 /* JailbreakDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */; };
+		14D4FF0F24514CC3002DDE98 /* Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF0E24514CC3002DDE98 /* Locker.swift */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */; };
@@ -249,7 +254,6 @@
 		14FE8F832420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; };
 		14FE8F902420258D00115A49 /* TMDBNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14FE8F7A2420258D00115A49 /* TMDBNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		27350C5AA253357CCBC8DB51 /* Pods_TheMovieDBApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 850610A9F140B6799C02973F /* Pods_TheMovieDBApp.framework */; };
 		2B49B476B32A858090CB56C5 /* Pods_TheMovieDBAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEDBD61BF17E0530559F29A2 /* Pods_TheMovieDBAppTests.framework */; };
 		44CE924C5C528B3425B4129B /* Pods_TheMovieDBApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0CFE724467EC000D0E894 /* Pods_TheMovieDBApp.framework */; };
 		D7446A8E17FB054C1D6CE5A4 /* Pods_TheMovieDBApp_TheMovieDBAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B7293C3D85E2F7B43FEAD6 /* Pods_TheMovieDBApp_TheMovieDBAppUITests.framework */; };
@@ -487,6 +491,11 @@
 		14C29447242C1DF60076EBB7 /* AccessCredentialsServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessCredentialsServiceTest.swift; sourceTree = "<group>"; };
 		14C29449242C26230076EBB7 /* AuthServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceTest.swift; sourceTree = "<group>"; };
 		14C2944D242C2DA20076EBB7 /* WeakRefTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefTest.swift; sourceTree = "<group>"; };
+		14D4FF04244DD51B002DDE98 /* PinCodeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeLoader.swift; sourceTree = "<group>"; };
+		14D4FF07245106EB002DDE98 /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
+		14D4FF0924511D12002DDE98 /* BiometricAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthService.swift; sourceTree = "<group>"; };
+		14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JailbreakDetector.swift; sourceTree = "<group>"; };
+		14D4FF0E24514CC3002DDE98 /* Locker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locker.swift; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 		14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTest.swift; sourceTree = "<group>"; };
@@ -529,7 +538,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14FE8F8F2420258D00115A49 /* TMDBNetwork.framework in Frameworks */,
-				27350C5AA253357CCBC8DB51 /* Pods_TheMovieDBApp.framework in Frameworks */,
 				14690C3A24449AFF00EEDC45 /* DAO.framework in Frameworks */,
 				44CE924C5C528B3425B4129B /* Pods_TheMovieDBApp.framework in Frameworks */,
 			);
@@ -791,7 +799,6 @@
 			children = (
 				145033432412826800B3F404 /* Service */,
 				145033422412826200B3F404 /* Helper */,
-				145033412412825D00B3F404 /* Common */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -852,19 +859,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		145033412412825D00B3F404 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		145033422412826200B3F404 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				14D4FF0B2451308D002DDE98 /* Jailbreak */,
+				14D4FF06245106D3002DDE98 /* Crypto */,
 				14B0D021244809D100D0E894 /* ImageLoader */,
 				1458ED2E2438B38200D5B6DC /* Mappers */,
 				14100A812418312C0097421F /* UTCToLocal.swift */,
+				14D4FF0E24514CC3002DDE98 /* Locker.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				1446257D2421AEB300CF0DB7 /* MovieService.swift */,
 				143C1DCF242952870060D270 /* ServiceError.swift */,
 				14B0D0172447EBCA00D0E894 /* SettingsService.swift */,
+				14D4FF0924511D12002DDE98 /* BiometricAuthService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1062,6 +1066,7 @@
 				146331A7243BE394009B8CA0 /* PinCodeViewController.swift */,
 				146331AB243BE3CD009B8CA0 /* ProfileViewController.swift */,
 				146331A5243BE359009B8CA0 /* MainPinCodeViewController.swift */,
+				14D4FF04244DD51B002DDE98 /* PinCodeLoader.swift */,
 			);
 			path = PinCode;
 			sourceTree = "<group>";
@@ -1311,6 +1316,22 @@
 				14C2944D242C2DA20076EBB7 /* WeakRefTest.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		14D4FF06245106D3002DDE98 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				14D4FF07245106EB002DDE98 /* AES.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		14D4FF0B2451308D002DDE98 /* Jailbreak */ = {
+			isa = PBXGroup;
+			children = (
+				14D4FF0C245130A3002DDE98 /* JailbreakDetector.swift */,
+			);
+			path = Jailbreak;
 			sourceTree = "<group>";
 		};
 		14D55F592412ED4C001CDE97 /* Extensions */ = {
@@ -1853,11 +1874,13 @@
 				1458ED302438B38C00D5B6DC /* MovieMapper.swift in Sources */,
 				146181A0243BF66A00DD4CA3 /* KeyBoardButton.swift in Sources */,
 				145E8BA7241577BF007ACDBB /* AuthLoader.swift in Sources */,
+				14D4FF0A24511D12002DDE98 /* BiometricAuthService.swift in Sources */,
 				14B0D01E2447FF9800D0E894 /* RealmProfileEntry.swift in Sources */,
 				14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */,
 				145E8BDC24168175007ACDBB /* AccountLoader.swift in Sources */,
 				14100A822418312C0097421F /* UTCToLocal.swift in Sources */,
 				146181AC243D1A9900DD4CA3 /* FavoritesLoader.swift in Sources */,
+				14D4FF08245106EB002DDE98 /* AES.swift in Sources */,
 				1471BAC32413D08C00BA4592 /* SearchViewController.swift in Sources */,
 				145E8B9C24144C41007ACDBB /* AccountViewController.swift in Sources */,
 				1446257B2421A35200CF0DB7 /* MoviesCell.swift in Sources */,
@@ -1870,6 +1893,7 @@
 				145E8BDE241699A6007ACDBB /* UILabel+LocalizedString.swift in Sources */,
 				1458ED332438E3AE00D5B6DC /* DataConverter.swift in Sources */,
 				1488CE0F2432E49900F4B9F1 /* TableViewDataSource.swift in Sources */,
+				14D4FF0D245130A3002DDE98 /* JailbreakDetector.swift in Sources */,
 				14B0D00A2447B7F600D0E894 /* FavoriteMovies.xcdatamodeld in Sources */,
 				145E8B8A241429E5007ACDBB /* ZeroFavoritesViewController.swift in Sources */,
 				1441E4DC2435750800C0EECC /* SearchFavoritesViewController.swift in Sources */,
@@ -1896,6 +1920,7 @@
 				145E8BAF2415986A007ACDBB /* AuthService.swift in Sources */,
 				14D8DD5E2433E516008FD2D5 /* UIView+constraint.swift in Sources */,
 				144625732421763B00CF0DB7 /* WeakRef.swift in Sources */,
+				14D4FF05244DD51B002DDE98 /* PinCodeLoader.swift in Sources */,
 				14B0D0122447DA9600D0E894 /* RealmMovieTranslator.swift in Sources */,
 				14D8DD67243496C9008FD2D5 /* ZeroSearchViewController.swift in Sources */,
 				14582F0B2412FC01004226E7 /* TMDBButton.swift in Sources */,
@@ -1920,6 +1945,7 @@
 				145033512412A8CB00B3F404 /* LoginView.swift in Sources */,
 				14B0D025244809FA00D0E894 /* RealmPosterEntry.swift in Sources */,
 				1458ED46243A818900D5B6DC /* LoginModel.swift in Sources */,
+				14D4FF0F24514CC3002DDE98 /* Locker.swift in Sources */,
 				145E8B90241432D8007ACDBB /* SearchView.swift in Sources */,
 				14D8DD7324352554008FD2D5 /* MovieDetailView.swift in Sources */,
 				14B0D020244802E700D0E894 /* RealmProfileTranslator.swift in Sources */,
@@ -2301,7 +2327,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28XXG6S5AU;
+				DEVELOPMENT_TEAM = 275G629DQW;
 				INFOPLIST_FILE = TheMovieDBApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2322,7 +2348,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 28XXG6S5AU;
+				DEVELOPMENT_TEAM = 275G629DQW;
 				INFOPLIST_FILE = TheMovieDBApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2331,6 +2357,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nefedov.denis.TheMovieDBApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
