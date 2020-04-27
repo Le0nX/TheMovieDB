@@ -10,7 +10,7 @@ import Foundation
 import TMDBNetwork
 import DAO
 
-protocol ImageLoader {
+protocol ImageLoader: class {
     
     /// Метод запроса картинки постера фильма
     /// - Parameter for: линк постера
