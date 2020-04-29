@@ -236,6 +236,8 @@
 		14D4FF412458DADE002DDE98 /* TMDBURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF402458DADE002DDE98 /* TMDBURLCache.swift */; };
 		14D4FF432458F473002DDE98 /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF422458F473002DDE98 /* ReadWriteLock.swift */; };
 		14D4FF462458FFE3002DDE98 /* TMDBCacheTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF452458FFE3002DDE98 /* TMDBCacheTest.swift */; };
+		14D4FF4824590FBD002DDE98 /* TMDBURLCacheAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF4724590FBD002DDE98 /* TMDBURLCacheAsync.swift */; };
+		14D4FF4A245914B8002DDE98 /* TMDBCacheAsyncTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D4FF49245914B7002DDE98 /* TMDBCacheAsyncTest.swift */; };
 		14D55F5B2412ED61001CDE97 /* TextField+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */; };
 		14D55F5D2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */; };
 		14D8DD552433567B008FD2D5 /* TableViewDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */; };
@@ -520,6 +522,8 @@
 		14D4FF402458DADE002DDE98 /* TMDBURLCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBURLCache.swift; sourceTree = "<group>"; };
 		14D4FF422458F473002DDE98 /* ReadWriteLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteLock.swift; sourceTree = "<group>"; };
 		14D4FF452458FFE3002DDE98 /* TMDBCacheTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCacheTest.swift; sourceTree = "<group>"; };
+		14D4FF4724590FBD002DDE98 /* TMDBURLCacheAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBURLCacheAsync.swift; sourceTree = "<group>"; };
+		14D4FF49245914B7002DDE98 /* TMDBCacheAsyncTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCacheAsyncTest.swift; sourceTree = "<group>"; };
 		14D55F5A2412ED61001CDE97 /* TextField+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+isEmpty.swift"; sourceTree = "<group>"; };
 		14D55F5C2412EE45001CDE97 /* UIViewController+TapGuestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+TapGuestureRecognizer.swift"; sourceTree = "<group>"; };
 		14D8DD542433567B008FD2D5 /* TableViewDataSourceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceTest.swift; sourceTree = "<group>"; };
@@ -1369,6 +1373,7 @@
 			children = (
 				14D4FF402458DADE002DDE98 /* TMDBURLCache.swift */,
 				14D4FF422458F473002DDE98 /* ReadWriteLock.swift */,
+				14D4FF4724590FBD002DDE98 /* TMDBURLCacheAsync.swift */,
 			);
 			path = URLCache;
 			sourceTree = "<group>";
@@ -1377,6 +1382,7 @@
 			isa = PBXGroup;
 			children = (
 				14D4FF452458FFE3002DDE98 /* TMDBCacheTest.swift */,
+				14D4FF49245914B7002DDE98 /* TMDBCacheAsyncTest.swift */,
 			);
 			path = "URLCache tests";
 			sourceTree = "<group>";
@@ -2189,6 +2195,7 @@
 				1446254A24202C0C00CF0DB7 /* TMDBAPIClient.swift in Sources */,
 				1446256A2420BF1C00CF0DB7 /* APIClientConfig.swift in Sources */,
 				144625822421B22900CF0DB7 /* SearchFilmEndpoint.swift in Sources */,
+				14D4FF4824590FBD002DDE98 /* TMDBURLCacheAsync.swift in Sources */,
 				1446255624202C7900CF0DB7 /* ErrorResponse.swift in Sources */,
 				1446254324202BFB00CF0DB7 /* SessionEndpoint.swift in Sources */,
 				1446255A24202F3600CF0DB7 /* Endpoint+request.swift in Sources */,
@@ -2211,6 +2218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14D4FF4A245914B8002DDE98 /* TMDBCacheAsyncTest.swift in Sources */,
 				14636523242A833E001F34E6 /* SearchFilmEndpointTest.swift in Sources */,
 				1463652D242AA493001F34E6 /* ProfileEndpointTest.swift in Sources */,
 				1463653D242AC978001F34E6 /* TMDBAPIClientTest.swift in Sources */,
