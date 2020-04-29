@@ -37,7 +37,10 @@ protocol ServicesAssembler {
 final class ServiceFabric: ServicesAssembler {
     
     private lazy var client: APIClient = {
-        let config = APIClientConfig(base: "https://api.themoviedb.org")
+        let configuration = URLSessionConfiguration.default
+        configuration.urlCache = TMDBURLCache()
+        let session = URLSession(configuration: configuration)
+        let config = APIClientConfig(session: session, base: "https://api.themoviedb.org")
         return TMDBAPIClient(config: config)
     }()
     
