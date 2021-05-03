@@ -16,8 +16,6 @@ protocol AuthService {
     /// - Parameter password: пароль пользователя
     /// - Parameter completion: обработчик авторизации или ошибки авторизации
     func signInUser(with login: String, password: String, completion: @escaping (APIResult<UserSession>) -> Void)
-    
-    /// TODO: - Signout()
 }
 
 /// Сервис авторизации пользователя.

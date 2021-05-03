@@ -13,6 +13,7 @@ public final class TMDBAPIClient: APIClient {
     // MARK: - Private Properties
     
     private let config: APIClientConfig
+    private let reachability = NetworkReachability()
     
     // MARK: - Initializers
     
@@ -26,6 +27,10 @@ public final class TMDBAPIClient: APIClient {
     public func request<T>(_ endpoint: T,
                            completionHandler: @escaping (APIResult<T.Content>) -> Void
     ) -> Progress where T: Endpoint {
+        if !reachability.isNetworkAvailable() {
+            completionHandler(.failure(APIError.noConnection))
+            return Progress()
+        }
         
         var request: URLRequest
         do {

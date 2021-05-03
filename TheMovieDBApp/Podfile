@@ -8,10 +8,10 @@ target 'TheMovieDBApp' do
   # Pods for TheMovieDBApp
   pod 'SwiftLint'
   pod 'KeychainAccess'
-
+  pod 'RealmSwift'
 
   target 'TheMovieDBAppTests' do
-    inherit! :search_paths
+    inherit! :complete
     # Pods for testing
   end
 
@@ -19,4 +19,9 @@ target 'TheMovieDBApp' do
     # Pods for testing
   end
 
+end
+
+target 'DAO' do
+  use_frameworks!
+  pod 'RealmSwift'
 end

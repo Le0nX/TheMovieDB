@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinCodeView" customModule="TheMovieDBApp" customModuleProvider="target">
             <connections>
-                <outletCollection property="numPudButtons" destination="7fj-Z9-l4P" collectionClass="NSMutableArray" id="rzp-af-xvM"/>
-                <outletCollection property="numPudButtons" destination="HkO-V6-ybG" collectionClass="NSMutableArray" id="kNF-JS-O9r"/>
-                <outletCollection property="numPudButtons" destination="Uly-6E-UHT" collectionClass="NSMutableArray" id="dib-q2-2wx"/>
-                <outletCollection property="numPudButtons" destination="uRN-tE-Nye" collectionClass="NSMutableArray" id="XZf-P4-SCL"/>
-                <outletCollection property="numPudButtons" destination="KdF-I0-fzX" collectionClass="NSMutableArray" id="cdQ-yy-DUn"/>
-                <outletCollection property="numPudButtons" destination="J4m-I5-7J9" collectionClass="NSMutableArray" id="U68-dY-6ni"/>
-                <outletCollection property="numPudButtons" destination="994-Oe-8sy" collectionClass="NSMutableArray" id="Ozp-jj-JwS"/>
-                <outletCollection property="numPudButtons" destination="Rga-CE-vPW" collectionClass="NSMutableArray" id="GWe-Rg-FSf"/>
-                <outletCollection property="numPudButtons" destination="JCI-yy-Li0" collectionClass="NSMutableArray" id="z03-K3-48f"/>
-                <outletCollection property="numPudButtons" destination="nvU-Ff-XpN" collectionClass="NSMutableArray" id="NRZ-VL-1sm"/>
+                <outlet property="errorLabel" destination="63f-LN-cuN" id="odc-3q-mgJ"/>
+                <outlet property="indicatorsCenterX" destination="ayS-Yb-bPn" id="th1-xH-7DA"/>
+                <outlet property="leftButton" destination="aoS-A4-rfK" id="Uf3-Cy-W5I"/>
+                <outlet property="pinStack" destination="bZj-0b-Ulu" id="TKW-Xl-3Q0"/>
+                <outlet property="rightButton" destination="vO6-zh-clY" id="0vc-29-o1r"/>
+                <outletCollection property="pinIndicators" destination="CVB-eC-MMp" collectionClass="NSMutableArray" id="ff3-Mt-XHJ"/>
+                <outletCollection property="pinIndicators" destination="fbt-du-Vb1" collectionClass="NSMutableArray" id="RC4-lD-Nhc"/>
+                <outletCollection property="pinIndicators" destination="MR5-hx-sm4" collectionClass="NSMutableArray" id="GOB-CP-1dM"/>
+                <outletCollection property="pinIndicators" destination="XPD-Ci-rKg" collectionClass="NSMutableArray" id="D9p-zK-08Y"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,23 +35,35 @@
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fj-Z9-l4P" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="78.5" height="81.5"/>
                                     <state key="normal" title="1"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="kEH-8U-wba"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRN-tE-Nye" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="101.5" width="78.5" height="81"/>
                                     <state key="normal" title="4"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="dqr-BS-eP9"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="994-Oe-8sy" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="202.5" width="78.5" height="81.5"/>
                                     <state key="normal" title="7"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="zzw-Lg-Em1"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-A4-rfK" userLabel="Exit Button">
+                                <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoS-A4-rfK" userLabel="Exit Button">
                                     <rect key="frame" x="0.0" y="304" width="78.5" height="81"/>
-                                    <state key="normal" title="Выйти">
+                                    <state key="normal" title="Выход">
                                         <color key="titleColor" red="0.39607843139999999" green="0.42745098040000001" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="lzTitle" value="Выход"/>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="leftButtonAction:" destination="-1" eventType="touchUpInside" id="Gwa-fQ-dTz"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -62,19 +73,31 @@
                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkO-V6-ybG" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="78" height="81.5"/>
                                     <state key="normal" title="2"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="aCF-UU-nHo"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdF-I0-fzX" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="101.5" width="78" height="81"/>
                                     <accessibility key="accessibilityConfiguration" identifier="fivePinIdentifier"/>
                                     <state key="normal" title="5"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="dMl-B4-bPG"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rga-CE-vPW" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="202.5" width="78" height="81.5"/>
                                     <state key="normal" title="8"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="r9s-6q-RmM"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvU-Ff-XpN" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="304" width="78" height="81"/>
                                     <state key="normal" title="0"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="euf-Bt-wsq"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -84,18 +107,30 @@
                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uly-6E-UHT" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="78.5" height="81.5"/>
                                     <state key="normal" title="3"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="Zdd-w5-K9n"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4m-I5-7J9" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="101.5" width="78.5" height="81"/>
                                     <state key="normal" title="6"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="xkl-Am-z8i"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCI-yy-Li0" customClass="KeyboardButton" customModule="TheMovieDBApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="202.5" width="78.5" height="81.5"/>
                                     <state key="normal" title="9"/>
+                                    <connections>
+                                        <action selector="pressButton:" destination="-1" eventType="touchUpInside" id="e7C-l0-KJH"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vO6-zh-clY">
                                     <rect key="frame" x="0.0" y="304" width="78.5" height="81"/>
-                                    <state key="normal" image="backSpace"/>
+                                    <state key="normal" image="faceId"/>
+                                    <connections>
+                                        <action selector="removeDigit:" destination="-1" eventType="touchUpInside" id="dCI-YU-n6z"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -105,7 +140,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="bZj-0b-Ulu">
-                    <rect key="frame" x="114" y="25" width="147" height="15"/>
+                    <rect key="frame" x="114" y="45" width="147" height="15"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-eC-MMp" customClass="PinIndicator" customModule="TheMovieDBApp" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -129,14 +164,22 @@
                         </view>
                     </subviews>
                 </stackView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Неправильный пин-код" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-LN-cuN">
+                    <rect key="frame" x="24" y="80" width="327" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="highlightedColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="i6L-yC-j1C" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bZj-0b-Ulu" secondAttribute="bottom" constant="10" id="7Ve-Bz-lOi"/>
-                <constraint firstItem="bZj-0b-Ulu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="25" id="Pur-MQ-gik"/>
+                <constraint firstItem="63f-LN-cuN" firstAttribute="top" secondItem="bZj-0b-Ulu" secondAttribute="bottom" constant="20" id="MbA-an-on4"/>
+                <constraint firstItem="bZj-0b-Ulu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="Pur-MQ-gik"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="i6L-yC-j1C" secondAttribute="trailing" constant="50" id="S1E-2c-ke9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="63f-LN-cuN" secondAttribute="trailing" constant="24" id="TlU-mY-fsY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="i6L-yC-j1C" secondAttribute="bottom" constant="50" id="ZlW-GW-lUC"/>
                 <constraint firstItem="bZj-0b-Ulu" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ayS-Yb-bPn"/>
+                <constraint firstItem="63f-LN-cuN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="rZ3-UI-NgQ"/>
                 <constraint firstItem="i6L-yC-j1C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="tVa-4G-YXz"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -145,6 +188,6 @@
         </view>
     </objects>
     <resources>
-        <image name="backSpace" width="72" height="72"/>
+        <image name="faceId" width="216" height="216"/>
     </resources>
 </document>

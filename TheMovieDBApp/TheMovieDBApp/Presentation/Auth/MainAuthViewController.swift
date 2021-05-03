@@ -73,7 +73,7 @@ final class MainAuthViewController: UIViewController {
 extension MainAuthViewController: AuthViewInput {
     
     func showMainScreen() {
-        UIApplication.setRootView(storyAssembler.makeTabBar())
+        UIApplication.setRootView(storyAssembler.makePinCodeStory(with: .setup(stage: 1)))
     }
     
     func showProgress() {

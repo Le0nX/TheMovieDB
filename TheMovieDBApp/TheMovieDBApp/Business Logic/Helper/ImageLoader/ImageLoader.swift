@@ -8,8 +8,9 @@
 
 import Foundation
 import TMDBNetwork
+import DAO
 
-protocol ImageLoader {
+protocol ImageLoader: class {
     
     /// Метод запроса картинки постера фильма
     /// - Parameter for: линк постера
@@ -28,12 +29,14 @@ final class TMDBImageLoader: ImageLoader {
     
     private let client: APIClient
     
-    private let simpleCache = NSCache<NSString, NSData>()
+    private let dao: RealmDAO<PosterEntity, RealmPosterEntry>
     private var runningTasks: [UUID: Progress] = [:]
     
     // MARK: - Initializers
     
-    init(_ client: APIClient) {
+    init(_ client: APIClient,
+         dao: RealmDAO<PosterEntity, RealmPosterEntry>) {
+        self.dao = dao
         self.client = client
     }
         
@@ -41,8 +44,9 @@ final class TMDBImageLoader: ImageLoader {
     
     func fetchImage(for poster: String, completion: @escaping (Data?) -> Void) -> UUID? {
         /// проверяем наличие кэша. Если есть, то завершаемся с ним
-        if let cachedVersion = simpleCache.object(forKey: NSString(string: poster)) {
-            completion(cachedVersion as Data)
+        
+        if let poster = self.dao.read(poster) {
+            completion(poster.poster)
             return nil
         }
         
@@ -54,8 +58,8 @@ final class TMDBImageLoader: ImageLoader {
             
             switch result {
             case .success(let posterData):
-                
-                self?.simpleCache.setObject(posterData as NSData, forKey: NSString(string: poster))
+                let poster = PosterEntity(id: poster, poster: posterData)
+                try? self?.dao.persist(poster)
                 completion(posterData)
                     
             case .failure:

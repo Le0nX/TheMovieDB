@@ -6,6 +6,8 @@
 //  Copyright © 2020 Den4ik's Team. All rights reserved.
 //
 
+import DAO
+import CoreData
 import Foundation
 import TMDBNetwork
 
@@ -43,23 +45,48 @@ final public class FavoriteService: FavoritesService {
     // MARK: - Private Properties
     
     private let client: APIClient
+    private let dao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?
+    private let realmDao: RealmDAO<MovieEntity, RealmMovieEntry>?
+    private let networkChecker = NetworkReachability()
 
     // MARK: - Initializers
     
-    init(client: APIClient) {
+    init(client: APIClient,
+         realmDao: RealmDAO<MovieEntity, RealmMovieEntry>?,
+         coredataDao: CoreDataDAO<MovieEntity, CoreDataMovieEntry>?) {
+        
         self.client = client
+        self.dao = coredataDao
+        self.realmDao = realmDao
     }
     
     // MARK: - Public methods
     
     func getFavorites(for model: FavoriteServiceModel, completion: @escaping (APIResult<[MovieEntity]>) -> Void) {
-
+        switch AppSettings.checkDataBaseSettings() {
+        case .coreData:
+            if let movies = self.dao?.read() {
+                completion(.success(movies))
+            }
+        case .realm:
+            if let movies = self.realmDao?.read() {
+                completion(.success(movies))
+            }
+        }
+        
+        if !networkChecker.isNetworkAvailable() {
+            return
+        }
+        
         let endpoint = FavoriteEndpoint(accountId: model.profileId, page: model.page, sessionId: model.sessionId)
         
-        client.request(endpoint) { result in
+        client.request(endpoint) { [weak self] result in
             switch result {
             case .success(let movieDTO):
-                completion(.success(MovieMapper.map(from: movieDTO)))
+                let movies = MovieMapper.map(from: movieDTO)
+                try? self?.realmDao?.persist(movies)
+                try? self?.dao?.persist(movies)
+                completion(.success(movies))
             case .failure(let error):
                 completion(.failure(error))
             }
