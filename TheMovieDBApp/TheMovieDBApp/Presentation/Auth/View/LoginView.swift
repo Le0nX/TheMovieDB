@@ -121,12 +121,14 @@ final class LoginView: XibView {
     // MARK: - Private Methods
     
     private func setupLoginTextField() {
+        loginTextField.autocorrectionType = .no
         loginTextField.delegate = self
         loginTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
     }
     
     private func setupPasswordTextField() {
         passwordTextField.setupImage()
+        passwordTextField.autocorrectionType = .no
         passwordTextField.delegate = self
         passwordTextField.addTarget(self, action: #selector(textFieldValueChanged(_:)), for: .editingChanged)
     }

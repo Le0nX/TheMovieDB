@@ -35,4 +35,6 @@ struct ImageName {
     static let popCorn = #imageLiteral(resourceName: "popCorn")
     
     static let searching = #imageLiteral(resourceName: "searching")
+    
+    static let faceId = #imageLiteral(resourceName: "faceId")
 }

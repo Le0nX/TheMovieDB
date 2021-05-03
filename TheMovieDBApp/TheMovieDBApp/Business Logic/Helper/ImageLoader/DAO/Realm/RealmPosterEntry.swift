@@ -11,7 +11,7 @@ import Foundation
 
 final class RealmPosterEntry: RealmEntity {
     
-    // MARK: Public Properties
+    // MARK: - Public Properties
     
     @objc dynamic public var poster: Data?
     

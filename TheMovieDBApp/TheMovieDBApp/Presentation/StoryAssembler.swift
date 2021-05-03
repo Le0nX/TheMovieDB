@@ -24,6 +24,9 @@ protocol StoriesAssembler {
     
     /// Фабричный метод создания экрана фаворитов
     func makeFavoritesStory() -> MainFavoritesViewController
+    
+    /// Фабричный метод создания экрана пинкода
+    func makePinCodeStory(with state: MainPinCodeViewController.State) -> UINavigationController
 }
 
 /// Фабрика экранов
@@ -107,6 +110,13 @@ final class StoryFabric: StoriesAssembler {
                                                  accessService: servicesAssembler.accessService)
         
         return mainSearchView
+    }
+    
+    func makePinCodeStory(with state: MainPinCodeViewController.State) -> UINavigationController {
+        let pincode = MainPinCodeViewController(with: state, storyAssembler: self)
+        pincode.pinCodeLoader = PinCodeLoaderImpl(servicesAssembler.accessService,
+                                                  profileService: servicesAssembler.profileService)
+        return UINavigationController(rootViewController: pincode)
     }
     
     private func makeTabBarNavigationControllerItem(_ viewController: UIViewController,

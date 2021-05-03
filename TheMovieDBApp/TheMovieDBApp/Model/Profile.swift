@@ -12,7 +12,7 @@ import Foundation
 /// бизнес-модель профиля 
 final class Profile: Entity {
     
-    // MARK: Public Properties
+    // MARK: - Public Properties
     
     var id: Int = 0
     var name: String = ""

@@ -44,7 +44,7 @@ class ImageLoaderTest: XCTestCase {
     /// make System Under Test
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (APIClientSpy, ImageLoader) {
         let client = APIClientSpy()
-        let service = TMDBImageLoader(client)
+        let service = ServiceFabric().imageLoader()
         trackForMemoryLeaks(client, file: file, line: line)
         trackForMemoryLeaks(service, file: file, line: line)
         

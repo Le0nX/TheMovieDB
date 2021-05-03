@@ -20,14 +20,23 @@ final class PinIndicator: UIView {
     
     // MARK: - Public Methods
     
+    /// Пометить индикатор красным
+    public func makeRed() {
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundColor = .red
+        }
+    }
+    
+    /// Метод заполнения одного индикатора
     public func animateFilling() {
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 0.2) {
             self.backgroundColor = ColorName.buttonActive
         }
     }
     
+    /// Метод сброса  индикатора
     public func animateResetFilling() {
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 0.2) {
             self.backgroundColor = ColorName.borderUnactive
         }
     }
